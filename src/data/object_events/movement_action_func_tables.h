@@ -166,6 +166,8 @@ u8 MovementAction_RockSmashBreak_Step2(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_CutTree_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_CutTree_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_CutTree_Step2(struct ObjectEvent *, struct Sprite *);
+u8 MovementAction_HeadbuttTree_Step0(struct ObjectEvent *, struct Sprite *);
+u8 MovementAction_HeadbuttTree_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_SetFixedPriority_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_ClearFixedPriority_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_InitAffineAnim_Step0(struct ObjectEvent *, struct Sprite *);
@@ -354,6 +356,7 @@ u8 (*const gMovementActionFuncs_EmoteHeart[])(struct ObjectEvent *, struct Sprit
 u8 (*const gMovementActionFuncs_RevealTrainer[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_RockSmashBreak[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_CutTree[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_HeadbuttTree[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_SetFixedPriority[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_ClearFixedPriority[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_InitAffineAnim[])(struct ObjectEvent *, struct Sprite *);
@@ -515,6 +518,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_EMOTE_HEART] = gMovementActionFuncs_EmoteHeart,
     [MOVEMENT_ACTION_REVEAL_TRAINER] = gMovementActionFuncs_RevealTrainer,
     [MOVEMENT_ACTION_ROCK_SMASH_BREAK] = gMovementActionFuncs_RockSmashBreak,
+    [MOVEMENT_ACTION_HEADBUTT_TREE] = gMovementActionFuncs_HeadbuttTree,
     [MOVEMENT_ACTION_CUT_TREE] = gMovementActionFuncs_CutTree,
     [MOVEMENT_ACTION_SET_FIXED_PRIORITY] = gMovementActionFuncs_SetFixedPriority,
     [MOVEMENT_ACTION_CLEAR_FIXED_PRIORITY] = gMovementActionFuncs_ClearFixedPriority,
@@ -1186,6 +1190,12 @@ u8 (*const gMovementActionFuncs_CutTree[])(struct ObjectEvent *, struct Sprite *
     MovementAction_CutTree_Step0,
     MovementAction_CutTree_Step1,
     MovementAction_CutTree_Step2,
+    MovementAction_Finish,
+};
+
+u8 (*const gMovementActionFuncs_HeadbuttTree[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_HeadbuttTree_Step0,
+    MovementAction_HeadbuttTree_Step1,
     MovementAction_Finish,
 };
 

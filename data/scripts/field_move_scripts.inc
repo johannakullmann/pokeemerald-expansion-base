@@ -121,6 +121,66 @@ Text_CantSmash:
 	.string "It's a rugged rock, but a POKéMON\n"
 	.string "may be able to smash it.$"
 
+EventScript_Headbutt::
+	lockall
+	//goto_if_unset FLAG_BADGE03_GET, EventScript_CantHeadbutt
+	checkpartymove MOVE_HEADBUTT
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbutt
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_HEADBUTT
+	msgbox Text_WantToHeadbutt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelHeadbutt
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_HEADBUTT
+	waitstate
+	goto EventScript_HeadbuttTree
+	end
+
+@ Use headbutt from party menu
+EventScript_UseHeadbutt::
+	lockall
+	dofieldeffect FLDEFF_USE_HEADBUTT
+	waitstate
+	goto EventScript_HeadbuttTree
+	end
+
+EventScript_HeadbuttTree::
+	applymovement VAR_LAST_TALKED, Movement_HeadbuttTree
+	waitmovement 0
+	special HeadbuttWildEncounter
+	goto_if_eq VAR_RESULT, FALSE, EventScript_EndHeadbutt
+	waitstate
+	releaseall
+	end
+
+EventScript_EndHeadbutt::
+	releaseall
+	end
+
+Movement_HeadbuttTree:
+	headbutt_tree
+	step_end
+
+EventScript_CantHeadbutt::
+	msgbox Text_CantHeadbutt, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_CancelHeadbutt::
+	closemessage
+	releaseall
+	end
+
+Text_WantToHeadbutt:
+	.string "It's a large tree.\n"
+	.string "Would you like to use Headbutt?$"
+
+Text_CantHeadbutt:
+	.string "There's a large, formidable tree\n"
+	.string "that looks like it can be headbutted!$"
+
 EventScript_StrengthBoulder::
 	lockall
 	goto_if_unset FLAG_BADGE04_GET, EventScript_CantStrength
