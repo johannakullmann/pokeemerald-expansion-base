@@ -1486,6 +1486,12 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     //[SPECIES_OGERPON_WELLSPRING_MASK_TERA] = gMonIcon_OgerponWellspringMask, TODO
     //[SPECIES_OGERPON_HEARTHFLAME_MASK_TERA] = gMonIcon_OgerponHearthflameMask, TODO
     //[SPECIES_OGERPON_CORNERSTONE_MASK_TERA] = gMonIcon_OgerponCornerstoneMask, TODO
+    [SPECIES_TOXATIEL] = gMonIcon_Toxatiel,
+    [SPECIES_TOXATOO] = gMonIcon_Toxatoo,
+    [SPECIES_TOXATRICE] = gMonIcon_Toxatrice,
+    [SPECIES_GROCKO] = gMonIcon_Grocko,
+    [SPECIES_RUBECKO] = gMonIcon_Rubecko,
+    [SPECIES_DRABUNCLE] = gMonIcon_Drabuncle,
     [SPECIES_EGG] = gMonIcon_Egg,
 };
 */

@@ -2401,6 +2401,21 @@ gCryTable::
 .if P_FAMILY_OGERPON == TRUE
 	cry Cry_Ogerpon
 .endif @ P_FAMILY_OGERPON
+.if P_FAMILY_TOXATIEL == TRUE
+	cry Cry_Toxatiel
+	cry Cry_Toxatoo
+	cry Cry_Toxatrice
+.endif @ P_FAMILY_TOXATIEL
+.if P_FAMILY_GROCKO == TRUE
+	cry Cry_Grocko
+	cry Cry_Rubecko
+	cry Cry_Drabuncle
+.endif @ P_FAMILY_GROCKO
+.if P_FAMILY_CHIMERA == TRUE
+	cry Cry_Chimera1
+	cry Cry_Chimera2
+	cry Cry_Chimera3
+.endif @ P_FAMILY_CHIMERA
 
 	.align 2
 gCryTable_Reverse::
@@ -4805,3 +4820,18 @@ gCryTable_Reverse::
 .if P_FAMILY_OGERPON == TRUE
 	cry_reverse Cry_Ogerpon
 .endif @ P_FAMILY_OGERPON
+.if P_FAMILY_TOXATIEL == TRUE
+	cry_reverse Cry_Toxatiel
+	cry_reverse Cry_Toxatoo
+	cry_reverse Cry_Toxatrice
+.endif @ P_FAMILY_TOXATIEL
+.if P_FAMILY_GROCKO == TRUE
+	cry_reverse Cry_Grocko
+	cry_reverse Cry_Rubecko
+	cry_reverse Cry_Drabuncle
+.endif @ P_FAMILY_GROCKO
+.if P_FAMILY_CHIMERA == TRUE
+	cry_reverse Cry_Chimera1
+	cry_reverse Cry_Chimera2
+	cry_reverse Cry_Chimera3
+.endif @ P_FAMILY_CHIMERA

@@ -962,6 +962,16 @@
 #define SPECIES_ENAMORUS                                SPECIES_ENAMORUS_INCARNATE
 #define SPECIES_ENAMORUS_INCARNATE                      905
 
+#define SPECIES_TOXATIEL                                906
+#define SPECIES_TOXATOO                                 907
+#define SPECIES_TOXATRICE                               908
+#define SPECIES_GROCKO                                  909
+#define SPECIES_RUBECKO                                 910
+#define SPECIES_DRABUNCLE                               911
+#define SPECIES_CHIMERA1                                912
+#define SPECIES_CHIMERA2                                913
+#define SPECIES_CHIMERA3                                914
+
 #define FORMS_START SPECIES_ENAMORUS_INCARNATE
 
 // Megas

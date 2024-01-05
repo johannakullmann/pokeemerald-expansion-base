@@ -10906,6 +10906,75 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     // const u32 gMonShinyPalette_OgerponCornerstoneMaskTera[] = INCBIN_U32("graphics/pokemon/ogerpon/cornerstone/tera/shiny.gbapal.lz");
 #endif //P_FAMILY_OGERPON
 
+#if P_FAMILY_TOXATIEL
+    const u32 gMonFrontPic_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/anim_front.4bpp.lz");
+    const u32 gMonPalette_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/normal.gbapal.lz");
+    const u32 gMonBackPic_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/back.4bpp.lz");
+    const u32 gMonShinyPalette_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/shiny.gbapal.lz");
+    const u8 gMonIcon_Toxatiel[] = INCBIN_U8("graphics/pokemon/toxatiel/icon.4bpp");
+    const u8 gMonFootprint_Toxatiel[] = INCBIN_U8("graphics/pokemon/toxatiel/footprint.1bpp");
+
+    const u32 gMonFrontPic_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/anim_front.4bpp.lz");
+    const u32 gMonPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/normal.gbapal.lz");
+    const u32 gMonBackPic_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/back.4bpp.lz");
+    const u32 gMonShinyPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/shiny.gbapal.lz");
+    const u8 gMonIcon_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/icon.4bpp");
+    const u8 gMonFootprint_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/footprint.1bpp");
+
+    const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
+    const u32 gMonPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
+    const u32 gMonBackPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/back.4bpp.lz");
+    const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
+    const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
+    const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_GROCKO
+    const u32 gMonFrontPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/anim_front.4bpp.lz");
+    const u32 gMonPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/normal.gbapal.lz");
+    const u32 gMonBackPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/back.4bpp.lz");
+    const u32 gMonShinyPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/shiny.gbapal.lz");
+    const u8 gMonIcon_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/icon.4bpp");
+    const u8 gMonFootprint_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/footprint.1bpp");
+    
+    const u32 gMonFrontPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/anim_front.4bpp.lz");
+    const u32 gMonPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/normal.gbapal.lz");
+    const u32 gMonBackPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/back.4bpp.lz");
+    const u32 gMonShinyPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/shiny.gbapal.lz");
+    const u8 gMonIcon_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/icon.4bpp");
+    const u8 gMonFootprint_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/footprint.1bpp");
+
+    const u32 gMonFrontPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front.4bpp.lz");
+    const u32 gMonPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
+    const u32 gMonBackPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/back.4bpp.lz");
+    const u32 gMonShinyPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
+    const u8 gMonIcon_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/icon.4bpp");
+    const u8 gMonFootprint_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/footprint.1bpp");
+#endif //P_FAMILY_GROCKO
+
+#if P_FAMILY_CHIMERA
+    const u32 gMonFrontPic_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/anim_front.4bpp.lz");
+    const u32 gMonPalette_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/normal.gbapal.lz");
+    const u32 gMonBackPic_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/back.4bpp.lz");
+    const u32 gMonShinyPalette_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/shiny.gbapal.lz");
+    const u8 gMonIcon_Chimera1[] = INCBIN_U8("graphics/pokemon/chimera1/icon.4bpp");
+    const u8 gMonFootprint_Chimera1[] = INCBIN_U8("graphics/pokemon/chimera1/footprint.1bpp");
+
+    const u32 gMonFrontPic_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/anim_front.4bpp.lz");
+    const u32 gMonPalette_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/normal.gbapal.lz");
+    const u32 gMonBackPic_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/back.4bpp.lz");
+    const u32 gMonShinyPalette_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/shiny.gbapal.lz");
+    const u8 gMonIcon_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/icon.4bpp");
+    const u8 gMonFootprint_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
+
+    const u32 gMonFrontPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
+    const u32 gMonPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
+    const u32 gMonBackPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
+    const u32 gMonShinyPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
+    const u8 gMonIcon_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
+    const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
+#endif //P_FAMILY_CHIMERA
+
     const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
     const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
     const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");
