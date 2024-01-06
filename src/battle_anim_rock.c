@@ -257,6 +257,17 @@ const struct SpriteTemplate gRockBlastRockSpriteTemplate =
     .callback = AnimRockBlastRock,
 };
 
+const struct SpriteTemplate gPebbleShotRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCKS,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_BasicRock[4],
+    .images = NULL,
+    .affineAnims = gAffineAnims_BasicRock,
+    .callback = AnimRockBlastRock,
+};
+
 const struct SpriteTemplate gRockScatterSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,

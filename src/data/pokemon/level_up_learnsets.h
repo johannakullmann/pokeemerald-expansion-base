@@ -23212,7 +23212,7 @@ static const struct LevelUpMove sToxatriceLevelUpLearnset[] = {
 static const struct LevelUpMove sGrockoLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
-    LEVEL_UP_MOVE( 4, MOVE_ROCK_THROW),
+    LEVEL_UP_MOVE( 4, MOVE_PEBBLE_SHOT),
     LEVEL_UP_MOVE( 6, MOVE_LICK),
     LEVEL_UP_MOVE( 9, MOVE_SAND_ATTACK),
     LEVEL_UP_MOVE(12, MOVE_MUD_SLAP),

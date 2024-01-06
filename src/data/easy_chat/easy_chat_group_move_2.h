@@ -121,6 +121,7 @@ const u16 gEasyChatGroup_Move2[] = {
     MOVE_NEEDLE_ARM,
     MOVE_NIGHT_SHADE,
     MOVE_PAY_DAY,
+    MOVE_PEBBLE_SHOT,
     MOVE_PECK,
     MOVE_PERISH_SONG,
     MOVE_PETAL_DANCE,
