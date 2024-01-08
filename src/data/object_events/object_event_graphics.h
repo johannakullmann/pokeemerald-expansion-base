@@ -403,3 +403,4 @@ const u32 gObjectEventPic_AugustDecorating[] = INCBIN_U32("graphics/object_event
 const u32 gObjectEventPic_AugustUnderwater[] = INCBIN_U32("graphics/object_events/pics/people/august/underwater.4bpp");
 
 const u32 gObjectEventPic_Ruth[] = INCBIN_U32("graphics/object_events/pics/people/ruth.4bpp");
+const u32 gObjectEventPic_ProfBrendanBirch[] = INCBIN_U32("graphics/object_events/pics/people/prof_brendan_birch.4bpp");

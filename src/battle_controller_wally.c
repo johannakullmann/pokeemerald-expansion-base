@@ -296,14 +296,14 @@ static void WallyBufferExecCompleted(u32 battler)
 
 static void WallyHandleDrawTrainerPic(u32 battler)
 {
-    BtlController_HandleDrawTrainerPic(battler, TRAINER_BACK_PIC_RUTH, FALSE,
-                                       80, 80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_RUTH].size),
+    BtlController_HandleDrawTrainerPic(battler, TRAINER_BACK_PIC_WALLY, FALSE,
+                                       80, 80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_WALLY].size),
                                        30);
 }
 
 static void WallyHandleTrainerSlide(u32 battler)
 {
-    BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_RUTH);
+    BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_WALLY);
 }
 
 #undef sSpeedX
@@ -420,7 +420,7 @@ static void WallyHandleFaintingCry(u32 battler)
 
 static void WallyHandleIntroTrainerBallThrow(u32 battler)
 {
-    const u32 *trainerPal = gTrainerBackPicPaletteTable[TRAINER_BACK_PIC_RUTH].data;
+    const u32 *trainerPal = gTrainerBackPicPaletteTable[TRAINER_BACK_PIC_WALLY].data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
 }
 

@@ -263,6 +263,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustFishi
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustWatering;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustDecorating;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ruth;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendanBirch;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -524,6 +525,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AUGUST_WATERING] =          &gObjectEventGraphicsInfo_AugustWatering,
     [OBJ_EVENT_GFX_AUGUST_DECORATING] =        &gObjectEventGraphicsInfo_AugustDecorating,
     [OBJ_EVENT_GFX_RUTH] =                     &gObjectEventGraphicsInfo_Ruth,
+    [OBJ_EVENT_GFX_PROF_BRENDAN_BIRCH] =       &gObjectEventGraphicsInfo_ProfBrendanBirch,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
