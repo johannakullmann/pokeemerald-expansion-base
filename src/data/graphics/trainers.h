@@ -288,3 +288,16 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
+
+const u32 gTrainerFrontPic_June[] = INCBIN_U32("graphics/trainers/front_pics/june.4bpp.lz");
+const u32 gTrainerPalette_June[] = INCBIN_U32("graphics/trainers/palettes/june.gbapal.lz");
+const u8 gTrainerBackPic_June[] = INCBIN_U8("graphics/trainers/back_pics/june.4bpp");
+
+const u32 gTrainerFrontPic_August[] = INCBIN_U32("graphics/trainers/front_pics/august.4bpp.lz");
+const u32 gTrainerPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august.gbapal.lz");
+const u8 gTrainerBackPic_August[] = INCBIN_U8("graphics/trainers/back_pics/august.4bpp");
+const u32 gTrainerBackPicPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august_back.gbapal.lz");
+
+const u32 gTrainerFrontPic_Ruth[] = INCBIN_U32("graphics/trainers/front_pics/ruth.4bpp.lz");
+const u32 gTrainerPalette_Ruth[] = INCBIN_U32("graphics/trainers/palettes/ruth.gbapal.lz");
+const u8 gTrainerBackPic_Ruth[] = INCBIN_U8("graphics/trainers/back_pics/ruth.4bpp");

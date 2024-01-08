@@ -375,3 +375,31 @@ const u32 gObjectEventPic_Lugia[] = INCBIN_U32("graphics/object_events/pics/poke
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
+
+const u32 gObjectEventPic_JuneNormal[] = INCBIN_U32("graphics/object_events/pics/people/june/walking.4bpp");
+const u32 gObjectEventPic_JuneRunning[] = INCBIN_U32("graphics/object_events/pics/people/june/running.4bpp");
+const u16 gObjectEventPal_June[] = INCBIN_U16("graphics/object_events/palettes/june.gbapal");
+const u16 gObjectEventPal_JuneReflection[] = INCBIN_U16("graphics/object_events/palettes/june_reflection.gbapal");
+const u32 gObjectEventPic_JuneMachBike[] = INCBIN_U32("graphics/object_events/pics/people/june/mach_bike.4bpp");
+const u32 gObjectEventPic_JuneAcroBike[] = INCBIN_U32("graphics/object_events/pics/people/june/acro_bike.4bpp");
+const u32 gObjectEventPic_JuneSurfing[] = INCBIN_U32("graphics/object_events/pics/people/june/surfing.4bpp");
+const u32 gObjectEventPic_JuneFieldMove[] = INCBIN_U32("graphics/object_events/pics/people/june/field_move.4bpp");
+const u32 gObjectEventPic_JuneFishing[] = INCBIN_U32("graphics/object_events/pics/people/june/fishing.4bpp");
+const u32 gObjectEventPic_JuneWatering[] = INCBIN_U32("graphics/object_events/pics/people/june/watering.4bpp");
+const u32 gObjectEventPic_JuneDecorating[] = INCBIN_U32("graphics/object_events/pics/people/june/decorating.4bpp");
+const u32 gObjectEventPic_JuneUnderwater[] = INCBIN_U32("graphics/object_events/pics/people/june/underwater.4bpp");
+
+const u32 gObjectEventPic_AugustNormal[] = INCBIN_U32("graphics/object_events/pics/people/august/walking.4bpp");
+const u32 gObjectEventPic_AugustRunning[] = INCBIN_U32("graphics/object_events/pics/people/august/running.4bpp");
+const u16 gObjectEventPal_August[] = INCBIN_U16("graphics/object_events/palettes/august.gbapal");
+const u16 gObjectEventPal_AugustReflection[] = INCBIN_U16("graphics/object_events/palettes/august_reflection.gbapal");
+const u32 gObjectEventPic_AugustMachBike[] = INCBIN_U32("graphics/object_events/pics/people/august/mach_bike.4bpp");
+const u32 gObjectEventPic_AugustAcroBike[] = INCBIN_U32("graphics/object_events/pics/people/august/acro_bike.4bpp");
+const u32 gObjectEventPic_AugustSurfing[] = INCBIN_U32("graphics/object_events/pics/people/august/surfing.4bpp");
+const u32 gObjectEventPic_AugustFieldMove[] = INCBIN_U32("graphics/object_events/pics/people/august/field_move.4bpp");
+const u32 gObjectEventPic_AugustFishing[] = INCBIN_U32("graphics/object_events/pics/people/august/fishing.4bpp");
+const u32 gObjectEventPic_AugustWatering[] = INCBIN_U32("graphics/object_events/pics/people/august/watering.4bpp");
+const u32 gObjectEventPic_AugustDecorating[] = INCBIN_U32("graphics/object_events/pics/people/august/decorating.4bpp");
+const u32 gObjectEventPic_AugustUnderwater[] = INCBIN_U32("graphics/object_events/pics/people/august/underwater.4bpp");
+
+const u32 gObjectEventPic_Ruth[] = INCBIN_U32("graphics/object_events/pics/people/ruth.4bpp");
