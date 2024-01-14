@@ -599,5 +599,7 @@
 #define P_FAMILY_TOXATIEL                P_CUSTOM_POKEMON
 #define P_FAMILY_GROCKO                  P_CUSTOM_POKEMON
 #define P_FAMILY_CHIMERA                 P_CUSTOM_POKEMON
+#define P_FAMILY_HATCHIK                 P_CUSTOM_POKEMON
+#define P_FAMILY_MBIELU                  P_CUSTOM_POKEMON
 
 #endif // GUARD_CONFIG_SPECIES_ENABLED_H

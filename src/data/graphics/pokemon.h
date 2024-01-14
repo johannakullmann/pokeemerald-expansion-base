@@ -10975,6 +10975,38 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
 #endif //P_FAMILY_CHIMERA
 
+#if P_FAMILY_HATCHIK
+    const u32 gMonFrontPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/anim_front.4bpp.lz");
+    const u32 gMonPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/normal.gbapal.lz");
+    const u32 gMonBackPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/back.4bpp.lz");
+    const u32 gMonShinyPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/shiny.gbapal.lz");
+    const u8 gMonIcon_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/icon.4bpp");
+    const u8 gMonFootprint_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/footprint.1bpp");
+
+    const u32 gMonFrontPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/anim_front.4bpp.lz");
+    const u32 gMonPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/normal.gbapal.lz");
+    const u32 gMonBackPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/back.4bpp.lz");
+    const u32 gMonShinyPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/shiny.gbapal.lz");
+    const u8 gMonIcon_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/icon.4bpp");
+    const u8 gMonFootprint_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/footprint.1bpp");
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+    const u32 gMonFrontPic_Mbielu[] = INCBIN_U32("graphics/pokemon/mbielu/anim_front.4bpp.lz");
+    const u32 gMonPalette_Mbielu[] = INCBIN_U32("graphics/pokemon/mbielu/normal.gbapal.lz");
+    const u32 gMonBackPic_Mbielu[] = INCBIN_U32("graphics/pokemon/mbielu/back.4bpp.lz");
+    const u32 gMonShinyPalette_Mbielu[] = INCBIN_U32("graphics/pokemon/mbielu/shiny.gbapal.lz");
+    const u8 gMonIcon_Mbielu[] = INCBIN_U8("graphics/pokemon/mbielu/icon.4bpp");
+    const u8 gMonFootprint_Mbielu[] = INCBIN_U8("graphics/pokemon/mbielu/footprint.1bpp");
+
+    const u32 gMonFrontPic_Mbielava[] = INCBIN_U32("graphics/pokemon/mbielava/anim_front.4bpp.lz");
+    const u32 gMonPalette_Mbielava[] = INCBIN_U32("graphics/pokemon/mbielava/normal.gbapal.lz");
+    const u32 gMonBackPic_Mbielava[] = INCBIN_U32("graphics/pokemon/mbielava/back.4bpp.lz");
+    const u32 gMonShinyPalette_Mbielava[] = INCBIN_U32("graphics/pokemon/mbielava/shiny.gbapal.lz");
+    const u8 gMonIcon_Mbielava[] = INCBIN_U8("graphics/pokemon/mbielava/icon.4bpp");
+    const u8 gMonFootprint_Mbielava[] = INCBIN_U8("graphics/pokemon/mbielava/footprint.1bpp");
+#endif //P_FAMILY_MBIELU
+
     const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
     const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
     const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");

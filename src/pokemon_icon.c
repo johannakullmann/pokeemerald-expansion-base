@@ -1492,6 +1492,13 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_GROCKO] = gMonIcon_Grocko,
     [SPECIES_RUBECKO] = gMonIcon_Rubecko,
     [SPECIES_DRABUNCLE] = gMonIcon_Drabuncle,
+    [SPECIES_CHIMERA1] = gMonIcon_Chimera1,
+    [SPECIES_CHIMERA2] = gMonIcon_Chimera2,
+    [SPECIES_CHIMERA3] = gMonIcon_Chimera3,
+    [SPECIES_HATCHIK] = gMonIcon_Hatchik,
+    [SPECIES_DODO2] = gMonIcon_Dodo2,
+    [SPECIES_MBIELU] = gMonIcon_Mbielu,
+    [SPECIES_MBIELAVA] = gMonIcon_Mbielava,
     [SPECIES_EGG] = gMonIcon_Egg,
 };
 */

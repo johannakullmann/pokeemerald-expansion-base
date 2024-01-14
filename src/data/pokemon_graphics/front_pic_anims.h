@@ -10153,7 +10153,7 @@ static const union AnimCmd sAnim_Chimera1_1[] =
 static const union AnimCmd sAnim_Chimera2_1[] =
 {
     ANIMCMD_FRAME(0, 10),
-    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
@@ -10167,6 +10167,42 @@ static const union AnimCmd sAnim_Chimera3_1[] =
     ANIMCMD_END,
 };
 #endif //P_FAMILY_CHIMERA
+
+#if P_FAMILY_HATCHIK
+static const union AnimCmd sAnim_Hatchik_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Dodo2_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+static const union AnimCmd sAnim_Mbielu_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mbielava_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_MBIELU
 
 static const union AnimCmd sAnim_Egg_1[] =
 {
@@ -12830,5 +12866,13 @@ SINGLE_ANIMATION(Chimera1);
 SINGLE_ANIMATION(Chimera2);
 SINGLE_ANIMATION(Chimera3);
 #endif //P_FAMILY_CHIMERA
+#if P_FAMILY_HATCHIK 
+SINGLE_ANIMATION(Hatchik);
+SINGLE_ANIMATION(Dodo2);
+#endif //P_FAMILY_HATCHIK
+#if P_FAMILY_MBIELU 
+SINGLE_ANIMATION(Mbielu);
+SINGLE_ANIMATION(Mbielava);
+#endif //P_FAMILY_MBIELU
 
 SINGLE_ANIMATION(Egg);

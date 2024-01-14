@@ -6150,7 +6150,27 @@ Cry_Chimera2::
 	.align 2
 Cry_Chimera3::
 	.incbin "sound/direct_sound_samples/cries/toxatrice.bin"
-.endif @ P_FAMILY_GROCKO
+.endif @ P_FAMILY_CHIMERA
+
+.if P_FAMILY_HATCHIK == TRUE
+	.align 2
+Cry_Hatchik::
+	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	
+	.align 2
+Cry_Dodo2::
+	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+.endif @ P_FAMILY_HATCHIK
+
+.if P_FAMILY_MBIELU == TRUE
+	.align 2
+Cry_Mbielu::
+	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	
+	.align 2
+Cry_Mbielava::
+	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+.endif @ P_FAMILY_MBIELU
 
 	.align 2
 DirectSoundWaveData_register_noise::

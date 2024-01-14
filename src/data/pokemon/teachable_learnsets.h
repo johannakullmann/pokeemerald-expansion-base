@@ -39156,3 +39156,23 @@ static const u16 sChimera3TeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CHIMERA
+
+#if P_FAMILY_HATCHIK
+static const u16 sHatchikTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDodo2TeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+static const u16 sMbieluTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMbielavaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_MBIELU

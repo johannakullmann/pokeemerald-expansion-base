@@ -2416,6 +2416,14 @@ gCryTable::
 	cry Cry_Chimera2
 	cry Cry_Chimera3
 .endif @ P_FAMILY_CHIMERA
+.if P_FAMILY_HATCHIK == TRUE
+	cry Cry_Hatchik
+	cry Cry_Dodo2
+.endif @ P_FAMILY_HATCHIK
+.if P_FAMILY_MBIELU == TRUE
+	cry Cry_Mbielu
+	cry Cry_Mbielava
+.endif @ P_FAMILY_MBIELU
 
 	.align 2
 gCryTable_Reverse::
@@ -4835,3 +4843,11 @@ gCryTable_Reverse::
 	cry_reverse Cry_Chimera2
 	cry_reverse Cry_Chimera3
 .endif @ P_FAMILY_CHIMERA
+.if P_FAMILY_HATCHIK == TRUE
+	cry_reverse Cry_Hatchik
+	cry_reverse Cry_Dodo2
+.endif @ P_FAMILY_HATCHIK
+.if P_FAMILY_MBIELU == TRUE
+	cry_reverse Cry_Mbielu
+	cry_reverse Cry_Mbielava
+.endif @ P_FAMILY_MBIELU

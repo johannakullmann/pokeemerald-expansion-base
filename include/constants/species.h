@@ -971,8 +971,12 @@
 #define SPECIES_CHIMERA1                                912
 #define SPECIES_CHIMERA2                                913
 #define SPECIES_CHIMERA3                                914
+#define SPECIES_HATCHIK                                 915
+#define SPECIES_DODO2                                   916
+#define SPECIES_MBIELU                                  917
+#define SPECIES_MBIELAVA                                918
 
-#define FORMS_START SPECIES_ENAMORUS_INCARNATE
+#define FORMS_START SPECIES_MBIELAVA
 
 // Megas
 #define SPECIES_VENUSAUR_MEGA                           FORMS_START + 1
