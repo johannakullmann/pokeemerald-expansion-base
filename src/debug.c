@@ -1172,6 +1172,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_MOSSDEEP_CITY) &&
                 FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) &&
                 FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) &&
+                FlagGet(FLAG_VISITED_SANDYSHORE_TOWN) &&
                 FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) &&
                 FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER);
             break;
@@ -2620,6 +2621,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_MOSSDEEP_CITY);
         FlagClear(FLAG_VISITED_SOOTOPOLIS_CITY);
         FlagClear(FLAG_VISITED_EVER_GRANDE_CITY);
+        FlagClear(FLAG_VISITED_SANDYSHORE_TOWN);
         FlagClear(FLAG_LANDMARK_POKEMON_LEAGUE);
         FlagClear(FLAG_LANDMARK_BATTLE_FRONTIER);
     }
@@ -2642,6 +2644,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_MOSSDEEP_CITY);
         FlagSet(FLAG_VISITED_SOOTOPOLIS_CITY);
         FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
+        FlagSet(FLAG_VISITED_SANDYSHORE_TOWN);
         FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
         FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     }
