@@ -6127,29 +6127,29 @@ Cry_Toxatrice::
 .if P_FAMILY_GROCKO == TRUE
 	.align 2
 Cry_Grocko::
-	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	.incbin "sound/direct_sound_samples/cries/grocko.bin"
 	
 	.align 2
 Cry_Rubecko::
-	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+	.incbin "sound/direct_sound_samples/cries/rubecko.bin"
 	
 	.align 2
 Cry_Drabuncle::
-	.incbin "sound/direct_sound_samples/cries/toxatrice.bin"
+	.incbin "sound/direct_sound_samples/cries/drabuncle.bin"
 .endif @ P_FAMILY_GROCKO
 
 .if P_FAMILY_CHIMERA == TRUE
 	.align 2
 Cry_Chimera1::
-	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	.incbin "sound/direct_sound_samples/cries/chimera1.bin"
 	
 	.align 2
 Cry_Chimera2::
-	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+	.incbin "sound/direct_sound_samples/cries/chimera2.bin"
 	
 	.align 2
 Cry_Chimera3::
-	.incbin "sound/direct_sound_samples/cries/toxatrice.bin"
+	.incbin "sound/direct_sound_samples/cries/chimera3.bin"
 .endif @ P_FAMILY_CHIMERA
 
 .if P_FAMILY_HATCHIK == TRUE

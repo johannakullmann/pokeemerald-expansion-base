@@ -320,10 +320,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 4,
         .weight = 41,
         .description = COMPOUND_STRING(
-            "This is a newly discovered Pokémon.\n"
-            "It is currently under investigation.\n"
-            "No detailed information is available\n"
-            "at this time."),      
+            "This feisty Pokémon can\n"
+            "be found on steep cliffs.\n"
+            "It picks fights with\n"
+            "everyone and everything."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -333,10 +333,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .frontAnimFrames = sAnims_Chimera1,
         .frontAnimId = ANIM_V_STRETCH,
         BACK_PIC(Chimera1, 64, 64),
-        .backPicYOffset = 18,
+        .backPicYOffset = 9,
         .backAnimId = BACK_ANIM_H_SLIDE,
         PALETTES(Chimera1),
-        ICON(Chimera1, 1),
+        ICON(Chimera1, 3),
         .footprint = gMonFootprint_Chimera1,
         LEARNSETS(Chimera1),
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CHIMERA2}),
@@ -368,10 +368,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 9,
         .weight = 122,
         .description = COMPOUND_STRING(
-            "This is a newly discovered Pokémon.\n"
-            "It is currently under investigation.\n"
-            "No detailed information is available\n"
-            "at this time."),
+            "Its tail's movements resemble that of\n"
+            "a snake. The fake eyes on the tail\n"
+            "pull the enemy's attention, giving\n"
+            "this Pokémon an edge in a fight."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -381,10 +381,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .frontAnimFrames = sAnims_Chimera2,
         .frontAnimId = ANIM_BACK_AND_LUNGE,
         BACK_PIC(Chimera2, 64, 64),
-        .backPicYOffset = 6,
+        .backPicYOffset = 7,
         .backAnimId = BACK_ANIM_H_STRETCH,
         PALETTES(Chimera2),
-        ICON(Chimera2, 1),
+        ICON(Chimera2, 0),
         .footprint = gMonFootprint_Chimera2,
         LEARNSETS(Chimera2),
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHIMERA3}),
@@ -419,7 +419,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             "This is a newly discovered Pokémon.\n"
             "It is currently under investigation.\n"
             "No detailed information is available\n"
-            "at this time."),
+            "at this time."), 
         .pokemonScale = 356,
         .pokemonOffset = 17,
         .trainerScale = 256,
@@ -429,10 +429,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .frontAnimFrames = sAnims_Chimera3,
         .frontAnimId = ANIM_H_VIBRATE,
         BACK_PIC(Chimera3, 64, 64),
-        .backPicYOffset = 5,
+        .backPicYOffset = 7,
         .backAnimId = BACK_ANIM_JOLT_RIGHT,
         PALETTES(Chimera3),
-        ICON(Chimera3, 1),
+        ICON(Chimera3, 2),
         .footprint = gMonFootprint_Chimera3,
         LEARNSETS(Chimera3),
     },
