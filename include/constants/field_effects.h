@@ -74,6 +74,7 @@
 #define FLDEFF_USE_HEADBUTT              70
 #define FLDEFF_USE_ROCK_CLIMB            71
 #define FLDEFF_ROCK_CLIMB_DUST           72
+#define FLDEFF_USE_INCINERATE_ON_TREE    73
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

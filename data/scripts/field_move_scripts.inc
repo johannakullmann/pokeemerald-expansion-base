@@ -1,9 +1,9 @@
-@ Interact with cuttable tree
+@ Interact with cuttable tree (cut)
 EventScript_CutTree::
 	lockall
-	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
+	//goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCutOrBurn
 	checkpartymove MOVE_CUT
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCutOrBurn
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
@@ -14,6 +14,15 @@ EventScript_CutTree::
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 	goto EventScript_CutTreeDown
+	end
+
+EventScript_CutOrBurnTree::
+	lockall
+	checkpartymove MOVE_CUT
+	goto_if_ne VAR_RESULT, PARTY_SIZE, EventScript_CutTree
+	checkpartymove MOVE_INCINERATE
+	goto_if_ne VAR_RESULT, PARTY_SIZE, EventScript_BurnTree
+	goto EventScript_CheckTreeCantCutOrBurn
 	end
 
 @ Use cut from party menu
@@ -35,8 +44,8 @@ Movement_CutTreeDown:
 	cut_tree
 	step_end
 
-EventScript_CheckTreeCantCut::
-	msgbox Text_CantCut, MSGBOX_DEFAULT
+EventScript_CheckTreeCantCutOrBurn::
+	msgbox Text_CantCutOrBurn, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -47,15 +56,20 @@ EventScript_CancelCut::
 
 Text_WantToCut:
 	.string "This tree looks like it can be\n"
-	.string "CUT down!\p"
+	.string "cut down!\p"
 	.string "Would you like to CUT it?$"
+
+Text_WantToBurn:
+	.string "This tree looks like it can be\n"
+	.string "burnt down!\p"
+	.string "Would you like to burn it?$"
 
 Text_MonUsedFieldMove:
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
 
-Text_CantCut:
+Text_CantCutOrBurn:
 	.string "This tree looks like it can be\n"
-	.string "CUT down!$"
+	.string "cut or burnt down!$"
 
 @ Interact with smashable rock
 EventScript_RockSmash::
@@ -381,3 +395,40 @@ Text_MonUsedRockClimb:
 Text_CantRockClimb:
     .string "The cliff is steep.\n"
     .string "A Pokémon may be able to climb it.$"
+
+
+@ Interact with cuttable tree (incinerate)
+EventScript_BurnTree::
+	lockall
+	checkpartymove MOVE_INCINERATE
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCutOrBurn
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_INCINERATE
+	msgbox Text_WantToBurn, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelCut
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_INCINERATE_ON_TREE
+	waitstate
+	goto EventScript_BurnTreeDown
+	end
+
+@ Use incinerate from party menu
+EventScript_UseIncinerate::
+	lockall
+	dofieldeffect FLDEFF_USE_INCINERATE_ON_TREE
+	waitstate
+	goto EventScript_BurnTreeDown
+	end
+
+EventScript_BurnTreeDown::
+	applymovement VAR_LAST_TALKED, Movement_BurnTreeDown
+	waitmovement 0
+	removeobject VAR_LAST_TALKED
+	releaseall
+	end
+
+Movement_BurnTreeDown:
+	burn_tree
+	step_end

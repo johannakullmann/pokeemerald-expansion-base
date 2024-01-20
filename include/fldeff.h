@@ -55,4 +55,8 @@ bool8 FldEff_UseRockSmash(void);
 bool8 FldEff_UseHeadbutt(void);
 bool8 SetUpFieldMove_Headbutt(void);
 
+//incinerate
+bool8 FldEff_UseIncinerate(void);
+bool8 SetUpFieldMove_IncinerateTree(void);
+
 #endif // GUARD_FLDEFF_H

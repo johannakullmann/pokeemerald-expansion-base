@@ -533,6 +533,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_ROCK_SMASH_BREAK] = gMovementActionFuncs_RockSmashBreak,
     [MOVEMENT_ACTION_HEADBUTT_TREE] = gMovementActionFuncs_HeadbuttTree,
     [MOVEMENT_ACTION_CUT_TREE] = gMovementActionFuncs_CutTree,
+    [MOVEMENT_ACTION_BURN_TREE] = gMovementActionFuncs_CutTree,
     [MOVEMENT_ACTION_SET_FIXED_PRIORITY] = gMovementActionFuncs_SetFixedPriority,
     [MOVEMENT_ACTION_CLEAR_FIXED_PRIORITY] = gMovementActionFuncs_ClearFixedPriority,
     [MOVEMENT_ACTION_INIT_AFFINE_ANIM] = gMovementActionFuncs_InitAffineAnim,
