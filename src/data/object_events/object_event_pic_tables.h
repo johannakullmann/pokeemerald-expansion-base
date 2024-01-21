@@ -2462,3 +2462,9 @@ static const struct SpriteFrameImage sPicTable_ProfBrendanBirch[] = {
     overworld_frame(gObjectEventPic_ProfBrendanBirch, 2, 4, 7),
     overworld_frame(gObjectEventPic_ProfBrendanBirch, 2, 4, 8),
 };
+static const struct SpriteFrameImage sPicTable_HeadbuttTree[] = {
+    overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 0),
+    overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 1),
+    overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 2),
+    overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 0),
+};

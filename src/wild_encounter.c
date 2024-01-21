@@ -42,6 +42,7 @@ enum {
     WILD_AREA_WATER,
     WILD_AREA_ROCKS,
     WILD_AREA_FISHING,
+    WILD_AREA_HEADBUTT,
 };
 
 #define WILD_CHECK_REPEL    (1 << 0)
@@ -224,7 +225,7 @@ static u8 ChooseWildMonIndex_Land(void)
     return wildMonIndex;
 }
 
-// ROCK_WILD_COUNT / WATER_WILD_COUNT
+// ROCK_WILD_COUNT / WATER_WILD_COUNT / HEADBUTT_WILD_COUNT
 static u8 ChooseWildMonIndex_WaterRock(void)
 {
     u8 wildMonIndex = 0;
@@ -510,6 +511,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         wildMonIndex = ChooseWildMonIndex_WaterRock();
         break;
     case WILD_AREA_ROCKS:
+    case WILD_AREA_HEADBUTT:
         wildMonIndex = ChooseWildMonIndex_WaterRock();
         break;
     }
@@ -794,6 +796,35 @@ void RockSmashWildEncounter(void)
     }
 }
 
+void HeadbuttWildEncounter (void) {
+    u16 headerId = GetCurrentMapWildMonHeaderId();
+
+    if (headerId != HEADER_NONE)
+    {
+        const struct WildPokemonInfo *wildPokemonInfo = gWildMonHeaders[headerId].headbuttMonsInfo;
+
+        if (wildPokemonInfo == NULL)
+        {
+            gSpecialVar_Result = FALSE;
+        }
+        else if (WildEncounterCheck(wildPokemonInfo->encounterRate, TRUE) == TRUE
+         && TryGenerateWildMon(wildPokemonInfo, WILD_AREA_HEADBUTT, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
+        {
+            BattleSetup_StartWildBattle();
+            gSpecialVar_Result = TRUE;
+        }
+        else
+        {
+            gSpecialVar_Result = FALSE;
+        }
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+}
+
+
 bool8 SweetScentWildEncounter(void)
 {
     s16 x, y;
@@ -1060,6 +1091,9 @@ static u8 GetMaxLevelOfSpeciesInWildTable(const struct WildPokemon *wildMon, u16
         break;
     case WILD_AREA_WATER:
         numMon = WATER_WILD_COUNT;
+        break;
+    case WILD_AREA_HEADBUTT:
+        numMon = HEADBUTT_WILD_COUNT;
         break;
     case WILD_AREA_ROCKS:
         numMon = ROCK_WILD_COUNT;

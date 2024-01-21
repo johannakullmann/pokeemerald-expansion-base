@@ -1,9 +1,9 @@
-@ Interact with cuttable tree
+@ Interact with cuttable tree (cut)
 EventScript_CutTree::
 	lockall
-	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
+	//goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCutOrBurn
 	checkpartymove MOVE_CUT
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCut
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCutOrBurn
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
@@ -14,6 +14,15 @@ EventScript_CutTree::
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 	goto EventScript_CutTreeDown
+	end
+
+EventScript_CutOrBurnTree::
+	lockall
+	checkpartymove MOVE_CUT
+	goto_if_ne VAR_RESULT, PARTY_SIZE, EventScript_CutTree
+	checkpartymove MOVE_INCINERATE
+	goto_if_ne VAR_RESULT, PARTY_SIZE, EventScript_BurnTree
+	goto EventScript_CheckTreeCantCutOrBurn
 	end
 
 @ Use cut from party menu
@@ -35,8 +44,8 @@ Movement_CutTreeDown:
 	cut_tree
 	step_end
 
-EventScript_CheckTreeCantCut::
-	msgbox Text_CantCut, MSGBOX_DEFAULT
+EventScript_CheckTreeCantCutOrBurn::
+	msgbox Text_CantCutOrBurn, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -47,15 +56,20 @@ EventScript_CancelCut::
 
 Text_WantToCut:
 	.string "This tree looks like it can be\n"
-	.string "CUT down!\p"
+	.string "cut down!\p"
 	.string "Would you like to CUT it?$"
+
+Text_WantToBurn:
+	.string "This tree looks like it can be\n"
+	.string "burnt down!\p"
+	.string "Would you like to burn it?$"
 
 Text_MonUsedFieldMove:
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
 
-Text_CantCut:
+Text_CantCutOrBurn:
 	.string "This tree looks like it can be\n"
-	.string "CUT down!$"
+	.string "cut or burnt down!$"
 
 @ Interact with smashable rock
 EventScript_RockSmash::
@@ -120,6 +134,66 @@ Text_WantToSmash:
 Text_CantSmash:
 	.string "It's a rugged rock, but a POKéMON\n"
 	.string "may be able to smash it.$"
+
+EventScript_Headbutt::
+	lockall
+	//goto_if_unset FLAG_BADGE03_GET, EventScript_CantHeadbutt
+	checkpartymove MOVE_HEADBUTT
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbutt
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_HEADBUTT
+	msgbox Text_WantToHeadbutt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelHeadbutt
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_HEADBUTT
+	waitstate
+	goto EventScript_HeadbuttTree
+	end
+
+@ Use headbutt from party menu
+EventScript_UseHeadbutt::
+	lockall
+	dofieldeffect FLDEFF_USE_HEADBUTT
+	waitstate
+	goto EventScript_HeadbuttTree
+	end
+
+EventScript_HeadbuttTree::
+	applymovement VAR_LAST_TALKED, Movement_HeadbuttTree
+	waitmovement 0
+	special HeadbuttWildEncounter
+	goto_if_eq VAR_RESULT, FALSE, EventScript_EndHeadbutt
+	waitstate
+	releaseall
+	end
+
+EventScript_EndHeadbutt::
+	releaseall
+	end
+
+Movement_HeadbuttTree:
+	headbutt_tree
+	step_end
+
+EventScript_CantHeadbutt::
+	msgbox Text_CantHeadbutt, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_CancelHeadbutt::
+	closemessage
+	releaseall
+	end
+
+Text_WantToHeadbutt:
+	.string "It's a large tree.\n"
+	.string "Would you like to use Headbutt?$"
+
+Text_CantHeadbutt:
+	.string "There's a large, formidable tree\n"
+	.string "that looks like it can be headbutted!$"
 
 EventScript_StrengthBoulder::
 	lockall
@@ -287,3 +361,74 @@ EventScript_FailSweetScent::
 
 Text_FailSweetScent:
 	.string "Looks like there's nothing here…$"
+
+EventScript_UseRockClimb::
+	lockall
+	checkpartymove MOVE_ROCK_CLIMB
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq EventScript_CantRockClimb
+	bufferpartymonnick 0, VAR_RESULT
+	setfieldeffectargument 0, VAR_RESULT
+	msgbox Text_WantToRockClimb, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_EndRockClimb
+	msgbox Text_MonUsedRockClimb, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_ROCK_CLIMB
+	waitstate
+	goto EventScript_EndRockClimb
+	
+EventScript_CantRockClimb::
+	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
+	
+EventScript_EndRockClimb::
+	releaseall
+	end
+	
+Text_WantToRockClimb:
+    .string "The cliff is steep.\n"
+    .string "Would you like to use Rock Climb?$"
+    
+Text_MonUsedRockClimb:
+    .string "{STR_VAR_1} used Rock Climb!$"
+    
+Text_CantRockClimb:
+    .string "The cliff is steep.\n"
+    .string "A Pokémon may be able to climb it.$"
+
+
+@ Interact with cuttable tree (incinerate)
+EventScript_BurnTree::
+	lockall
+	checkpartymove MOVE_INCINERATE
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CheckTreeCantCutOrBurn
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_INCINERATE
+	msgbox Text_WantToBurn, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelCut
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_INCINERATE_ON_TREE
+	waitstate
+	goto EventScript_BurnTreeDown
+	end
+
+@ Use incinerate from party menu
+EventScript_UseIncinerate::
+	lockall
+	dofieldeffect FLDEFF_USE_INCINERATE_ON_TREE
+	waitstate
+	goto EventScript_BurnTreeDown
+	end
+
+EventScript_BurnTreeDown::
+	applymovement VAR_LAST_TALKED, Movement_BurnTreeDown
+	waitmovement 0
+	removeobject VAR_LAST_TALKED
+	releaseall
+	end
+
+Movement_BurnTreeDown:
+	burn_tree
+	step_end
