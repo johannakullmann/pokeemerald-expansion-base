@@ -29,21 +29,18 @@ mapscripts Sandyshore_Inn_2F_MapScripts {
 script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1 {
     lock
     applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1)
-    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
     waitmovement(OBJ_EVENT_ID_PLAYER) 
     goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
 }
 script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2 {
     lock
     applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2)
-    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
     waitmovement(OBJ_EVENT_ID_PLAYER) 
     goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
 }
 script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_3 {
     lock
     applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3)
-    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
     waitmovement(OBJ_EVENT_ID_PLAYER) 
     goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
 }
@@ -161,7 +158,7 @@ script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft {
 script Sandyshore_Inn_EventScript_PickMon {
     if (flag(FLAG_SYS_POKEMON_GET)) {
         lock
-        msgbox(format("It's the professor's last Pokémon..."))
+        msgbox(format("It's the professor's last Pokémon…"))
         release
         end
     }
@@ -195,11 +192,11 @@ script Sandyshore_Inn_EventScript_PickMon {
     waitmovement(0)
     switch (var(VAR_STARTER_MON)) {
         case 0:
-            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //grocko
+            bufferspeciesname(STR_VAR_1, SPECIES_GROCKO) //grocko
         case 1:
-            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //chimera
+            bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA1) //chimera
         case 2:
-            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //toxatiel
+            bufferspeciesname(STR_VAR_1, SPECIES_TOXATIEL) //toxatiel
     }
     msgbox("Ruth: Then I'll choose this {STR_VAR_1}!")
     removeobject(LOCALID_POKEBALLS)
@@ -338,17 +335,17 @@ script Sandyshore_Inn_2F_EventScript_StarterBook {
 	multichoice (0, 0, MULTI_STARTER_NOTES, FALSE)
 	switch(var(VAR_RESULT)) {
         case 0: //toxatiel
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_TOXATIEL, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_TOXATIEL)
             hidemonpic
         case 1: //grocko
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_GROCKO, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
             hidemonpic
         case 2: //chimera
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_CHIMERA1, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
             hidemonpic
@@ -378,17 +375,17 @@ script Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes {
 	multichoice (0, 0, MULTI_STARTER_NOTES_KYOGRE, TRUE)
 	switch(var(VAR_RESULT)) {
         case 0: //toxatiel
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_TOXATIEL, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_TOXATIEL)
             hidemonpic
         case 1: //grocko
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_GROCKO, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
             hidemonpic
         case 2: //chimera
-            showmonpic(SPECIES_NONE, 10, 3)
+            showmonpic(SPECIES_CHIMERA1, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
             hidemonpic
@@ -415,6 +412,23 @@ script Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes {
     closemessage
     release
     end
+}
+
+script Sandyshore_Inn_2F_EventScript_Woman {
+    msgbox(format("This little remote town is a hidden gem, with its mild sea breeze and the colorful reef just off the shores."), MSGBOX_NPC)
+}
+
+script Sandyshore_Inn_2F_EventScript_Man {
+    msgbox(format("We come here for vacation every year.\pIt's nice to get away from the busy city life every once in a while."), MSGBOX_NPC)
+}
+
+script Sandyshore_Inn_2F_EventScript_Boy {
+}
+
+script Sandyshore_Inn_2F_EventScript_OldWoman {
+}
+
+script Sandyshore_Inn_2F_EventScript_OldMan {
 }
 
 movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1 {

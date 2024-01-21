@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_Sandyshore_Inn",
       "border_filepath": "data/layouts/Sandyshore_Inn_2F/border.bin",
       "blockdata_filepath": "data/layouts/Sandyshore_Inn_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE135_DIVE_SCHOOL",
+      "name": "Route135_DiveSchool_Layout",
+      "width": 8,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route135_DiveSchool/border.bin",
+      "blockdata_filepath": "data/layouts/Route135_DiveSchool/map.bin"
     }
   ]
 }

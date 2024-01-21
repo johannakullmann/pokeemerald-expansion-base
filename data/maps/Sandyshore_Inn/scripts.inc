@@ -20,8 +20,6 @@ Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 Sandyshore_Inn_EventScript_RuthGoUpstairs::
 	lock
-	applymovement 1, Common_Movement_WalkInPlaceRight
-	waitmovement 0
 	msgbox Sandyshore_Inn_EventScript_RuthGoUpstairs_Text_0
 	closemessage
 	applymovement 1, Sandyshore_Inn_Movement_RuthWalkUpstairs
@@ -34,13 +32,13 @@ Sandyshore_Inn_EventScript_RuthGoUpstairs::
 
 
 Sandyshore_Inn_Movement_RuthWalkUpstairs:
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
 	step_end
 
 Sandyshore_Inn_EventScript_RuthGoUpstairs_Text_0:

@@ -35,7 +35,6 @@ Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_3:
 Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1::
 	lock
 	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1
-	applymovement 2, Common_Movement_WalkLeft
 	waitmovement OBJ_EVENT_ID_PLAYER
 	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
 	return
@@ -44,7 +43,6 @@ Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1::
 Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2::
 	lock
 	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2
-	applymovement 2, Common_Movement_WalkLeft
 	waitmovement OBJ_EVENT_ID_PLAYER
 	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
 	return
@@ -53,7 +51,6 @@ Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2::
 Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_3::
 	lock
 	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3
-	applymovement 2, Common_Movement_WalkLeft
 	waitmovement OBJ_EVENT_ID_PLAYER
 	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
 	return
@@ -255,15 +252,15 @@ Sandyshore_Inn_EventScript_PickMon_5:
 	goto Sandyshore_Inn_EventScript_PickMon_4
 
 Sandyshore_Inn_EventScript_PickMon_10:
-	bufferspeciesname STR_VAR_1, SPECIES_NONE
+	bufferspeciesname STR_VAR_1, SPECIES_GROCKO
 	goto Sandyshore_Inn_EventScript_PickMon_8
 
 Sandyshore_Inn_EventScript_PickMon_11:
-	bufferspeciesname STR_VAR_1, SPECIES_NONE
+	bufferspeciesname STR_VAR_1, SPECIES_CHIMERA1
 	goto Sandyshore_Inn_EventScript_PickMon_8
 
 Sandyshore_Inn_EventScript_PickMon_12:
-	bufferspeciesname STR_VAR_1, SPECIES_NONE
+	bufferspeciesname STR_VAR_1, SPECIES_TOXATIEL
 	goto Sandyshore_Inn_EventScript_PickMon_8
 
 
@@ -407,21 +404,21 @@ Sandyshore_Inn_2F_EventScript_StarterBook_7:
 	end
 
 Sandyshore_Inn_2F_EventScript_StarterBook_3:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_TOXATIEL, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes
 	setflag FLAG_READ_BRENDANS_NOTE_TOXATIEL
 	hidemonpic
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_4:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_GROCKO, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes
 	setflag FLAG_READ_BRENDANS_NOTE_GROCKO
 	hidemonpic
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_5:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_CHIMERA1, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes
 	setflag FLAG_READ_BRENDANS_NOTE_CHIMERA
 	hidemonpic
@@ -475,21 +472,21 @@ Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_8:
 	end
 
 Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_3:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_TOXATIEL, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes
 	setflag FLAG_READ_BRENDANS_NOTE_TOXATIEL
 	hidemonpic
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_4:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_GROCKO, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes
 	setflag FLAG_READ_BRENDANS_NOTE_GROCKO
 	hidemonpic
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_5:
-	showmonpic SPECIES_NONE, 10, 3
+	showmonpic SPECIES_CHIMERA1, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes
 	setflag FLAG_READ_BRENDANS_NOTE_CHIMERA
 	hidemonpic
@@ -522,6 +519,28 @@ Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_18:
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes
 	setflag FLAG_READ_BRENDANS_NOTE_KYOGRE
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_8
+
+
+Sandyshore_Inn_2F_EventScript_Woman::
+	msgbox Sandyshore_Inn_2F_EventScript_Woman_Text_0, MSGBOX_NPC
+	return
+
+
+Sandyshore_Inn_2F_EventScript_Man::
+	msgbox Sandyshore_Inn_2F_EventScript_Man_Text_0, MSGBOX_NPC
+	return
+
+
+Sandyshore_Inn_2F_EventScript_Boy::
+	return
+
+
+Sandyshore_Inn_2F_EventScript_OldWoman::
+	return
+
+
+Sandyshore_Inn_2F_EventScript_OldMan::
+	return
 
 
 Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1:
@@ -640,7 +659,7 @@ Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon_Text_0:
 	.string "Where are you going, {PLAYER}?$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_0:
-	.string "It's the professor's last Pokémon...$"
+	.string "It's the professor's last Pokémon…$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_1:
 	.string "{PLAYER} obtained the {STR_VAR_1}!$"
@@ -705,6 +724,16 @@ Sandyshore_Inn_2F_EventScript_StarterBook_Text_0:
 
 Sandyshore_Inn_2F_EventScript_StarterBook_Text_1:
 	.string "Open which page?$"
+
+Sandyshore_Inn_2F_EventScript_Woman_Text_0:
+	.string "This little remote town is a hidden gem,\n"
+	.string "with its mild sea breeze and the\l"
+	.string "colorful reef just off the shores.$"
+
+Sandyshore_Inn_2F_EventScript_Man_Text_0:
+	.string "We come here for vacation every year.\p"
+	.string "It's nice to get away from the busy city\n"
+	.string "life every once in a while.$"
 
 Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes::
 	.string "Toxatiel - A rare bird Pokémon from the\n"

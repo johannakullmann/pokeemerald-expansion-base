@@ -57,15 +57,15 @@
 #define MAP_ROUTE132            (48 | (0 << 8))
 #define MAP_ROUTE133            (49 | (0 << 8))
 #define MAP_ROUTE134            (50 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE124 (51 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE126 (52 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE127 (53 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE128 (54 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE129 (55 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE105 (56 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE125 (57 | (0 << 8))
-#define MAP_ROUTE135            (58 | (0 << 8))
-#define MAP_ROUTE136            (59 | (0 << 8))
+#define MAP_ROUTE135            (51 | (0 << 8))
+#define MAP_ROUTE136            (52 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE124 (53 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE126 (54 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE127 (55 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE128 (56 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE129 (57 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE105 (58 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE125 (59 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -603,6 +603,9 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// gMapGroup_IndoorRoute135
+#define MAP_ROUTE135_DIVE_SCHOOL (0 | (35 << 8))
+
+#define MAP_GROUPS_COUNT 36
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

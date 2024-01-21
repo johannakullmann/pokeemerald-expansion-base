@@ -1087,3 +1087,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Sandyshore_Inn/scripts.inc"
 
 	.include "data/maps/Sandyshore_Inn_2F/scripts.inc"
+
+	.include "data/maps/Route135_DiveSchool/scripts.inc"

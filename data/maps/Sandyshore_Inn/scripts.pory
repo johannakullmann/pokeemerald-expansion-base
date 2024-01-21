@@ -17,8 +17,6 @@ mapscripts Sandyshore_Inn_MapScripts {
 
 script Sandyshore_Inn_EventScript_RuthGoUpstairs {
     lock
-    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-    waitmovement(0)
     msgbox(format("Here, this way!"))
     closemessage
     applymovement(LOCALID_RUTH, Sandyshore_Inn_Movement_RuthWalkUpstairs)
@@ -31,8 +29,8 @@ script Sandyshore_Inn_EventScript_RuthGoUpstairs {
 }
 
 movement Sandyshore_Inn_Movement_RuthWalkUpstairs {
-    walk_left * 3
-    walk_up *4
+    walk_fast_left * 3
+    walk_fast_up *5
 }
 
 

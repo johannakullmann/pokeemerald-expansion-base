@@ -34,7 +34,8 @@
     "gMapGroup_IndoorRoute113",
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
-    "gMapGroup_IndoorRoute124"
+    "gMapGroup_IndoorRoute124",
+    "gMapGroup_IndoorRoute135"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -88,15 +89,15 @@
     "Route132",
     "Route133",
     "Route134",
+    "Route135",
+    "Route136",
     "Underwater_Route124",
     "Underwater_Route126",
     "Underwater_Route127",
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125",
-    "Route135",
-    "Route136"
+    "Underwater_Route125"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -633,5 +634,8 @@
   ],
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
+  ],
+  "gMapGroup_IndoorRoute135": [
+    "Route135_DiveSchool"
   ]
 }

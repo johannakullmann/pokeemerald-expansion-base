@@ -1,0 +1,101 @@
+const LOCALID_RUTH = 5
+const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
+
+mapscripts Route135_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_LITTLEROOT_INTRO_STATE) == 8) {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+        }
+        else {
+            setflag(TEMP_FLAG_HIDE_RUTH)
+        }
+    }
+}
+
+script Route135_EventScript_CatchTutorialEnterTop {
+    lockall
+    turnobject(LOCALID_RUTH, DIR_EAST)
+    msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterTop)
+    waitmovement(0)
+    goto(Route135_EventScript_CatchTutorialMain)
+}
+
+script Route135_EventScript_CatchTutorialEnterBottom {
+    lockall
+    turnobject(LOCALID_RUTH, DIR_EAST)
+    msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterBottom)
+    waitmovement(0)
+    delay(10)
+    goto(Route135_EventScript_CatchTutorialMain)
+}
+
+script Route135_EventScript_CatchTutorialMain {
+    turnobject(LOCALID_RUTH, DIR_WEST)
+    msgbox(format("See that Budew over there in the grass?\pWatch closely!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
+    waitmovement(0)
+    special(SavePlayerParty)
+	special(LoadCatchTutorialParty)
+    special(StartWallyTutorialBattle)
+    waitstate
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 9) 
+    special(LoadPlayerParty)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkRight)
+    waitmovement(0)
+    msgbox(format("See? It's not hard at all!\pHere, you should try it yourself!"))
+    closemessage
+    giveitem(ITEM_POKE_BALL, 3)
+    msgbox(format("The more you weaken a Pokémon, the easier it is to catch.\pInflicting a status condition will also increase your chances!\p"
+            "If you don't want to catch a Pokémon, you can defeat it instead.\pThat way your own Pokémon can earn battle experience!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    msgbox(format("Since I gave my three last balls to you, I'll go to the mart in Pacifidlog Town and buy new ones.\p"
+                "I wouldn't want to have to pass on a rare Pokémon just because I forgot to buy Poké Balls!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("You should meet me there, and try to get the hang of battling on the way!\p"
+                "But before you go, why don't you show your new Pokémon to your mom?\p"
+                "I bet she'll love it!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Route135_Movement_RuthLeave)
+    waitmovement(0)
+    setflag(TEMP_FLAG_HIDE_RUTH)
+    removeobject(LOCALID_RUTH)
+    setflag(FLAG_DONE_CATCH_TUTORIAL)
+    releaseall
+    end
+}
+
+text Route135_Text_CatchTutorialPsstComeOverHere {
+    format("Psst! {PLAYER}!\pCome over here, quickly!")
+}
+
+movement Route135_Movement_CatchTutorialEnterTop {
+    walk_left *3
+    walk_up *2
+    face_left
+}
+
+movement Route135_Movement_CatchTutorialEnterBottom {
+    walk_left *3
+    walk_up *3
+    face_left
+}
+
+movement Route135_Movement_RuthLeave {
+    walk_left *2
+    walk_up *5
+}
+
+script Route135_EventScript_Boy1 {
+    msgbox(format("Did you know that Pokémon have different weaknesses depending on their type?\p"
+        "My Wingull can easily defeat wild Budew with its flying-type moves!\p"
+        "It doesn't do well against eletric or rock-type attacks, though…"), MSGBOX_NPC)
+}

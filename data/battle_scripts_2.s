@@ -234,7 +234,7 @@ BattleScript_ActionWallyThrow:
     waitstate
     trainerslidein BS_TARGET
     waitstate
-    printstring STRINGID_YOUTHROWABALLNOWRIGHT
+    printstring STRINGID_THEREIWEAKENEDIT
     waitmessage B_WAIT_TIME_LONG
     end2
 

@@ -1442,6 +1442,29 @@ void LoadWallyZigzagoon(void)
     SetMonData(&gPlayerParty[0], MON_DATA_MOVE4, &monData);
 }
 
+void LoadCatchTutorialParty(void)
+{
+    u16 monData;
+    u16 species;
+    switch (VarGet(VAR_STARTER_MON)) {
+        case 0:
+            species = SPECIES_GROCKO;
+        break;
+        case 1:
+            species = SPECIES_CHIMERA1;
+        break;
+        case 2:
+            species = SPECIES_TOXATIEL;
+        break;
+        default:
+            species = SPECIES_EEVEE;
+    }
+
+    CreateMonWithNature(&gPlayerParty[0], species, 5, USE_RANDOM_IVS, NATURE_JOLLY);
+    monData = TRUE;
+    SetMonData(&gPlayerParty[0], MON_DATA_ABILITY_NUM, &monData);
+}
+
 bool8 IsStarterInParty(void)
 {
     u8 i;

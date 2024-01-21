@@ -331,7 +331,7 @@
 #define STRINGID_ABOOSTED                             330
 #define STRINGID_PKMNSXINTENSIFIEDSUN                 331
 #define STRINGID_PKMNMAKESGROUNDMISS                  332
-#define STRINGID_YOUTHROWABALLNOWRIGHT                333
+#define STRINGID_THEREIWEAKENEDIT                     333
 #define STRINGID_PKMNSXTOOKATTACK                     334
 #define STRINGID_PKMNCHOSEXASDESTINY                  335
 #define STRINGID_PKMNLOSTFOCUS                        336

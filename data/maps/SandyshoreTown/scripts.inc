@@ -69,9 +69,9 @@ SandyshoreTown_EventScript_RuthNoticePlayer::
 	waitdooranim
 	waitmovement 0
 	closedoor 26, 8
-	waitdooranim
 	removeobject 1
 	setflag FLAG_TEMP_10
+	waitdooranim
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	release
 	end
@@ -85,12 +85,12 @@ SandyshoreTown_EventScript_PreventExit_Route135_Text_0:
 	.string "I saw Ruth in front of the Inn!\p"
 	.string "I wanna go visit the professor too, but\n"
 	.string "Grandma said he's busy so I shouldn't\l"
-	.string "bother him...$"
+	.string "bother him…$"
 
 SandyshoreTown_EventScript_LittleGirl_Text_0:
 	.string "I wanna go visit the professor too, but\n"
 	.string "Grandma said he's busy so I shouldn't\l"
-	.string "bother him...$"
+	.string "bother him…$"
 
 SandyshoreTown_EventScript_RuthNoticePlayer_Text_0:
 	.string "{PLAYER}! There you are!\p"

@@ -30,7 +30,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
     waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
     msgbox(format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\p"
-            "I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him..."))
+            "I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him…"))
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
     waitmovement(0)
@@ -41,7 +41,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
 script SandyshoreTown_EventScript_LittleGirl {
     lock
     faceplayer
-    msgbox(format("I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him..."))
+    msgbox(format("I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him…"))
 
 }
 
@@ -69,9 +69,9 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
 	waitdooranim
     waitmovement(0)
     closedoor(26, 8)
-    waitdooranim
     removeobject(LOCALID_RUTH)
     setflag(TEMP_FLAG_HIDE_RUTH)
+    waitdooranim
     setvar(VAR_LITTLEROOT_INTRO_STATE, 5)
     release
     end
