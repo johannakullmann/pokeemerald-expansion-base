@@ -58,6 +58,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTria
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nurse;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall3;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTree;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeEarlyStages;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeLateStages;
@@ -526,6 +528,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AUGUST_DECORATING] =        &gObjectEventGraphicsInfo_AugustDecorating,
     [OBJ_EVENT_GFX_RUTH] =                     &gObjectEventGraphicsInfo_Ruth,
     [OBJ_EVENT_GFX_PROF_BRENDAN_BIRCH] =       &gObjectEventGraphicsInfo_ProfBrendanBirch,
+    [OBJ_EVENT_GFX_ITEM_BALL_2] =              &gObjectEventGraphicsInfo_ItemBall2,
+    [OBJ_EVENT_GFX_ITEM_BALL_3] =              &gObjectEventGraphicsInfo_ItemBall3,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
