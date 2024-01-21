@@ -7,6 +7,7 @@ Sandyshore_Playerhouse_2F_EventScript_RuthCall::
 	setflag FLAG_RECEIVED_POKENAV
 	setflag FLAG_HAS_MATCH_CALL
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_ENABLE_RUTH_MATCH_CALL
 	setflag FLAG_ENABLE_MOM_MATCH_CALL
 	clearflag FLAG_SYS_RIBBON_GET
 	lock

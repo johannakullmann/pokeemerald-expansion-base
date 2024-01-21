@@ -7,13 +7,13 @@ mapscripts Sandyshore_Inn_2F_MapScripts {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
         VAR_LITTLEROOT_INTRO_STATE, 6 {
             clearflag(TEMP_FLAG_HIDE_RUTH)
-            //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
         }
         VAR_LITTLEROOT_INTRO_STATE, 7 {
             clearflag(TEMP_FLAG_HIDE_RUTH)
             setobjectxyperm(LOCALID_RUTH, 20, 5)
             turnobject(LOCALID_RUTH, DIR_SOUTH)
-            //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
         }
         VAR_LITTLEROOT_INTRO_STATE, 8 {
             setflag(TEMP_FLAG_HIDE_RUTH)
@@ -170,7 +170,7 @@ script Sandyshore_Inn_EventScript_PickMon {
 	fadescreen(FADE_TO_BLACK)
 	special(ChooseStarter)
     removeobject(LOCALID_POKEBALLS)
-    //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2)
+    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2)
     addobject(LOCALID_POKEBALLS)
 	waitstate
     playfanfare(MUS_OBTAIN_ITEM)

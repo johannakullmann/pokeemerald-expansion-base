@@ -11,12 +11,14 @@ Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 	clearflag FLAG_TEMP_7
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3
 	return
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_1:
 	clearflag FLAG_TEMP_7
 	setobjectxyperm 2, 20, 5
 	turnobject 2, DIR_SOUTH
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3
 	return
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_2:
@@ -179,6 +181,7 @@ Sandyshore_Inn_EventScript_PickMon::
 	fadescreen FADE_TO_BLACK
 	special ChooseStarter
 	removeobject 4
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2
 	addobject 4
 	waitstate
 	playfanfare MUS_OBTAIN_ITEM
