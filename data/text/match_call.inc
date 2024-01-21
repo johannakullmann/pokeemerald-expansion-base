@@ -2015,27 +2015,33 @@ MatchCall_BattlePyramidText14::
 	.string "See you again!$"
 
 MatchCall_Text_Mom1::
-	.string "MOM: Your father and you…\n"
-	.string "Everyone is captivated by POKéMON.\p"
-	.string "What is the charm of POKéMON?\p"
-	.string "Me?\n"
-	.string "I adore POKéMON that help me with\l"
-	.string "my everyday chores.$"
+	.string "Mom: Are you still with Ruth?\n"
+	.string "You two go ahead and have fun!$"
 
 MatchCall_Text_Mom2::
-	.string "MOM: Hi, {PLAYER}!\n"
-	.string "Your father keeps himself locked\l"
-	.string "away in the PETALBURG GYM.\p"
-	.string "He comes home every so often.\n"
-	.string "But he goes back to the GYM when\l"
-	.string "he's eaten everything he can.\p"
-	.string "I'm guessing that losing to you\n"
-	.string "was a big blow to his pride!$"
+	.string "Mom: Hi, {PLAYER}!\n"
+	.string "…\p"
+	.string "Oh? The professor gave you a\n"
+	.string "Pokémon to look after?\p"
+	.string "That's awesome! You should\n"
+	.string "show it to me later!\p"
+	.string "Do you think it'll get along\n"
+	.string "fine with Skitty?$"
 
 MatchCall_Text_Mom3::
-	.string "MOM: {PLAYER}…\n"
+	.string "Mom: What's it, dear?\n"
+	.string "…\p"
+	.string "Oh? You want to visit the\n"
+	.string "mainland to challenge the gyms?\p"
+	.string "That's quite sudden, {PLAYER}…\n"
+	.string "The thrill of battling must've\l"
+	.string "really sucked you in, then.\p"
+	.string "I'll cheer you on! And call often!$"
+
+MatchCall_Text_Mom4::
+	.string "Mom: {PLAYER}…\n"
 	.string "Don't worry about me or the house.\p"
-	.string "Wear those RUNNING SHOES until\n"
+	.string "Wear those Running Shoes until\n"
 	.string "they fall apart, honey!$"
 
 MatchCall_Text_Roxanne1::
@@ -2952,3 +2958,46 @@ MatchCall_Text_MrStone11::
 	.string "I didn't recognize you right off!\p"
 	.string "Hm! You must come visit us at DEVON\n"
 	.string "sometime!$"
+
+	MatchCall_Text_Ruth1::
+	.string "Ruth: {PLAYER}! Hurry up!\p"
+	.string "I'm waiting outside!$"
+
+	MatchCall_Text_Ruth2::
+	.string "Ruth: Oh, {PLAYER}!\n"
+	.string "I'm waiting for you on Route 137!\p"
+	.string "You can get there by going north\n"
+	.string "from Sandyshore!$"
+
+	MatchCall_Text_Ruth3::
+	.string "Ruth: Hey, {PLAYER}!\n"
+	.string "How's the journey going?\p"
+	.string "I'm at the store in Pacifidlog, but\n"
+	.string "I can't decide which balls to buy…\p"
+	.string "Super Balls are better, but I could\n"
+	.string "get three normal balls for the same\l"
+	.string "price…\p"
+	.string "When you arrive, meet me at the mart!\n"
+	.string "It's the building with the blue roof!$"
+
+	MatchCall_Text_Ruth4::
+	.string "Ruth: … Oh, it's you!\n"
+	.string "I found Mr. Moore!\p"
+	.string "He said he'll be able to take us\n"
+	.string "over to Slateport!\p"
+	.string "I'm waiting near the pier in\n"
+	.string "Pacifidlog!$"
+
+	MatchCall_Text_Ruth5::
+	.string "Ruth: … {PLAYER}!\p"
+	.string "When you're ready with your\n"
+	.string "preparations, we should start going!\p"
+	.string "I'm waiting near the pier in\n"
+	.string "Pacifidlog!$"
+
+	MatchCall_Text_Ruth_Nearby::
+	.string "Ruth: Huh?\p"
+	.string "Why are you calling me?\n"
+	.string "I'm right next to you!$"
+
+	

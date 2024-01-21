@@ -1075,3 +1075,15 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route136/scripts.inc"
 
 	.include "data/maps/Route136_Grove/scripts.inc"
+
+	.include "data/maps/Sandyshore_House1/scripts.inc"
+
+	.include "data/maps/Sandyshore_PlayerHouse/scripts.inc"
+
+	.include "data/maps/Sandyshore_PlayerHouse_2F/scripts.inc"
+
+	.include "data/maps/Sandyshore_RivalHouse/scripts.inc"
+
+	.include "data/maps/Sandyshore_Inn/scripts.inc"
+
+	.include "data/maps/Sandyshore_Inn_2F/scripts.inc"

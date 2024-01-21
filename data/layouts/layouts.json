@@ -4450,6 +4450,66 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route136_Grove/border.bin",
       "blockdata_filepath": "data/layouts/Route136_Grove/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_HOUSE1",
+      "name": "Sandyshore_House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandyshore_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_PLAYER_HOUSE",
+      "name": "Sandyshore_PlayerHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Sandyshore_PlayerHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_PlayerHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_PLAYER_HOUSE_2F",
+      "name": "Sandyshore_PlayerHouse_2F_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Sandyshore_PlayerHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_PlayerHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_RIVAL_HOUSE",
+      "name": "Sandyshore_RivalHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/Sandyshore_RivalHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_RivalHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_INN",
+      "name": "Sandyshore_Inn_Layout",
+      "width": 14,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Sandyshore_Inn",
+      "border_filepath": "data/layouts/Sandyshore_Inn/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_Inn/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDYSHORE_INN_2F",
+      "name": "Sandyshore_Inn_2F_Layout",
+      "width": 25,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Sandyshore_Inn",
+      "border_filepath": "data/layouts/Sandyshore_Inn_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandyshore_Inn_2F/map.bin"
     }
   ]
 }

@@ -300,7 +300,12 @@
     "EverGrandeCity_PokemonLeague_2F"
   ],
   "gMapGroup_IndoorSandyshore": [
-
+    "Sandyshore_House1",
+    "Sandyshore_PlayerHouse",
+    "Sandyshore_PlayerHouse_2F",
+    "Sandyshore_RivalHouse",
+    "Sandyshore_Inn",
+    "Sandyshore_Inn_2F"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

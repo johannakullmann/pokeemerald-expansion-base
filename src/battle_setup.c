@@ -82,8 +82,8 @@ static void CB2_EndScriptedWildBattle(void);
 static void TryUpdateGymLeaderRematchFromWild(void);
 static void TryUpdateGymLeaderRematchFromTrainer(void);
 static void CB2_GiveStarter(void);
-static void CB2_StartFirstBattle(void);
-static void CB2_EndFirstBattle(void);
+//static void CB2_StartFirstBattle(void);
+//static void CB2_EndFirstBattle(void);
 static void SaveChangesToPlayerParty(void);
 static void HandleBattleVariantEndParty(void);
 static void CB2_EndTrainerBattle(void);
@@ -984,37 +984,9 @@ static void CB2_GiveStarter(void)
     starterMon = GetStarterPokemon(gSpecialVar_Result);
     ScriptGiveMon(starterMon, 5, ITEM_NONE, 0, 0, 0);
     ResetTasks();
-    PlayBattleBGM();
-    SetMainCallback2(CB2_StartFirstBattle);
-    BattleTransition_Start(B_TRANSITION_BLUR);
+    SetMainCallback2(CB2_ReturnToFieldContinueScript);
 }
 
-static void CB2_StartFirstBattle(void)
-{
-    UpdatePaletteFade();
-    RunTasks();
-
-    if (IsBattleTransitionDone() == TRUE)
-    {
-        gBattleTypeFlags = BATTLE_TYPE_FIRST_BATTLE;
-        gMain.savedCallback = CB2_EndFirstBattle;
-        FreeAllWindowBuffers();
-        SetMainCallback2(CB2_InitBattle);
-        RestartWildEncounterImmunitySteps();
-        ClearPoisonStepCounter();
-        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-        IncrementGameStat(GAME_STAT_WILD_BATTLES);
-        IncrementDailyWildBattles();
-        TryUpdateGymLeaderRematchFromWild();
-    }
-}
-
-static void CB2_EndFirstBattle(void)
-{
-    Overworld_ClearSavedMusic();
-    DowngradeBadPoison();
-    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-}
 
 static void TryUpdateGymLeaderRematchFromWild(void)
 {

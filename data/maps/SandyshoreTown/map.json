@@ -20,38 +20,180 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "x": 26,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_10"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 19,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
-
+    {
+      "x": 25,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_SANDYSHORE_PLAYER_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SANDYSHORE_RIVAL_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SANDYSHORE_INN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SANDYSHORE_HOUSE1",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_PreventExit_Route135"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_PreventExit_Route135"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_PreventExit_Route135"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_PreventExit_Route135"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "4",
+      "script": "SandyshoreTown_EventScript_RuthNoticePlayer_Right"
+    }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 17,
-      "y": 16,
+      "x": 19,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
-    },
-    {
-      "type": "sign",
-      "x": 18,
+      "x": 24,
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SandyshoreTown_EventScript_InnSign"
     }
   ]
 }

@@ -771,6 +771,23 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_StarterNotes[] =
+{
+    {gText_BrendanNotesToxatiel},
+    {gText_BrendanNotesGrocko},
+    {gText_BrendanNotesChimera},
+    {gText_Close},
+};
+
+static const struct MenuAction MultichoiceList_StarterNotesWithKyogre[] =
+{
+    {gText_BrendanNotesToxatiel},
+    {gText_BrendanNotesGrocko},
+    {gText_BrendanNotesChimera},
+    {gText_BrendanNotesKyogre},
+    {gText_Close},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +915,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_STARTER_NOTES]              = MULTICHOICE(MultichoiceList_StarterNotes),
+    [MULTI_STARTER_NOTES_KYOGRE]       = MULTICHOICE(MultichoiceList_StarterNotesWithKyogre),
+
 };
 
 const u8 *const gStdStrings[] =

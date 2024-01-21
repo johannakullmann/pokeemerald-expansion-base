@@ -1,0 +1,186 @@
+const LOCALID_MOM = 1
+
+
+mapscripts Sandyshore_PlayerHouse_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_LITTLEROOT_INTRO_STATE, 1: Sandyshore_Playerhouse_EventScript_MomPleaseSetClock
+        VAR_LITTLEROOT_INTRO_STATE, 3: Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes
+    ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_LITTLEROOT_INTRO_STATE, 1 {
+            setobjectxy(LOCALID_MOM, 8, 3)
+            turnobject(LOCALID_MOM, DIR_NORTH)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 2 {
+            setobjectxy(LOCALID_MOM, 8, 3)
+            turnobject(LOCALID_MOM, DIR_NORTH)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 3 {
+            setobjectxy(LOCALID_MOM, 8, 3)
+            turnobject(LOCALID_MOM, DIR_NORTH)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 4 {
+            setobjectxy(LOCALID_MOM, 8, 3)
+            turnobject(LOCALID_MOM, DIR_NORTH)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 5 {
+            setobjectxy(LOCALID_MOM, 8, 3)
+            turnobject(LOCALID_MOM, DIR_NORTH)
+        }
+    ]
+}
+
+script Sandyshore_Playerhouse_EventScript_MomPleaseSetClock {
+    lockall
+    delay(10)
+    turnobject(LOCALID_MOM, DIR_WEST)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+    msgbox(format("Are you going out, dear?\p…\pI see, you're meeting up with Ruth.\pBefore you go, could you please set the new clock correctly?\p"
+            "It's right there on the wall next to the stairs."))
+    turnobject(LOCALID_MOM, DIR_NORTH)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 2)
+	releaseall
+	end
+}
+
+script Sandyshore_Playerhouse_EventScript_WallClock {
+    if (flag(FLAG_SET_WALL_CLOCK)) {
+        goto (Sandyshore_Playerhouse_EventScript_CheckWallClock)
+    } else {
+        goto (Sandyshore_Playerhouse_EventScript_SetClock)
+    }
+}
+
+script Sandyshore_Playerhouse_EventScript_SetClock {
+    lock
+	setvar(VAR_0x8004, MALE)
+	msgbox(PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(StartWallClock)
+	waitstate
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 3)
+	setflag(FLAG_SET_WALL_CLOCK)
+	release
+	end
+}
+
+script Sandyshore_Playerhouse_EventScript_CheckWallClock {
+	incrementgamestat(GAME_STAT_CHECKED_CLOCK)
+	fadescreen(FADE_TO_BLACK)
+	special(Special_ViewWallClock)
+	waitstate
+    release
+    end
+}
+
+script Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst {
+    lockall
+    turnobject(LOCALID_MOM, DIR_WEST)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
+    msgbox(format("The clock is right there on the wall next to the stairs."))
+    waitmessage
+    turnobject(LOCALID_MOM, DIR_NORTH)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    releaseall
+    end
+}
+
+script Sandyshore_Playerhouse_EventScript_Mom {
+    if (flag(FLAG_RECEIVED_STARTER)) {
+        lock
+        faceplayer
+        msgbox(format("Mom: How are you doing, {PLAYER}?\n"
+                "You look a little tired.\p"
+                "I think you should rest a bit.$"))
+        closemessage
+        call(Common_EventScript_OutOfCenterPartyHeal)
+        incrementgamestat(GAME_STAT_RESTED_AT_HOME)
+        release
+    }
+    else {
+        switch (var(VAR_LITTLEROOT_INTRO_STATE)) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                lock
+                faceplayer
+                msgbox(format("Are you two going to visit the Professor again?"))
+                closemessage
+                applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
+                waitmovement(LOCALID_MOM)
+                release
+                end
+            case 5:
+            case 6:
+            case 7:
+                lock
+                faceplayer
+                msgbox(format("Are you two going to visit the Professor again?"))
+                release
+                end
+        }  
+    }
+    end
+}
+
+script Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes {
+    lockall
+    delay(20)
+    turnobject(LOCALID_MOM, DIR_WEST)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceFasterLeft)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+    msgbox(format("Oh! Before I forget!"))
+    closemessage
+    applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkToShelf)
+    waitmovement(LOCALID_MOM)
+    delay(40)
+    applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkFromShelfToPlayer)
+    waitmovement(LOCALID_MOM)
+    msgbox(format("Your new shoes arrived earlier today!"))
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(LittlerootTown_Text_SwitchShoesWithRunningShoes)
+	waitfanfare
+	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 4)
+    setflag(FLAG_SYS_B_DASH)
+	msgbox(LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT)
+    msgbox(format("You two go and have fun outside, and don't forget to call if you'll be back home late!"))
+	closemessage
+    delay(10)
+	applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkFromPlayerToSink)
+    waitmovement(LOCALID_MOM)
+    releaseall
+    end
+}
+
+script Sandyshore_Playerhouse_EventScript_Skitty {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
+    msgbox(format("Skitty: Meoww!"))
+    release
+    end    
+}
+
+movement Sandyshore_Playerhouse_Movement_MomWalkToShelf {
+    walk_left *2
+    face_up
+}
+
+movement Sandyshore_Playerhouse_Movement_MomWalkFromShelfToPlayer {
+    walk_left
+}
+
+movement Sandyshore_Playerhouse_Movement_MomWalkFromPlayerToSink {
+    walk_right *3
+    face_up
+}

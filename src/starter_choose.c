@@ -23,6 +23,8 @@
 #include "window.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "string_util.h"
+#include "battle_main.h"
 
 #define STARTER_MON_COUNT   3
 
@@ -475,7 +477,7 @@ static void Task_StarterChoose(u8 taskId)
 {
     CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
     DrawStdFrameWithCustomTileAndPalette(0, FALSE, 0x2A8, 0xD);
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_BirchInTrouble, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(0, FONT_NORMAL, gText_ChooseStarter, 0, 1, 0, NULL);
     PutWindowTilemap(0);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_HandleStarterChooseInput;
@@ -529,7 +531,12 @@ static void Task_AskConfirmStarter(u8 taskId)
 {
     PlayCry_Normal(GetStarterPokemon(gTasks[taskId].tStarterSelection), 0);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
+    //AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
+    StringCopy(gStringVar1, GetSpeciesName(GetStarterPokemon(gTasks[taskId].tStarterSelection))); 
+    StringCopy(gStringVar2, gTypeNames[gSpeciesInfo[GetStarterPokemon(gTasks[taskId].tStarterSelection)].types[0]]);
+    //AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
+    StringExpandPlaceholders(gStringVar4, gText_StarterMonDescription);
+    AddTextPrinterParameterized(0, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
     CreateYesNoMenu(&sWindowTemplate_ConfirmStarter, 0x2A8, 0xD, 0);
     gTasks[taskId].func = Task_HandleConfirmStarterInput;
@@ -545,6 +552,7 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
         // Return the starter choice and exit.
         gSpecialVar_Result = gTasks[taskId].tStarterSelection;
         ResetAllPicSprites();
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         SetMainCallback2(gMain.savedCallback);
         break;
     case 1:  // NO

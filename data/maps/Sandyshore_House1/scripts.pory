@@ -1,0 +1,43 @@
+const LOCALID_GRANDPA = 2
+const LOCALID_ZIGZAGOON = 3
+
+mapscripts Sandyshore_House1_MapScripts {}
+
+script Sandyshore_House1_Grandma {
+    lock
+    faceplayer
+    if (!flag(FLAG_DAILY_SANDYSHORE_RECEIVED_COOKIE)) {
+        msgbox(format("Welcome, {PLAYER}! It is nice of you to visit.\pI just made cookies earlier. Please, take one!"))
+        giveitem(ITEM_LAVA_COOKIE)
+        setflag(FLAG_DAILY_SANDYSHORE_RECEIVED_COOKIE)
+    }
+    else {
+        msgbox(format("Welcome, {PLAYER}! It is nice of you to visit."))
+    }
+    release
+    end
+}
+
+script Sandyshore_House1_Grandpa {
+    lock
+    faceplayer
+    msgbox(format("Zigzagoon and I like to take a stroll on the beach every once in a while.\pWith its ability Pickup, it sometimes brings me small gifts too!"))
+    applymovement(LOCALID_GRANDPA, Common_Movement_WalkInPlaceRight)
+    applymovement(LOCALID_ZIGZAGOON, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    msgbox(format("You're such a good boy, aren't you!"))
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)    
+    msgbox("Gooo!")
+    release
+    end
+}
+
+script Sandyshore_House1_Zigzagoon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+    msgbox("Gooo!")
+    closemessage
+    release
+    end
+}

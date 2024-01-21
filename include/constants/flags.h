@@ -1506,16 +1506,16 @@
 #define FLAG_DEBUG_DISABLE_TERRAIN_COLLISION        (SYSTEM_FLAGS + 0x85)
 #define FLAG_DEBUG_DISABLE_TRAINER_VISION           (SYSTEM_FLAGS + 0x86) 
 #define FLAG_DEBUG_DISABLE_WILD_ENCOUNTERS          (SYSTEM_FLAGS + 0x87) 
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
-#define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
-#define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
-#define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
+#define FLAG_READ_BRENDANS_NOTE_TOXATIEL            (SYSTEM_FLAGS + 0x88)
+#define FLAG_READ_BRENDANS_NOTE_GROCKO              (SYSTEM_FLAGS + 0x89)
+#define FLAG_READ_BRENDANS_NOTE_CHIMERA             (SYSTEM_FLAGS + 0x8A)
+#define FLAG_READ_BRENDANS_NOTE_KYOGRE              (SYSTEM_FLAGS + 0x8B)
+#define FLAG_RECEIVED_STARTER                       (SYSTEM_FLAGS + 0x8C)
+#define FLAG_ENABLE_RUTH_MATCH_CALL                 (SYSTEM_FLAGS + 0x8D) // Unused Flag
+#define FLAG_STARTED_MC_TUTORIAL                    (SYSTEM_FLAGS + 0x8E) // Unused Flag
+#define FLAG_RUTH_MET                               (SYSTEM_FLAGS + 0x8F) // Unused Flag
+#define FLAG_DONE_CATCH_TUTORIAL                    (SYSTEM_FLAGS + 0x90) // Unused Flag
+#define FLAG_DEFEATED_RIVAL_1                       (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
@@ -1567,7 +1567,7 @@
 // These flags are cleared once per day
 // The start and end are byte-aligned because the flags are cleared in byte increments
 #define DAILY_FLAGS_START                           (FLAG_UNUSED_0x91F + (8 - FLAG_UNUSED_0x91F % 8))
-#define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
+#define FLAG_DAILY_SANDYSHORE_RECEIVED_COOKIE       (DAILY_FLAGS_START + 0x0)
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_UNUSED_0x923                           (DAILY_FLAGS_START + 0x3)  // Unused Flag

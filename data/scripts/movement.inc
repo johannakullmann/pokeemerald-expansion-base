@@ -6,6 +6,14 @@ Common_Movement_ExclamationMark:
 	emote_exclamation_mark
 	step_end
 
+Common_Movement_ExclamationMarkAndWait:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
 Common_Movement_Delay48:
 	delay_16
 	delay_16
@@ -56,6 +64,10 @@ Common_Movement_FaceUp:
 	face_up
 	step_end
 
+Common_Movement_WalkInPlaceUp:
+	walk_in_place_up
+	step_end
+
 Common_Movement_WalkInPlaceDown:
 	walk_in_place_down
 	step_end
@@ -93,8 +105,14 @@ Common_Movement_WalkUp:
 	walk_up
 	step_end
 
-@ Unused
-Common_Movement_WalkUp2::
-	walk_up
-	walk_up
+Common_Movement_WalkDown:
+	walk_down
+	step_end
+
+Common_Movement_WalkLeft:
+	walk_left
+	step_end
+
+Common_Movement_WalkRight:
+	walk_right
 	step_end

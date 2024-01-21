@@ -1,0 +1,469 @@
+const LOCALID_BRENDAN = 1
+const LOCALID_RUTH = 2
+const LOCALID_POKEBALLS = 4
+const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_7
+
+mapscripts Sandyshore_Inn_2F_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_LITTLEROOT_INTRO_STATE, 6 {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+            //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 7 {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+            setobjectxyperm(LOCALID_RUTH, 20, 5)
+            turnobject(LOCALID_RUTH, DIR_SOUTH)
+            //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 8 {
+            setflag(TEMP_FLAG_HIDE_RUTH)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+        }
+        VAR_LITTLEROOT_INTRO_STATE, 9 {
+            setflag(TEMP_FLAG_HIDE_RUTH)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+        }
+    ]
+}
+
+script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1 {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
+    waitmovement(OBJ_EVENT_ID_PLAYER) 
+    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
+}
+script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2 {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
+    waitmovement(OBJ_EVENT_ID_PLAYER) 
+    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
+}
+script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_3 {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
+    waitmovement(OBJ_EVENT_ID_PLAYER) 
+    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
+}
+
+script Sandyshore_Inn_2F_EventScript_GoToBrendansRoom {
+    msgbox(format("I wonder what the professor wants us to help him with..\pOnly one way to find out!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom)
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom)
+    waitmovement(0)
+    goto(Sandyshore_Inn_EventScript_BrendanNoticePlayer)
+}
+
+script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
+    lockall
+    delay(20)
+    turnobject(LOCALID_BRENDAN, DIR_SOUTH)
+    applymovement(LOCALID_BRENDAN, Common_Movement_WalkDown)
+    waitmovement(LOCALID_BRENDAN)
+    msgbox(format("Oh! You're already here!"))
+    closemessage
+    delay(10)
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_WalkUpToBrendanRuth)
+    delay(10)
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_WalkUpToBrendanPlayer)
+    waitmovement(LOCALID_RUTH)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    turnobject(LOCALID_BRENDAN, DIR_WEST)
+    delay(10)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("Ruth: Professor…"))
+    applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    msgbox(format("Brendan: I'm not a professor yet, I'm still in the middle of writing my thesis…"))
+    closemessage
+    delay(20)
+    applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceFasterDown)
+    waitmovement(0)
+    delay(20)
+    applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceFasterUp)
+    waitmovement(0)
+    msgbox(format("… I'm sorry, it's eating so much of my time I haven't had the time to tidy up."))
+    closemessage
+    applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    msgbox(format("Actually, that's part of the reason I wanted to talk to the both of you.\pYou already have experience with Pokémon, right?"))
+    closemessage
+    applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("Ruth: Yes! I've already had a Pokémon since not too long ago!\pAnd {PLAYER}'s family has a Skitty at home."))
+    closemessage
+    turnobject(LOCALID_RUTH, DIR_EAST)
+    applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    msgbox(format("Brendan: Perfect."))
+    closemessage
+    applymovement(LOCALID_BRENDAN, Common_Movement_WalkDown)
+    waitmovement(0)
+    msgbox(format("These are three rare Pokémon I have been studying.\p"
+            "I caught them in the wild, so they prefer to be outside…"
+            "but at the moment I am struggling to find time to properly care for all three of them."))
+    turnobject(LOCALID_BRENDAN, DIR_WEST)
+    msgbox(format("Would you two be able to take one of them each?"), MSGBOX_YESNO)
+    switch(var(VAR_RESULT)) {
+        case NO:
+            applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+            msgbox(format("Ruth: {PLAYER}, this is not the time to joke around!\pThe professor might think you're serious!"))
+            applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+            waitmovement(0)
+            msgbox(format("Of course, we're always happy to help out!"))
+        case YES:
+            applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+            waitmovement(0)
+            msgbox(format("Ruth: Of course, we're always happy to help out!"))
+    }
+    applymovement(LOCALID_BRENDAN, Common_Movement_WalkInPlaceLeft)
+    msgbox(format("Brendan: Thanks, that really means a lot to me."))
+    applymovement(LOCALID_BRENDAN, Common_Movement_WalkRight)
+    waitmovement(0)
+    turnobject(LOCALID_BRENDAN, DIR_WEST)
+    msgbox(format("Please, go ahead and pick one.\pThere should be some notes about them on my desk to help you choose."))
+    turnobject(LOCALID_RUTH, DIR_SOUTH)
+    msgbox(format("Ruth: {PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 7)
+    closemessage
+    releaseall
+    end
+}
+
+script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon {
+    lock
+    applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox("Where are you going, {PLAYER}?")
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    release
+    end
+}
+
+script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft {
+    lock
+    applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox("Where are you going, {PLAYER}?")
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
+    waitmovement(0)
+    release
+    end
+}
+
+script Sandyshore_Inn_EventScript_PickMon {
+    if (flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        msgbox(format("It's the professor's last Pokémon..."))
+        release
+        end
+    }
+    lock
+	setflag(FLAG_SYS_POKEMON_GET)
+	fadescreen(FADE_TO_BLACK)
+	special(ChooseStarter)
+    removeobject(LOCALID_POKEBALLS)
+    //setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2)
+    addobject(LOCALID_POKEBALLS)
+	waitstate
+    playfanfare(MUS_OBTAIN_ITEM)
+    bufferleadmonspeciesname(STR_VAR_1)
+    msgbox("{PLAYER} obtained the {STR_VAR_1}!", MSGBOX_AUTOCLOSE)
+    waitfanfare
+    waitmessage
+    applymovement(LOCALID_BRENDAN, Common_Movement_WalkInPlaceLeft)
+    msgbox(format("Brendan: While you're at it, why not\n"
+	    "give a nickname to that {STR_VAR_1}?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        setvar(VAR_0x8004, 0)
+	    call(Common_EventScript_NameReceivedPartyMon)
+    }
+    else {
+        closemessage
+    }
+    setflag(FLAG_RECEIVED_STARTER)
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkAfterChooseStarter)
+    waitmovement(0)
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthWalkToPokeballs)
+    waitmovement(0)
+    switch (var(VAR_STARTER_MON)) {
+        case 0:
+            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //grocko
+        case 1:
+            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //chimera
+        case 2:
+            bufferspeciesname(STR_VAR_1, SPECIES_NONE) //toxatiel
+    }
+    msgbox("Ruth: Then I'll choose this {STR_VAR_1}!")
+    removeobject(LOCALID_POKEBALLS)
+    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+    addobject(LOCALID_POKEBALLS)
+    closemessage
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+    waitmovement (0)
+    delay(30)
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthWalkAfterChooseStarter)
+    waitmovement(0)
+    delay(10)
+    applymovement(LOCALID_BRENDAN, Sandyshore_Inn_2F_Movement_BrendanWalkAfterChooseStarter)
+    waitmovement(0)
+    msgbox(format("Brendan: Thanks for helping me out! Please take good care of these two!"))
+    closemessage
+    delay(20)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
+    msgbox(format("Hey, {PLAYER}…\pNow that you have a Pokémon, you know what we should do?"))
+    closemessage
+    delay(60)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("I should teach you how to catch a Pokémon, of course!\p"
+            "What did you think? Battle?\p"
+            "Nah, that wouldn't be fair.\p"
+            "I have more experience AND my Pokémon has a type advantage.\p"
+            "You should practice against wild Pokémon first."))
+    closemessage
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1)
+    waitmovement(0)
+    msgbox(format("I'll go grab some Pokéballs, meet me at the town exit!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom2)
+    waitmovement(0)
+    removeobject(LOCALID_RUTH)
+    setflag(TEMP_FLAG_HIDE_RUTH)
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 8)
+	release
+	end
+}
+
+script Sandyshore_Inn_EventScript_Ruth {
+    if (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
+        lock
+        faceplayer
+        msgbox(format("Ruth: {PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
+        closemessage
+        release
+    }
+    end    
+}
+
+script Sandyshore_Inn_EventScript_Brendan {
+    lock
+    faceplayer
+    if (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
+        msgbox(format("Go ahead and choose one!\pThere should be some notes about them on my desk so you can see which one fits best for you."))
+    }
+    else {
+        msgbox(format("Please take good care of this little one!"))
+    }
+    closemessage
+    release
+}
+
+movement Sandyshore_Inn_2F_Movement_StepLeftUp {
+    walk_left
+    walk_up
+}
+
+movement Sandyshore_Inn_2F_Movement_WalkUpToBrendanPlayer {
+    walk_up *1
+    face_right
+}
+
+movement Sandyshore_Inn_2F_Movement_WalkUpToBrendanRuth {
+    walk_up *2
+    walk_right
+}
+
+movement Sandyshore_Inn_2F_Movement_PlayerWalkAfterChooseStarter {
+    walk_left *2
+    face_right
+}
+
+movement Sandyshore_Inn_2F_Movement_RuthWalkToPokeballs {
+    walk_right *2
+    walk_down
+}
+
+movement Sandyshore_Inn_2F_Movement_RuthWalkAfterChooseStarter {
+    walk_up
+    walk_left *2
+    face_right
+}
+
+movement Sandyshore_Inn_2F_Movement_BrendanWalkAfterChooseStarter {
+    walk_left
+    walk_up
+    face_left
+}
+
+movement Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1 {
+    walk_fast_left
+    walk_fast_down *3
+    face_up
+}
+
+movement Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom2 {
+    walk_fast_right
+    walk_fast_down *5
+}
+
+script Sandyshore_Inn_2F_EventScript_MudkipDoll {
+    lock
+    msgbox(format("It's a cute little Mudkip doll!"))
+    closemessage
+    release
+    end
+}
+
+script Sandyshore_Inn_2F_EventScript_OpenStarterBook {
+    lock
+    if (flag(FLAG_READ_BRENDANS_NOTE_TOXATIEL) && flag(FLAG_READ_BRENDANS_NOTE_GROCKO) && flag(FLAG_READ_BRENDANS_NOTE_CHIMERA)) {
+        msgbox(format("It's the Professor's notes about the three Pokémon… And a mystery note.\pOpen at which page?"))
+        goto(Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes)
+    }
+    msgbox(format("It's the Professor's notes about the three Pokémon…\pOpen at which page?"))
+    goto(Sandyshore_Inn_2F_EventScript_StarterBook)
+}
+
+script Sandyshore_Inn_2F_EventScript_StarterBook {
+	multichoice (0, 0, MULTI_STARTER_NOTES, FALSE)
+	switch(var(VAR_RESULT)) {
+        case 0: //toxatiel
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_TOXATIEL)
+            hidemonpic
+        case 1: //grocko
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
+            hidemonpic
+        case 2: //chimera
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
+            hidemonpic
+        default:
+            closemessage
+            release
+            end
+    }
+    if (flag(FLAG_READ_BRENDANS_NOTE_TOXATIEL) && flag(FLAG_READ_BRENDANS_NOTE_GROCKO) && flag(FLAG_READ_BRENDANS_NOTE_CHIMERA) && !flag(FLAG_READ_BRENDANS_NOTE_KYOGRE)) {
+        msgbox(format("… There's another note between the pages. Read it?"), MSGBOX_YESNO)
+        waitmessage
+        if (var(VAR_RESULT) == YES) {
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_KYOGRE)
+        }
+    }
+    else {
+        msgbox(format("Open which page?"))
+        goto(Sandyshore_Inn_2F_EventScript_StarterBook)
+    }
+    closemessage
+    release
+    end
+}
+
+script Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes {
+	multichoice (0, 0, MULTI_STARTER_NOTES_KYOGRE, TRUE)
+	switch(var(VAR_RESULT)) {
+        case 0: //toxatiel
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_TOXATIEL)
+            hidemonpic
+        case 1: //grocko
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
+            hidemonpic
+        case 2: //chimera
+            showmonpic(SPECIES_NONE, 10, 3)
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
+            hidemonpic
+        case 3:
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes)
+        default:
+            closemessage
+            release
+            end
+    }
+    hidemonpic
+    if (flag(FLAG_READ_BRENDANS_NOTE_TOXATIEL) && flag(FLAG_READ_BRENDANS_NOTE_GROCKO) && flag(FLAG_READ_BRENDANS_NOTE_CHIMERA) && !flag(FLAG_READ_BRENDANS_NOTE_KYOGRE)) {
+        msgbox(format("… There's another note between the pages. Read it?"), MSGBOX_YESNO)
+        waitmessage
+        if (var(VAR_RESULT) == YES) {
+            msgbox(Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes)
+            setflag(FLAG_READ_BRENDANS_NOTE_KYOGRE)
+        }
+    }
+    else {
+        msgbox(format("Open which page?"))
+        goto(Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes)
+    }
+    closemessage
+    release
+    end
+}
+
+movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1 {
+    walk_down
+    walk_right
+}
+movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2 {
+    walk_right
+}
+movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3 {
+    walk_up
+    walk_right
+}
+
+movement Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom {
+    walk_up*7
+    walk_left
+    face_up
+}
+
+movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom {
+    walk_right
+    walk_up *7
+}
+
+text Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes {
+    format("Toxatiel - A rare bird Pokémon from the treetops of Fortree City.\p"
+            "This little bird is one of the most acrobatic fliers I've seen!\p"
+            "Its flight resembles bug-type Pokémon like Yanma rather than birds, which allows it to hover in the air and even fly backwards.\p"
+            "Its saliva irritates the skin, I suspect it to be toxic, possibly for use in hunting insects.")
+}
+
+text Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes {
+    format("Grocko - An elusive rock-type Pokémon from the Cave of Origin.\p"
+            "I found this curious little Pokémon snuggled up in a cluster of crystals.\p"
+            "Its feet aren't sticky, but I haven't yet found a surface it can't climb.\p"
+            "It can even cling to ceilings without any effort!\p"
+            "It loves belly rubs, but doesn't seem to like when I touch the gems on its head and tail.")
+}
+
+text Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes {
+    format("Chimera - A feisty fighting-type from the cliffs of Mt. Ember.\p"
+            "This especially energetic little Pokémon picks fights with everything.\p"
+            "Even inanimate objects aren't safe from its headbutt.\p"
+            "I am so glad the innkeeper isn't too mad about all the broken chairs…")
+}
+
+text Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes {
+    format("Needs text, and Jojo couldn't think of one yet. Basically, this is a cryptic note"
+            "about Brendans observation of the tides and ocean currents at the nearby underwater ruins,"
+            "suggesting there's something big down there.")
+}

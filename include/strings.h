@@ -394,7 +394,9 @@ extern const u8 gText_DefaultNameLucy[];
 extern const u8 gText_DefaultNameHalie[];
 
 extern const u8 gText_BirchInTrouble[];
+extern const u8 gText_ChooseStarter[];
 extern const u8 gText_ConfirmStarterChoice[];
+extern const u8 gText_StarterMonDescription[];
 
 // mystery event menu text
 extern const u8 gText_EventSafelyLoaded[];
@@ -1309,6 +1311,12 @@ extern const u8 gText_TrainerHill1F[];
 extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
+
+extern const u8 gText_BrendanNotesToxatiel[];
+extern const u8 gText_BrendanNotesGrocko[];
+extern const u8 gText_BrendanNotesChimera[];
+extern const u8 gText_BrendanNotesKyogre[];
+extern const u8 gText_Close[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];
@@ -2415,6 +2423,7 @@ extern const u8 MatchCall_Text_Norman9[];
 extern const u8 MatchCall_Text_Mom1[];
 extern const u8 MatchCall_Text_Mom2[];
 extern const u8 MatchCall_Text_Mom3[];
+extern const u8 MatchCall_Text_Mom4[];
 extern const u8 MatchCall_Text_Steven1[];
 extern const u8 MatchCall_Text_Steven2[];
 extern const u8 MatchCall_Text_Steven3[];
@@ -2499,6 +2508,13 @@ extern const u8 MatchCall_Text_Phoebe[];
 extern const u8 MatchCall_Text_Glacia[];
 extern const u8 MatchCall_Text_Drake[];
 extern const u8 MatchCall_Text_Wallace[];
+extern const u8 MatchCall_Text_Ruth1[];
+extern const u8 MatchCall_Text_Ruth2[];
+extern const u8 MatchCall_Text_Ruth3[];
+extern const u8 MatchCall_Text_Ruth4[];
+extern const u8 MatchCall_Text_Ruth5[];
+extern const u8 MatchCall_Text_Ruth_Nearby[];
+
 extern const u8 gText_MrStoneMatchCallDesc[];
 extern const u8 gText_MrStoneMatchCallName[];
 extern const u8 gText_StevenMatchCallDesc[];
@@ -2522,6 +2538,8 @@ extern const u8 gText_EliteFourMatchCallDesc[];
 extern const u8 gText_ChampionMatchCallDesc[];
 extern const u8 gText_ProfBirchMatchCallDesc[];
 extern const u8 gText_ProfBirchMatchCallName[];
+extern const u8 gText_RuthMatchCallDesc[];
+extern const u8 gText_RuthMatchCallName[];
 extern const u8 gText_MatchCallSteven_Strategy[];
 extern const u8 gText_MatchCallSteven_Pokemon[];
 extern const u8 gText_MatchCallSteven_Intro1_BeforeMeteorFallsBattle[];

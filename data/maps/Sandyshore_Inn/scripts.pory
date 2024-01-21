@@ -1,0 +1,38 @@
+const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
+const LOCALID_RUTH = 1
+
+mapscripts Sandyshore_Inn_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {	
+        if (var(VAR_LITTLEROOT_INTRO_STATE) == 5) {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+        }
+        else {
+            setflag(TEMP_FLAG_HIDE_RUTH)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_LITTLEROOT_INTRO_STATE, 5: Sandyshore_Inn_EventScript_RuthGoUpstairs
+    ]
+}
+
+script Sandyshore_Inn_EventScript_RuthGoUpstairs {
+    lock
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("Here, this way!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Sandyshore_Inn_Movement_RuthWalkUpstairs)
+    waitmovement(0)
+    removeobject(LOCALID_RUTH)
+    setflag(TEMP_FLAG_HIDE_RUTH)
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 6)
+    release
+    end
+}
+
+movement Sandyshore_Inn_Movement_RuthWalkUpstairs {
+    walk_left * 3
+    walk_up *4
+}
+
+

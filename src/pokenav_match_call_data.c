@@ -159,6 +159,44 @@ static void MatchCall_GetNameAndDescByRematchIdx(u32, const u8 **, const u8 **);
 
 // .rodata
 
+static const match_call_text_data_t sRuthTextScripts[] = {
+    { MatchCall_Text_Ruth1,  0xFFFF,                          0xFFFF},
+    { MatchCall_Text_Ruth_Nearby,  FLAG_RUTH_MET,             0xFFFF},
+    { MatchCall_Text_Ruth2,  FLAG_RECEIVED_STARTER,           0xFFFF},
+    { MatchCall_Text_Ruth3,  FLAG_DONE_CATCH_TUTORIAL,        0xFFFF},
+    { MatchCall_Text_Ruth4,  FLAG_DEFEATED_RIVAL_1,           0xFFFF},
+    { MatchCall_Text_Ruth5,  FLAG_ENABLE_MR_STONE_POKENAV,    0xFFFF},
+    { NULL,                  0xFFFF,                          0xFFFF}
+};
+
+static const struct MatchCallStructNPC sRuthMatchCallHeader =
+{
+    .type = MC_TYPE_NPC,
+    .mapSec = MAPSEC_SANDYSHORE_TOWN,
+    .flag = FLAG_ENABLE_RUTH_MATCH_CALL,
+    .desc = gText_RuthMatchCallDesc,
+    .name = gText_RuthMatchCallName,
+    .textData = sRuthTextScripts
+};
+
+static const match_call_text_data_t sMomTextScripts[] = {
+    { MatchCall_Text_Mom1, 0xFFFF,                      0xFFFF },
+    { MatchCall_Text_Mom2, FLAG_RECEIVED_STARTER,       0xFFFF },
+    { MatchCall_Text_Mom3, FLAG_STARTED_MC_TUTORIAL,    FLAG_ENABLE_MR_STONE_POKENAV },
+    { MatchCall_Text_Mom4, FLAG_ENABLE_MR_STONE_POKENAV,0xFFFF },
+    { NULL,                0xFFFF,                      0xFFFF }
+};
+
+static const struct MatchCallStructNPC sMomMatchCallHeader =
+{
+    .type = MC_TYPE_NPC,
+    .mapSec = MAPSEC_SANDYSHORE_TOWN,
+    .flag = FLAG_ENABLE_MOM_MATCH_CALL,
+    .desc = gText_MomMatchCallDesc,
+    .name = gText_MomMatchCallName,
+    .textData = sMomTextScripts
+};
+
 static const match_call_text_data_t sMrStoneTextScripts[] = {
     { MatchCall_Text_MrStone1,  0xFFFF,                              FLAG_ENABLE_MR_STONE_POKENAV },
     { MatchCall_Text_MrStone2,  FLAG_ENABLE_MR_STONE_POKENAV,        0xFFFF },
@@ -178,7 +216,6 @@ static const struct MatchCallStructNPC sMrStoneMatchCallHeader =
 {
     .type = MC_TYPE_NPC,
     .mapSec = MAPSEC_RUSTBORO_CITY,
-    .flag = 0xFFFF,
     .desc = gText_MrStoneMatchCallDesc,
     .name = gText_MrStoneMatchCallName,
     .textData = sMrStoneTextScripts
@@ -215,23 +252,6 @@ static const struct MatchCallBirch sProfBirchMatchCallHeader =
     .flag = FLAG_ENABLE_PROF_BIRCH_MATCH_CALL,
     .desc = gText_ProfBirchMatchCallDesc,
     .name = gText_ProfBirchMatchCallName
-};
-
-static const match_call_text_data_t sMomTextScripts[] = {
-    { MatchCall_Text_Mom1, 0xFFFF,                      0xFFFF },
-    { MatchCall_Text_Mom2, FLAG_DEFEATED_PETALBURG_GYM, 0xFFFF },
-    { MatchCall_Text_Mom3, FLAG_SYS_GAME_CLEAR,         0xFFFF },
-    { NULL,                0xFFFF,                      0xFFFF }
-};
-
-static const struct MatchCallStructNPC sMomMatchCallHeader =
-{
-    .type = MC_TYPE_NPC,
-    .mapSec = MAPSEC_LITTLEROOT_TOWN,
-    .flag = FLAG_ENABLE_MOM_MATCH_CALL,
-    .desc = gText_MomMatchCallDesc,
-    .name = gText_MomMatchCallName,
-    .textData = sMomTextScripts
 };
 
 static const match_call_text_data_t sStevenTextScripts[] = {
@@ -598,7 +618,8 @@ static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_PHOEBE]     = {.leader = &sPhoebeMatchCallHeader},
     [MC_HEADER_GLACIA]     = {.leader = &sGlaciaMatchCallHeader},
     [MC_HEADER_DRAKE]      = {.leader = &sDrakeMatchCallHeader},
-    [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader}
+    [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader},
+    [MC_HEADER_RUTH]       = {.npc = &sRuthMatchCallHeader}
 };
 
 static bool32 (*const sMatchCallGetEnabledFuncs[])(match_call_t) = {

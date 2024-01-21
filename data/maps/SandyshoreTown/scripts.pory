@@ -1,0 +1,78 @@
+const LOCALID_RUTH = 1
+const LOCALID_LITTLE_GIRL = 2
+const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
+
+mapscripts SandyshoreTown_MapScripts {
+
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_VISITED_SANDYSHORE_TOWN)	
+        if (var(VAR_LITTLEROOT_INTRO_STATE) == 4) {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+        }
+        else {
+            setflag(TEMP_FLAG_HIDE_RUTH)
+        }
+    }
+}
+
+script SandyshoreTown_EventScript_InnSign {
+    lock
+    msgbox("Sandyshore Inn")
+    release
+    end
+}
+
+script SandyshoreTown_EventScript_PreventExit_Route135 {
+    lock
+    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
+    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_ExclamationMarkAndWait)
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    msgbox(format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\p"
+            "I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him..."))
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+    waitmovement(0)
+    release
+    end
+}
+
+script SandyshoreTown_EventScript_LittleGirl {
+    lock
+    faceplayer
+    msgbox(format("I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him..."))
+
+}
+
+script SandyshoreTown_EventScript_RuthNoticePlayer_Left {
+    lock
+    turnobject(LOCALID_RUTH, DIR_WEST)
+    goto(SandyshoreTown_EventScript_RuthNoticePlayer)
+}
+
+script SandyshoreTown_EventScript_RuthNoticePlayer_Right {
+    lock
+    turnobject(LOCALID_RUTH, DIR_EAST)
+    goto(SandyshoreTown_EventScript_RuthNoticePlayer)
+}
+
+script SandyshoreTown_EventScript_RuthNoticePlayer {
+    applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndWait)
+    waitmovement(0)
+    msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))
+    closemessage
+    applymovement(LOCALID_RUTH, Common_Movement_WalkUp)
+    waitmovement(0)
+    opendoor(26, 8)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkUp)
+	waitdooranim
+    waitmovement(0)
+    closedoor(26, 8)
+    waitdooranim
+    removeobject(LOCALID_RUTH)
+    setflag(TEMP_FLAG_HIDE_RUTH)
+    setvar(VAR_LITTLEROOT_INTRO_STATE, 5)
+    release
+    end
+}

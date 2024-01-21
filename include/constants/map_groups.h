@@ -269,6 +269,12 @@
 #define MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_2F (14 | (16 << 8))
 
 // gMapGroup_IndoorSandyshore
+#define MAP_SANDYSHORE_HOUSE1          (0 | (17 << 8))
+#define MAP_SANDYSHORE_PLAYER_HOUSE    (1 | (17 << 8))
+#define MAP_SANDYSHORE_PLAYER_HOUSE_2F (2 | (17 << 8))
+#define MAP_SANDYSHORE_RIVAL_HOUSE     (3 | (17 << 8))
+#define MAP_SANDYSHORE_INN             (4 | (17 << 8))
+#define MAP_SANDYSHORE_INN_2F          (5 | (17 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (18 << 8))
