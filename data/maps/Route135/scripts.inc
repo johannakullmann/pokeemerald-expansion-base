@@ -102,11 +102,8 @@ Route135_Movement_RuthLeave:
 	step_end
 
 Route135_EventScript_Boy1::
-	lock
-	faceplayer
-	msgbox Route135_EventScript_Boy1_Text_0
-	release
-	end
+	msgbox Route135_EventScript_Boy1_Text_0, MSGBOX_NPC
+	return
 
 
 Route135_EventScript_CatchTutorialMain_Text_0:
@@ -146,10 +143,10 @@ Route135_EventScript_Boy1_Text_0:
 	.string "Did you know that Pokémon have\n"
 	.string "different weaknesses depending on\l"
 	.string "their type?\p"
-	.string "My Taillow can easily defeat wild Budew\n"
-	.string "with its flying-type attack!\p"
-	.string "It doesn't do well against a Neuchi's\n"
-	.string "Thundershock, though…$"
+	.string "My Wingull can easily defeat wild Budew\n"
+	.string "with its flying-type moves!\p"
+	.string "It doesn't do well against eletric or\n"
+	.string "rock-type attacks, though…$"
 
 Route135_Text_CatchTutorialPsstComeOverHere::
 	.string "Psst! {PLAYER}!\p"
