@@ -39,6 +39,7 @@ Sandyshore_Inn_Movement_RuthWalkUpstairs:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
+	walk_fast_up
 	step_end
 
 Sandyshore_Inn_EventScript_RuthGoUpstairs_Text_0:
