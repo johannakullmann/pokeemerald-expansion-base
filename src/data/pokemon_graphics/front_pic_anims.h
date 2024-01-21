@@ -10104,6 +10104,126 @@ PLACEHOLDER_ANIM_SINGLE_FRAME(Fezandipiti);
 PLACEHOLDER_ANIM_SINGLE_FRAME(Ogerpon);
 #endif //P_FAMILY_OGERPON
 
+#if P_FAMILY_TOXATIEL
+static const union AnimCmd sAnim_Toxatiel_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Toxatoo_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Toxatrice_1[] =
+{
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_GROCKO
+static const union AnimCmd sAnim_Grocko_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Rubecko_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Drabuncle_1[] =
+{
+    
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_GROCKO
+
+#if P_FAMILY_CHIMERA
+static const union AnimCmd sAnim_Chimera1_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Chimera2_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Chimera3_1[] =
+{
+    
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 35),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_CHIMERA
+
+#if P_FAMILY_HATCHIK
+static const union AnimCmd sAnim_Hatchik_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Dodo2_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+static const union AnimCmd sAnim_Mbielu_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mbielava_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+#endif //P_FAMILY_MBIELU
+
 static const union AnimCmd sAnim_Egg_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -12753,4 +12873,28 @@ SINGLE_ANIMATION(Fezandipiti);
 #if P_FAMILY_OGERPON
 SINGLE_ANIMATION(Ogerpon);
 #endif //P_FAMILY_OGERPON
+#if P_FAMILY_TOXATIEL
+SINGLE_ANIMATION(Toxatiel);
+SINGLE_ANIMATION(Toxatoo);
+SINGLE_ANIMATION(Toxatrice);
+#endif //P_FAMILY_TOXATIEL
+#if P_FAMILY_GROCKO
+SINGLE_ANIMATION(Grocko);
+SINGLE_ANIMATION(Rubecko);
+SINGLE_ANIMATION(Drabuncle);
+#endif //P_FAMILY_GROCKO
+#if P_FAMILY_CHIMERA 
+SINGLE_ANIMATION(Chimera1);
+SINGLE_ANIMATION(Chimera2);
+SINGLE_ANIMATION(Chimera3);
+#endif //P_FAMILY_CHIMERA
+#if P_FAMILY_HATCHIK 
+SINGLE_ANIMATION(Hatchik);
+SINGLE_ANIMATION(Dodo2);
+#endif //P_FAMILY_HATCHIK
+#if P_FAMILY_MBIELU 
+SINGLE_ANIMATION(Mbielu);
+SINGLE_ANIMATION(Mbielava);
+#endif //P_FAMILY_MBIELU
+
 SINGLE_ANIMATION(Egg);

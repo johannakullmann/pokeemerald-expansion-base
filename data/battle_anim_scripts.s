@@ -875,6 +875,10 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
+
+@@@@ CUSTOM MOVES @@@@
+	.4byte Move_PEBBLE_SHOT
+
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21807,6 +21811,17 @@ MudSlapMud:
 	createsprite gMudSlapMudSpriteTemplate, ANIM_TARGET, 2, 15, 15, 20, -20, -10
 	delay 2
 	return
+
+Move_PEBBLE_SHOT:
+	loadspritegfx ANIM_TAG_BLACK_BALL
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ROCKS
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gPebbleShotRockSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 0, 21, 65511 @2, 20, 0, 0, 0, 21, 65511
+	waitforvisualfinish
+	createvisualtask AnimTask_SmokescreenImpact, 0x8, 0x400, 0x1902
+	waitforvisualfinish
+	end
 
 Move_DRAGON_RAGE:
 	loadspritegfx ANIM_TAG_SMALL_EMBER

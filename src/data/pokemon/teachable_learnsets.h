@@ -39078,3 +39078,65 @@ static const u16 sOgerponTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_OGERPON
+
+#if P_FAMILY_TOXATIEL
+static const u16 sToxatielTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sToxatooTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sToxatriceTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_GROCKO
+static const u16 sGrockoTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sRubeckoTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDrabuncleTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_GROCKO
+
+#if P_FAMILY_CHIMERA
+static const u16 sChimera1TeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sChimera2TeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sChimera3TeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_CHIMERA
+
+#if P_FAMILY_HATCHIK
+static const u16 sHatchikTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDodo2TeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+static const u16 sMbieluTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMbielavaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_MBIELU

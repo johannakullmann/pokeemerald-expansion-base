@@ -6104,6 +6104,14 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
     [MOVE_UPPER_HAND] = {0}, // TODO
 
     [MOVE_MALIGNANT_CHAIN] = {0}, // TODO
+
+    [MOVE_PEBBLE_SHOT] =
+    {
+        .effect = CONTEST_EFFECT_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .comboStarterId = 0,
+        .comboMoves = {0},
+    },
 };
 
 const struct ContestEffect gContestEffects[] =

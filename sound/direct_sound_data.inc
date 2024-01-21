@@ -6110,6 +6110,68 @@ Cry_Ogerpon::
 	.incbin "sound/direct_sound_samples/cries/ogerpon.bin"
 .endif @ P_FAMILY_OGERPON
 
+.if P_FAMILY_TOXATIEL == TRUE
+	.align 2
+Cry_Toxatiel::
+	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	
+	.align 2
+Cry_Toxatoo::
+	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+	
+	.align 2
+Cry_Toxatrice::
+	.incbin "sound/direct_sound_samples/cries/toxatrice.bin"
+.endif @ P_FAMILY_TOXATIEL
+
+.if P_FAMILY_GROCKO == TRUE
+	.align 2
+Cry_Grocko::
+	.incbin "sound/direct_sound_samples/cries/grocko.bin"
+	
+	.align 2
+Cry_Rubecko::
+	.incbin "sound/direct_sound_samples/cries/rubecko.bin"
+	
+	.align 2
+Cry_Drabuncle::
+	.incbin "sound/direct_sound_samples/cries/drabuncle.bin"
+.endif @ P_FAMILY_GROCKO
+
+.if P_FAMILY_CHIMERA == TRUE
+	.align 2
+Cry_Chimera1::
+	.incbin "sound/direct_sound_samples/cries/chimera1.bin"
+	
+	.align 2
+Cry_Chimera2::
+	.incbin "sound/direct_sound_samples/cries/chimera2.bin"
+	
+	.align 2
+Cry_Chimera3::
+	.incbin "sound/direct_sound_samples/cries/chimera3.bin"
+.endif @ P_FAMILY_CHIMERA
+
+.if P_FAMILY_HATCHIK == TRUE
+	.align 2
+Cry_Hatchik::
+	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	
+	.align 2
+Cry_Dodo2::
+	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+.endif @ P_FAMILY_HATCHIK
+
+.if P_FAMILY_MBIELU == TRUE
+	.align 2
+Cry_Mbielu::
+	.incbin "sound/direct_sound_samples/cries/toxatiel.bin"
+	
+	.align 2
+Cry_Mbielava::
+	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
+.endif @ P_FAMILY_MBIELU
+
 	.align 2
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
