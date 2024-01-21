@@ -58,6 +58,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTria
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nurse;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall3;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTree;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeEarlyStages;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BerryTreeLateStages;
@@ -244,6 +246,26 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Storyteller
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneAcroBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneFieldMove;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneUnderwater;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneWatering;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneDecorating;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustMachBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustAcroBike;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustFieldMove;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustUnderwater;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustFishing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustWatering;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustDecorating;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ruth;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendanBirch;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -486,6 +508,28 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
+    [OBJ_EVENT_GFX_JUNE_NORMAL] =              &gObjectEventGraphicsInfo_JuneNormal,
+    [OBJ_EVENT_GFX_JUNE_MACH_BIKE] =           &gObjectEventGraphicsInfo_JuneMachBike,
+    [OBJ_EVENT_GFX_JUNE_ACRO_BIKE] =           &gObjectEventGraphicsInfo_JuneAcroBike,
+    [OBJ_EVENT_GFX_JUNE_SURFING] =             &gObjectEventGraphicsInfo_JuneSurfing,
+    [OBJ_EVENT_GFX_JUNE_FIELD_MOVE] =          &gObjectEventGraphicsInfo_JuneFieldMove,
+    [OBJ_EVENT_GFX_JUNE_UNDERWATER] =          &gObjectEventGraphicsInfo_JuneUnderwater,
+    [OBJ_EVENT_GFX_JUNE_FISHING] =             &gObjectEventGraphicsInfo_JuneFishing,
+    [OBJ_EVENT_GFX_JUNE_WATERING] =            &gObjectEventGraphicsInfo_JuneWatering,
+    [OBJ_EVENT_GFX_JUNE_DECORATING] =          &gObjectEventGraphicsInfo_JuneDecorating,
+    [OBJ_EVENT_GFX_AUGUST_NORMAL] =            &gObjectEventGraphicsInfo_AugustNormal,
+    [OBJ_EVENT_GFX_AUGUST_MACH_BIKE] =         &gObjectEventGraphicsInfo_AugustMachBike,
+    [OBJ_EVENT_GFX_AUGUST_ACRO_BIKE] =         &gObjectEventGraphicsInfo_AugustAcroBike,
+    [OBJ_EVENT_GFX_AUGUST_SURFING] =           &gObjectEventGraphicsInfo_AugustSurfing,
+    [OBJ_EVENT_GFX_AUGUST_FIELD_MOVE] =        &gObjectEventGraphicsInfo_AugustFieldMove,
+    [OBJ_EVENT_GFX_AUGUST_UNDERWATER] =        &gObjectEventGraphicsInfo_AugustUnderwater,
+    [OBJ_EVENT_GFX_AUGUST_FISHING] =           &gObjectEventGraphicsInfo_AugustFishing,
+    [OBJ_EVENT_GFX_AUGUST_WATERING] =          &gObjectEventGraphicsInfo_AugustWatering,
+    [OBJ_EVENT_GFX_AUGUST_DECORATING] =        &gObjectEventGraphicsInfo_AugustDecorating,
+    [OBJ_EVENT_GFX_RUTH] =                     &gObjectEventGraphicsInfo_Ruth,
+    [OBJ_EVENT_GFX_PROF_BRENDAN_BIRCH] =       &gObjectEventGraphicsInfo_ProfBrendanBirch,
+    [OBJ_EVENT_GFX_ITEM_BALL_2] =              &gObjectEventGraphicsInfo_ItemBall2,
+    [OBJ_EVENT_GFX_ITEM_BALL_3] =              &gObjectEventGraphicsInfo_ItemBall3,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

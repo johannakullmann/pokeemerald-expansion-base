@@ -116,6 +116,24 @@ static const union AnimCmd *const sBackAnims_Steven[] =
     sAnimCmd_May_Steven_1,
 };
 
+static const union AnimCmd *const sBackAnims_June[] =
+{
+    sAnim_GeneralFrame3,
+    sAnimCmd_May_Steven_1,
+};
+
+static const union AnimCmd *const sBackAnims_August[] =
+{
+    sAnim_GeneralFrame3,
+    sAnimCmd_May_Steven_1,
+};
+
+static const union AnimCmd *const sBackAnims_Ruth[] =
+{
+    sAnim_GeneralFrame3,
+    sAnimCmd_May_Steven_1,
+};
+
 const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
 {
     [TRAINER_BACK_PIC_BRENDAN] = sBackAnims_Brendan,
@@ -126,4 +144,7 @@ const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
     [TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY] = sBackAnims_RubySapphireMay,
     [TRAINER_BACK_PIC_WALLY] = sBackAnims_Wally,
     [TRAINER_BACK_PIC_STEVEN] = sBackAnims_Steven,
+    [TRAINER_BACK_PIC_JUNE] = sBackAnims_June,
+    [TRAINER_BACK_PIC_AUGUST] = sBackAnims_August,
+    [TRAINER_BACK_PIC_RUTH] = sBackAnims_Ruth,
 };

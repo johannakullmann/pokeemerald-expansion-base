@@ -240,6 +240,28 @@
 #define OBJ_EVENT_GFX_LINK_RS_MAY                236
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
+#define OBJ_EVENT_GFX_JUNE_NORMAL                239
+#define OBJ_EVENT_GFX_JUNE_MACH_BIKE             240
+#define OBJ_EVENT_GFX_JUNE_ACRO_BIKE             241
+#define OBJ_EVENT_GFX_JUNE_SURFING               242
+#define OBJ_EVENT_GFX_JUNE_FIELD_MOVE            243
+#define OBJ_EVENT_GFX_JUNE_UNDERWATER            244
+#define OBJ_EVENT_GFX_JUNE_FISHING               245
+#define OBJ_EVENT_GFX_JUNE_WATERING              246
+#define OBJ_EVENT_GFX_JUNE_DECORATING            247
+#define OBJ_EVENT_GFX_AUGUST_NORMAL              248
+#define OBJ_EVENT_GFX_AUGUST_MACH_BIKE           249
+#define OBJ_EVENT_GFX_AUGUST_ACRO_BIKE           250
+#define OBJ_EVENT_GFX_AUGUST_SURFING             251
+#define OBJ_EVENT_GFX_AUGUST_FIELD_MOVE          252
+#define OBJ_EVENT_GFX_AUGUST_UNDERWATER          253
+#define OBJ_EVENT_GFX_AUGUST_FISHING             254
+#define OBJ_EVENT_GFX_AUGUST_WATERING            255
+#define OBJ_EVENT_GFX_AUGUST_DECORATING          256
+#define OBJ_EVENT_GFX_RUTH                       257
+#define OBJ_EVENT_GFX_PROF_BRENDAN_BIRCH         258
+#define OBJ_EVENT_GFX_ITEM_BALL_2                259
+#define OBJ_EVENT_GFX_ITEM_BALL_3                260
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
@@ -250,7 +272,7 @@
 // object graphics that can be removed. If more graphics are needed, anything that
 // stores graphics ids will need to be increased in size. See wiki entry below:
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        239
+#define NUM_OBJ_EVENT_GFX                        261
 
 
 // These are dynamic object gfx ids.
