@@ -40,7 +40,8 @@ SandyshoreTown_EventScript_LittleGirl::
 	lock
 	faceplayer
 	msgbox SandyshoreTown_EventScript_LittleGirl_Text_0
-	return
+	closemessage
+	end
 
 
 SandyshoreTown_EventScript_RuthNoticePlayer_Left::

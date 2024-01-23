@@ -42,7 +42,8 @@ script SandyshoreTown_EventScript_LittleGirl {
     lock
     faceplayer
     msgbox(format("I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him…"))
-
+    closemessage
+    end
 }
 
 script SandyshoreTown_EventScript_RuthNoticePlayer_Left {

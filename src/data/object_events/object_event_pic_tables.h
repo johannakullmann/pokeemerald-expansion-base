@@ -748,7 +748,7 @@ static const struct SpriteFrameImage sPicTable_ItemBall[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_ItemBall2[] = {
-    obj_frame_tiles(gObjectEventPic_ItemBall3),
+    obj_frame_tiles(gObjectEventPic_ItemBall2),
 };
 
 static const struct SpriteFrameImage sPicTable_ItemBall3[] = {
