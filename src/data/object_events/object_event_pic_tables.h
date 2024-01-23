@@ -929,6 +929,18 @@ static const struct SpriteFrameImage sPicTable_MrBrineysBoat[] = {
     overworld_frame(gObjectEventPic_MrBrineysBoat, 4, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_LargeBoat[] = {
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 0),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 1),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 2),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 0),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 0),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 1),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 1),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 2),
+    overworld_frame(gObjectEventPic_LargeBoat, 8, 8, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_Truck[] = {
     obj_frame_tiles(gObjectEventPic_Truck),
 };
