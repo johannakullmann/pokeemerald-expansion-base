@@ -19,7 +19,6 @@ static const u16 sVenusaurInnateFieldMoves[] = {
 
 #if P_FAMILY_CHARMANDER
 static const u16 sCharmanderInnateFieldMoves[] = {
-    MOVE_INCINERATE,
     MOVE_UNAVAILABLE,
 };
 
@@ -45,7 +44,6 @@ static const u16 sWartortleInnateFieldMoves[] = {
 };
 
 static const u16 sBlastoiseInnateFieldMoves[] = {
-    MOVE_HEADBUTT,
     MOVE_SURF,
     MOVE_UNAVAILABLE,
 };
@@ -163,7 +161,6 @@ static const u16 sRaichuAlolanInnateFieldMoves[] = {
 
 #if P_FAMILY_SANDSHREW
 static const u16 sSandshrewInnateFieldMoves[] = {
-    MOVE_CUT,
     MOVE_DIG,
     MOVE_UNAVAILABLE,
 };
@@ -420,23 +417,25 @@ static const u16 sAnnihilapeInnateFieldMoves[] = {
 
 #if P_FAMILY_GROWLITHE
 static const u16 sGrowlitheInnateFieldMoves[] = {
-    MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sArcanineInnateFieldMoves[] = {
     MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 
 #if P_HISUIAN_FORMS
 static const u16 sGrowlitheHisuianInnateFieldMoves[] = {
-    MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sArcanineHisuianInnateFieldMoves[] = {
     MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_HISUIAN_FORMS
@@ -563,7 +562,6 @@ static const u16 sGolemAlolanInnateFieldMoves[] = {
 
 #if P_FAMILY_PONYTA
 static const u16 sPonytaInnateFieldMoves[] = {
-    MOVE_INCINERATE,
     MOVE_UNAVAILABLE,
 };
 
@@ -1211,6 +1209,7 @@ static const u16 sKabutopsInnateFieldMoves[] = {
 #if P_FAMILY_AERODACTYL
 static const u16 sAerodactylInnateFieldMoves[] = {
     MOVE_FLY,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_AERODACTYL
@@ -1823,12 +1822,13 @@ static const u16 sSkarmoryInnateFieldMoves[] = {
 
 #if P_FAMILY_HOUNDOUR
 static const u16 sHoundourInnateFieldMoves[] = {
-    MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sHoundoomInnateFieldMoves[] = {
     MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_HOUNDOUR
@@ -1871,6 +1871,7 @@ static const u16 sMiltankInnateFieldMoves[] = {
 #if P_FAMILY_RAIKOU
 static const u16 sRaikouInnateFieldMoves[] = {
     MOVE_FLASH,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_RAIKOU
@@ -1878,6 +1879,7 @@ static const u16 sRaikouInnateFieldMoves[] = {
 #if P_FAMILY_ENTEI
 static const u16 sEnteiInnateFieldMoves[] = {
     MOVE_INCINERATE,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_ENTEI
@@ -1885,6 +1887,7 @@ static const u16 sEnteiInnateFieldMoves[] = {
 #if P_FAMILY_SUICUNE
 static const u16 sSuicuneInnateFieldMoves[] = {
     MOVE_SURF,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SUICUNE
@@ -1946,12 +1949,11 @@ static const u16 sTorchicInnateFieldMoves[] = {
 
 static const u16 sCombuskenInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
-    MOVE_INCINERATE,
 };
 
 static const u16 sBlazikenInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
     MOVE_INCINERATE,
+    MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_TORCHIC
 
@@ -1976,6 +1978,7 @@ static const u16 sPoochyenaInnateFieldMoves[] = {
 };
 
 static const u16 sMightyenaInnateFieldMoves[] = {
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_POOCHYENA
@@ -2159,10 +2162,12 @@ static const u16 sWhismurInnateFieldMoves[] = {
 };
 
 static const u16 sLoudredInnateFieldMoves[] = {
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sExploudInnateFieldMoves[] = {
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_WHISMUR
@@ -2222,13 +2227,11 @@ static const u16 sAronInnateFieldMoves[] = {
 
 static const u16 sLaironInnateFieldMoves[] = {
     MOVE_HEADBUTT,
-    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sAggronInnateFieldMoves[] = {
     MOVE_HEADBUTT,
-    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_ARON
@@ -2251,6 +2254,7 @@ static const u16 sElectrikeInnateFieldMoves[] = {
 
 static const u16 sManectricInnateFieldMoves[] = {
     MOVE_FLASH,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_ELECTRIKE
@@ -2340,7 +2344,6 @@ static const u16 sWailordInnateFieldMoves[] = {
 
 #if P_FAMILY_NUMEL
 static const u16 sNumelInnateFieldMoves[] = {
-    MOVE_INCINERATE,
     MOVE_UNAVAILABLE,
 };
 
@@ -2764,12 +2767,10 @@ static const u16 sChimcharInnateFieldMoves[] = {
 };
 
 static const u16 sMonfernoInnateFieldMoves[] = {
-    MOVE_INCINERATE,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sInfernapeInnateFieldMoves[] = {
-    MOVE_INCINERATE,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_CHIMCHAR
@@ -2784,7 +2785,6 @@ static const u16 sPrinplupInnateFieldMoves[] = {
 };
 
 static const u16 sEmpoleonInnateFieldMoves[] = {
-    MOVE_SURF,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_PIPLUP
@@ -2799,7 +2799,6 @@ static const u16 sStaraviaInnateFieldMoves[] = {
 };
 
 static const u16 sStaraptorInnateFieldMoves[] = {
-    MOVE_FLY,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_STARLY
