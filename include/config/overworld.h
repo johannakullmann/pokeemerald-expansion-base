@@ -26,6 +26,8 @@
 #define OW_MAGNET_PULL              GEN_8 // Prior to Gen9, if a Pokémon with Magnet Pull is leading the party, there is a 50% chance to encounter a Steel-type Pokémon.
 #define OW_STATIC                   GEN_8 // Prior to Gen9, if a Pokémon with Static is leading the party, there is a 50% chance to encounter an Electric-type Pokémon.
 
+#define OW_INNATE_FIELD_MOVES       TRUE       //If true, certain Pokémon can use field moves without knowing the move.
+
 // Overworld flags
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.

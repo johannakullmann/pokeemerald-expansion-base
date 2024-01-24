@@ -145,6 +145,7 @@ enum {
     FIELD_MOVE_HEADBUTT,
     FIELD_MOVE_ROCK_CLIMB,
     FIELD_MOVE_INCINERATE,
+    FIELD_MOVE_ROAR,
     FIELD_MOVES_COUNT
 };
 
@@ -2783,13 +2784,19 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
-    u8 i, j;
+    u8 i;
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
     // Add field moves to action list
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    for (i = 0; i != FIELD_MOVES_COUNT; i++) {
+        if (MonKnowsInnateFieldMove(&mons[slotId], sFieldMoves[i]) || MonKnowsMove(&mons[slotId],  sFieldMoves[i])) {
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, i + MENU_FIELD_MOVES);
+        }
+    }
+
+    /*for (i = 0; i < MAX_MON_MOVES; i++)
     {
         for (j = 0; j != FIELD_MOVES_COUNT; j++)
         {
@@ -2799,7 +2806,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
                 break;
             }
         }
-    }
+    }*/
 
     if (!InBattlePike())
     {
@@ -3933,6 +3940,25 @@ static void CursorCb_FieldMove(u8 taskId)
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
                 Task_ClosePartyMenu(taskId);
                 break;
+            case FIELD_MOVE_ROAR:
+                u16 repelLureVar = VarGet(VAR_REPEL_STEP_COUNT);
+                u16 steps = REPEL_LURE_STEPS(repelLureVar);
+                bool32 isLure = IS_LAST_USED_LURE(repelLureVar);
+                if (steps > 0)
+                {
+                    if (!isLure) {
+                        DisplayPartyMenuMessage(gText_RepelEffectsLingered, TRUE);
+                    }
+                    else {
+                        DisplayPartyMenuMessage(gText_LureEffectsLingered, TRUE);
+                    }
+                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+                }
+                else {
+                    gPartyMenu.exitCallback = CB2_ReturnToField;
+                    Task_ClosePartyMenu(taskId);
+                    break;
+                }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 Task_ClosePartyMenu(taskId);
@@ -5202,6 +5228,23 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
     {
         if (GetMonData(mon, MON_DATA_MOVE1 + i) == move)
             return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MonKnowsInnateFieldMove(struct Pokemon *mon, u16 move)
+{
+    if (OW_INNATE_FIELD_MOVES)
+    {
+        u8 i;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        const u16 *innateFieldMoves = GetSpeciesInnateFieldMoves(species);
+        for (i = 0; innateFieldMoves[i] != MOVE_UNAVAILABLE; i++)
+        {
+            if (innateFieldMoves[i] == move)
+                return TRUE;
+        }
+        return FALSE;
     }
     return FALSE;
 }

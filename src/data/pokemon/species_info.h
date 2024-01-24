@@ -215,6 +215,7 @@ const u8 gOgerponCornerstoneMaskPokedexText[] = _(
 
 #define LEARNSETS(learn)                                    \
         .levelUpLearnset = s ## learn##LevelUpLearnset,     \
+        .innateFieldMoves = s ## learn##InnateFieldMoves,   \
         .teachableLearnset = s ## learn##TeachableLearnset
 
 // Maximum value for a female Pokémon is 254 (MON_FEMALE) which is 100% female.

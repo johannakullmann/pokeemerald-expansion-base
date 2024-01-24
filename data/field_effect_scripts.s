@@ -80,6 +80,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_UseRockClimb              @ FLDEFF_USE_ROCK_CLIMB
 	.4byte gFieldEffectScript_RockClimbDust             @ FLDEFF_ROCK_CLIMB_DUST
 	.4byte gFieldEffectScript_UseIncinerateOnTree       @ FLDEFF_USE_INCINERATE_ON_TREE
+	.4byte gFieldEffectScript_Roar			            @ FLDEFF_ROAR
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -305,6 +306,10 @@ gFieldEffectScript_AshLaunch::
 
 gFieldEffectScript_SweetScent::
 	field_eff_callnative FldEff_SweetScent
+	field_eff_end
+
+gFieldEffectScript_Roar::
+	field_eff_callnative FldEff_Roar
 	field_eff_end
 
 gFieldEffectScript_SandPillar::

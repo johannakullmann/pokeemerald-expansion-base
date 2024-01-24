@@ -59,4 +59,8 @@ bool8 SetUpFieldMove_Headbutt(void);
 bool8 FldEff_UseIncinerate(void);
 bool8 SetUpFieldMove_IncinerateTree(void);
 
+// roar
+bool8 SetUpFieldMove_Roar(void);
+bool8 FldEff_Roar(void);
+
 #endif // GUARD_FLDEFF_H
