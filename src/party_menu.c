@@ -3943,12 +3943,16 @@ static void CursorCb_FieldMove(u8 taskId)
             case FIELD_MOVE_ROAR:
                 u16 repelLureVar = VarGet(VAR_REPEL_STEP_COUNT);
                 u16 steps = REPEL_LURE_STEPS(repelLureVar);
+                bool32 isLure = IS_LAST_USED_LURE(repelLureVar);
                 if (steps > 0)
                 {
-                    gFieldCallback2 = NULL;
-                    gPostMenuFieldCallback = NULL;
-                    Task_ReturnToChooseMonAfterText(taskId);
-                    break;
+                    if (!isLure) {
+                        DisplayPartyMenuMessage(gText_RepelEffectsLingered, TRUE);
+                    }
+                    else {
+                        DisplayPartyMenuMessage(gText_LureEffectsLingered, TRUE);
+                    }
+                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
                 }
                 else {
                     gPartyMenu.exitCallback = CB2_ReturnToField;
