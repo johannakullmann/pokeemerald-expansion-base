@@ -396,6 +396,7 @@ const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
 #include "data/pokemon/experience_tables.h"
 #include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/teachable_learnsets.h"
+#include "data/pokemon/innate_field_moves.h"
 #include "data/pokemon/form_species_tables.h"
 #include "data/pokemon/form_change_tables.h"
 #include "data/pokemon/form_change_table_pointers.h"
@@ -2983,6 +2984,14 @@ const u16 *GetSpeciesTeachableLearnset(u16 species)
     if (learnset == NULL)
         return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
     return learnset;
+}
+
+const u16 *GetSpeciesInnateFieldMoves(u16 species)
+{
+    const u16 *innateFieldMoves = gSpeciesInfo[SanitizeSpeciesId(species)].innateFieldMoves;
+    if (innateFieldMoves == NULL)
+        return gSpeciesInfo[SPECIES_NONE].innateFieldMoves;
+    return innateFieldMoves;
 }
 
 const struct Evolution *GetSpeciesEvolutions(u16 species)

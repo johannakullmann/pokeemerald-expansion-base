@@ -2783,13 +2783,19 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
-    u8 i, j;
+    u8 i;
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
     // Add field moves to action list
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    for (i = 0; i != FIELD_MOVES_COUNT; i++) {
+        if (MonKnowsInnateFieldMove(&mons[slotId], sFieldMoves[i]) || MonKnowsMove(&mons[slotId],  sFieldMoves[i])) {
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, i + MENU_FIELD_MOVES);
+        }
+    }
+
+    /*for (i = 0; i < MAX_MON_MOVES; i++)
     {
         for (j = 0; j != FIELD_MOVES_COUNT; j++)
         {
@@ -2799,7 +2805,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
                 break;
             }
         }
-    }
+    }*/
 
     if (!InBattlePike())
     {
@@ -5202,6 +5208,23 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
     {
         if (GetMonData(mon, MON_DATA_MOVE1 + i) == move)
             return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MonKnowsInnateFieldMove(struct Pokemon *mon, u16 move)
+{
+    if (OW_INNATE_FIELD_MOVES)
+    {
+        u8 i;
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        const u16 *innateFieldMoves = GetSpeciesInnateFieldMoves(species);
+        for (i = 0; innateFieldMoves[i] != MOVE_UNAVAILABLE; i++)
+        {
+            if (innateFieldMoves[i] == move)
+                return TRUE;
+        }
+        return FALSE;
     }
     return FALSE;
 }
