@@ -145,6 +145,7 @@ enum {
     FIELD_MOVE_HEADBUTT,
     FIELD_MOVE_ROCK_CLIMB,
     FIELD_MOVE_INCINERATE,
+    FIELD_MOVE_ROAR,
     FIELD_MOVES_COUNT
 };
 
@@ -3933,6 +3934,21 @@ static void CursorCb_FieldMove(u8 taskId)
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
                 Task_ClosePartyMenu(taskId);
                 break;
+            case FIELD_MOVE_ROAR:
+                u16 repelLureVar = VarGet(VAR_REPEL_STEP_COUNT);
+                u16 steps = REPEL_LURE_STEPS(repelLureVar);
+                if (steps > 0)
+                {
+                    gFieldCallback2 = NULL;
+                    gPostMenuFieldCallback = NULL;
+                    Task_ReturnToChooseMonAfterText(taskId);
+                    break;
+                }
+                else {
+                    gPartyMenu.exitCallback = CB2_ReturnToField;
+                    Task_ClosePartyMenu(taskId);
+                    break;
+                }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 Task_ClosePartyMenu(taskId);

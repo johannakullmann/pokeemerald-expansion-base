@@ -735,6 +735,7 @@ struct
     [MENU_FIELD_MOVES + FIELD_MOVE_SWEET_SCENT] = {gMoveNames[MOVE_SWEET_SCENT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_HEADBUTT] = {gMoveNames[MOVE_HEADBUTT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_CLIMB] = {gMoveNames[MOVE_ROCK_CLIMB], CursorCb_FieldMove},
+    [MENU_FIELD_MOVES + FIELD_MOVE_ROAR] = {gMoveNames[MOVE_ROAR], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_INCINERATE] = {gMoveNames[MOVE_INCINERATE], CursorCb_FieldMove},
 };
 
@@ -815,6 +816,7 @@ static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =
     [FIELD_MOVE_HEADBUTT]     = MOVE_HEADBUTT,
     [FIELD_MOVE_ROCK_CLIMB]   = MOVE_ROCK_CLIMB,
     [FIELD_MOVE_INCINERATE]   = MOVE_INCINERATE,
+    [FIELD_MOVE_ROAR]         = MOVE_ROAR,
     // NOTE: This value is used as the terminal value for the table. There's no reason to do this, as the size of the table is known.
     //       Whichever move shares this value (MOVE_SWORDS_DANCE by default) if present will be treated as the end of the array rather than a field move.
     [FIELD_MOVES_COUNT]       = FIELD_MOVES_COUNT
@@ -843,6 +845,7 @@ struct
     [FIELD_MOVE_HEADBUTT]     = {SetUpFieldMove_Headbutt,    PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_ROCK_CLIMB]   = {SetUpFieldMove_RockClimb,   PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_INCINERATE]   = {SetUpFieldMove_IncinerateTree,  PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_ROAR]         = {SetUpFieldMove_Roar,        PARTY_MSG_CANT_USE_HERE},
 };
 
 static const u8 *const sUnionRoomTradeMessages[] =

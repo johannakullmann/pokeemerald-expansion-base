@@ -432,3 +432,10 @@ EventScript_BurnTreeDown::
 Movement_BurnTreeDown:
 	burn_tree
 	step_end
+
+EventScript_UseRoar::
+	msgbox Text_UsedRoar, MSGBOX_SIGN
+	end
+
+Text_UsedRoar:
+	.string "The Roar chased away wild Pokémon!$"
