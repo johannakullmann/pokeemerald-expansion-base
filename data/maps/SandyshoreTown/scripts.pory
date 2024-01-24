@@ -36,7 +36,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
     applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
     playse(SE_PIN)
-    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_ExclamationMarkAndWait)
+    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_ExclamationMarkAndDelay)
     waitmovement(0)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 19) {
@@ -86,7 +86,7 @@ script SandyshoreTown_EventScript_RuthNoticePlayer_Right {
 }
 
 script SandyshoreTown_EventScript_RuthNoticePlayer {
-    applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndWait)
+    applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndDelay)
     playse(SE_PIN)
     waitmovement(0)
     msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))

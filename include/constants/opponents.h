@@ -859,12 +859,16 @@
 #define TRAINER_RUTH_PACIFIDLOG_TOXATIEL    855
 #define TRAINER_RUTH_PACIFIDLOG_GROCKO      856
 #define TRAINER_RUTH_PACIFIDLOG_CHIMERA     857
+#define TRAINER_GRUNT_ROUTE110_1            858
+#define TRAINER_GRUNT_ROUTE110_2            859
+#define TRAINER_ALI_AND_LIA                 860
+#define TRAINER_DARIEN                      861
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      858
+#define TRAINERS_COUNT                      862
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

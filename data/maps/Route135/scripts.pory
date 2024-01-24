@@ -186,6 +186,32 @@ script Route135_EventScript_Boy1 {
         "It doesn't do well against eletric or rock-type attacks, though…"), MSGBOX_NPC)
 }
 
+script Route135_EventScript_Lia {
+	trainerbattle_double(TRAINER_ALI_AND_LIA, 
+            format("Lia: I'll battle you together with my sister!"), 
+            format("Lia: Uh-oh, we lost."), 
+            format("Lia: If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
+    msgbox (format("Lia: You have to think about all kinds of things when you're battling against two trainers."), MSGBOX_AUTOCLOSE)
+	end
+}
+
+script Route135_EventScript_Ali{
+	trainerbattle_double(TRAINER_ALI_AND_LIA, 
+            format("Ali: Let's go, Lia!"), 
+            format("Ali: Aw."), 
+            format("Ali: Oh, you only have one Pokémon! You can't battle us like that!"))
+    msgbox (format("Ali: Double battles are much harder than single battles!"), MSGBOX_AUTOCLOSE)
+	end
+}
+
+script Route135_EventScript_Darien {
+	trainerbattle_single(TRAINER_DARIEN, 
+            format("{PLAYER}! You have a Pokémon too now?\pLet me check if you are any good!"), 
+            format("Aw, shucks."))
+    msgbox (format("As a trainer, you have to be ready for a challenge anytime!"), MSGBOX_AUTOCLOSE)
+	end
+}
+
 movement Route135_Movement_RockSmashGuyNotice {
     face_down
 	emote_exclamation_mark

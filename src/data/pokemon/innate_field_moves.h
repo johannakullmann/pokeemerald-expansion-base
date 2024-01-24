@@ -5898,3 +5898,72 @@ static const u16 sOgerponInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_OGERPON
+
+#if P_FAMILY_TOXATIEL
+static const u16 sToxatielInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sToxatooInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sToxatriceInnateFieldMoves[] = {
+    MOVE_FLY,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_GROCKO
+static const u16 sGrockoInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sRubeckoInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDrabuncleInnateFieldMoves[] = {
+    MOVE_ROCK_CLIMB,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_GROCKO
+
+#if P_FAMILY_CHIMERA
+static const u16 sChimera1InnateFieldMoves[] = {
+    MOVE_HEADBUTT,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sChimera2InnateFieldMoves[] = {
+    MOVE_HEADBUTT,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sChimera3InnateFieldMoves[] = {
+    MOVE_HEADBUTT,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_CHIMERA
+
+#if P_FAMILY_HATCHIK
+static const u16 sHatchikInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDodo2InnateFieldMoves[] = {
+    MOVE_CUT,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_HATCHIK
+
+#if P_FAMILY_MBIELU
+static const u16 sMbieluInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMbielavaInnateFieldMoves[] = {
+    MOVE_INCINERATE,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_MBIELU

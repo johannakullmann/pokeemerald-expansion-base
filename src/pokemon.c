@@ -5349,6 +5349,10 @@ const u8 *GetTrainerPartnerName(void)
         {
             return gTrainers[TRAINER_STEVEN].trainerName;
         }
+        if (gPartnerTrainerId == TRAINER_RUTH_PARTNER)
+        {
+            return gTrainers[TRAINER_RUTH_PACIFIDLOG_TOXATIEL].trainerName;
+        }
         else
         {
             GetFrontierTrainerName(gStringVar1, gPartnerTrainerId);

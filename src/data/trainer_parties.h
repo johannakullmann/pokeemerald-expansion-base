@@ -11805,6 +11805,24 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
     }
 };
 
+static const struct TrainerMon sParty_AliAndLia[] = {
+    {
+    .lvl = 3,
+    .species = SPECIES_PICHU,
+    },
+    {
+    .lvl = 3,
+    .species = SPECIES_AZURILL,
+    }
+};
+
+static const struct TrainerMon sParty_Darien[] = {
+    {
+    .lvl = 3,
+    .species = SPECIES_ZIGZAGOON,
+    }
+};
+
 static const struct TrainerMon sParty_RuthPacifidlogToxatiel[] = {
     {
     .lvl = 5,
@@ -11847,5 +11865,27 @@ static const struct TrainerMon sParty_RuthPacifidlogChimera[] = {
     {
     .lvl = 5,
     .species = SPECIES_EEVEE,
+    }
+};
+
+static const struct TrainerMon sParty_GruntRoute110_1[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_CARVANHA,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_POOCHYENA,
+    }
+};
+
+static const struct TrainerMon sParty_GruntRoute110_2[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_POOCHYENA,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_BARBOACH,
     }
 };

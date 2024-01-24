@@ -6,7 +6,7 @@ Common_Movement_ExclamationMark:
 	emote_exclamation_mark
 	step_end
 
-Common_Movement_ExclamationMarkAndWait:
+Common_Movement_ExclamationMarkAndDelay:
 	emote_exclamation_mark
 	delay_16
 	delay_16

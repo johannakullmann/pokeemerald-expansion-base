@@ -214,6 +214,24 @@ Route135_EventScript_Boy1::
 	return
 
 
+Route135_EventScript_Lia::
+	trainerbattle_double TRAINER_ALI_AND_LIA, Route135_EventScript_Lia_Text_0, Route135_EventScript_Lia_Text_1, Route135_EventScript_Lia_Text_2
+	msgbox Route135_EventScript_Lia_Text_3, MSGBOX_AUTOCLOSE
+	end
+
+
+Route135_EventScript_Ali::
+	trainerbattle_double TRAINER_ALI_AND_LIA, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1, Route135_EventScript_Ali_Text_2
+	msgbox Route135_EventScript_Ali_Text_3, MSGBOX_AUTOCLOSE
+	end
+
+
+Route135_EventScript_Darien::
+	trainerbattle_single TRAINER_DARIEN, Route135_EventScript_Darien_Text_0, Route135_EventScript_Darien_Text_1
+	msgbox Route135_EventScript_Darien_Text_2, MSGBOX_AUTOCLOSE
+	end
+
+
 Route135_Movement_RockSmashGuyNotice:
 	face_down
 	emote_exclamation_mark
@@ -293,6 +311,49 @@ Route135_EventScript_Boy1_Text_0:
 	.string "with its flying-type moves!\p"
 	.string "It doesn't do well against eletric or\n"
 	.string "rock-type attacks, though…$"
+
+Route135_EventScript_Lia_Text_0:
+	.string "Lia: I'll battle you together with my\n"
+	.string "sister!$"
+
+Route135_EventScript_Lia_Text_1:
+	.string "Lia: Uh-oh, we lost.$"
+
+Route135_EventScript_Lia_Text_2:
+	.string "Lia: If you have two Pokémon, you can\n"
+	.string "try to beat us!\p"
+	.string "But don't cry if you lose!$"
+
+Route135_EventScript_Lia_Text_3:
+	.string "Lia: You have to think about all kinds\n"
+	.string "of things when you're battling against\l"
+	.string "two trainers.$"
+
+Route135_EventScript_Ali_Text_0:
+	.string "Ali: Let's go, Lia!$"
+
+Route135_EventScript_Ali_Text_1:
+	.string "Ali: Aw.$"
+
+Route135_EventScript_Ali_Text_2:
+	.string "Ali: Oh, you only have one Pokémon! You\n"
+	.string "can't battle us like that!$"
+
+Route135_EventScript_Ali_Text_3:
+	.string "Ali: Double battles are much harder\n"
+	.string "than single battles!$"
+
+Route135_EventScript_Darien_Text_0:
+	.string "{PLAYER}! You have a Pokémon too\n"
+	.string "now?\p"
+	.string "Let me check if you are any good!$"
+
+Route135_EventScript_Darien_Text_1:
+	.string "Aw, shucks.$"
+
+Route135_EventScript_Darien_Text_2:
+	.string "As a trainer, you have to be ready for a\n"
+	.string "challenge anytime!$"
 
 Route135_Text_CatchTutorialPsstComeOverHere::
 	.string "Psst! {PLAYER}!\p"

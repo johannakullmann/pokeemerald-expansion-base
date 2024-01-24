@@ -1407,7 +1407,7 @@ SlateportCity_EventScript_Sailor_2:
 	applymovement 25, SlateportCity_Movement_BoatLeaveForPacifidlog
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	warp MAP_PACIFIDLOG_TOWN, 17, 18
+	warp MAP_PACIFIDLOG_TOWN, 32, 29
 	goto SlateportCity_EventScript_Sailor_1
 
 

@@ -35,7 +35,7 @@ SandyshoreTown_EventScript_PreventExit_Route135::
 	applymovement 2, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
 	playse SE_PIN
-	applymovement 2, Common_Movement_ExclamationMarkAndWait
+	applymovement 2, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 	compare VAR_TEMP_1, 19
@@ -94,7 +94,7 @@ SandyshoreTown_EventScript_RuthNoticePlayer_Right::
 
 
 SandyshoreTown_EventScript_RuthNoticePlayer::
-	applymovement 1, Common_Movement_ExclamationMarkAndWait
+	applymovement 1, Common_Movement_ExclamationMarkAndDelay
 	playse SE_PIN
 	waitmovement 0
 	msgbox SandyshoreTown_EventScript_RuthNoticePlayer_Text_0
