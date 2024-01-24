@@ -36,6 +36,11 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Pacifidlog_0,
     },
     {
+        .mapSecId = MAPSEC_PACIFIDLOG_TOWN,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Pacifidlog_1,
+    },
+    {
         .mapSecId = MAPSEC_PETALBURG_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Petalburg_0,
@@ -109,5 +114,10 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_EVER_GRANDE_CITY,
         .index = 1,
         .tilemap = gPokenavCityMap_EverGrande_1,
+    },
+    {
+        .mapSecId = MAPSEC_SANDYSHORE_TOWN,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Sandyshore_0,
     },
 };

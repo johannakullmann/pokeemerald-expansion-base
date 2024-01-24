@@ -1,6 +1,7 @@
 const LOCALID_RUTH = 1
 const LOCALID_LITTLE_GIRL = 2
 const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
+const TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE = VAR_TEMP_3
 
 mapscripts SandyshoreTown_MapScripts {
 
@@ -11,6 +12,14 @@ mapscripts SandyshoreTown_MapScripts {
         }
         else {
             setflag(TEMP_FLAG_HIDE_RUTH)
+        }
+        if (!flag(FLAG_RECEIVED_STARTER)) {
+            setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 1)
+            setobjectxyperm(LOCALID_LITTLE_GIRL, 21, 2)
+            setobjectmovementtype(LOCALID_LITTLE_GIRL, MOVEMENT_TYPE_LOOK_AROUND)
+        }
+        else {
+            setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 0)
         }
     }
 }
@@ -24,15 +33,33 @@ script SandyshoreTown_EventScript_InnSign {
 
 script SandyshoreTown_EventScript_PreventExit_Route135 {
     lock
-    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkInPlaceUp)
+    applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
+    playse(SE_PIN)
     applymovement(LOCALID_LITTLE_GIRL, Common_Movement_ExclamationMarkAndWait)
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
-    msgbox(format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\p"
-            "I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him…"))
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 19) {
+        applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkLeft2)
+        delay(16)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+        waitmovement(0)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_LITTLE_GIRL, DIR_SOUTH)
+        msgbox(SandyshoreTown_Text_LittleGirlPreventExit)
+        closemessage
+        applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkRight2)
+    }
+    elif (var(VAR_TEMP_1) == 20) {
+        applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkLeft)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+        waitmovement(0)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_LITTLE_GIRL, DIR_SOUTH)
+        msgbox(SandyshoreTown_Text_LittleGirlPreventExit)
+        closemessage
+        applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkRight)
+    }
     waitmovement(0)
     release
     end
@@ -41,7 +68,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
 script SandyshoreTown_EventScript_LittleGirl {
     lock
     faceplayer
-    msgbox(format("I wanna go visit the professor too, but Grandma said he's busy so I shouldn't bother him…"))
+    msgbox(format("I wanna go visit the professor too, but Grandma said he's busy and I shouldn't bother him…"))
     closemessage
     end
 }
@@ -60,6 +87,7 @@ script SandyshoreTown_EventScript_RuthNoticePlayer_Right {
 
 script SandyshoreTown_EventScript_RuthNoticePlayer {
     applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndWait)
+    playse(SE_PIN)
     waitmovement(0)
     msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))
     closemessage
@@ -76,4 +104,8 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
     setvar(VAR_LITTLEROOT_INTRO_STATE, 5)
     release
     end
+}
+
+text SandyshoreTown_Text_LittleGirlPreventExit {
+    format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\pI wanna go visit the professor too, but Grandma said he's busy and I shouldn't bother him…")
 }

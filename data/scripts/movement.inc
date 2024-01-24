@@ -113,6 +113,16 @@ Common_Movement_WalkLeft:
 	walk_left
 	step_end
 
+Common_Movement_WalkLeft2:
+	walk_left
+	walk_left
+	step_end
+
 Common_Movement_WalkRight:
+	walk_right
+	step_end
+
+Common_Movement_WalkRight2:
+	walk_right
 	walk_right
 	step_end

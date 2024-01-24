@@ -1,56 +1,395 @@
 raw `
 PacifidlogTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, PacifidlogTown_OnResume
 	.byte 0
-
-PacifidlogTown_OnTransition:
-	setflag FLAG_VISITED_PACIFIDLOG_TOWN
-	end
-
-PacifidlogTown_OnResume:
-	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
-	end
-
-PacifidlogTown_EventScript_NinjaBoy::
-	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
-	end
-
-PacifidlogTown_EventScript_Girl::
-	msgbox PacifidlogTown_Text_FastRunningCurrent, MSGBOX_NPC
-	end
-
-PacifidlogTown_EventScript_Fisherman::
-	msgbox PacifidlogTown_Text_SkyPillarTooScary, MSGBOX_NPC
-	end
-
-PacifidlogTown_EventScript_TownSign::
-	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-PacifidlogTown_Text_FastRunningCurrent:
-	.string "The sea between PACIFIDLOG and\n"
-	.string "SLATEPORT has a fast-running tide.\p"
-	.string "If you decide to SURF, you could end\n"
-	.string "up swept away somewhere else.$"
-
-PacifidlogTown_Text_NeatHousesOnWater:
-	.string "See, isn't it neat?\n"
-	.string "These houses are on water!\p"
-	.string "I was born here!$"
-
-PacifidlogTown_Text_SkyPillarTooScary:
-	.string "The SKY PILLAR?\p"
-	.string "…Oh, you must mean that tall, tall\n"
-	.string "tower a little further out.\p"
-	.string "If you asked me, I wouldn't climb it.\n"
-	.string "It's too scary to get up that high.\p"
-	.string "Life at sea level in PACIFIDLOG,\n"
-	.string "that suits me fine.$"
-
-PacifidlogTown_Text_TownSign:
-	.string "PACIFIDLOG TOWN\p"
-	.string "“Where the morning sun smiles upon\n"
-	.string "the waters.”$"
-
 `
+const LOCALID_RUTH = 8
+const LOCALID_SAILOR = 4
+const LOCALID_BOAT = 7
+const FLAG_TEMP_DISABLE_RUTH = FLAG_TEMP_10
+const FLAG_TEMP_DISABLE_SAILOR = FLAG_TEMP_9
+
+script PacifidlogTown_EventScript_TownSign {
+	msgbox(format("PACIFIDLOG TOWN\p“Where the clear sky smiles upon the waters.”"), MSGBOX_SIGN)
+	end
+}
+
+script PacifidlogTown_EventScript_RayquazaPlaque {
+	msgbox(format("The plaque says that this statue depicts Rayquaza, the legendary Pokémon of the sky."), MSGBOX_SIGN)
+	end
+}
+
+script PacifidlogTown_EventScript_Woman_1 {
+	lock
+	faceplayer
+	msgbox(format("Our house got swept away in the huge tidal wave that destroyed the old Pacifidlog.\p"
+		"I wonder if it is still there somewhere, at the bottom of the ocean…"))
+	closemessage
+	turnobject(VAR_LAST_TALKED, DIR_WEST)
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_Woman_2 {
+	lock
+	faceplayer
+	msgbox(format("The weather is always clear in New Pacifidlog.\p"
+	"That's because of the legendary Pokémon that lives on top of the Sky Pillar.\p"
+	"Who knows if we would have been able to rebuild the town here at all if it weren't for Rayquaza."))
+	closemessage
+	turnobject(VAR_LAST_TALKED, DIR_NORTH)
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_Fisherman {	
+	lock
+	faceplayer
+	msgbox(format("This is my favourite fishing spot.\pI caught a huge Magikarp here yesterday!"))
+	closemessage
+	turnobject(VAR_LAST_TALKED, DIR_EAST)
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_NinjaBoy {
+	msgbox(format("I'm sad our town isn't floating on the ocean anymore.\pBut the big tower is pretty cool too!"), MSGBOX_NPC)
+	end
+}
+
+script PacifidlogTown_OnTransition {
+	setflag(FLAG_VISITED_PACIFIDLOG_TOWN)
+	switch (var(VAR_PACIFIDLOG_TOWN_STATE)) {
+		case 0:
+			setflag(FLAG_TEMP_DISABLE_RUTH)
+		case 1:
+			setobjectxyperm(LOCALID_RUTH, 66, 28)
+		case 2:
+		case 3:
+			setobjectxyperm(LOCALID_RUTH, 36, 30)
+			setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_FACE_UP)
+			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_FACE_DOWN)
+		default:
+			setobjectxyperm(LOCALID_SAILOR, 32, 28)
+			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_LOOK_AROUND)
+			removeobject(LOCALID_RUTH)
+	}
+	end
+}
+
+script PacifidlogTown_EventScript_MeetRuth {
+	lock
+	opendoor(65, 27)
+	waitdooranim
+	clearflag(FLAG_TEMP_DISABLE_RUTH)
+	addobject(LOCALID_RUTH)
+	showobjectat(LOCALID_RUTH, MAP_PACIFIDLOG_TOWN)
+    delay(10)
+	playse(SE_PIN)
+    applymovement(LOCALID_RUTH, Common_Movement_ExclamationMark)
+    waitmovement(LOCALID_RUTH)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
+    applymovement(LOCALID_RUTH, Common_Movement_Delay48)
+    waitmovement(LOCALID_RUTH)
+	msgbox("{PLAYER}!")
+	closemessage
+	applymovement(LOCALID_RUTH, Common_Movement_WalkDown)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+	closedoor(65, 27)
+	waitdooranim
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	msgbox(format("You got here faster than I expected!\pHow did you manage? Were you able to catch some Pokémon?"))
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	msgbox(format("If you run out of Pokéballs, you can buy more at the mart here.\pThey also sell potions and some other useful items!"))
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+	setvar(VAR_PACIFIDLOG_TOWN_STATE, 1)
+	msgbox(format("You should check it out!\p…\pSince you got here so quickly, how about I test your skills in a quick battle?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		goto(PacifidlogTown_EventScript_RuthBattle)
+	}
+	else {
+		msgbox(format("You want to prepare first? That's fine, I'll wait here!"))
+		closemessage
+		applymovement(LOCALID_RUTH, Common_Movement_WalkRight)
+		waitmovement(0)
+		turnobject(LOCALID_RUTH, DIR_SOUTH)
+	}
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_Ruth {
+	lock
+	faceplayer
+	switch (var(VAR_PACIFIDLOG_TOWN_STATE)) {
+		case 1:
+			msgbox("Are you ready?", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				goto(PacifidlogTown_EventScript_RuthBattle)
+			}
+		case 2:
+			faceplayer
+			goto(PacifidlogTown_EventScript_RuthBoatScene)
+		case 3:
+			faceplayer
+			msgbox(format("Are you ready to leave?"), MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				msgbox(format("Perfect, let's go!"))
+				closemessage
+				goto(PacifidlogTown_EventScript_LeaveForSlateport)
+			}
+			else {
+				msgbox(format("I see. But make it quick, okay?"))
+				closemessage
+				release
+				end
+			}
+	}
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_RuthBattle {
+	switch (var(VAR_STARTER_MON)) {
+			case 0:
+				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_TOXATIEL,"…")
+			case 1:
+				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_GROCKO,"…")
+			case 2:
+				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_CHIMERA,"…")
+	}	
+	goto(PacifidlogTown_EventScript_AfterRuthBattle)
+}
+
+script PacifidlogTown_EventScript_AfterRuthBattle {
+	lock
+	specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+	switch (var(VAR_TEMP_1)) {
+        case DIR_SOUTH:
+        case DIR_EAST:
+        case DIR_WEST:
+			turnobject(LOCALID_RUTH, DIR_SOUTH)
+        case DIR_NORTH:
+			turnobject(LOCALID_RUTH, DIR_WEST)
+    }
+	msgbox("Ha…\pHahaha!")
+	switch (var(VAR_TEMP_1)) {
+        case DIR_NORTH:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+        case DIR_EAST:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
+        case DIR_WEST:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+        case DIR_SOUTH:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+    }
+	waitmovement(0)
+	msgbox(format("I can't believe I lost!\pYou only just got a Pokémon and you already beat me!\p"
+				"I think you have a knack for this, {PLAYER}."))
+	closemessage
+	delay(10)
+	switch (var(VAR_TEMP_1)) {
+        case DIR_NORTH:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+        case DIR_EAST:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
+        case DIR_WEST:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+        case DIR_SOUTH:
+			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+    }
+	waitmovement(0)
+	msgbox(format("You know what?\pWe'll make this a challenge!\pWe fight the gym leaders and see who can collect the most badges!\p"
+			"I think I know just the right person to get us to the mainland too."))
+	closemessage
+    switch (var(VAR_TEMP_1)) {
+        case DIR_NORTH:
+        case DIR_SOUTH:
+        case DIR_WEST:
+			applymovement(LOCALID_RUTH, PacifidlogTown_Movement_RuthLeaveForBoat)
+        case DIR_EAST:
+			applymovement(LOCALID_RUTH, PacifidlogTown_Movement_RuthLeaveForBoat2)
+    }
+	waitmovement(0)
+	if (flag(FLAG_TEMP_1)) {
+	}
+	setvar(VAR_PACIFIDLOG_TOWN_STATE, 2)
+	setflag(FLAG_DEFEATED_RIVAL_1)
+	setobjectxyperm(LOCALID_RUTH, 36, 30)
+	setobjectxy(LOCALID_RUTH, 36, 30)
+	setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_FACE_UP)
+	setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_FACE_DOWN)
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_RuthBoatScene {
+	delay(16)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("Ruth: This is Captain Moore, probably the best sailor in all of Pacifidlog.\pHe'll be able to get us to Slateport no problem!"))
+	closemessage
+	turnobject(LOCALID_RUTH, DIR_NORTH)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	applymovement(LOCALID_SAILOR, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("Cpt. Moore: The currents between here and Slateport are vicious, and it's only gotten worse in recent times.\p"
+			"The weather on the open seas has been awful ever since Kyogre woke from its slumber.\p"
+			"I'm glad you two are asking for help from someone experienced.\pWe can set sail right now, if the two of you are ready."))
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	msgbox(format("Ruth: Thank you, sir!\pAnd yes, we're ready to go!\p...\pWait."))
+	closemessage
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	msgbox(format("{PLAYER}, you should call your mom and tell her where you're going.\pYou have your PokéNav with you, right?"))
+	closemessage
+	delay(20)
+	goto(PacifidlogTown_EventScript_MatchCallTutorial)
+}
+
+script PacifidlogTown_EventScript_MatchCallTutorial {
+	special(ScriptMenu_CreateStartMenuForPokenavTutorial)
+	setflag(FLAG_STARTED_MC_TUTORIAL)
+	setflag(FLAG_ENABLE_MOM_MATCH_CALL)
+	waitstate
+	switch(var(VAR_RESULT)) {
+	case 0:
+	case 1:
+	case 2:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case MULTI_B_PRESSED:
+		msgbox(format("Come on, we shouldn't let Mr. Moore wait!\pGo give your mom a quick call!"))
+		closemessage
+		delay(20)
+		goto(PacifidlogTown_EventScript_MatchCallTutorial)
+	}
+	special(OpenPokenavForTutorial)
+	waitstate
+	setvar(VAR_PACIFIDLOG_TOWN_STATE, 3)
+	delay(20)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("Nice! Now, are you ready to leave?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		msgbox(format("Perfect, let's go!"))
+		closemessage
+		goto(PacifidlogTown_EventScript_LeaveForSlateport)
+	}
+	else {
+		msgbox(format("I see. But make it quick, okay?"))
+		closemessage
+		release
+		end
+	}
+}
+
+script PacifidlogTown_EventScript_LeaveForSlateport {
+	applymovement(LOCALID_SAILOR, PacifidlogTown_Movement_SailorEnterBoat)
+	applymovement(LOCALID_RUTH, PacifidlogTown_Movement_RuthEnterBoat)
+	applymovement(OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerEnterBoat)
+	waitmovement(LOCALID_SAILOR)
+	setflag(FLAG_TEMP_DISABLE_SAILOR)
+	removeobject(LOCALID_SAILOR)
+	waitmovement(LOCALID_RUTH)
+	removeobject(LOCALID_RUTH)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_PACIFIDLOG_TOWN)
+	delay(20)
+	applymovement(LOCALID_BOAT, PacifidlogTown_Movement_BoatLeaveForSlateport)
+	waitmovement(0)
+	setvar(VAR_PACIFIDLOG_TOWN_STATE, 4)
+	warp(MAP_SLATEPORT_CITY, 37, 40)
+}
+
+script PacifidlogTown_EventScript_Sailor {
+	lock
+	faceplayer
+	switch (var(VAR_PACIFIDLOG_TOWN_STATE)){
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			msgbox(format("The sea between New Pacifidlog and Slateport has a fast-running tide.\pI strongly advise against trying to surf there on the back of a Pokémon."))
+		case 4:
+			msgbox(format("Cpt. Moore: Do you want to sail to Slateport?"), MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				closemessage
+				specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+				switch (var(VAR_TEMP_1)) {
+					case DIR_WEST:
+						applymovement(LOCALID_SAILOR, Common_Movement_WalkUp)
+						applymovement(OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerEnterBoat_1)
+					case DIR_NORTH:
+						applymovement(LOCALID_SAILOR, Common_Movement_WalkUp)
+						applymovement(OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerEnterBoat_2)
+				}
+				waitmovement(LOCALID_SAILOR)
+				removeobject(LOCALID_SAILOR)
+				waitmovement(OBJ_EVENT_ID_PLAYER)
+				hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_PACIFIDLOG_TOWN)
+				delay(20)
+				applymovement(LOCALID_BOAT, PacifidlogTown_Movement_BoatLeaveForSlateport)
+				waitmovement(0)
+				warp(MAP_SLATEPORT_CITY, 37, 40)
+			}
+	}
+	closemessage
+	release
+	end
+}
+
+movement PacifidlogTown_Movement_RuthLeaveForBoat {
+	walk_fast_left*10
+}
+
+movement PacifidlogTown_Movement_RuthLeaveForBoat2 {
+	walk_down
+	walk_fast_left*10
+}
+
+movement PacifidlogTown_Movement_RuthEnterBoat {
+	walk_up
+	walk_left
+	walk_diag_southwest
+	walk_left*2 
+	walk_up *3
+}
+
+movement PacifidlogTown_Movement_SailorEnterBoat {
+	walk_left
+	walk_diag_southwest
+	walk_left*2
+	walk_up *3
+}
+
+movement PacifidlogTown_Movement_PlayerEnterBoat {
+	walk_left
+	walk_up
+	walk_left
+	walk_diag_southwest
+	walk_left*2
+	walk_up *3
+}
+
+movement PacifidlogTown_Movement_BoatLeaveForSlateport {
+	walk_left *2
+	walk_down *5
+	walk_left *10
+}
+
+movement PacifidlogTown_Movement_PlayerEnterBoat_1 {
+	walk_left
+	walk_up
+}
+
+movement PacifidlogTown_Movement_PlayerEnterBoat_2 {
+	walk_up *2
+}

@@ -161,10 +161,10 @@ static void MatchCall_GetNameAndDescByRematchIdx(u32, const u8 **, const u8 **);
 
 static const match_call_text_data_t sRuthTextScripts[] = {
     { MatchCall_Text_Ruth1,  0xFFFF,                          0xFFFF},
-    { MatchCall_Text_Ruth_Nearby,  FLAG_RUTH_MET,             0xFFFF},
     { MatchCall_Text_Ruth2,  FLAG_RECEIVED_STARTER,           0xFFFF},
     { MatchCall_Text_Ruth3,  FLAG_DONE_CATCH_TUTORIAL,        0xFFFF},
     { MatchCall_Text_Ruth4,  FLAG_DEFEATED_RIVAL_1,           0xFFFF},
+    { MatchCall_Text_Ruth_Nearby,  FLAG_STARTED_MC_TUTORIAL,  0xFFFF},
     { MatchCall_Text_Ruth5,  FLAG_ENABLE_MR_STONE_POKENAV,    0xFFFF},
     { NULL,                  0xFFFF,                          0xFFFF}
 };

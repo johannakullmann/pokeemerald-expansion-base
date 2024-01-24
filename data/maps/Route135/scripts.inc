@@ -72,6 +72,114 @@ Route135_EventScript_CatchTutorialMain::
 	end
 
 
+Route135_EventScript_RockSmashGuy::
+	lock
+	faceplayer
+	goto_if_unset FLAG_TEMP_11, Route135_EventScript_RockSmashGuy_2
+Route135_EventScript_RockSmashGuy_1:
+	msgbox Route135_EventScript_RockSmashGuy_Text_2
+	release
+	end
+
+Route135_EventScript_RockSmashGuy_2:
+	msgbox Route135_EventScript_RockSmashGuy_Text_0
+	applymovement 7, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	applymovement 3, Movement_SmashRock
+	playse SE_M_ROCK_THROW
+	msgbox Route135_EventScript_RockSmashGuy_Text_1
+	waitmovement 0
+	waitse
+	removeobject 3
+	setflag FLAG_TEMP_11
+	specialvar VAR_TEMP_1, GetPlayerFacingDirection
+	switch VAR_TEMP_1
+	case DIR_SOUTH, Route135_EventScript_RockSmashGuy_5
+	case DIR_EAST, Route135_EventScript_RockSmashGuy_5
+	case DIR_WEST, Route135_EventScript_RockSmashGuy_6
+	case DIR_NORTH, Route135_EventScript_RockSmashGuy_7
+	goto Route135_EventScript_RockSmashGuy_1
+
+Route135_EventScript_RockSmashGuy_5:
+	turnobject 7, DIR_WEST
+	goto Route135_EventScript_RockSmashGuy_1
+
+Route135_EventScript_RockSmashGuy_6:
+	turnobject 7, DIR_EAST
+	goto Route135_EventScript_RockSmashGuy_1
+
+Route135_EventScript_RockSmashGuy_7:
+	turnobject 7, DIR_SOUTH
+	goto Route135_EventScript_RockSmashGuy_1
+
+
+Route135_EventScript_RockSmashSpecialRock::
+	lock
+	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route135_EventScript_RockSmashSpecialRock_2
+Route135_EventScript_RockSmashSpecialRock_1:
+	checkpartymove MOVE_ROCK_SMASH
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq Route135_EventScript_RockSmashSpecialRock_5
+Route135_EventScript_RockSmashSpecialRock_4:
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	msgbox Text_WantToSmash, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route135_EventScript_RockSmashSpecialRock_8
+Route135_EventScript_RockSmashSpecialRock_7:
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_ROCK_SMASH
+	waitstate
+	applymovement 3, Movement_SmashRock
+	waitmovement 0
+	removeobject 3
+	setflag FLAG_TEMP_11
+	applymovement 7, Route135_Movement_RockSmashGuyNotice
+	playse SE_PIN
+	waitmovement 7
+	specialvar VAR_TEMP_1, GetPlayerFacingDirection
+	switch VAR_TEMP_1
+	case DIR_SOUTH, Route135_EventScript_RockSmashSpecialRock_12
+	case DIR_EAST, Route135_EventScript_RockSmashSpecialRock_12
+	case DIR_WEST, Route135_EventScript_RockSmashSpecialRock_13
+	case DIR_NORTH, Route135_EventScript_RockSmashSpecialRock_14
+Route135_EventScript_RockSmashSpecialRock_10:
+	checkpartymove MOVE_ROCK_SMASH
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	msgbox Route135_EventScript_RockSmashSpecialRock_Text_0
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	closemessage
+	releaseall
+	end
+
+Route135_EventScript_RockSmashSpecialRock_2:
+	goto EventScript_RockSmash
+	goto Route135_EventScript_RockSmashSpecialRock_1
+
+Route135_EventScript_RockSmashSpecialRock_5:
+	goto EventScript_CantSmashRock
+	goto Route135_EventScript_RockSmashSpecialRock_4
+
+Route135_EventScript_RockSmashSpecialRock_8:
+	goto EventScript_CancelSmash
+	goto Route135_EventScript_RockSmashSpecialRock_7
+
+Route135_EventScript_RockSmashSpecialRock_12:
+	turnobject 7, DIR_WEST
+	goto Route135_EventScript_RockSmashSpecialRock_10
+
+Route135_EventScript_RockSmashSpecialRock_13:
+	turnobject 7, DIR_EAST
+	goto Route135_EventScript_RockSmashSpecialRock_10
+
+Route135_EventScript_RockSmashSpecialRock_14:
+	turnobject 7, DIR_SOUTH
+	goto Route135_EventScript_RockSmashSpecialRock_10
+
+
 Route135_Movement_CatchTutorialEnterTop:
 	walk_left
 	walk_left
@@ -106,6 +214,23 @@ Route135_EventScript_Boy1::
 	return
 
 
+Route135_Movement_RockSmashGuyNotice:
+	face_down
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_down
+	step_end
+
+Route135_Movement_RockSmashRockSmash:
+	delay_16
+	delay_16
+	delay_16
+	rock_smash_break
+	step_end
+
 Route135_EventScript_CatchTutorialMain_Text_0:
 	.string "See that Budew over there in the grass?\p"
 	.string "Watch closely!$"
@@ -138,6 +263,27 @@ Route135_EventScript_CatchTutorialMain_Text_4:
 	.string "But before you go, why don't you show\n"
 	.string "your new Pokémon to your mom?\p"
 	.string "I bet she'll love it!$"
+
+Route135_EventScript_RockSmashGuy_Text_0:
+	.string "Rocks like these are breakable! Watch!$"
+
+Route135_EventScript_RockSmashGuy_Text_1:
+	.string "HIYA!$"
+
+Route135_EventScript_RockSmashGuy_Text_2:
+	.string "If you steel your body and train your\n"
+	.string "muscles, you can smash these rocks\l"
+	.string "too!\p"
+	.string "Or you can ask a strong Pokémon to\n"
+	.string "break them for you, I guess.$"
+
+Route135_EventScript_RockSmashSpecialRock_Text_0:
+	.string "That's a powerful Rock Smash! You\n"
+	.string "trained your {STR_VAR_1} well!\p"
+	.string "Here, with this HM you can use it in\n"
+	.string "battle too!\p"
+	.string "Or you can teach it to other Pokémon\n"
+	.string "that can't use it innately.$"
 
 Route135_EventScript_Boy1_Text_0:
 	.string "Did you know that Pokémon have\n"

@@ -1,4 +1,7 @@
 const LOCALID_RUTH = 5
+const LOCALID_ROCK_SMASH_GUY = 7
+const LOCALID_ROCK_SMASH_ROCK = 3
+const TEMP_FLAG_ROCK_DESTROYED = FLAG_TEMP_11
 const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
 
 mapscripts Route135_MapScripts {
@@ -73,6 +76,89 @@ script Route135_EventScript_CatchTutorialMain {
     end
 }
 
+script Route135_EventScript_RockSmashGuy {
+    lock
+    faceplayer
+    if (!flag(TEMP_FLAG_ROCK_DESTROYED)) {
+    msgbox(format("Rocks like these are breakable! Watch!"))
+    applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
+    playse(SE_M_ROCK_THROW)
+    msgbox("HIYA!")
+    waitmovement(0)
+    waitse
+	removeobject(LOCALID_ROCK_SMASH_ROCK)
+    setflag(TEMP_FLAG_ROCK_DESTROYED)
+
+    specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+    switch (var(VAR_TEMP_1)) {
+        case DIR_SOUTH:
+        case DIR_EAST:
+            turnobject(LOCALID_ROCK_SMASH_GUY, DIR_WEST)
+        case DIR_WEST:
+			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_EAST)
+        case DIR_NORTH:
+			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_SOUTH)
+    }
+    }
+    msgbox(format("If you steel your body and train your muscles, you can smash these rocks too!\p"
+            "Or you can ask a strong Pokémon to break them for you, I guess."))
+    release
+    end
+}
+
+script Route135_EventScript_RockSmashSpecialRock {
+	lock
+    if (flag(FLAG_RECEIVED_HM_ROCK_SMASH)) {
+        goto(EventScript_RockSmash)
+    }
+	checkpartymove(MOVE_ROCK_SMASH)
+	if (var(VAR_RESULT) == PARTY_SIZE) {
+        goto(EventScript_CantSmashRock)
+    } 
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_ROCK_SMASH)
+	msgbox(Text_WantToSmash, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO)
+    {
+        goto(EventScript_CancelSmash)
+    }
+
+	msgbox(Text_MonUsedFieldMove, MSGBOX_DEFAULT)
+	closemessage
+	dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+	waitstate
+	applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
+	waitmovement(0)
+	removeobject(LOCALID_ROCK_SMASH_ROCK)
+    setflag(TEMP_FLAG_ROCK_DESTROYED)
+
+    applymovement(LOCALID_ROCK_SMASH_GUY, Route135_Movement_RockSmashGuyNotice)
+    playse(SE_PIN)
+    waitmovement(LOCALID_ROCK_SMASH_GUY)
+    specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+	switch (var(VAR_TEMP_1)) {
+        case DIR_SOUTH:
+        case DIR_EAST:
+            turnobject(LOCALID_ROCK_SMASH_GUY, DIR_WEST)
+        case DIR_WEST:
+			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_EAST)
+        case DIR_NORTH:
+			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_SOUTH)
+    }
+    checkpartymove(MOVE_ROCK_SMASH)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+    msgbox(format("That's a powerful Rock Smash! You trained your {STR_VAR_1} well!\p"
+            "Here, with this HM you can use it in battle too!\pOr you can teach it to other Pokémon that can't use it innately."))
+    giveitem(ITEM_HM_ROCK_SMASH)
+    setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
+    closemessage
+    releaseall
+	end
+}
+
 text Route135_Text_CatchTutorialPsstComeOverHere {
     format("Psst! {PLAYER}!\pCome over here, quickly!")
 }
@@ -99,3 +185,21 @@ script Route135_EventScript_Boy1 {
         "My Wingull can easily defeat wild Budew with its flying-type moves!\p"
         "It doesn't do well against eletric or rock-type attacks, though…"), MSGBOX_NPC)
 }
+
+movement Route135_Movement_RockSmashGuyNotice {
+    face_down
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+    walk_down
+}
+
+movement Route135_Movement_RockSmashRockSmash {
+    delay_16
+    delay_16
+    delay_16
+    rock_smash_break
+}
+

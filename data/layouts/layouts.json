@@ -495,7 +495,7 @@
       "id": "LAYOUT_ROUTE134",
       "name": "Route134_Layout",
       "width": 80,
-      "height": 50,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/Route134/border.bin",

@@ -11804,3 +11804,48 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMon sParty_RuthPacifidlogToxatiel[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_BUDEW,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_GROCKO,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_EEVEE,
+    }
+};
+
+static const struct TrainerMon sParty_RuthPacifidlogGrocko[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_BUDEW,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_CHIMERA1,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_EEVEE,
+    }
+};
+
+static const struct TrainerMon sParty_RuthPacifidlogChimera[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_BUDEW,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_TOXATIEL,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_EEVEE,
+    }
+};

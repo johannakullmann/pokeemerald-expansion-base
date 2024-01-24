@@ -22,23 +22,12 @@ raw `
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
-SlateportCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SlateportCity_OnFrame
-	.byte 0
-
 SlateportCity_OnTransition:
 	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 0
 	call SlateportCity_EventScript_EnterSlateport
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
 	end
-
-SlateportCity_EventScript_EnterSlateport::
-	setflag FLAG_VISITED_SLATEPORT_CITY
-	setvar VAR_CONTEST_HALL_STATE, 0
-	setflag FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER
-	return
 
 SlateportCity_EventScript_MovePeopleForSternInterview::
 	setobjectxyperm LOCALID_CAPT_STERN, 28, 13
@@ -1385,3 +1374,89 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
 `
+const LOCALID_SAILOR = 26
+const LOCALID_RUTH = 27
+const LOCALID_BOAT = 25
+const FLAG_TEMP_DISABLE_RUTH = FLAG_TEMP_9
+
+mapscripts SlateportCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SlateportCity_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_SLATEPORT_CITY_STATE, 0: SlateportCity_EventScript_ArriveFromPacifidlogWithRuth
+		VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1: SlateportCity_EventScript_ScottScene
+	]
+}
+
+script SlateportCity_EventScript_Sailor {
+	lock
+	faceplayer
+	msgbox(format("Cpt. Moore: Do you want to sail to Pacifidlog Town?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		closemessage
+		applymovement(LOCALID_SAILOR, Common_Movement_WalkUp)
+		applymovement(OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerEnterBoat)
+		waitmovement(LOCALID_SAILOR)
+		removeobject(LOCALID_SAILOR)
+		waitmovement(OBJ_EVENT_ID_PLAYER)
+		hideobjectat(OBJ_EVENT_ID_PLAYER, MAP_SLATEPORT_CITY)
+		delay(20)
+		applymovement(LOCALID_BOAT, SlateportCity_Movement_BoatLeaveForPacifidlog)
+		waitmovement(0)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+		warp(MAP_PACIFIDLOG_TOWN, 32, 29)
+	}
+	closemessage
+	release
+	end
+}
+
+script SlateportCity_EventScript_EnterSlateport {
+	setflag(FLAG_VISITED_SLATEPORT_CITY)
+	setvar(VAR_CONTEST_HALL_STATE, 0)
+	setflag(FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER)
+	switch (var(VAR_SLATEPORT_CITY_STATE)) {
+		case 0: 
+			clearflag(FLAG_TEMP_DISABLE_RUTH)
+		default:
+			setflag(FLAG_TEMP_DISABLE_RUTH)
+	}
+	return
+}
+
+script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
+	lock
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	msgbox(format("We're here! Slateport City!\p"
+			"The nearest Pokémon Gym is in Mauville City…\p"
+			"But I think I want to look for a ground-type Pokémon before I arrive there.\p"
+			"I don't think I'll do well in an electric-type gym with my current team."))
+	turnobject(LOCALID_RUTH, DIR_SOUTH)
+	msgbox(format("Hmmm… where could I find a ground-type…\p"
+			"Ah, whatever, I'll just go explore!"))
+	closemessage
+	applymovement(LOCALID_RUTH, SlateportCity_Movement_RuthLeave)
+	waitmovement(0)
+	removeobject(LOCALID_RUTH)
+	setflag(FLAG_TEMP_DISABLE_RUTH)
+	setvar(VAR_SLATEPORT_CITY_STATE, 1)
+}
+
+movement SlateportCity_Movement_RuthLeave {
+	walk_fast_left * 10
+}
+
+movement SlateportCity_Movement_PlayerEnterBoat {
+	walk_up *2
+}
+
+movement SlateportCity_Movement_BoatLeaveForPacifidlog {
+	walk_right *10
+}
