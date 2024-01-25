@@ -1164,8 +1164,10 @@ Route110_EventScript_AfterAquaDoubleBattle::
 	turnobject 33, DIR_NORTH
 	turnobject 34, DIR_NORTH
 	applymovement 33, Common_Movement_ExclamationMarkAndDelay
+	playse SE_PIN
 	applymovement 34, Common_Movement_WalkInPlaceUp
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_0
+	waitse
 	closemessage
 	waitmovement 33
 	applymovement 33, Route110_Movement_GruntPanicking
