@@ -11491,6 +11491,160 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE135",
+          "base_label": "gRoute1350",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_ZIGZAGOON"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_BUDEW"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_ZIGZAGOON"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_PICHU"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_PICHU"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACRUEL"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CORSOLA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CORSOLA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_HORSEA"
+              }
+            ]
+          }
         }
       ]
     },
