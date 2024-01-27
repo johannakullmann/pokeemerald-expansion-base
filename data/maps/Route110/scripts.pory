@@ -1275,7 +1275,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			closemessage
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceLeft)	
 			clearflag(FLAG_HIDE_BOX)
-			setobjectxy(LOCALID_BOX, 10, 85)
+			setobjectxy(LOCALID_BOX, 8, 85)
 			showobjectat(LOCALID_BOX, MAP_ROUTE110)
 			waitmovement(0)
 			applymovement(LOCALID_GRUNT1, Route110_Movement_GruntLeave_Right)
@@ -1531,12 +1531,12 @@ movement Route110_Movement_RuthLeave {
 }
 
 script Route110_EventScript_Grunt1Trainer{
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_1, 0, "EEEE", "EEEE")
+	trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_1, 0, "Argh!", "Argh!")
 	end
 }
 
 script Route110_EventScript_Grunt2Trainer {
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_2, 0, "AAAA", "AAAA")
+	trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_2, 0, "What just happened?", "What just happened?")
 }
 
 text Route110_Text_HowsHeSoFast {

@@ -1421,7 +1421,7 @@ Route110_EventScript_AfterAquaDoubleBattle_4:
 	closemessage
 	applymovement 31, Common_Movement_WalkInPlaceLeft
 	clearflag FLAG_TEMP_6
-	setobjectxy 33, 10, 85
+	setobjectxy 33, 8, 85
 	showobjectat 33, MAP_ROUTE110
 	waitmovement 0
 	applymovement 31, Route110_Movement_GruntLeave_Right
@@ -1748,10 +1748,10 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_14:
 	.string "Let's see who gets the badge first!$"
 
 Route110_EventScript_Grunt1Trainer_Text_0:
-	.string "EEEE$"
+	.string "Argh!$"
 
 Route110_EventScript_Grunt2Trainer_Text_0:
-	.string "AAAA$"
+	.string "What just happened?$"
 
 Route110_Text_HowsHeSoFast::
 	.string "He's almost here! How's he so fast?!$"
