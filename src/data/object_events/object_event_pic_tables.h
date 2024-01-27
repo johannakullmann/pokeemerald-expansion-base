@@ -2480,3 +2480,15 @@ static const struct SpriteFrameImage sPicTable_HeadbuttTree[] = {
     overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 2),
     overworld_frame(gObjectEventPic_HeadbuttTree, 8, 8, 0),
 };
+
+static const struct SpriteFrameImage sPicTable_RuthFishing[] = {
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RuthFishing, 8, 8, 2),
+};

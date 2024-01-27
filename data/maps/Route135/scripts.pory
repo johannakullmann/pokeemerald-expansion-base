@@ -177,7 +177,8 @@ movement Route135_Movement_CatchTutorialEnterBottom {
 
 movement Route135_Movement_RuthLeave {
     walk_left *2
-    walk_up *5
+    walk_up *4
+    walk_left *3
 }
 
 script Route135_EventScript_Boy1 {
@@ -210,6 +211,21 @@ script Route135_EventScript_Darien {
             format("Aw, shucks."))
     msgbox (format("As a trainer, you have to be ready for a challenge anytime!"), MSGBOX_AUTOCLOSE)
 	end
+}
+
+script Route135_EventScript_Lass {
+    lock
+    faceplayer
+    msgbox (format("I jumped down this ledge, but now I can't get back up!\p"
+            "I could get back to Pacifidlog via the beach, but I don't want to get sand in my shoes…"), MSGBOX_AUTOCLOSE)
+    end
+}
+
+script Route135_EventScript_Tuber_F {
+    lock
+    faceplayer
+    msgbox (format("Hehe!\pMy footsteps make funny sounds!"), MSGBOX_AUTOCLOSE)
+    end
 }
 
 movement Route135_Movement_RockSmashGuyNotice {

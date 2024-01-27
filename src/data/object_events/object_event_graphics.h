@@ -413,3 +413,5 @@ const u32 gObjectEventPic_ProfBrendanBirch[] = INCBIN_U32("graphics/object_event
 
 const u32 gObjectEventPic_HeadbuttTree[] = INCBIN_U32("graphics/object_events/pics/misc/headbutt_tree.4bpp");
 const u16 gObjectEventPal_HeadbuttTree[] = INCBIN_U16("graphics/object_events/palettes/headbutt_tree.gbapal");
+
+const u32 gObjectEventPic_RuthFishing[] = INCBIN_U32("graphics/object_events/pics/people/ruth_fishing.4bpp");

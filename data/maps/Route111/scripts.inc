@@ -51,6 +51,7 @@ Route111_OnTransition:
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
+	call_if_unset FLAG_BADGE03_GET, Route111_EventScript_SetRuthFishing
 	call Route111_EventScript_CheckSetSandstorm
 	call GabbyAndTy_EventScript_UpdateLocation
 	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
@@ -726,3 +727,34 @@ Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
+
+Route111_EventScript_SetRuthFishing::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH_FISHING
+	return
+
+
+Route111_EventScript_RuthFishing::
+	lock
+	removeobject 47
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH
+	addobject 47
+	faceplayer
+	msgbox Route111_EventScript_RuthFishing_Text_0
+	closemessage
+	applymovement 47, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	removeobject 47
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH_FISHING
+	addobject 47
+	release
+	end
+
+
+Route111_EventScript_RuthFishing_Text_0:
+	.string "Hey, {PLAYER}!\p"
+	.string "I got this fishing rod in Mauville!\p"
+	.string "I'm trying to catch a Barboach for the\n"
+	.string "gym, but I've only been able to hook\l"
+	.string "Magikarp…\p"
+	.string "Maybe I should just train the Pokémon I\n"
+	.string "have now instead?$"

@@ -206,7 +206,9 @@ Route135_Movement_RuthLeave:
 	walk_up
 	walk_up
 	walk_up
-	walk_up
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route135_EventScript_Boy1::
@@ -229,6 +231,20 @@ Route135_EventScript_Ali::
 Route135_EventScript_Darien::
 	trainerbattle_single TRAINER_DARIEN, Route135_EventScript_Darien_Text_0, Route135_EventScript_Darien_Text_1
 	msgbox Route135_EventScript_Darien_Text_2, MSGBOX_AUTOCLOSE
+	end
+
+
+Route135_EventScript_Lass::
+	lock
+	faceplayer
+	msgbox Route135_EventScript_Lass_Text_0, MSGBOX_AUTOCLOSE
+	end
+
+
+Route135_EventScript_Tuber_F::
+	lock
+	faceplayer
+	msgbox Route135_EventScript_Tuber_F_Text_0, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -354,6 +370,17 @@ Route135_EventScript_Darien_Text_1:
 Route135_EventScript_Darien_Text_2:
 	.string "As a trainer, you have to be ready for a\n"
 	.string "challenge anytime!$"
+
+Route135_EventScript_Lass_Text_0:
+	.string "I jumped down this ledge, but now I\n"
+	.string "can't get back up!\p"
+	.string "I could get back to Pacifidlog via the\n"
+	.string "beach, but I don't want to get sand in\l"
+	.string "my shoes…$"
+
+Route135_EventScript_Tuber_F_Text_0:
+	.string "Hehe!\p"
+	.string "My footsteps make funny sounds!$"
 
 Route135_Text_CatchTutorialPsstComeOverHere::
 	.string "Psst! {PLAYER}!\p"

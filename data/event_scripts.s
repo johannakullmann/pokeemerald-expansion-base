@@ -1091,3 +1091,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route135_DiveSchool/scripts.inc"
 
 	.include "data/maps/PacifidlogTown_Mart/scripts.inc"
+
+	.include "data/maps/MountainCave/scripts.inc"

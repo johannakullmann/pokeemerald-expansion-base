@@ -1,0 +1,28 @@
+raw `
+PacifidlogTown_Mart_MapScripts::
+	.byte 0
+`
+
+script PacifidlogTown_Mart_Employee {
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(PacifidlogTown_Mart_Tier1)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script PacifidlogTown_EventScript_Girl{
+    lock
+    faceplayer
+    msgbox(format("I'm happy we finally got a mart in Pacifidlog Town.\pNow I can shop to my heart's content!"), MSGBOX_AUTOCLOSE)
+    end
+}
+
+mart PacifidlogTown_Mart_Tier1 {
+    ITEM_POKE_BALL
+    ITEM_POTION
+    ITEM_ANTIDOTE
+}
