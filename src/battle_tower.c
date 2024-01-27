@@ -3108,7 +3108,7 @@ static void FillPartnerParty(u16 trainerId)
     if (trainerId == TRAINER_STEVEN_PARTNER || trainerId == TRAINER_RUTH_PARTNER)
     {
         partnerParty = sRuthMonsGrocko;
-        switch(VAR_STARTER_MON) {
+        switch(VarGet(VAR_STARTER_MON)) {
                 case 0:
                     partnerParty = sRuthMonsGrocko;
                 case 1:

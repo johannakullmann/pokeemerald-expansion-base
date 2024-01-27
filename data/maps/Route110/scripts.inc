@@ -1,6 +1,4 @@
 .set LOCALID_CHALLENGE_BIKER, 21
-.set LOCALID_RIVAL, 28
-.set LOCALID_RIVAL_ON_BIKE, 29
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -998,6 +996,11 @@ Route110_EventScript_SetupAquaScene::
 	setflag FLAG_TEMP_7
 	setflag FLAG_TEMP_9
 	setflag FLAG_TEMP_8
+	removeobject 29
+	removeobject 33
+	removeobject 30
+	removeobject 31
+	removeobject 32
 	setvar VAR_TEMP_8, 0
 	return
 
@@ -1011,126 +1014,230 @@ Route110_EventScript_SetupAquaScene_1:
 
 
 Route110_EventScript_AquaScene_Left::
-	lock
+	setvar VAR_TEMP_2, 0
+	setobjectxy 30, 9, 92
+	setobjectxy 31, 9, 80
+	setobjectxy 32, 8, 80
 	goto Route110_EventScript_AquaScene
 	return
 
 
 Route110_EventScript_AquaScene_Middle::
+	setvar VAR_TEMP_2, 1
+	setobjectxy 30, 8, 92
+	setobjectxy 31, 9, 80
+	setobjectxy 32, 8, 80
 	goto Route110_EventScript_AquaScene
 	return
 
 
 Route110_EventScript_AquaScene_Right::
+	setvar VAR_TEMP_2, 2
+	setobjectxy 30, 9, 92
+	setobjectxy 31, 9, 80
+	setobjectxy 32, 10, 80
 	goto Route110_EventScript_AquaScene
 	return
 
 
 Route110_EventScript_AquaScene::
 	lock
-	setobjectxy 32, 8, 92
-	setobjectxy 33, 9, 80
-	setobjectxy 34, 8, 80
-	applymovement 32, Route110_Movement_RuthEnterScreen
+	applymovement 30, Route110_Movement_RuthEnterScreen
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	msgbox Route110_EventScript_AquaScene_Text_0
 	closemessage
-	applymovement 32, Route110_Movement_RuthWalkUpToPlayer
+	applymovement 30, Route110_Movement_RuthWalkUpToPlayer
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_3
+	case 1, Route110_EventScript_AquaScene_4
+	case 2, Route110_EventScript_AquaScene_4
+Route110_EventScript_AquaScene_1:
 	msgbox Route110_EventScript_AquaScene_Text_1
 	closemessage
-	applymovement 33, Route110_Movement_Grunt1Encounter
+	applymovement 31, Route110_Movement_Grunt1Encounter
 	waitmovement 0
 	delay 8
-	applymovement 33, Common_Movement_WalkInPlaceRight
 	clearflag FLAG_TEMP_6
-	setobjectxy 35, 10, 84
-	showobjectat 35, MAP_ROUTE110
-	waitmovement 33
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_7
+	case 1, Route110_EventScript_AquaScene_7
+	case 2, Route110_EventScript_AquaScene_8
+Route110_EventScript_AquaScene_5:
+	showobjectat 33, MAP_ROUTE110
+	waitmovement 31
 	delay 8
-	turnobject 33, DIR_NORTH
+	turnobject 31, DIR_NORTH
 	delay 16
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	turnobject 32, DIR_NORTH
+	turnobject 30, DIR_NORTH
 	msgbox Route110_EventScript_AquaScene_Text_2
 	closemessage
-	applymovement 34, Route110_Movement_Grunt2Encounter_1
-	waitmovement 34
+	applymovement 32, Route110_Movement_Grunt2Encounter_1
+	waitmovement 32
 	msgbox Route110_EventScript_AquaScene_Text_3
 	closemessage
-	applymovement 34, Route110_Movement_Grunt2Encounter_2
+	applymovement 32, Route110_Movement_Grunt2Encounter_2
 	waitmovement 0
-	turnobject 33, DIR_WEST
-	delay 16
-	applymovement 34, Route110_Movement_Grunt2LookBack
-	waitmovement 0
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_11
+	case 1, Route110_EventScript_AquaScene_11
+	case 2, Route110_EventScript_AquaScene_12
+Route110_EventScript_AquaScene_9:
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_15
+	case 1, Route110_EventScript_AquaScene_16
+	case 2, Route110_EventScript_AquaScene_16
+Route110_EventScript_AquaScene_13:
 	msgbox Route110_EventScript_AquaScene_Text_4
-	applymovement 33, Common_Movement_WalkInPlaceLeft
-	waitmovement 0
-	msgbox Route110_EventScript_AquaScene_Text_5
-	applymovement 32, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox Route110_EventScript_AquaScene_Text_6
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	turnobject 32, DIR_NORTH
+	turnobject 30, DIR_NORTH
 	closemessage
-	applymovement 33, Common_Movement_WalkInPlaceRight
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_19
+	case 1, Route110_EventScript_AquaScene_19
+	case 2, Route110_EventScript_AquaScene_20
+Route110_EventScript_AquaScene_17:
 	waitmovement 0
-	hideobjectat 35, MAP_ROUTE110
-	applymovement 33, Common_Movement_WalkDown
+	hideobjectat 33, MAP_ROUTE110
+	applymovement 31, Common_Movement_WalkDown
 	waitmovement 0
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Route110_EventScript_AquaScene_2
-	msgbox Route110_EventScript_AquaScene_Text_8
-Route110_EventScript_AquaScene_1:
-	applymovement 34, Common_Movement_WalkDown
+	goto_if_eq Route110_EventScript_AquaScene_22
+	msgbox Route110_EventScript_AquaScene_Text_6
+Route110_EventScript_AquaScene_21:
+	applymovement 32, Common_Movement_WalkDown
 	waitmovement 0
-	applymovement 32, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox Route110_EventScript_AquaScene_Text_9
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AquaScene_27
+	case 1, Route110_EventScript_AquaScene_28
+	case 2, Route110_EventScript_AquaScene_28
+Route110_EventScript_AquaScene_25:
+	msgbox Route110_EventScript_AquaScene_Text_7
 	closemessage
 	goto Route110_EventScript_PrepareForAquaDoubleBattle
 	return
 
-Route110_EventScript_AquaScene_2:
-	msgbox Route110_EventScript_AquaScene_Text_7
+Route110_EventScript_AquaScene_3:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
 	goto Route110_EventScript_AquaScene_1
+
+Route110_EventScript_AquaScene_4:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft
+	goto Route110_EventScript_AquaScene_1
+
+Route110_EventScript_AquaScene_7:
+	applymovement 31, Common_Movement_WalkInPlaceRight
+	setobjectxy 33, 10, 84
+	goto Route110_EventScript_AquaScene_5
+
+Route110_EventScript_AquaScene_8:
+	applymovement 31, Common_Movement_WalkInPlaceLeft
+	setobjectxy 33, 8, 84
+	goto Route110_EventScript_AquaScene_5
+
+Route110_EventScript_AquaScene_11:
+	turnobject 32, DIR_EAST
+	turnobject 31, DIR_WEST
+	delay 16
+	turnobject 32, DIR_NORTH
+	delay 16
+	applymovement 32, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	msgbox Route110_Text_HowsHeSoFast
+	applymovement 31, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	msgbox Route110_Text_WeWouldveLostHimAlready
+	goto Route110_EventScript_AquaScene_9
+
+Route110_EventScript_AquaScene_12:
+	turnobject 32, DIR_WEST
+	turnobject 31, DIR_EAST
+	delay 16
+	turnobject 32, DIR_NORTH
+	delay 16
+	applymovement 32, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	msgbox Route110_Text_HowsHeSoFast
+	applymovement 31, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	msgbox Route110_Text_WeWouldveLostHimAlready
+	goto Route110_EventScript_AquaScene_9
+
+Route110_EventScript_AquaScene_15:
+	applymovement 30, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto Route110_EventScript_AquaScene_13
+
+Route110_EventScript_AquaScene_16:
+	applymovement 30, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto Route110_EventScript_AquaScene_13
+
+Route110_EventScript_AquaScene_19:
+	applymovement 31, Common_Movement_WalkInPlaceRight
+	goto Route110_EventScript_AquaScene_17
+
+Route110_EventScript_AquaScene_20:
+	applymovement 31, Common_Movement_WalkInPlaceLeft
+	goto Route110_EventScript_AquaScene_17
+
+Route110_EventScript_AquaScene_22:
+	msgbox Route110_EventScript_AquaScene_Text_5
+	goto Route110_EventScript_AquaScene_21
+
+Route110_EventScript_AquaScene_27:
+	applymovement 30, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto Route110_EventScript_AquaScene_25
+
+Route110_EventScript_AquaScene_28:
+	applymovement 30, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto Route110_EventScript_AquaScene_25
 
 
 Route110_EventScript_PrepareForAquaDoubleBattle::
 	special SavePlayerParty
+	getpartysize
+	compare VAR_RESULT, 3
+	goto_if_le Route110_EventScript_PrepareForAquaDoubleBattle_1
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
 	compare VAR_RESULT, 0
-	goto_if_ne Route110_EventScript_PrepareForAquaDoubleBattle_2
-Route110_EventScript_PrepareForAquaDoubleBattle_1:
+	goto_if_ne Route110_EventScript_PrepareForAquaDoubleBattle_5
+Route110_EventScript_PrepareForAquaDoubleBattle_4:
 	special LoadPlayerParty
-	lock
-	msgbox Route110_EventScript_PrepareForAquaDoubleBattle_Text_1
+	msgbox Route110_EventScript_PrepareForAquaDoubleBattle_Text_0
 	closemessage
 	goto Route110_EventScript_PrepareForAquaDoubleBattle
 	return
 
-Route110_EventScript_PrepareForAquaDoubleBattle_2:
-	special ReducePlayerPartyToSelectedMons
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
-	waitmovement 0
-	turnobject 32, DIR_NORTH
-	delay 16
-	applymovement 33, Common_Movement_WalkInPlaceDown
-	msgbox Route110_EventScript_PrepareForAquaDoubleBattle_Text_0, MSGBOX_AUTOCLOSE
-	waitmovement 34
+Route110_EventScript_PrepareForAquaDoubleBattle_1:
 	goto Route110_EventScript_StartAquaDoubleBattle
-	goto Route110_EventScript_PrepareForAquaDoubleBattle_1
+	return
+
+Route110_EventScript_PrepareForAquaDoubleBattle_5:
+	special ReducePlayerPartyToSelectedMons
+	goto Route110_EventScript_StartAquaDoubleBattle
+	goto Route110_EventScript_PrepareForAquaDoubleBattle_4
 
 
 Route110_EventScript_StartAquaDoubleBattle::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	turnobject 30, DIR_NORTH
+	delay 16
+	applymovement 31, Common_Movement_WalkInPlaceDown
+	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_0, MSGBOX_AUTOCLOSE
+	waitmovement 32
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
 	setvar VAR_0x8004, SPECIAL_BATTLE_RUTH
 	setvar VAR_0x8005, 0
@@ -1142,9 +1249,9 @@ Route110_EventScript_StartAquaDoubleBattle::
 	switch VAR_RESULT
 	case 1, Route110_EventScript_StartAquaDoubleBattle_3
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
-	applymovement 32, Common_Movement_WalkInPlaceUp
+	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_1
+	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_2
 Route110_EventScript_StartAquaDoubleBattle_1:
 	special HealPlayerParty
 	goto Route110_EventScript_AfterAquaDoubleBattle
@@ -1152,114 +1259,108 @@ Route110_EventScript_StartAquaDoubleBattle_1:
 
 Route110_EventScript_StartAquaDoubleBattle_3:
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
-	applymovement 32, Common_Movement_WalkInPlaceUp
+	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_0
+	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_1
 	goto Route110_EventScript_StartAquaDoubleBattle_1
 
 
 Route110_EventScript_AfterAquaDoubleBattle::
-	applymovement 31, Route110_Movement_Birch
+	applymovement 29, Route110_Movement_Birch
 	waitmovement 0
-	turnobject 33, DIR_NORTH
-	turnobject 34, DIR_NORTH
-	applymovement 33, Common_Movement_ExclamationMarkAndDelay
+	turnobject 31, DIR_NORTH
+	turnobject 32, DIR_NORTH
+	applymovement 31, Common_Movement_ExclamationMarkAndDelay
 	playse SE_PIN
-	applymovement 34, Common_Movement_WalkInPlaceUp
+	applymovement 32, Common_Movement_WalkInPlaceUp
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_0
 	waitse
 	closemessage
-	waitmovement 33
-	applymovement 33, Route110_Movement_GruntPanicking
+	waitmovement 31
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AfterAquaDoubleBattle_3
+	case 1, Route110_EventScript_AfterAquaDoubleBattle_3
+	case 2, Route110_EventScript_AfterAquaDoubleBattle_4
+Route110_EventScript_AfterAquaDoubleBattle_1:
+	setflag FLAG_TEMP_8
+	removeobject 31
+	removeobject 32
+	applymovement 29, Route110_Movement_BirchWalkToBox
+	waitmovement 0
 	delay 10
-	turnobject 34, DIR_EAST
-	waitmovement 33
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AfterAquaDoubleBattle_7
+	case 1, Route110_EventScript_AfterAquaDoubleBattle_7
+	case 2, Route110_EventScript_AfterAquaDoubleBattle_8
+Route110_EventScript_AfterAquaDoubleBattle_5:
+	waitmovement 0
+	hideobjectat 33, MAP_ROUTE110
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_1
 	closemessage
-	applymovement 33, Common_Movement_WalkInPlaceRight
-	clearflag FLAG_TEMP_6
-	setobjectxy 35, 10, 85
-	showobjectat 35, MAP_ROUTE110
-	waitmovement 0
-	applymovement 33, Route110_Movement_GruntLeave
-	applymovement 34, Route110_Movement_GruntLeave2
-	waitmovement 0
-	setflag FLAG_TEMP_8
-	removeobject 33
-	removeobject 34
-	applymovement 31, Route110_Movement_BirchWalkToBox
-	waitmovement 0
-	delay 10
-	applymovement 31, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	hideobjectat 35, MAP_ROUTE110
-	applymovement 31, Common_Movement_WalkInPlaceDown
+	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_2
 	closemessage
-	applymovement 32, Common_Movement_WalkInPlaceUp
-	waitmovement 0
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_3
-	closemessage
-	applymovement 31, Common_Movement_WalkInPlaceDown
+	applymovement 29, Common_Movement_WalkInPlaceUp
+	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_4
-	applymovement 31, Common_Movement_WalkInPlaceUp
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_5
-	applymovement 31, Common_Movement_WalkInPlaceDown
-	waitmovement 0
+	closemessage
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AfterAquaDoubleBattle_11
+	case 1, Route110_EventScript_AfterAquaDoubleBattle_12
+	case 2, Route110_EventScript_AfterAquaDoubleBattle_12
+Route110_EventScript_AfterAquaDoubleBattle_9:
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_6
-	closemessage
-	applymovement 32, Common_Movement_WalkInPlaceRight
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_7
-	applymovement 31, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	turnobject 32, DIR_NORTH
+	turnobject 30, DIR_NORTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_8
+	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_7
 	closemessage
-	applymovement 31, Common_Movement_WalkInPlaceRight
+	applymovement 29, Common_Movement_WalkInPlaceRight
 	waitmovement 0
-	setobjectxyperm 35, 10, 85
+	setobjectxyperm 33, 10, 85
 	clearflag FLAG_TEMP_6
-	showobjectat 35, MAP_ROUTE110
+	showobjectat 33, MAP_ROUTE110
 	delay 48
-	applymovement 31, Common_Movement_WalkInPlaceRight
+	applymovement 29, Common_Movement_WalkInPlaceRight
 	waitmovement 0
 	delay 16
 	setflag FLAG_TEMP_6
-	hideobjectat 35, MAP_ROUTE110
-	removeobject 35
+	hideobjectat 33, MAP_ROUTE110
+	removeobject 33
 	delay 16
-	applymovement 31, Common_Movement_WalkInPlaceDown
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_9
+	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_8
 	closemessage
-	applymovement 31, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
-	waitfanfare
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AfterAquaDoubleBattle_15
+	case 1, Route110_EventScript_AfterAquaDoubleBattle_16
+	case 2, Route110_EventScript_AfterAquaDoubleBattle_17
+Route110_EventScript_AfterAquaDoubleBattle_13:
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_9
 	closemessage
-	applymovement 31, Route110_Movement_BirchGiveDexToRuth
+	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_10
 	closemessage
-	applymovement 32, Common_Movement_WalkInPlaceUp
+	applymovement 29, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_11
-	closemessage
-	applymovement 31, Common_Movement_WalkInPlaceUp
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_12
-	applymovement 31, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_13
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -1268,29 +1369,150 @@ Route110_EventScript_AfterAquaDoubleBattle::
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
-	applymovement 31, Common_Movement_WalkInPlaceDown
+	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_14
+	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_13
 	closemessage
-	applymovement 31, Route110_Movement_BirchLeave
+	applymovement 29, Route110_Movement_BirchLeave
 	waitmovement 0
 	setflag FLAG_TEMP_7
-	removeobject 31
+	removeobject 29
 	delay 30
-	applymovement 32, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_15
+	switch VAR_TEMP_2
+	case 0, Route110_EventScript_AfterAquaDoubleBattle_20
+	case 1, Route110_EventScript_AfterAquaDoubleBattle_21
+	case 2, Route110_EventScript_AfterAquaDoubleBattle_21
+Route110_EventScript_AfterAquaDoubleBattle_18:
+	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_14
 	closemessage
-	applymovement 32, Route110_Movement_RuthLeave
+	applymovement 30, Route110_Movement_RuthLeave
 	delay 20
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 32
+	waitmovement 30
 	setflag FLAG_TEMP_9
-	removeobject 32
+	removeobject 30
 	setvar VAR_TEMP_8, 0
 	release
 	end
+
+Route110_EventScript_AfterAquaDoubleBattle_3:
+	applymovement 31, Route110_Movement_GruntPanicking_1
+	delay 10
+	turnobject 32, DIR_EAST
+	waitmovement 31
+	msgbox Route110_Text_FineHavePackageBack
+	closemessage
+	applymovement 31, Common_Movement_WalkInPlaceRight
+	clearflag FLAG_TEMP_6
+	setobjectxy 33, 10, 85
+	showobjectat 33, MAP_ROUTE110
+	waitmovement 0
+	applymovement 31, Route110_Movement_GruntLeave_Left
+	applymovement 32, Route110_Movement_GruntLeave2
+	waitmovement 0
+	goto Route110_EventScript_AfterAquaDoubleBattle_1
+
+Route110_EventScript_AfterAquaDoubleBattle_4:
+	applymovement 31, Route110_Movement_GruntPanicking_2
+	delay 10
+	turnobject 32, DIR_WEST
+	waitmovement 31
+	msgbox Route110_Text_FineHavePackageBack
+	closemessage
+	applymovement 31, Common_Movement_WalkInPlaceLeft
+	clearflag FLAG_TEMP_6
+	setobjectxy 33, 10, 85
+	showobjectat 33, MAP_ROUTE110
+	waitmovement 0
+	applymovement 31, Route110_Movement_GruntLeave_Right
+	applymovement 32, Route110_Movement_GruntLeave2
+	waitmovement 0
+	goto Route110_EventScript_AfterAquaDoubleBattle_1
+
+Route110_EventScript_AfterAquaDoubleBattle_7:
+	applymovement 29, Common_Movement_WalkInPlaceRight
+	goto Route110_EventScript_AfterAquaDoubleBattle_5
+
+Route110_EventScript_AfterAquaDoubleBattle_8:
+	applymovement 29, Common_Movement_WalkInPlaceLeft
+	goto Route110_EventScript_AfterAquaDoubleBattle_5
+
+Route110_EventScript_AfterAquaDoubleBattle_11:
+	applymovement 30, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto Route110_EventScript_AfterAquaDoubleBattle_9
+
+Route110_EventScript_AfterAquaDoubleBattle_12:
+	applymovement 30, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto Route110_EventScript_AfterAquaDoubleBattle_9
+
+Route110_EventScript_AfterAquaDoubleBattle_15:
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	delay 16
+	applymovement 29, Common_Movement_WalkLeft
+	waitmovement 0
+	turnobject 29, DIR_SOUTH
+	delay 16
+	msgbox Route110_Text_HereYouGetOneToo
+	closemessage
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
+	waitfanfare
+	closemessage
+	goto Route110_EventScript_AfterAquaDoubleBattle_13
+
+Route110_EventScript_AfterAquaDoubleBattle_16:
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
+	waitfanfare
+	closemessage
+	applymovement 29, Common_Movement_WalkLeft
+	waitmovement 0
+	turnobject 29, DIR_SOUTH
+	delay 16
+	msgbox Route110_Text_HereYouGetOneToo
+	closemessage
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	goto Route110_EventScript_AfterAquaDoubleBattle_13
+
+Route110_EventScript_AfterAquaDoubleBattle_17:
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	delay 16
+	applymovement 29, Common_Movement_WalkRight
+	waitmovement 0
+	turnobject 29, DIR_SOUTH
+	delay 16
+	msgbox Route110_Text_HereYouGetOneToo
+	closemessage
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
+	waitfanfare
+	closemessage
+	goto Route110_EventScript_AfterAquaDoubleBattle_13
+
+Route110_EventScript_AfterAquaDoubleBattle_20:
+	applymovement 30, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto Route110_EventScript_AfterAquaDoubleBattle_18
+
+Route110_EventScript_AfterAquaDoubleBattle_21:
+	applymovement 30, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto Route110_EventScript_AfterAquaDoubleBattle_18
 
 
 Route110_Movement_RuthEnterScreen:
@@ -1303,7 +1525,7 @@ Route110_Movement_RuthEnterScreen:
 Route110_Movement_RuthWalkUpToPlayer:
 	walk_fast_up
 	walk_fast_up
-	face_right
+	face_player
 	step_end
 
 Route110_Movement_Grunt1Encounter:
@@ -1321,13 +1543,6 @@ Route110_Movement_Grunt2Encounter_1:
 Route110_Movement_Grunt2Encounter_2:
 	walk_fast_down
 	walk_down
-	face_right
-	step_end
-
-Route110_Movement_Grunt2LookBack:
-	face_up
-	delay_16
-	walk_in_place_right
 	step_end
 
 Route110_Movement_Birch:
@@ -1335,17 +1550,34 @@ Route110_Movement_Birch:
 	walk_fast_down
 	step_end
 
-Route110_Movement_GruntPanicking:
+Route110_Movement_GruntPanicking_1:
 	walk_in_place_down
 	walk_in_place_up
 	walk_in_place_right
 	walk_in_place_up
 	step_end
 
-Route110_Movement_GruntLeave:
+Route110_Movement_GruntPanicking_2:
+	walk_in_place_down
+	walk_in_place_up
+	walk_in_place_left
+	walk_in_place_up
+	step_end
+
+Route110_Movement_GruntLeave_Left:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route110_Movement_GruntLeave_Right:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
@@ -1366,11 +1598,6 @@ Route110_Movement_BirchWalkToBox:
 	walk_down
 	walk_down
 	walk_down
-	step_end
-
-Route110_Movement_BirchGiveDexToRuth:
-	walk_left
-	walk_in_place_down
 	step_end
 
 Route110_Movement_BirchLeave:
@@ -1394,12 +1621,12 @@ Route110_Movement_RuthLeave:
 	step_end
 
 Route110_EventScript_Grunt1Trainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_1, 0, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand, MossdeepCity_SpaceCenter_2F_Text_JustWantToExpandLand
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_1, 0, Route110_EventScript_Grunt1Trainer_Text_0, Route110_EventScript_Grunt1Trainer_Text_0
 	end
 
 
 Route110_EventScript_Grunt2Trainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_2, 0, MossdeepCity_SpaceCenter_Text_TabithaDefeat, MossdeepCity_SpaceCenter_Text_TabithaDefeat
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_2, 0, Route110_EventScript_Grunt2Trainer_Text_0, Route110_EventScript_Grunt2Trainer_Text_0
 	return
 
 
@@ -1420,47 +1647,37 @@ Route110_EventScript_AquaScene_Text_3:
 	.string "Wait for me!$"
 
 Route110_EventScript_AquaScene_Text_4:
-	.string "He's almost here! How's he so fast?!$"
-
-Route110_EventScript_AquaScene_Text_5:
-	.string "???: If you weren't this slow, we would\n"
-	.string "have lost him already!$"
-
-Route110_EventScript_AquaScene_Text_6:
 	.string "Ruth: They seem suspicious.\p"
 	.string "I bet they stole that package from\n"
 	.string "somebody!$"
 
-Route110_EventScript_AquaScene_Text_7:
+Route110_EventScript_AquaScene_Text_5:
 	.string "???: Out of the way!$"
 
-Route110_EventScript_AquaScene_Text_8:
+Route110_EventScript_AquaScene_Text_6:
 	.string "???: Out of the way, girls!$"
 
-Route110_EventScript_AquaScene_Text_9:
+Route110_EventScript_AquaScene_Text_7:
 	.string "Ruth: {PLAYER}! Let's stop these two\n"
 	.string "together!$"
 
 Route110_EventScript_PrepareForAquaDoubleBattle_Text_0:
-	.string "???: Bring it on!$"
-
-Route110_EventScript_PrepareForAquaDoubleBattle_Text_1:
 	.string "Ruth: Come on, {PLAYER}! We can do\n"
 	.string "this!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_0:
-	.string "Ruth: Ha, take that!$"
+	.string "???: Bring it on!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_1:
+	.string "Ruth: Ha, take that!$"
+
+Route110_EventScript_StartAquaDoubleBattle_Text_2:
 	.string "Ruth: Ugh, they're strong...$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_0:
 	.string "Birch: There you are!\pGive me back my package, you thieves!$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_1:
-	.string "???: ...\pFine! Have your stupid package back!$"
-
-Route110_EventScript_AfterAquaDoubleBattle_Text_2:
 	.string "Birch: Thank you, I don't know if I\n"
 	.string "would've been able to catch them if you\l"
 	.string "didn't hold them back.\p"
@@ -1469,63 +1686,83 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_2:
 	.string "By any chance, do you know my son\n"
 	.string "Brendan?$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_3:
+Route110_EventScript_AfterAquaDoubleBattle_Text_2:
 	.string "Ruth: Yes! He's staying in our hometown\n"
 	.string "at the moment!\p"
 	.string "But... your son? That means... You're THE\n"
 	.string "Professor Birch?!$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_4:
+Route110_EventScript_AfterAquaDoubleBattle_Text_3:
 	.string "Birch: Haha, yes. That's me.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_5:
+Route110_EventScript_AfterAquaDoubleBattle_Text_4:
 	.string "I was on my way to collect the new\n"
 	.string "PokéDex model, when those goons\l"
 	.string "snatched the package out of my hands.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_6:
+Route110_EventScript_AfterAquaDoubleBattle_Text_5:
 	.string "My son gave one to the two of you too,\n"
 	.string "right?$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_7:
+Route110_EventScript_AfterAquaDoubleBattle_Text_6:
 	.string "Ruth: Ehrm... I didn't get one, did you,\n"
 	.string "{PLAYER}?$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_8:
+Route110_EventScript_AfterAquaDoubleBattle_Text_7:
 	.string "Birch: Hmm, he must've been really busy\n"
 	.string "with his work to forget that.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_9:
+Route110_EventScript_AfterAquaDoubleBattle_Text_8:
 	.string "Here, take these.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_10:
+Route110_EventScript_AfterAquaDoubleBattle_Text_9:
 	.string "These devices collect information\n"
 	.string "about the Pokémon you catch.\p"
 	.string "It's a very useful tool for every\n"
 	.string "Pokémon trainer!$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_11:
+Route110_EventScript_AfterAquaDoubleBattle_Text_10:
 	.string "Ruth: Thank you, Professor! We'll make\n"
 	.string "sure to make good use of it!\p"
 	.string "What did those guys want them for,\n"
 	.string "anyway?$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_12:
+Route110_EventScript_AfterAquaDoubleBattle_Text_11:
 	.string "Birch: I don't know.\p"
 	.string "It doesn't even hold the information\n"
 	.string "they're after.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_13:
+Route110_EventScript_AfterAquaDoubleBattle_Text_12:
 	.string "Oh, and this is my PokéNav contact, you\n"
 	.string "can call me if you want me to take a\l"
 	.string "look at your PokéDex progress.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_14:
+Route110_EventScript_AfterAquaDoubleBattle_Text_13:
 	.string "Again, thanks for helping me out.\p"
 	.string "You should visit me at my lab in\n"
 	.string "Littleroot Town sometime.$"
 
-Route110_EventScript_AfterAquaDoubleBattle_Text_15:
-	.string "So, {PLAYER}...\p"
-	.string "Mauville is waiting for us! Let's see who\n"
-	.string "gets the badge first!$"
+Route110_EventScript_AfterAquaDoubleBattle_Text_14:
+	.string "So, {PLAYER}! Mauville is waiting for\n"
+	.string "us!\p"
+	.string "Let's see who gets the badge first!$"
+
+Route110_EventScript_Grunt1Trainer_Text_0:
+	.string "EEEE$"
+
+Route110_EventScript_Grunt2Trainer_Text_0:
+	.string "AAAA$"
+
+Route110_Text_HowsHeSoFast::
+	.string "He's almost here! How's he so fast?!$"
+
+Route110_Text_WeWouldveLostHimAlready::
+	.string "???: If you weren't this slow, we would\n"
+	.string "have lost him already!$"
+
+Route110_Text_FineHavePackageBack::
+	.string "???: ...\p"
+	.string "Fine! Have your stupid package back!$"
+
+Route110_Text_HereYouGetOneToo::
+	.string "Here, you get one too!$"

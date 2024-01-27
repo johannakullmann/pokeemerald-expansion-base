@@ -468,7 +468,7 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_SLATEPORT_CITY_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "SlateportCity_EventScript_BattleTentClerkScene_1"
     },
     {
@@ -477,7 +477,7 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_SLATEPORT_CITY_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "SlateportCity_EventScript_BattleTentClerkScene_2"
     },
     {
@@ -486,7 +486,7 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_SLATEPORT_CITY_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "SlateportCity_EventScript_BattleTentClerkScene_3"
     },
     {
@@ -495,7 +495,7 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_SLATEPORT_CITY_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "SlateportCity_EventScript_BattleTentClerkScene_4"
     },
     {
@@ -504,7 +504,7 @@
       "y": 16,
       "elevation": 0,
       "var": "VAR_SLATEPORT_CITY_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "SlateportCity_EventScript_BattleTentClerkScene_5"
     }
   ],

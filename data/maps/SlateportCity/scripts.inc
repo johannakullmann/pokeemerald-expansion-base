@@ -1176,7 +1176,7 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth::
 	waitmovement 0
 	removeobject 26
 	setflag FLAG_TEMP_9
-	setvar VAR_SLATEPORT_CITY_STATE, 2
+	setvar VAR_SLATEPORT_CITY_STATE, 1
 	return
 
 
@@ -1201,7 +1201,7 @@ SlateportCity_EventScript_BattleTentClerkScene_1::
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFollowBattleTentClerk_1
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_SLATEPORT_CITY_STATE, 2
 	release
 	end
 
@@ -1218,7 +1218,7 @@ SlateportCity_EventScript_BattleTentClerkScene_2::
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFollowBattleTentClerk_2
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_SLATEPORT_CITY_STATE, 2
 	release
 	end
 
@@ -1236,7 +1236,7 @@ SlateportCity_EventScript_BattleTentClerkScene_3::
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFollowBattleTentClerk_3
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_SLATEPORT_CITY_STATE, 2
 	release
 	end
 
@@ -1254,7 +1254,7 @@ SlateportCity_EventScript_BattleTentClerkScene_4::
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFollowBattleTentClerk_4
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_SLATEPORT_CITY_STATE, 2
 	release
 	end
 
@@ -1272,7 +1272,7 @@ SlateportCity_EventScript_BattleTentClerkScene_5::
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerFollowBattleTentClerk_5
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
-	setvar VAR_SLATEPORT_CITY_STATE, 1
+	setvar VAR_SLATEPORT_CITY_STATE, 2
 	release
 	end
 
