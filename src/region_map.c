@@ -126,6 +126,10 @@ static const u16 sRegionMapPlayerIcon_BrendanPal[] = INCBIN_U16("graphics/pokena
 static const u8 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon.4bpp");
 static const u16 sRegionMapPlayerIcon_MayPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon.gbapal");
 static const u8 sRegionMapPlayerIcon_MayGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_AugustPal[] = INCBIN_U16("graphics/pokenav/region_map/august_icon.gbapal");
+static const u8 sRegionMapPlayerIcon_AugustGfx[] = INCBIN_U8("graphics/pokenav/region_map/august_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_JunePal[] = INCBIN_U16("graphics/pokenav/region_map/june_icon.gbapal");
+static const u8 sRegionMapPlayerIcon_JuneGfx[] = INCBIN_U8("graphics/pokenav/region_map/june_icon.4bpp");
 
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_entries.h"
