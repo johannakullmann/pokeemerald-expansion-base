@@ -70,6 +70,7 @@ script PacifidlogTown_OnTransition {
 			setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_FACE_UP)
 			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_FACE_DOWN)
 		default:
+			setflag(FLAG_TEMP_DISABLE_RUTH)
 			setobjectxyperm(LOCALID_SAILOR, 32, 28)
 			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_LOOK_AROUND)
 			removeobject(LOCALID_RUTH)
