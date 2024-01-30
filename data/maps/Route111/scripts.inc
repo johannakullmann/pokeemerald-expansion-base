@@ -51,7 +51,7 @@ Route111_OnTransition:
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
-	call_if_unset FLAG_BADGE03_GET, Route111_EventScript_SetRuthFishing
+	call Route111_EventScript_SetRuthFishing
 	call Route111_EventScript_CheckSetSandstorm
 	call GabbyAndTy_EventScript_UpdateLocation
 	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
@@ -729,6 +729,11 @@ Route111_Text_TrainerHillSign:
 	.string "TRAINERS!”$"
 
 Route111_EventScript_SetRuthFishing::
+	goto_if_unset FLAG_BADGE03_GET, Route111_EventScript_SetRuthFishing_1
+	setflag FLAG_TEMP_8
+	return
+
+Route111_EventScript_SetRuthFishing_1:
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH_FISHING
 	return
 

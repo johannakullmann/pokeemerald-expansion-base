@@ -54,6 +54,7 @@ PacifidlogTown_OnTransition::
 	case 1, PacifidlogTown_OnTransition_4
 	case 2, PacifidlogTown_OnTransition_5
 	case 3, PacifidlogTown_OnTransition_5
+	setflag FLAG_TEMP_10
 	setobjectxyperm 4, 32, 28
 	setobjectmovementtype 4, MOVEMENT_TYPE_LOOK_AROUND
 	removeobject 8

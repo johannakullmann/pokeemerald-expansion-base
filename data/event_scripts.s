@@ -1093,3 +1093,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/PacifidlogTown_Mart/scripts.inc"
 
 	.include "data/maps/MountainCave/scripts.inc"
+
+	.include "data/maps/MountainCave_RusturfTunnel/scripts.inc"
+
+	.include "data/maps/MountainCave_MtChimney/scripts.inc"
+
+	.include "data/maps/MountainCave_MtChimney_B1F/scripts.inc"
+
+	.include "data/maps/MountainCave_MeteorFalls/scripts.inc"
+
+	.include "data/maps/MountainCave_GroudonRoom/scripts.inc"

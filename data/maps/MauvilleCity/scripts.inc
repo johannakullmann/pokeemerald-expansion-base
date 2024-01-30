@@ -1,20 +1,6 @@
 .set LOCALID_WALLY, 6
 .set LOCALID_WALLYS_UNCLE, 7
-.set LOCALID_SCOTT, 11
-
-MauvilleCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_OnTransition
-	.byte 0
-
-MauvilleCity_OnTransition:
-	setflag FLAG_VISITED_MAUVILLE_CITY
-	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	clearflag FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION
-	setflag FLAG_SYS_TV_START
-	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
-	setvar VAR_MAUVILLE_GYM_STATE, 0
-	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
-	end
+.set LOCALID_SCOTT, 9
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::
 	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
@@ -665,3 +651,105 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+MauvilleCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	.byte 0
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call MauvilleCity_OnTransition
+	return
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_MAUVILLE_CITY_STATE, 1, MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	call MauvilleCity_EventScript_RuthScene
+	return
+
+
+MauvilleCity_OnTransition::
+	setflag FLAG_VISITED_MAUVILLE_CITY
+	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
+	clearflag FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION
+	setflag FLAG_SYS_TV_START
+	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
+	setvar VAR_MAUVILLE_GYM_STATE, 0
+	goto_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_OnTransition_2
+MauvilleCity_OnTransition_1:
+	goto_if_set FLAG_BADGE03_GET, MauvilleCity_OnTransition_5
+	setflag VAR_TEMP_9
+	removeobject 10
+MauvilleCity_OnTransition_4:
+	end
+
+MauvilleCity_OnTransition_2:
+	call MauvilleCity_EventScript_MoveWattsonBackToGym
+	goto MauvilleCity_OnTransition_1
+
+MauvilleCity_OnTransition_5:
+	clearflag VAR_TEMP_9
+	goto MauvilleCity_OnTransition_4
+
+
+MauvilleCity_EventScript_RuthScene::
+	lock
+	applymovement 10, MauvilleCity_Movement_RuthWalkToGym_1
+	waitmovement 0
+	msgbox MauvilleCity_EventScript_RuthScene_Text_0, MSGBOX_AUTOCLOSE
+	applymovement 10, MauvilleCity_Movement_RuthWalkToGym_2
+	waitmovement 0
+	msgbox MauvilleCity_EventScript_RuthScene_Text_1, MSGBOX_AUTOCLOSE
+	applymovement 10, MauvilleCity_Movement_RuthLeave
+	delay 32
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	waitmovement 0
+	setflag VAR_TEMP_9
+	removeobject 10
+	release
+	end
+
+
+MauvilleCity_Movement_RuthWalkToGym_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MauvilleCity_Movement_RuthWalkToGym_2:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	face_up
+	step_end
+
+MauvilleCity_Movement_RuthLeave:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MauvilleCity_EventScript_RuthScene_Text_0:
+	.string "{PLAYER}! {PLAYER}!$"
+
+MauvilleCity_EventScript_RuthScene_Text_1:
+	.string "Look what I caught!\p"
+	.string "I fished up tons and tons of Magikarp\n"
+	.string "and some Goldeen, but then-\p"
+	.string "Wait...\p"
+	.string "Is that the Dynamo Badge?!\p"
+	.string "Argh, I was so preoccupied with fishing,\n"
+	.string "and now you are already so far ahead.\p"
+	.string "{PLAYER}, I'll definitely beat you to\n"
+	.string "Lavaridge Town's gym!\p"
+	.string "I can't waste any more time! Time to go\n"
+	.string "train!$"

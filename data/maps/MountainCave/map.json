@@ -2,11 +2,11 @@
   "id": "MAP_MOUNTAIN_CAVE",
   "name": "MountainCave",
   "layout": "LAYOUT_MOUNTAIN_CAVE",
-  "music": "MUS_CAVE_OF_ORIGIN",
-  "region_map_section": "MAPSEC_MT_CHIMNEY",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "weather": "WEATHER_FOG_HORIZONTAL",
+  "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": true,
   "allow_running": false,
@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
-      "x": 22,
+      "x": 25,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
-      "x": 24,
+      "x": 23,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -42,7 +42,41 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 47,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_MOUNTAIN_CAVE_RUSTURF_TUNNEL",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 41,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 22,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY_B1F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_METEOR_FALLS_1F_1R",
+      "dest_warp_id": "6"
+    }
   ],
   "coord_events": [
 

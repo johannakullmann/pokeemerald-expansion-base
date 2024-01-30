@@ -413,6 +413,12 @@
 #define MAP_ALTERING_CAVE                            (106 | (25 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (25 << 8))
 #define MAP_ROUTE136_GROVE                           (108 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE                            (109 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_RUSTURF_TUNNEL             (110 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_MT_CHIMNEY                 (111 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_MT_CHIMNEY_B1F             (112 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_METEOR_FALLS               (113 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_GROUDON_ROOM               (114 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

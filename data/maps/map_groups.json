@@ -444,7 +444,13 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "Route136_Grove"
+    "Route136_Grove",
+    "MountainCave",
+    "MountainCave_RusturfTunnel",
+    "MountainCave_MtChimney",
+    "MountainCave_MtChimney_B1F",
+    "MountainCave_MeteorFalls",
+    "MountainCave_GroudonRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

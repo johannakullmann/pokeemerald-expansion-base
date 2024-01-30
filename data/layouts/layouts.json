@@ -4534,12 +4534,62 @@
     {
       "id": "LAYOUT_MOUNTAIN_CAVE",
       "name": "MountainCave_Layout",
-      "width": 52,
+      "width": 62,
       "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/MountainCave/border.bin",
       "blockdata_filepath": "data/layouts/MountainCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_RUSTURF_TUNNEL",
+      "name": "MountainCave_RusturfTunnel_Layout",
+      "width": 27,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/MountainCave_RusturfTunnel/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_RusturfTunnel/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_MT_CHIMNEY",
+      "name": "MountainCave_MtChimney_Layout",
+      "width": 40,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/MountainCave_MtChimney/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_MtChimney/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_MT_CHIMNEY_B1F",
+      "name": "MountainCave_MtChimney_B1F_Layout",
+      "width": 65,
+      "height": 33,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/MountainCave_MtChimney_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_MtChimney_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_METEOR_FALLS",
+      "name": "MountainCave_MeteorFalls_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/MountainCave_MeteorFalls/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_MeteorFalls/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_GROUDON_ROOM",
+      "name": "MountainCave_GroudonRoom_Layout",
+      "width": 19,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/MountainCave_GroudonRoom/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_GroudonRoom/map.bin"
     }
   ]
 }
