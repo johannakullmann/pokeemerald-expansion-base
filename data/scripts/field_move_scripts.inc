@@ -434,6 +434,7 @@ Movement_BurnTreeDown:
 	step_end
 
 EventScript_UseRoar::
+	lockall
 	msgbox Text_UsedRoar, MSGBOX_SIGN
 	end
 

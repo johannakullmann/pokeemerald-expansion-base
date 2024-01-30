@@ -3941,7 +3941,14 @@ static void CursorCb_FieldMove(u8 taskId)
                 if (steps > 0)
                 {
                     if (!isLure) {
+                        #if VAR_LAST_REPEL_LURE_USED != 0
+                        if (VarGet(VAR_LAST_REPEL_LURE_USED) == ITEM_NONE)
+                            DisplayPartyMenuMessage(gText_RoarEffectsLingered, TRUE);
+                        else
+                            DisplayPartyMenuMessage(gText_RepelEffectsLingered, TRUE);
+                        #elif
                         DisplayPartyMenuMessage(gText_RepelEffectsLingered, TRUE);
+                        #endif
                     }
                     else {
                         DisplayPartyMenuMessage(gText_LureEffectsLingered, TRUE);
@@ -3951,8 +3958,9 @@ static void CursorCb_FieldMove(u8 taskId)
                 else {
                     gPartyMenu.exitCallback = CB2_ReturnToField;
                     Task_ClosePartyMenu(taskId);
-                    break;
+                    
                 }
+                break;
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 Task_ClosePartyMenu(taskId);

@@ -23,13 +23,10 @@ bool8 SetUpFieldMove_Roar(void)
 
 static void FieldCallback_Roar(void)
 {
-    FieldEffectStart(FLDEFF_ROAR);
+    
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
-    VarSet(VAR_REPEL_STEP_COUNT, NUM_ROAR_REPEL_STEPS);
-    #if VAR_LAST_REPEL_LURE_USED != 0
-        VarSet(VAR_LAST_REPEL_LURE_USED, ITEM_NONE);
-    #endif
-    ScriptContext_SetupScript(EventScript_UseRoar);
+    //ScriptContext_SetupScript(EventScript_UseRoar);
+    FieldEffectStart(FLDEFF_ROAR);
 }
 
 bool8 FldEff_Roar(void)
@@ -44,6 +41,11 @@ bool8 FldEff_Roar(void)
 
 void StartRoarFieldEffect(void)
 {
+    VarSet(VAR_REPEL_STEP_COUNT, NUM_ROAR_REPEL_STEPS);
+    #if VAR_LAST_REPEL_LURE_USED != 0
+        VarSet(VAR_LAST_REPEL_LURE_USED, ITEM_NONE);
+    #endif
     FieldEffectActiveListRemove(FLDEFF_ROAR);
+    ScriptContext_SetupScript(EventScript_UseRoar);
     ScriptContext_Enable();
 }
