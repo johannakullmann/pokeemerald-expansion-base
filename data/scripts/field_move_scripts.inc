@@ -438,4 +438,4 @@ EventScript_UseRoar::
 	end
 
 Text_UsedRoar:
-	.string "The Roar chased away wild Pokémon!$"
+	.string "{STR_VAR_1}'s Roar chased away wild Pokémon!$"

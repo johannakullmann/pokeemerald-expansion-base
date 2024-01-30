@@ -22,6 +22,10 @@ EventScript_BufferSprayName_2:
 
 EventScript_SprayWoreOff::
 	lock
+.if VAR_LAST_REPEL_LURE_USED != 0
+	compare VAR_LAST_REPEL_LURE_USED, ITEM_NONE
+	goto_if_eq EventScript_RoarWoreOffMessage
+.endif
 	call EventScript_BufferSprayName
 	specialvar LOCAL_VAR_NUM_SPRAY_STRENGTH, GetNumberSprayStrength
 	switch LOCAL_VAR_NUM_SPRAY_STRENGTH
@@ -44,6 +48,10 @@ EventScript_SprayWoreOffMessage::
 	releaseall
 	end
 
+EventScript_RoarWoreOffMessage:: 
+	msgbox Text_RoarWoreOff, MSGBOX_SIGN
+	releaseall
+	end
 
 EventScript_UseSingleSpray::
 .if VAR_LAST_REPEL_LURE_USED == 0
@@ -150,3 +158,6 @@ Text_SprayWoreOffAskUseX::
 Text_SprayWoreOffUseX::
 	.string "{PLAYER} used the\n"
 	.string "{STR_VAR_2}.$"
+
+Text_RoarWoreOff::
+	.string "Roar's effect wore off…$"
