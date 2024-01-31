@@ -17,7 +17,17 @@ static void StartStrengthFieldEffect(void);
 // text
 bool8 SetUpFieldMove_Strength(void)
 {
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER) == TRUE)
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1)
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2)
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3)
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4)
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2) 
+    || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3))
     {
         gSpecialVar_Result = GetCursorSelectionMonId();
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;

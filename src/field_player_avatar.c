@@ -106,6 +106,19 @@ static bool8 PushBoulder_Start(struct Task *, struct ObjectEvent *, struct Objec
 static bool8 PushBoulder_Move(struct Task *, struct ObjectEvent *, struct ObjectEvent *);
 static bool8 PushBoulder_End(struct Task *, struct ObjectEvent *, struct ObjectEvent *);
 
+static void StartStrengthAnimLargeBoulder(u8, u8, u8, u8, u8);
+static void Task_PushLargeBoulder(u8);
+static bool8 PushLargeBoulder_Start(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+static bool8 PushLargeBoulder_Move(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+static bool8 PushLargeBoulder_End(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+
+static void StartStrengthAnimLongBoulder(u8, u8, u8, u8);
+static void Task_PushLongBoulder(u8);
+static bool8 PushLongBoulder_Start(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+static bool8 PushLongBoulder_Move(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+static bool8 PushLongBoulder_End(struct Task *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *);
+
+
 static void DoPlayerMatJump(void);
 static void DoPlayerAvatarSecretBaseMatJump(u8);
 static u8 PlayerAvatar_DoSecretBaseMatJump(struct Task *, struct ObjectEvent *);
@@ -303,6 +316,22 @@ static bool8 (*const sPushBoulderFuncs[])(struct Task *, struct ObjectEvent *, s
     PushBoulder_Start,
     PushBoulder_Move,
     PushBoulder_End,
+};
+
+static bool8 (*const sPushLargeBoulderFuncs[])(struct Task *, struct ObjectEvent *, 
+        struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *) =
+{
+    PushLargeBoulder_Start,
+    PushLargeBoulder_Move,
+    PushLargeBoulder_End,
+};
+
+static bool8 (*const sPushLongBoulderFuncs[])(struct Task *, struct ObjectEvent *, 
+        struct ObjectEvent *, struct ObjectEvent *, struct ObjectEvent *) =
+{
+    PushLongBoulder_Start,
+    PushLongBoulder_Move,
+    PushLongBoulder_End,
 };
 
 static bool8 (*const sPlayerAvatarSecretBaseMatJump[])(struct Task *, struct ObjectEvent *) =
@@ -736,7 +765,8 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     {
         u8 objectEventId = GetObjectEventIdByXY(x, y);
 
-        if (objectEventId != OBJECT_EVENTS_COUNT && gObjectEvents[objectEventId].graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+        //normal boulder
+        if (objectEventId != OBJECT_EVENTS_COUNT && (gObjectEvents[objectEventId].graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER))
         {
             x = gObjectEvents[objectEventId].currentCoords.x;
             y = gObjectEvents[objectEventId].currentCoords.y;
@@ -747,6 +777,244 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
                 StartStrengthAnim(objectEventId, direction);
                 return TRUE;
             }
+        }
+        
+        //large boulder (2x2)
+        if (objectEventId != OBJECT_EVENTS_COUNT
+            && (gObjectEvents[objectEventId].graphicsId >= OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1)
+            && (gObjectEvents[objectEventId].graphicsId <= OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4))
+        {
+            u8 boulderTopLeft, boulderTopRight, boulderBottomLeft, boulderBottomRight;
+            switch (gObjectEvents[objectEventId].graphicsId) {
+                case OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1: //top left
+                    boulderTopLeft = objectEventId;
+                    boulderTopRight = GetObjectEventIdByXY(x+1, y);
+                    boulderBottomLeft = GetObjectEventIdByXY(x, y+1);
+                    boulderBottomRight = GetObjectEventIdByXY(x+1, y+1);
+                break;
+                case OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2: //top right
+                    boulderTopLeft = GetObjectEventIdByXY(x-1, y);
+                    boulderTopRight = objectEventId;
+                    boulderBottomLeft = GetObjectEventIdByXY(x-1, y+1);
+                    boulderBottomRight = GetObjectEventIdByXY(x, y+1);
+                break;
+                case OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3: //bottom left
+                    boulderTopLeft = GetObjectEventIdByXY(x, y-1);
+                    boulderTopRight = GetObjectEventIdByXY(x+1, y-1);
+                    boulderBottomLeft = objectEventId;
+                    boulderBottomRight = GetObjectEventIdByXY(x+1, y);
+                break;
+                case OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4: //bottom right
+                    boulderTopLeft = GetObjectEventIdByXY(x-1, y-1);
+                    boulderTopRight = GetObjectEventIdByXY(x, y-1);
+                    boulderBottomLeft = GetObjectEventIdByXY(x-1, y);
+                    boulderBottomRight = objectEventId;
+                break;
+                default: //should never happen, but just in case
+                    boulderTopLeft = OBJECT_EVENTS_COUNT;
+                    boulderTopRight = OBJECT_EVENTS_COUNT;
+                    boulderBottomLeft = OBJECT_EVENTS_COUNT;
+                    boulderBottomRight = OBJECT_EVENTS_COUNT;
+                break;
+            }
+
+            if (!((boulderTopLeft != OBJECT_EVENTS_COUNT) && (boulderTopRight != OBJECT_EVENTS_COUNT) 
+                        && (boulderBottomLeft != OBJECT_EVENTS_COUNT) && (boulderBottomRight != OBJECT_EVENTS_COUNT)))
+                return FALSE;
+
+            switch (direction){
+                case DIR_NORTH:
+                //collision checks for top boulders
+                x = gObjectEvents[boulderTopLeft].currentCoords.x;
+                y = gObjectEvents[boulderTopLeft].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopLeft], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderTopRight].currentCoords.x;
+                y = gObjectEvents[boulderTopRight].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopRight], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+                case DIR_WEST:
+                //collision checks for left boulders
+                x = gObjectEvents[boulderTopLeft].currentCoords.x;
+                y = gObjectEvents[boulderTopLeft].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopLeft], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderBottomLeft].currentCoords.x;
+                y = gObjectEvents[boulderBottomLeft].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomLeft], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+                case DIR_EAST:
+                //collsion checks for right boulders                
+                x = gObjectEvents[boulderTopRight].currentCoords.x;
+                y = gObjectEvents[boulderTopRight].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopRight], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderBottomRight].currentCoords.x;
+                y = gObjectEvents[boulderBottomRight].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomRight], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+                case DIR_SOUTH:
+                //collision checks for bottom boulders
+                x = gObjectEvents[boulderBottomLeft].currentCoords.x;
+                y = gObjectEvents[boulderBottomLeft].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomLeft], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderBottomRight].currentCoords.x;
+                y = gObjectEvents[boulderBottomRight].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomRight], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+            }
+            StartStrengthAnimLargeBoulder(boulderTopLeft, boulderTopRight, boulderBottomLeft, boulderBottomRight, direction);
+            return TRUE;
+
+        }
+
+        //long boulder (1x3 horiz)
+
+        if (objectEventId != OBJECT_EVENTS_COUNT
+            && (gObjectEvents[objectEventId].graphicsId >= OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1)
+            && (gObjectEvents[objectEventId].graphicsId <= OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3))
+        {
+            u8 boulderLeft, boulderCenter, boulderRight;
+            switch (gObjectEvents[objectEventId].graphicsId) {
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1: //left
+                    boulderLeft = objectEventId;
+                    boulderCenter = GetObjectEventIdByXY(x+1, y);
+                    boulderRight = GetObjectEventIdByXY(x+2, y);
+                break;
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2: //center
+                    boulderLeft = GetObjectEventIdByXY(x-1, y);
+                    boulderCenter = objectEventId;
+                    boulderRight = GetObjectEventIdByXY(x+1, y);
+                break;
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3: //right
+                    boulderLeft = GetObjectEventIdByXY(x-2, y);
+                    boulderCenter = GetObjectEventIdByXY(x-1, y);
+                    boulderRight = objectEventId;
+                break;
+                default: //should never happen, but just in case
+                    boulderLeft = OBJECT_EVENTS_COUNT;
+                    boulderCenter = OBJECT_EVENTS_COUNT;
+                    boulderRight = OBJECT_EVENTS_COUNT;
+                break;
+            }
+
+            if (!((boulderLeft != OBJECT_EVENTS_COUNT) && (boulderCenter != OBJECT_EVENTS_COUNT) && (boulderRight != OBJECT_EVENTS_COUNT)))
+                return FALSE;
+
+            switch (direction){
+                case DIR_NORTH:
+                case DIR_SOUTH:
+                x = gObjectEvents[boulderLeft].currentCoords.x;
+                y = gObjectEvents[boulderLeft].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderLeft], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderCenter].currentCoords.x;
+                y = gObjectEvents[boulderCenter].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderCenter], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderRight].currentCoords.x;
+                y = gObjectEvents[boulderRight].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderRight], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+                case DIR_WEST:
+                case DIR_EAST:               
+                    return FALSE;
+                break;
+            }
+            StartStrengthAnimLongBoulder(boulderLeft, boulderCenter, boulderRight, direction);
+            return TRUE;
+
+        }
+
+        //long boulder (1x3 vert)
+                if (objectEventId != OBJECT_EVENTS_COUNT
+            && (gObjectEvents[objectEventId].graphicsId >= OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1)
+            && (gObjectEvents[objectEventId].graphicsId <= OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3))
+        {
+            u8 boulderTop, boulderCenter, boulderBottom;
+            switch (gObjectEvents[objectEventId].graphicsId) {
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1: //left
+                    boulderTop = objectEventId;
+                    boulderCenter = GetObjectEventIdByXY(x, y+1);
+                    boulderBottom = GetObjectEventIdByXY(x, y+2);
+                break;
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2: //center
+                    boulderTop = GetObjectEventIdByXY(x, y-1);
+                    boulderCenter = objectEventId;
+                    boulderBottom = GetObjectEventIdByXY(x, y+1);
+                break;
+                case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3: //right
+                    boulderTop = GetObjectEventIdByXY(x, y-2);
+                    boulderCenter = GetObjectEventIdByXY(x, y-1);
+                    boulderBottom = objectEventId;
+                break;
+                default: //should never happen, but just in case
+                    boulderTop = OBJECT_EVENTS_COUNT;
+                    boulderCenter = OBJECT_EVENTS_COUNT;
+                    boulderBottom = OBJECT_EVENTS_COUNT;
+                break;
+            }
+
+            if (!((boulderTop != OBJECT_EVENTS_COUNT) && (boulderCenter != OBJECT_EVENTS_COUNT) && (boulderBottom != OBJECT_EVENTS_COUNT)))
+                return FALSE;
+
+            switch (direction){
+                case DIR_WEST:
+                case DIR_EAST:
+                x = gObjectEvents[boulderTop].currentCoords.x;
+                y = gObjectEvents[boulderTop].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTop], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderCenter].currentCoords.x;
+                y = gObjectEvents[boulderCenter].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderCenter], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                x = gObjectEvents[boulderBottom].currentCoords.x;
+                y = gObjectEvents[boulderBottom].currentCoords.y;
+                MoveCoords(direction, &x, &y);
+                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottom], x, y, direction) == COLLISION_NONE
+                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                    return FALSE;
+                break;
+                case DIR_NORTH:
+                case DIR_SOUTH:               
+                    return FALSE;
+                break;
+            }
+            StartStrengthAnimLongBoulder(boulderTop, boulderCenter, boulderBottom, direction);
+            return TRUE;
         }
     }
     return FALSE;
@@ -1519,6 +1787,282 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
 #undef tState
 #undef tBoulderObjId
 #undef tDirection
+
+#define tState        data[0]
+#define tDirection    data[1]
+#define tBoulderObjId_LargeTL data[2] 
+#define tBoulderObjId_LargeTR data[3]
+#define tBoulderObjId_LargeBL data[4]
+#define tBoulderObjId_LargeBR data[5]
+
+static void StartStrengthAnimLargeBoulder(u8 objectEventId_TopLeft, u8 objectEventId_TopRight, 
+                                            u8 objectEventId_BottomLeft, u8 objectEventId_BottomRight, u8 direction)
+{
+    u8 taskId = CreateTask(Task_PushLargeBoulder, 0xFF);
+
+    gTasks[taskId].tBoulderObjId_LargeTL = objectEventId_TopLeft;
+    gTasks[taskId].tBoulderObjId_LargeTR = objectEventId_TopRight;
+    gTasks[taskId].tBoulderObjId_LargeBL = objectEventId_BottomLeft;
+    gTasks[taskId].tBoulderObjId_LargeBR = objectEventId_BottomRight;
+    gTasks[taskId].tDirection = direction;
+    Task_PushLargeBoulder(taskId);
+}
+
+static void Task_PushLargeBoulder(u8 taskId)
+{
+    while (sPushLargeBoulderFuncs[gTasks[taskId].tState](&gTasks[taskId],
+                                                     &gObjectEvents[gPlayerAvatar.objectEventId],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_LargeTL],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_LargeTR],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_LargeBL],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_LargeBR]))
+        ;
+}
+
+static bool8 PushLargeBoulder_Start(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_TL, struct ObjectEvent *boulder_TR, struct ObjectEvent *boulder_BL, struct ObjectEvent *boulder_BR )
+{
+    LockPlayerFieldControls();
+    gPlayerAvatar.preventStep = TRUE;
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 PushLargeBoulder_Move(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_TL, struct ObjectEvent *boulder_TR, struct ObjectEvent *boulder_BL, struct ObjectEvent *boulder_BR)
+{
+    if (ObjectEventIsHeldMovementActive(player))
+        ObjectEventClearHeldMovementIfFinished(player);
+
+    if (ObjectEventIsHeldMovementActive(boulder_TL))
+        ObjectEventClearHeldMovementIfFinished(boulder_TL);
+
+    if (ObjectEventIsHeldMovementActive(boulder_TR))
+        ObjectEventClearHeldMovementIfFinished(boulder_TR);
+    
+    if (ObjectEventIsHeldMovementActive(boulder_BL))
+        ObjectEventClearHeldMovementIfFinished(boulder_BL);
+    
+    if (ObjectEventIsHeldMovementActive(boulder_BR))
+        ObjectEventClearHeldMovementIfFinished(boulder_BR);
+
+    if (!ObjectEventIsMovementOverridden(player)
+     && !ObjectEventIsMovementOverridden(boulder_TL) && !ObjectEventIsMovementOverridden(boulder_TR) 
+     && !ObjectEventIsMovementOverridden(boulder_BL) && !ObjectEventIsMovementOverridden(boulder_BR))
+    {
+        ObjectEventClearHeldMovementIfFinished(player);
+        ObjectEventClearHeldMovementIfFinished(boulder_TL);
+        ObjectEventClearHeldMovementIfFinished(boulder_TR);
+        ObjectEventClearHeldMovementIfFinished(boulder_BL);
+        ObjectEventClearHeldMovementIfFinished(boulder_BR);
+        ObjectEventSetHeldMovement(player, GetWalkInPlaceNormalMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_TL, GetWalkSlowMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_TR, GetWalkSlowMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_BL, GetWalkSlowMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_BR, GetWalkSlowMovementAction((u8)task->tDirection));
+
+        //dust
+        switch ((u8)task->tDirection) {
+            case DIR_NORTH:
+            gFieldEffectArguments[0] = boulder_BL->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_BL->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_BL->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_BL->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+
+            gFieldEffectArguments[0] = boulder_BR->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_BR->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_BR->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_BR->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+            break;
+            case DIR_SOUTH:
+            gFieldEffectArguments[0] = boulder_TL->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_TL->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_TL->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_TL->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+
+            gFieldEffectArguments[0] = boulder_TR->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_TR->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_TR->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_TR->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+            break;
+            case DIR_EAST:
+            gFieldEffectArguments[0] = boulder_TL->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_TL->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_TL->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_TL->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+
+            gFieldEffectArguments[0] = boulder_BL->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_BL->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_BL->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_BL->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+            break;
+            case DIR_WEST:
+            gFieldEffectArguments[0] = boulder_TR->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_TR->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_TR->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_TR->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+
+            gFieldEffectArguments[0] = boulder_BR->currentCoords.x;
+            gFieldEffectArguments[1] = boulder_BR->currentCoords.y;
+            gFieldEffectArguments[2] = boulder_BR->previousElevation;
+            gFieldEffectArguments[3] = gSprites[boulder_BR->spriteId].oam.priority;
+            FieldEffectStart(FLDEFF_DUST);
+            break;
+        }
+        PlaySE(SE_M_STRENGTH);
+        task->tState++;
+    }
+    return FALSE;
+}
+
+static bool8 PushLargeBoulder_End(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_TL, struct ObjectEvent *boulder_TR, struct ObjectEvent *boulder_BL, struct ObjectEvent *boulder_BR)
+{
+    if (ObjectEventCheckHeldMovementStatus(player)
+     && ObjectEventCheckHeldMovementStatus(boulder_TL)
+     && ObjectEventCheckHeldMovementStatus(boulder_TR)
+     && ObjectEventCheckHeldMovementStatus(boulder_BL)
+     && ObjectEventCheckHeldMovementStatus(boulder_BR))
+    {
+        ObjectEventClearHeldMovementIfFinished(player);
+        ObjectEventClearHeldMovementIfFinished(boulder_TL);
+        ObjectEventClearHeldMovementIfFinished(boulder_TR);
+        ObjectEventClearHeldMovementIfFinished(boulder_BL);
+        ObjectEventClearHeldMovementIfFinished(boulder_BR);
+        gPlayerAvatar.preventStep = FALSE;
+        UnlockPlayerFieldControls();
+        DestroyTask(FindTaskIdByFunc(Task_PushLargeBoulder));
+    }
+    return FALSE;
+}
+
+#undef tState
+#undef tDirection
+#undef tBoulderObjId_LargeTL 
+#undef tBoulderObjId_LargeTR
+#undef tBoulderObjId_LargeBL
+#undef tBoulderObjId_LargeBR
+
+#define tState        data[0]
+#define tDirection    data[1]
+#define tBoulderObjId_Long1 data[2] //left (horiz) or top (vert)
+#define tBoulderObjId_Long2 data[3] //center
+#define tBoulderObjId_Long3 data[4] //right (horiz) or bottom (vert)
+
+static void StartStrengthAnimLongBoulder(u8 objectEventId_LeftOrTop, u8 objectEventId_Center,
+                                            u8 objectEventId_RightOrBottom, u8 direction)
+{
+    u8 taskId = CreateTask(Task_PushLongBoulder, 0xFF);
+
+    gTasks[taskId].tBoulderObjId_Long1 = objectEventId_LeftOrTop;
+    gTasks[taskId].tBoulderObjId_Long2 = objectEventId_Center;
+    gTasks[taskId].tBoulderObjId_Long3 = objectEventId_RightOrBottom;
+    gTasks[taskId].tDirection = direction;
+    Task_PushLargeBoulder(taskId);
+}
+
+static void Task_PushLongBoulder(u8 taskId)
+{
+    while (sPushLongBoulderFuncs[gTasks[taskId].tState](&gTasks[taskId],
+                                                     &gObjectEvents[gPlayerAvatar.objectEventId],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_Long1],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_Long2],
+                                                     &gObjectEvents[gTasks[taskId].tBoulderObjId_Long3]))
+        ;
+}
+
+static bool8 PushLongBoulder_Start(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_1, struct ObjectEvent *boulder_2, struct ObjectEvent *boulder_3)
+{
+    LockPlayerFieldControls();
+    gPlayerAvatar.preventStep = TRUE;
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 PushLongBoulder_Move(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_1, struct ObjectEvent *boulder_2, struct ObjectEvent *boulder_3)
+{
+    if (ObjectEventIsHeldMovementActive(player))
+        ObjectEventClearHeldMovementIfFinished(player);
+
+    if (ObjectEventIsHeldMovementActive(boulder_1))
+        ObjectEventClearHeldMovementIfFinished(boulder_1);
+
+    if (ObjectEventIsHeldMovementActive(boulder_2))
+        ObjectEventClearHeldMovementIfFinished(boulder_2);
+    
+    if (ObjectEventIsHeldMovementActive(boulder_3))
+        ObjectEventClearHeldMovementIfFinished(boulder_3);
+
+    if (!ObjectEventIsMovementOverridden(player)
+     && !ObjectEventIsMovementOverridden(boulder_1) && !ObjectEventIsMovementOverridden(boulder_2) && !ObjectEventIsMovementOverridden(boulder_3))
+    {
+        ObjectEventClearHeldMovementIfFinished(player);
+        ObjectEventClearHeldMovementIfFinished(boulder_1);
+        ObjectEventClearHeldMovementIfFinished(boulder_2);
+        ObjectEventClearHeldMovementIfFinished(boulder_3);
+        ObjectEventSetHeldMovement(player, GetWalkInPlaceNormalMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_1, GetWalkSlowMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_2, GetWalkSlowMovementAction((u8)task->tDirection));
+        ObjectEventSetHeldMovement(boulder_3, GetWalkSlowMovementAction((u8)task->tDirection));
+
+        //dust
+        gFieldEffectArguments[0] = boulder_1->currentCoords.x;
+        gFieldEffectArguments[1] = boulder_1->currentCoords.y;
+        gFieldEffectArguments[2] = boulder_1->previousElevation;
+        gFieldEffectArguments[3] = gSprites[boulder_1->spriteId].oam.priority;
+        FieldEffectStart(FLDEFF_DUST);
+
+        gFieldEffectArguments[0] = boulder_2->currentCoords.x;
+        gFieldEffectArguments[1] = boulder_2->currentCoords.y;
+        gFieldEffectArguments[2] = boulder_2->previousElevation;
+        gFieldEffectArguments[3] = gSprites[boulder_2->spriteId].oam.priority;
+        FieldEffectStart(FLDEFF_DUST);
+
+        gFieldEffectArguments[0] = boulder_3->currentCoords.x;
+        gFieldEffectArguments[1] = boulder_3->currentCoords.y;
+        gFieldEffectArguments[2] = boulder_3->previousElevation;
+        gFieldEffectArguments[3] = gSprites[boulder_3->spriteId].oam.priority;
+        FieldEffectStart(FLDEFF_DUST);
+
+        PlaySE(SE_M_STRENGTH);
+        task->tState++;
+    }
+    return FALSE;
+}
+
+static bool8 PushLongBoulder_End(struct Task *task, struct ObjectEvent *player, 
+        struct ObjectEvent *boulder_1, struct ObjectEvent *boulder_2, struct ObjectEvent *boulder_3)
+{
+    if (ObjectEventCheckHeldMovementStatus(player)
+     && ObjectEventCheckHeldMovementStatus(boulder_1)
+     && ObjectEventCheckHeldMovementStatus(boulder_2)
+     && ObjectEventCheckHeldMovementStatus(boulder_3))
+    {
+        ObjectEventClearHeldMovementIfFinished(player);
+        ObjectEventClearHeldMovementIfFinished(boulder_1);
+        ObjectEventClearHeldMovementIfFinished(boulder_2);
+        ObjectEventClearHeldMovementIfFinished(boulder_3);
+        gPlayerAvatar.preventStep = FALSE;
+        UnlockPlayerFieldControls();
+        DestroyTask(FindTaskIdByFunc(Task_PushLongBoulder));
+    }
+    return FALSE;
+}
+
+#undef tState
+#undef tDirection
+#undef tBoulderObjId_Long1 
+#undef tBoulderObjId_Long2 
+#undef tBoulderObjId_Long3
 
 /* Some field effect */
 
