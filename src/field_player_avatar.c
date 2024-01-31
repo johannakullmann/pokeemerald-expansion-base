@@ -778,6 +778,7 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
                 return TRUE;
             }
         }
+        
         //large boulder (2x2)
         if (objectEventId != OBJECT_EVENTS_COUNT
             && (gObjectEvents[objectEventId].graphicsId >= OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1)
