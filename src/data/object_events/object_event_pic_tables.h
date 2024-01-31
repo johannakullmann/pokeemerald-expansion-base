@@ -906,7 +906,40 @@ static const struct SpriteFrameImage sPicTable_BreakableRock[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_PushableBoulder[] = {
-    obj_frame_tiles(gObjectEventPic_PushableBoulder),
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 0)
+};
+
+static const struct SpriteFrameImage sPicTable_LargePushableBoulder_TL[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 1)
+};
+static const struct SpriteFrameImage sPicTable_LargePushableBoulder_TR[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 2)
+};
+static const struct SpriteFrameImage sPicTable_LargePushableBoulder_BL[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 3)
+};
+static const struct SpriteFrameImage sPicTable_LargePushableBoulder_BR[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 4)
+};
+
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Horiz_L[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 5)
+};
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Horiz_C[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 6)
+};
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Horiz_R[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 7)
+};
+
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Vert_T[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 8)
+};
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Vert_C[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 9)
+};
+static const struct SpriteFrameImage sPicTable_LongPushableBoulder_Vert_B[] = {
+    overworld_frame(gObjectEventPic_PushableBoulder, 2, 2, 10)
 };
 
 static const struct SpriteFrameImage sPicTable_MrBrineysBoat[] = {
