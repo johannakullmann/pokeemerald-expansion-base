@@ -73,7 +73,6 @@ static const u16 sKakunaInnateFieldMoves[] = {
 };
 
 static const u16 sBeedrillInnateFieldMoves[] = {
-    MOVE_CUT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_WEEDLE
@@ -177,6 +176,7 @@ static const u16 sSandshrewAlolanInnateFieldMoves[] = {
 };
 
 static const u16 sSandslashAlolanInnateFieldMoves[] = {
+    MOVE_CUT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_ALOLAN_FORMS
@@ -534,12 +534,12 @@ static const u16 sGeodudeInnateFieldMoves[] = {
 };
 
 static const u16 sGravelerInnateFieldMoves[] = {
-    MOVE_STRENGTH,
+    MOVE_ROCK_CLIMB,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sGolemInnateFieldMoves[] = {
-    MOVE_STRENGTH,
+    MOVE_ROCK_CLIMB,
     MOVE_UNAVAILABLE,
 };
 
@@ -669,6 +669,7 @@ static const u16 sSeelInnateFieldMoves[] = {
 };
 
 static const u16 sDewgongInnateFieldMoves[] = {
+    MOVE_DIVE,
     MOVE_WATERFALL,
     MOVE_UNAVAILABLE,
 };
@@ -865,17 +866,20 @@ static const u16 sWeezingGalarianInnateFieldMoves[] = {
 #if P_FAMILY_RHYHORN
 static const u16 sRhyhornInnateFieldMoves[] = {
     MOVE_STRENGTH,
+    MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
 
 static const u16 sRhydonInnateFieldMoves[] = {
     MOVE_STRENGTH,
+    MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
 
 #if P_GEN_4_CROSS_EVOS
 static const u16 sRhyperiorInnateFieldMoves[] = {
     MOVE_STRENGTH,
+    MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
 #endif //P_GEN_4_CROSS_EVOS
@@ -915,6 +919,7 @@ static const u16 sTangrowthInnateFieldMoves[] = {
 
 #if P_FAMILY_KANGASKHAN
 static const u16 sKangaskhanInnateFieldMoves[] = {
+    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_KANGASKHAN
@@ -1209,7 +1214,6 @@ static const u16 sKabutopsInnateFieldMoves[] = {
 #if P_FAMILY_AERODACTYL
 static const u16 sAerodactylInnateFieldMoves[] = {
     MOVE_FLY,
-    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_AERODACTYL
@@ -1499,11 +1503,13 @@ static const u16 sJumpluffInnateFieldMoves[] = {
 
 #if P_FAMILY_AIPOM
 static const u16 sAipomInnateFieldMoves[] = {
+    MOVE_ROCK_CLIMB,
     MOVE_UNAVAILABLE,
 };
 
 #if P_GEN_4_CROSS_EVOS
 static const u16 sAmbipomInnateFieldMoves[] = {
+    MOVE_ROCK_CLIMB,
     MOVE_UNAVAILABLE,
 };
 #endif //P_GEN_4_CROSS_EVOS
@@ -1938,6 +1944,7 @@ static const u16 sGrovyleInnateFieldMoves[] = {
 };
 
 static const u16 sSceptileInnateFieldMoves[] = {
+    MOVE_ROCK_CLIMB,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_TREECKO
@@ -1967,8 +1974,8 @@ static const u16 sMarshtompInnateFieldMoves[] = {
 };
 
 static const u16 sSwampertInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
     MOVE_SURF,
+    MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_MUDKIP
 
@@ -2120,6 +2127,7 @@ static const u16 sShroomishInnateFieldMoves[] = {
 };
 
 static const u16 sBreloomInnateFieldMoves[] = {
+    MOVE_ROCK_SMASH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_SHROOMISH
@@ -2130,7 +2138,6 @@ static const u16 sSlakothInnateFieldMoves[] = {
 };
 
 static const u16 sVigorothInnateFieldMoves[] = {
-    MOVE_CUT,
     MOVE_UNAVAILABLE,
 };
 
@@ -2671,18 +2678,21 @@ static const u16 sMetagrossInnateFieldMoves[] = {
 
 #if P_FAMILY_REGIROCK
 static const u16 sRegirockInnateFieldMoves[] = {
+    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_REGIROCK
 
 #if P_FAMILY_REGICE
 static const u16 sRegiceInnateFieldMoves[] = {
+    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_REGICE
 
 #if P_FAMILY_REGISTEEL
 static const u16 sRegisteelInnateFieldMoves[] = {
+    MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_REGISTEEL

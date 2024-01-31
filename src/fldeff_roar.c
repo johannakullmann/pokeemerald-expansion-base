@@ -2,15 +2,14 @@
 #include "event_data.h"
 #include "event_scripts.h"
 #include "field_effect.h"
-#include "field_player_avatar.h"
 #include "fldeff.h"
 #include "party_menu.h"
 #include "script.h"
-#include "sprite.h"
+#include "string_util.h"
 #include "task.h"
-#include "wild_encounter.h"
 #include "constants/field_effects.h"
-#include "constants/songs.h"
+
+#define NUM_ROAR_REPEL_STEPS 20
 
 static void FieldCallback_Roar(void);
 void StartRoarFieldEffect(void);
@@ -24,8 +23,10 @@ bool8 SetUpFieldMove_Roar(void)
 
 static void FieldCallback_Roar(void)
 {
-    FieldEffectStart(FLDEFF_ROAR);
+    
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    //ScriptContext_SetupScript(EventScript_UseRoar);
+    FieldEffectStart(FLDEFF_ROAR);
 }
 
 bool8 FldEff_Roar(void)
@@ -34,15 +35,17 @@ bool8 FldEff_Roar(void)
     taskId = CreateFieldMoveTask();
     gTasks[taskId].data[8] = (u32)StartRoarFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartRoarFieldEffect;
+    GetMonNickname(&gPlayerParty[gFieldEffectArguments[0]], gStringVar1);
     return FALSE;
 }
 
 void StartRoarFieldEffect(void)
 {
-    FieldEffectActiveListRemove(FLDEFF_ROAR);
-    VarSet(VAR_REPEL_STEP_COUNT, 50);
+    VarSet(VAR_REPEL_STEP_COUNT, NUM_ROAR_REPEL_STEPS);
     #if VAR_LAST_REPEL_LURE_USED != 0
-        VarSet(VAR_LAST_REPEL_LURE_USED, ITEM_REPEL_ROAR);
+        VarSet(VAR_LAST_REPEL_LURE_USED, ITEM_NONE);
     #endif
+    FieldEffectActiveListRemove(FLDEFF_ROAR);
     ScriptContext_SetupScript(EventScript_UseRoar);
+    ScriptContext_Enable();
 }

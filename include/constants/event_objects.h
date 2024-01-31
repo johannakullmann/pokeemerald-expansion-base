@@ -265,6 +265,16 @@
 #define OBJ_EVENT_GFX_HEADBUTT_TREE              261
 #define OBJ_EVENT_GFX_LARGE_BOAT                 262
 #define OBJ_EVENT_GFX_RUTH_FISHING               263
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1   264
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2   265
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3   266
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4   267
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1   268
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2   269
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3   270
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1    271
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2    272
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3    273
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
@@ -275,7 +285,7 @@
 // object graphics that can be removed. If more graphics are needed, anything that
 // stores graphics ids will need to be increased in size. See wiki entry below:
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        264
+#define NUM_OBJ_EVENT_GFX                        274
 
 
 // These are dynamic object gfx ids.

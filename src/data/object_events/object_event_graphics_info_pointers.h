@@ -88,6 +88,16 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RooftopSale
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teala;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableRock;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PushableBoulder;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargePushableBoulder_TL;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargePushableBoulder_TR;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargePushableBoulder_BL;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargePushableBoulder_BR;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_L;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_C;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_R;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Vert_T;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Vert_C;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LongPushableBoulder_Vert_B;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MrBrineysBoat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargeBoat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormal;
@@ -359,7 +369,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROOFTOP_SALE_WOMAN] =       &gObjectEventGraphicsInfo_RooftopSaleWoman,
     [OBJ_EVENT_GFX_TEALA] =                    &gObjectEventGraphicsInfo_Teala,
     [OBJ_EVENT_GFX_BREAKABLE_ROCK] =           &gObjectEventGraphicsInfo_BreakableRock,
-    [OBJ_EVENT_GFX_PUSHABLE_BOULDER] =         &gObjectEventGraphicsInfo_PushableBoulder,
+    [OBJ_EVENT_GFX_PUSHABLE_BOULDER] =              &gObjectEventGraphicsInfo_PushableBoulder,
+    [OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1] =      &gObjectEventGraphicsInfo_LargePushableBoulder_TL,
+    [OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2] =      &gObjectEventGraphicsInfo_LargePushableBoulder_TR,
+    [OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3] =      &gObjectEventGraphicsInfo_LargePushableBoulder_BL,
+    [OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4] =      &gObjectEventGraphicsInfo_LargePushableBoulder_BR,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1] = &gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_L,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2] = &gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_C,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3] = &gObjectEventGraphicsInfo_LongPushableBoulder_Horiz_R,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1] =  &gObjectEventGraphicsInfo_LongPushableBoulder_Vert_T,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2] =  &gObjectEventGraphicsInfo_LongPushableBoulder_Vert_C,
+    [OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3] =  &gObjectEventGraphicsInfo_LongPushableBoulder_Vert_B,
     [OBJ_EVENT_GFX_MR_BRINEYS_BOAT] =          &gObjectEventGraphicsInfo_MrBrineysBoat,
     [OBJ_EVENT_GFX_LARGE_BOAT] =               &gObjectEventGraphicsInfo_LargeBoat,
     [OBJ_EVENT_GFX_MAY_NORMAL] =               &gObjectEventGraphicsInfo_MayNormal,
