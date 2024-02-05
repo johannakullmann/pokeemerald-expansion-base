@@ -8472,6 +8472,14 @@ static const struct LevelUpMove sMinunLevelUpLearnset[] = {
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+static const struct LevelUpMove sChubgrubLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_MOVE( 1, MOVE_STRING_SHOT),
+    LEVEL_UP_MOVE( 5, MOVE_POISON_STING),
+    LEVEL_UP_MOVE(15, MOVE_BUG_BITE),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sVolbeatLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FLASH),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),

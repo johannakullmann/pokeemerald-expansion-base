@@ -3935,6 +3935,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+    const u32 gMonFrontPic_Chubgrub[] = INCBIN_U32("graphics/pokemon/chubgrub/anim_front.4bpp.lz");
+    const u32 gMonPalette_Chubgrub[] = INCBIN_U32("graphics/pokemon/chubgrub/normal.gbapal.lz");
+    const u32 gMonBackPic_Chubgrub[] = INCBIN_U32("graphics/pokemon/chubgrub/back.4bpp.lz");
+    const u32 gMonShinyPalette_Chubgrub[] = INCBIN_U32("graphics/pokemon/chubgrub/shiny.gbapal.lz");
+    const u8 gMonIcon_Chubgrub[] = INCBIN_U8("graphics/pokemon/chubgrub/icon.4bpp");
+    const u8 gMonFootprint_Chubgrub[] = INCBIN_U8("graphics/pokemon/chubgrub/footprint.1bpp");
+
     const u32 gMonFrontPic_Volbeat[] = INCBIN_U32("graphics/pokemon/volbeat/anim_front.4bpp.lz");
     const u32 gMonPalette_Volbeat[] = INCBIN_U32("graphics/pokemon/volbeat/normal.gbapal.lz");
     const u32 gMonBackPic_Volbeat[] = INCBIN_U32("graphics/pokemon/volbeat/back.4bpp.lz");

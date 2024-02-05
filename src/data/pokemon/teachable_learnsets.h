@@ -15845,6 +15845,11 @@ static const u16 sMinunTeachableLearnset[] = {
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+static const u16 sChubgrubTeachableLearnset[] = {
+    MOVE_SNORE,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sVolbeatTeachableLearnset[] = {
     MOVE_AERIAL_ACE,
     MOVE_ATTRACT,

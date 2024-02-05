@@ -2402,6 +2402,10 @@ Cry_Minun::
 
 .if P_FAMILY_VOLBEAT_ILLUMISE == TRUE
 	.align 2
+Cry_Chubgrub::
+	.incbin "sound/direct_sound_samples/cries/wurmple.bin"
+
+	.align 2
 Cry_Volbeat::
 	.incbin "sound/direct_sound_samples/cries/volbeat.bin"
 
