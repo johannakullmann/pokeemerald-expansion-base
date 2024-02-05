@@ -1103,3 +1103,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/MountainCave_MeteorFalls/scripts.inc"
 
 	.include "data/maps/MountainCave_GroudonRoom/scripts.inc"
+
+	.include "data/maps/MountainCave_PuzzleTest/scripts.inc"

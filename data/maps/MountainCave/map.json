@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
-      "x": 25,
+      "x": 26,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
-      "x": 23,
+      "x": 24,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -43,35 +43,35 @@
   ],
   "warp_events": [
     {
-      "x": 47,
+      "x": 48,
       "y": 28,
       "elevation": 0,
       "dest_map": "MAP_MOUNTAIN_CAVE_RUSTURF_TUNNEL",
       "dest_warp_id": "1"
     },
     {
-      "x": 41,
+      "x": 42,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY",
+      "dest_map": "MAP_MOUNTAIN_CAVE_PUZZLE_TEST",
       "dest_warp_id": "0"
     },
     {
-      "x": 57,
+      "x": 58,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY",
       "dest_warp_id": "1"
     },
     {
-      "x": 22,
+      "x": 23,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY_B1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 4,
+      "x": 5,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",

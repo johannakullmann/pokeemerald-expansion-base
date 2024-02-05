@@ -419,6 +419,7 @@
 #define MAP_MOUNTAIN_CAVE_MT_CHIMNEY_B1F             (112 | (25 << 8))
 #define MAP_MOUNTAIN_CAVE_METEOR_FALLS               (113 | (25 << 8))
 #define MAP_MOUNTAIN_CAVE_GROUDON_ROOM               (114 | (25 << 8))
+#define MAP_MOUNTAIN_CAVE_PUZZLE_TEST                (115 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

@@ -4534,7 +4534,7 @@
     {
       "id": "LAYOUT_MOUNTAIN_CAVE",
       "name": "MountainCave_Layout",
-      "width": 62,
+      "width": 63,
       "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -4590,6 +4590,16 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/MountainCave_GroudonRoom/border.bin",
       "blockdata_filepath": "data/layouts/MountainCave_GroudonRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN_CAVE_PUZZLE_TEST",
+      "name": "MountainCave_PuzzleTest_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MountainCave_PuzzleTest/border.bin",
+      "blockdata_filepath": "data/layouts/MountainCave_PuzzleTest/map.bin"
     }
   ]
 }

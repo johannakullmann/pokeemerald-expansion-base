@@ -450,7 +450,8 @@
     "MountainCave_MtChimney",
     "MountainCave_MtChimney_B1F",
     "MountainCave_MeteorFalls",
-    "MountainCave_GroudonRoom"
+    "MountainCave_GroudonRoom",
+    "MountainCave_PuzzleTest"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
