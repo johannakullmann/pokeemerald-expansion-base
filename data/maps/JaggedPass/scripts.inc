@@ -265,3 +265,58 @@ JaggedPass_Text_AutumnDefeat:
 JaggedPass_Text_AutumnPostBattle:
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
+
+JaggedPass_EventScript_FootprintNerd::
+	lock
+	faceplayer
+	specialvar VAR_RESULT, ScriptGetPokedexInfo
+	copyvar VAR_0x8008, VAR_0x8005
+	copyvar VAR_0x8009, VAR_0x8006
+	copyvar VAR_0x800A, VAR_RESULT
+	buffernumberstring STR_VAR_1, VAR_0x8008
+	buffernumberstring STR_VAR_2, VAR_0x8009
+	compare VAR_0x8009, 15
+	goto_if_lt JaggedPass_EventScript_FootprintNerd_2
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq JaggedPass_EventScript_FootprintNerd_5
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_3, MSGBOX_AUTOCLOSE
+JaggedPass_EventScript_FootprintNerd_4:
+	release
+	end
+
+JaggedPass_EventScript_FootprintNerd_2:
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+JaggedPass_EventScript_FootprintNerd_5:
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_2, MSGBOX_AUTOCLOSE
+	goto JaggedPass_EventScript_FootprintNerd_4
+
+
+JaggedPass_EventScript_FootprintNerd_Text_0:
+	.string "There's lots of footprints in the ash\n"
+	.string "here!\p"
+	.string "I'm trying to figure out which Pokémon\n"
+	.string "they belong to.\p"
+	.string "Maybe I'll let you have a guess when you\n"
+	.string "filled out that PokéDex of yours a\l"
+	.string "little more.$"
+
+JaggedPass_EventScript_FootprintNerd_Text_1:
+	.string "There's lots of footprints in the ash\n"
+	.string "here!\p"
+	.string "I'm trying to figure out which Pokémon\n"
+	.string "they belong to.\p"
+	.string "Are you good with Pokémon footprints?$"
+
+JaggedPass_EventScript_FootprintNerd_Text_2:
+	.string "I knew you were a fellow footprint\n"
+	.string "enthusiast!\p"
+	.string "Let Jojo know she needs to find out how\n"
+	.string "to display footprints and we'll start!$"
+
+JaggedPass_EventScript_FootprintNerd_Text_3:
+	.string "No? That's too bad, I'd have given you\n"
+	.string "an item if you got them right.$"

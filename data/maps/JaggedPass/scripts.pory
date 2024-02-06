@@ -287,7 +287,7 @@ script JaggedPass_EventScript_FootprintNerd {
 	}
 	msgbox(format("There's lots of footprints in the ash here!\p"
 		"I'm trying to figure out which Pokémon they belong to.\p"
-		"Are you good with Pokémon footprints?", MSGBOX_YESNO))
+		"Are you good with Pokémon footprints?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		msgbox(format("I knew you were a fellow footprint enthusiast!\p"
 			"Let Jojo know she needs to find out how to display footprints and we'll start!"), MSGBOX_AUTOCLOSE)
