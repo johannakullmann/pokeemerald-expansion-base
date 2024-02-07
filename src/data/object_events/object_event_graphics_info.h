@@ -5089,3 +5089,41 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendanBirch =
     .images = sPicTable_ProfBrendanBirch,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonPMD = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = sOamTables_64x64,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_GroudonPMD,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogrePMD = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_NONE,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = sOamTables_64x64,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_KyogrePMD,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};

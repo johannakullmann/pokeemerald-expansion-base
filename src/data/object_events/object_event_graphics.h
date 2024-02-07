@@ -407,3 +407,8 @@ const u32 gObjectEventPic_AugustUnderwater[] = INCBIN_U32("graphics/object_event
 
 const u32 gObjectEventPic_Ruth[] = INCBIN_U32("graphics/object_events/pics/people/ruth.4bpp");
 const u32 gObjectEventPic_ProfBrendanBirch[] = INCBIN_U32("graphics/object_events/pics/people/prof_brendan_birch.4bpp");
+
+const u32 gObjectEventPic_GroudonPMD[] = INCBIN_U32("graphics/object_events/pics/pokemon/groudon_pmd.4bpp");
+const u32 gObjectEventPic_KyogrePMD[] = INCBIN_U32("graphics/object_events/pics/pokemon/kyogre_pmd.4bpp");
+const u16 gObjectEventPal_GroudonKyogrePMD[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
+const u16 gObjectEventPal_GroudonKyogrePMDReflection[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
