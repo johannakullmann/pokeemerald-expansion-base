@@ -1,0 +1,9 @@
+raw `
+MountainCave_MtChimney_B1F_MapScripts::
+	.byte 0
+`
+
+script MountainCave_MtChimney_B1F_EventScript_MachinerySign {
+    msgbox(format("The machinery has a thick layer of volcanic dust on it.\pIt looks like it hasn't been used in a long time."), MSGBOX_SIGN)
+    end
+}

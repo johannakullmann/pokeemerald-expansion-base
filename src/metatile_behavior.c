@@ -1081,6 +1081,14 @@ bool8 MetatileBehavior_IsClosedSootopolisDoor(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsClosedLavaridgeGymDoor(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_CLOSED_LAVARIDGE_GYM_DOOR)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsSkyPillarClosedDoor(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_SKY_PILLAR_CLOSED_DOOR)

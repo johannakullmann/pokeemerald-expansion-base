@@ -9,7 +9,6 @@ JaggedPass_MapScripts::
 
 JaggedPass_OnResume:
 	setstepcallback STEP_CB_ASH
-	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
 
 JaggedPass_EventScript_CheckHasMagmaEmblem::
@@ -31,7 +30,7 @@ JaggedPass_EventScript_SetWeatherAsh::
 	return
 
 JaggedPass_OnLoad:
-	goto_if_le VAR_JAGGED_PASS_STATE, 1, JaggedPass_EventScript_ConcealHideoutEntrance
+	@goto_if_le VAR_JAGGED_PASS_STATE, 1, JaggedPass_EventScript_ConcealHideoutEntrance
 	end
 
 JaggedPass_EventScript_ConcealHideoutEntrance::
@@ -296,5 +295,18 @@ script JaggedPass_EventScript_FootprintNerd {
 		msgbox(format("No? That's too bad, I'd have given you an item if you got them right."), MSGBOX_AUTOCLOSE)
 	}
 	release
+	end
+}
+
+script JaggedPass_EventScript_MachBikeTriathlete {
+	msgbox(format("Hmmmm, my Mach Bike isn't suited for this kind of terrain…\p"
+		"If I had an Acro Bike, I could get up these rocks and maybe get to the top of the mountain…"), MSGBOX_NPC)
+	end
+}
+
+script JaggedPass_EventScript_HeadbuttTreeMan {
+	msgbox(format("Pokémon like to hide in large trees like this!\p"
+		"I bet a Pokémon that knows the move Headbutt could knock them out of the branches."), MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
 }

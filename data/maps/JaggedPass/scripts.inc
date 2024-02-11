@@ -8,7 +8,6 @@ JaggedPass_MapScripts::
 
 JaggedPass_OnResume:
 	setstepcallback STEP_CB_ASH
-	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
 
 JaggedPass_EventScript_CheckHasMagmaEmblem::
@@ -30,7 +29,7 @@ JaggedPass_EventScript_SetWeatherAsh::
 	return
 
 JaggedPass_OnLoad:
-	goto_if_le VAR_JAGGED_PASS_STATE, 1, JaggedPass_EventScript_ConcealHideoutEntrance
+	@goto_if_le VAR_JAGGED_PASS_STATE, 1, JaggedPass_EventScript_ConcealHideoutEntrance
 	end
 
 JaggedPass_EventScript_ConcealHideoutEntrance::
@@ -295,6 +294,17 @@ JaggedPass_EventScript_FootprintNerd_5:
 	goto JaggedPass_EventScript_FootprintNerd_4
 
 
+JaggedPass_EventScript_MachBikeTriathlete::
+	msgbox JaggedPass_EventScript_MachBikeTriathlete_Text_0, MSGBOX_NPC
+	end
+
+
+JaggedPass_EventScript_HeadbuttTreeMan::
+	msgbox JaggedPass_EventScript_HeadbuttTreeMan_Text_0, MSGBOX_NPC
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	end
+
+
 JaggedPass_EventScript_FootprintNerd_Text_0:
 	.string "There's lots of footprints in the ash\n"
 	.string "here!\p"
@@ -320,3 +330,17 @@ JaggedPass_EventScript_FootprintNerd_Text_2:
 JaggedPass_EventScript_FootprintNerd_Text_3:
 	.string "No? That's too bad, I'd have given you\n"
 	.string "an item if you got them right.$"
+
+JaggedPass_EventScript_MachBikeTriathlete_Text_0:
+	.string "Hmmmm, my Mach Bike isn't suited for\n"
+	.string "this kind of terrain…\p"
+	.string "If I had an Acro Bike, I could get up\n"
+	.string "these rocks and maybe get to the top\l"
+	.string "of the mountain…$"
+
+JaggedPass_EventScript_HeadbuttTreeMan_Text_0:
+	.string "Pokémon like to hide in large trees like\n"
+	.string "this!\p"
+	.string "I bet a Pokémon that knows the move\n"
+	.string "Headbutt could knock them out of the\l"
+	.string "branches.$"

@@ -75,6 +75,16 @@ Route112_EventScript_Hiker::
 	end
 
 
+Route112_EventScript_CableCarSign::
+	msgbox Route112_EventScript_CableCarSign_Text_0, MSGBOX_SIGN
+	end
+
+
+Route112_EventScript_FieryPathSign::
+	msgbox Route112_EventScript_FieryPathSign_Text_0, MSGBOX_SIGN
+	end
+
+
 Route112_EventScript_Hiker_Text_0:
 	.string "They smoothed out these ledges, so you\n"
 	.string "can get to Lavaridge without having to\l"
@@ -82,12 +92,12 @@ Route112_EventScript_Hiker_Text_0:
 	.string "I think it's nice and all, but it's just\n"
 	.string "not the same, ya know?$"
 
-Route112_Text_CableCarSign::
+Route112_EventScript_CableCarSign_Text_0:
 	.string "The Cable Car to Mt. Chimney's summit is\n"
 	.string "currently closed due to volcanic\l"
 	.string "activity.\p"
 	.string "We apologize for the inconvenience.$"
 
-Route112_Text_FireyPathSign::
+Route112_EventScript_FieryPathSign_Text_0:
 	.string "Fiery Path is closed due to the danger\n"
 	.string "of a cave-in during earthquakes.$"

@@ -1,35 +1,8 @@
 .set LOCALID_RIVAL_ON_BIKE, 7
 .set LOCALID_RIVAL, 8
 
-LavaridgeTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, LavaridgeTown_OnFrame
-	.byte 0
-
-LavaridgeTown_OnTransition:
-	setflag FLAG_VISITED_LAVARIDGE_TOWN
-	call_if_set FLAG_WHITEOUT_TO_LAVARIDGE, LavaridgeTown_EventScript_ClearLavaridgeWhiteOut
-	call_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, LavaridgeTown_EventScript_ShowMtChimneyTrainers
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
-	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 1, LavaridgeTown_EventScript_CheckSetRivalPos
-	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 1, LavaridgeTown_EventScript_HideMapNamePopup
-	end
-
 LavaridgeTown_EventScript_ClearLavaridgeWhiteOut::
 	clearflag FLAG_WHITEOUT_TO_LAVARIDGE
-	return
-
-LavaridgeTown_EventScript_CheckSetRivalPos::
-	getplayerxy VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_0x8004, 9, LavaridgeTown_EventScript_SetRivalPos
-	return
-
-LavaridgeTown_EventScript_SetRivalPos::
-	setobjectxyperm LOCALID_RIVAL, 11, 9
-	setobjectxyperm LOCALID_RIVAL_ON_BIKE, 9, 8
-	setobjectmovementtype LOCALID_RIVAL_ON_BIKE, MOVEMENT_TYPE_FACE_UP
-	clearflag FLAG_HIDE_LAVARIDGE_TOWN_RIVAL
 	return
 
 LavaridgeTown_EventScript_ShowMtChimneyTrainers::
@@ -39,10 +12,6 @@ LavaridgeTown_EventScript_ShowMtChimneyTrainers::
 LavaridgeTown_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	return
-
-LavaridgeTown_OnFrame:
-	map_script_2 VAR_LAVARIDGE_TOWN_STATE, 1, LavaridgeTown_EventScript_RivalGiveGoGoggles
-	.2byte 0
 
 LavaridgeTown_EventScript_RivalGiveGoGoggles::
 	lockall
@@ -406,3 +375,132 @@ LavaridgeTown_Text_GymSign:
 LavaridgeTown_Text_HerbShopSign:
 	.string "POKéMON HERB SHOP\n"
 	.string "“Bitter taste--better cure!”$"
+
+LavaridgeTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, LavaridgeTown_OnLoad
+	.byte 0
+
+
+LavaridgeTown_OnTransition::
+	setflag FLAG_VISITED_LAVARIDGE_TOWN
+	goto_if_set FLAG_WHITEOUT_TO_LAVARIDGE, LavaridgeTown_OnTransition_2
+LavaridgeTown_OnTransition_1:
+	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, LavaridgeTown_OnTransition_5
+LavaridgeTown_OnTransition_4:
+	setflag FLAG_TEMP_10
+	end
+
+LavaridgeTown_OnTransition_2:
+	call LavaridgeTown_EventScript_ClearLavaridgeWhiteOut
+	goto LavaridgeTown_OnTransition_1
+
+LavaridgeTown_OnTransition_5:
+	call LavaridgeTown_EventScript_ShowMtChimneyTrainers
+	goto LavaridgeTown_OnTransition_4
+
+
+LavaridgeTown_OnLoad::
+	compare VAR_LAVARIDGE_TOWN_STATE, 1
+	goto_if_le LavaridgeTown_OnLoad_2
+LavaridgeTown_OnLoad_1:
+	return
+
+LavaridgeTown_OnLoad_2:
+	call LavaridgeTown_EventScript_LockGymDoor
+	goto LavaridgeTown_OnLoad_1
+
+
+LavaridgeTown_EventScript_LockGymDoor::
+	setmetatile 5, 15, METATILE_Lavaridge_GymDoor_Closed, TRUE
+	end
+
+
+EventScript_ClosedLavaridgeGymDoor::
+	msgbox EventScript_ClosedLavaridgeGymDoor_Text_0, MSGBOX_SIGN
+	closemessage
+	compare VAR_LAVARIDGE_TOWN_STATE, 0
+	goto_if_eq EventScript_ClosedLavaridgeGymDoor_2
+EventScript_ClosedLavaridgeGymDoor_1:
+	end
+
+EventScript_ClosedLavaridgeGymDoor_2:
+	clearflag FLAG_TEMP_10
+	addobject 8
+	showobjectat 8, MAP_LAVARIDGE_TOWN
+	goto LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene
+	goto EventScript_ClosedLavaridgeGymDoor_1
+
+
+LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene::
+	lock
+	closemessage
+	delay 16
+	applymovement 8, LavaridgeTown_Movement_FlanneryApproachGym
+	waitmovement 0
+	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_0, MSGBOX_AUTOCLOSE
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	applymovement 8, LavaridgeTown_Movement_FlanneryApproachPlayer
+	waitmovement 0
+	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_1, MSGBOX_AUTOCLOSE
+	applymovement 8, LavaridgeTown_Movement_FlanneryLeave_1
+	waitmovement 0
+	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_2, MSGBOX_AUTOCLOSE
+	applymovement 8, LavaridgeTown_Movement_FlanneryLeave_2
+	waitmovement 0
+	setflag FLAG_TEMP_10
+	removeobject 8
+	setvar VAR_LAVARIDGE_TOWN_STATE, 1
+	release
+	end
+
+
+LavaridgeTown_Movement_FlanneryApproachGym:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_FlanneryApproachPlayer:
+	walk_left
+	walk_left
+	step_end
+
+LavaridgeTown_Movement_FlanneryLeave_1:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_up
+	delay_16
+	delay_16
+	walk_down
+	step_end
+
+LavaridgeTown_Movement_FlanneryLeave_2:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+EventScript_ClosedLavaridgeGymDoor_Text_0:
+	.string "The door is closed.$"
+
+LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_0:
+	.string "Oh? A challenger?$"
+
+LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_1:
+	.string "The door is closed?\p"
+	.string "That means she's already left for the\n"
+	.string "mountain!\p"
+	.string "I hope I am not too late!$"
+
+LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_2:
+	.string "Oh, yes! Wait here until the Gym Leader\n"
+	.string "comes back! I hope it doesn't take too\l"
+	.string "long!$"

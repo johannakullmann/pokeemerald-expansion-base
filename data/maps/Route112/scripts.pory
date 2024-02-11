@@ -79,11 +79,13 @@ script Route112_EventScript_Hiker {
 	end
 }
 
-text Route112_Text_CableCarSign {
-	format("The Cable Car to Mt. Chimney's summit is currently closed due to volcanic activity.\pWe apologize for the inconvenience.")
+script Route112_EventScript_CableCarSign {
+	msgbox(format("The Cable Car to Mt. Chimney's summit is currently closed due to volcanic activity.\pWe apologize for the inconvenience."), MSGBOX_SIGN)
+	end
 }
 
-text Route112_Text_FireyPathSign {
-	format("Fiery Path is closed due to the danger of a cave-in during earthquakes.")
+script Route112_EventScript_FieryPathSign {
+	msgbox(format("Fiery Path is closed due to the danger of a cave-in during earthquakes."), MSGBOX_SIGN)
+	end
 }
 
