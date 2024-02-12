@@ -5374,22 +5374,3 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeadbuttTree = {
     .images = sPicTable_HeadbuttTree,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RuthFishing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 2048,
-    .width = 64,
-    .height = 64,
-    .paletteSlot = PALSLOT_NPC_2,
-    .shadowSize = SHADOW_SIZE_S,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_64x64,
-    .subspriteTables = sOamTables_64x64,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_RuthFishing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
