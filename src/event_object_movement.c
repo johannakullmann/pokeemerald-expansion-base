@@ -459,6 +459,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_AUGUST                  0x1126
 #define OBJ_EVENT_PAL_TAG_AUGUST_REFLECTION       0x1127
 #define OBJ_EVENT_PAL_TAG_HEADBUTT_TREE           0x1128
+#define OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD                 0x1129
+#define OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION      0x1130
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -510,6 +512,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_August,                OBJ_EVENT_PAL_TAG_AUGUST},
     {gObjectEventPal_AugustReflection,      OBJ_EVENT_PAL_TAG_AUGUST_REFLECTION},
     {gObjectEventPal_HeadbuttTree,          OBJ_EVENT_PAL_TAG_HEADBUTT_TREE},
+    {gObjectEventPal_GroudonKyogrePMD,               OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD},
+    {gObjectEventPal_GroudonKyogrePMDReflection,     OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else
@@ -625,6 +629,13 @@ static const u16 sReflectionPaletteTags_Groudon[] = {
     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
 };
 
+static const u16 sReflectionPaletteTags_GroudonKyogrePMD[] = {
+    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
+    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
+};
+
 static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge Kecleon
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
@@ -655,6 +666,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
+    {OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,          sReflectionPaletteTags_GroudonKyogrePMD},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 
