@@ -66,6 +66,8 @@
 #define MAP_UNDERWATER_ROUTE129 (57 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE105 (58 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (59 | (0 << 8))
+#define MAP_ROUTE137            (60 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE137 (61 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -420,6 +422,9 @@
 #define MAP_MOUNTAIN_CAVE_METEOR_FALLS               (113 | (25 << 8))
 #define MAP_MOUNTAIN_CAVE_GROUDON_ROOM               (114 | (25 << 8))
 #define MAP_MOUNTAIN_CAVE_PUZZLE_TEST                (115 | (25 << 8))
+#define MAP_REEF_CAVE_ENTRANCE                       (116 | (25 << 8))
+#define MAP_UNDERWATER_REEF_CAVE                     (117 | (25 << 8))
+#define MAP_REEF_CAVE_KYOGRE_ROOM                    (118 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

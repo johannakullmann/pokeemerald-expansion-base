@@ -1105,3 +1105,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/MountainCave_GroudonRoom/scripts.inc"
 
 	.include "data/maps/MountainCave_PuzzleTest/scripts.inc"
+
+	.include "data/maps/Route137/scripts.inc"
+
+	.include "data/maps/Underwater_Route137/scripts.inc"
+
+	.include "data/maps/ReefCave_Entrance/scripts.inc"
+
+	.include "data/maps/Underwater_ReefCave/scripts.inc"
+
+	.include "data/maps/ReefCave_KyogreRoom/scripts.inc"

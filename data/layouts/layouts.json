@@ -4600,6 +4600,56 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/MountainCave_PuzzleTest/border.bin",
       "blockdata_filepath": "data/layouts/MountainCave_PuzzleTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE137",
+      "name": "Route137_Layout",
+      "width": 50,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route137/border.bin",
+      "blockdata_filepath": "data/layouts/Route137/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERWATER_ROUTE137",
+      "name": "Underwater_Route137_Layout",
+      "width": 50,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Underwater_Route137/border.bin",
+      "blockdata_filepath": "data/layouts/Underwater_Route137/map.bin"
+    },
+    {
+      "id": "LAYOUT_REEF_CAVE_ENTRANCE",
+      "name": "ReefCave_Entrance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ReefCave_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/ReefCave_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERWATER_REEF_CAVE",
+      "name": "Underwater_ReefCave_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Underwater_ReefCave/border.bin",
+      "blockdata_filepath": "data/layouts/Underwater_ReefCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_REEF_CAVE_KYOGRE_ROOM",
+      "name": "ReefCave_KyogreRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ReefCave_KyogreRoom/border.bin",
+      "blockdata_filepath": "data/layouts/ReefCave_KyogreRoom/map.bin"
     }
   ]
 }

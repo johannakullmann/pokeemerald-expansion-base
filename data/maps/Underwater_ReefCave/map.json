@@ -1,0 +1,40 @@
+{
+  "id": "MAP_UNDERWATER_REEF_CAVE",
+  "name": "Underwater_ReefCave",
+  "layout": "LAYOUT_UNDERWATER_REEF_CAVE",
+  "music": "MUS_UNDERWATER",
+  "region_map_section": "MAPSEC_SANDYSHORE_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERWATER",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_REEF_CAVE_ENTRANCE",
+      "offset": 0,
+      "direction": "emerge"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERWATER_ROUTE137",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

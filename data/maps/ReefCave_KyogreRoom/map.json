@@ -1,23 +1,23 @@
 {
-  "id": "MAP_MOUNTAIN_CAVE_GROUDON_ROOM",
-  "name": "MountainCave_GroudonRoom",
-  "layout": "LAYOUT_MOUNTAIN_CAVE_GROUDON_ROOM",
-  "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "id": "MAP_REEF_CAVE_KYOGRE_ROOM",
+  "name": "ReefCave_KyogreRoom",
+  "layout": "LAYOUT_REEF_CAVE_KYOGRE_ROOM",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_SANDYSHORE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": false,
-  "allow_escaping": true,
-  "allow_running": false,
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_GROUDON_PMD",
-      "x": 9,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_PMD",
+      "x": 8,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -29,13 +29,7 @@
     }
   ],
   "warp_events": [
-    {
-      "x": 9,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_MOUNTAIN_CAVE_MT_CHIMNEY_B1F",
-      "dest_warp_id": "2"
-    }
+
   ],
   "coord_events": [
 

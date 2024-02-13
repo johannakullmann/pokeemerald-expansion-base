@@ -97,7 +97,9 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "Route137",
+    "Underwater_Route137"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -451,7 +453,10 @@
     "MountainCave_MtChimney_B1F",
     "MountainCave_MeteorFalls",
     "MountainCave_GroudonRoom",
-    "MountainCave_PuzzleTest"
+    "MountainCave_PuzzleTest",
+    "ReefCave_Entrance",
+    "Underwater_ReefCave",
+    "ReefCave_KyogreRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

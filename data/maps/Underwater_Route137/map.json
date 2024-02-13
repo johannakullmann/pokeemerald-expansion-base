@@ -1,0 +1,40 @@
+{
+  "id": "MAP_UNDERWATER_ROUTE137",
+  "name": "Underwater_Route137",
+  "layout": "LAYOUT_UNDERWATER_ROUTE137",
+  "music": "MUS_ROUTE120",
+  "region_map_section": "MAPSEC_SANDYSHORE_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE137",
+      "offset": 0,
+      "direction": "emerge"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 28,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERWATER_REEF_CAVE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}
