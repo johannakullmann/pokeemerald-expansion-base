@@ -53,12 +53,12 @@ static void SpriteCB_StarterPokemon(struct Sprite *sprite);
 
 static u16 sStarterLabelWindowId;
 
-const u16 gBirchBagGrass_Pal[] = INCBIN_U16("graphics/starter_choose/tiles.gbapal");
+const u16 gBirchBagGrass_Pal[] = INCBIN_U16("graphics/starter_choose/table_tiles.gbapal");
 static const u16 sPokeballSelection_Pal[] = INCBIN_U16("graphics/starter_choose/pokeball_selection.gbapal");
 static const u16 sStarterCircle_Pal[] = INCBIN_U16("graphics/starter_choose/starter_circle.gbapal");
-const u32 gBirchBagTilemap[] = INCBIN_U32("graphics/starter_choose/birch_bag.bin.lz");
-const u32 gBirchGrassTilemap[] = INCBIN_U32("graphics/starter_choose/birch_grass.bin.lz");
-const u32 gBirchBagGrass_Gfx[] = INCBIN_U32("graphics/starter_choose/tiles.4bpp.lz");
+const u32 gBirchBagTilemap[] = INCBIN_U32("graphics/starter_choose/table_clutter.bin.lz");
+const u32 gBirchGrassTilemap[] = INCBIN_U32("graphics/starter_choose/table.bin.lz");
+const u32 gBirchBagGrass_Gfx[] = INCBIN_U32("graphics/starter_choose/table_tiles.4bpp.lz");
 const u32 gPokeballSelection_Gfx[] = INCBIN_U32("graphics/starter_choose/pokeball_selection.4bpp.lz");
 static const u32 sStarterCircle_Gfx[] = INCBIN_U32("graphics/starter_choose/starter_circle.4bpp.lz");
 
@@ -100,9 +100,9 @@ static const struct WindowTemplate sWindowTemplate_StarterLabel =
 
 static const u8 sPokeballCoords[STARTER_MON_COUNT][2] =
 {
-    {60, 64},
-    {120, 88},
-    {180, 64},
+    {80, 64},
+    {120, 72},
+    {160, 64},
 };
 
 static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
@@ -205,9 +205,9 @@ static const struct OamData sOam_StarterCircle =
 
 static const u8 sCursorCoords[][2] =
 {
-    {60, 32},
-    {120, 56},
-    {180, 32},
+    {80, 32},
+    {120, 40},
+    {160, 32},
 };
 
 static const union AnimCmd sAnim_Hand[] =
