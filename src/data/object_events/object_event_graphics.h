@@ -380,6 +380,8 @@ const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
 const u32 gObjectEventPic_Geodude[] = INCBIN_U32("graphics/object_events/pics/pokemon/geodude.4bpp");
+const u32 gObjectEventPic_Wurmple[] = INCBIN_U32("graphics/object_events/pics/pokemon/wurmple.4bpp");
+const u32 gObjectEventPic_ShinyWurmple[] = INCBIN_U32("graphics/object_events/pics/pokemon/wurmple_shiny.4bpp");
 
 const u32 gObjectEventPic_JuneNormal[] = INCBIN_U32("graphics/object_events/pics/people/june/walking.4bpp");
 const u32 gObjectEventPic_JuneRunning[] = INCBIN_U32("graphics/object_events/pics/people/june/running.4bpp");
