@@ -3111,10 +3111,13 @@ static void FillPartnerParty(u16 trainerId)
         switch(VarGet(VAR_STARTER_MON)) {
                 case 0:
                     partnerParty = sRuthMonsGrocko;
+                    break;
                 case 1:
                     partnerParty = sRuthMonsChimera;
+                    break;
                 case 2:
                     partnerParty = sRuthMonsToxatiel;
+                    break;
             }
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
