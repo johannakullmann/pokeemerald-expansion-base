@@ -829,7 +829,11 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             u32 totalRerolls = 0;
             if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
                 totalRerolls += I_SHINY_CHARM_ADDITIONAL_ROLLS;
-            if (LURE_STEP_COUNT != 0)
+            if (LURE_STEP_COUNT != 0 && (VarGet(VAR_LAST_REPEL_LURE_USED) == ITEM_SHINY_LURE 
+                    || VarGet(VAR_LAST_REPEL_LURE_USED) == ITEM_SUPER_SHINY_LURE 
+                    || VarGet(VAR_LAST_REPEL_LURE_USED) == ITEM_MAX_SHINY_LURE))
+                totalRerolls += I_SHINY_LURE_ADDITIONAL_ROLLS;
+            else if (LURE_STEP_COUNT != 0) 
                 totalRerolls += 1;
 
             while (GET_SHINY_VALUE(value, personality) >= SHINY_ODDS && totalRerolls > 0)

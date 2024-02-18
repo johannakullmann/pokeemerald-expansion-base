@@ -1181,6 +1181,10 @@ script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
 	setvar(VAR_SLATEPORT_CITY_STATE, 1)
 }
 
+script SlateportCity_EventScript_ShinyClubSign {
+	msgbox(format("SHINY CLUB\pFans of odd-colored Pokémon!"))
+}
+
 script SlateportCity_EventScript_BattleTentClerk {
 	lock
 	faceplayer
@@ -1373,5 +1377,5 @@ text SlateportCity_Text_BattleTentClerkGreet {
 text SlateportCity_Text_BattleTentClerkExplainBattleTent {
 	format("This is the Slateport Battle Tent.\p"
 			"Inside, you can battle using Pokémon supplied by the Battle Frontier's Battle Factory.\p"
-			"It's perfect for new trainers to practice, and if you can win three battles in a row, you'll win a Super Ball as a prize!")
+			"It's perfect for new trainers to practice, and if you can win three battles in a row, you'll win a Great Ball as a prize!")
 }

@@ -293,6 +293,8 @@ const u32 gItemIconPalette_Lure[] = INCBIN_U32("graphics/items/icon_palettes/lur
 const u32 gItemIconPalette_SuperLure[] = INCBIN_U32("graphics/items/icon_palettes/super_lure.gbapal.lz");
 const u32 gItemIconPalette_MaxLure[] = INCBIN_U32("graphics/items/icon_palettes/max_lure.gbapal.lz");
 
+const u32 gItemIcon_ShinyLure[] = INCBIN_U32("graphics/items/icons/shiny_lure.4bpp.lz");
+
 const u32 gItemIcon_EscapeRope[] = INCBIN_U32("graphics/items/icons/escape_rope.4bpp.lz");
 const u32 gItemIconPalette_EscapeRope[] = INCBIN_U32("graphics/items/icon_palettes/escape_rope.gbapal.lz");
 

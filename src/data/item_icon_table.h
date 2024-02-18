@@ -130,7 +130,11 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MAX_REPEL] = {gItemIcon_Repel, gItemIconPalette_MaxRepel},
     [ITEM_LURE] = {gItemIcon_Lure, gItemIconPalette_Lure},
     [ITEM_SUPER_LURE] = {gItemIcon_Lure, gItemIconPalette_SuperLure},
-    [ITEM_MAX_LURE] = {gItemIcon_Lure, gItemIconPalette_MaxLure},
+    [ITEM_MAX_LURE] = {gItemIcon_Lure, gItemIconPalette_MaxLure}, 
+    [ITEM_SHINY_LURE] = {gItemIcon_ShinyLure, gItemIconPalette_Lure},
+    [ITEM_SUPER_SHINY_LURE] = {gItemIcon_ShinyLure, gItemIconPalette_SuperLure},
+    [ITEM_MAX_SHINY_LURE] = {gItemIcon_ShinyLure, gItemIconPalette_MaxLure},
+    
     [ITEM_ESCAPE_ROPE] = {gItemIcon_EscapeRope, gItemIconPalette_EscapeRope},
     // X Items
     [ITEM_X_ATTACK] = {gItemIcon_BattleStatItem, gItemIconPalette_XAttack},
@@ -859,6 +863,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SWIFT_MOCHI] =  {gItemIcon_Mochi, gItemIconPalette_SwiftMochi},
     [ITEM_FRESH_START_MOCHI] =  {gItemIcon_Mochi, gItemIconPalette_FreshStartMochi},
     [ITEM_GLIMMERING_CHARM] = {gItemIcon_GlimmeringCharm, gItemIconPalette_GlimmeringCharm},
+    [ITEM_CLUB_MEMBER_CARD] = {gItemIcon_EonTicket, gItemIconPalette_EonTicket},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

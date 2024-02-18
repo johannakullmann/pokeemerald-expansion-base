@@ -9814,4 +9814,56 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_CLUB_MEMBER_CARD] =
+    {
+        .name = _("Member Card"),
+        .price = 0,
+        .description = sClubMemberCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 1,
+    },
+
+    [ITEM_SHINY_LURE] =
+    {
+        .name = _("Shiny Lure"),
+        .price = 17000,
+        .holdEffectParam = 200,
+        .description = sShinyLureDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Lure,
+        .secondaryId = 0,
+        .flingPower = 30,
+    },
+
+    [ITEM_SUPER_SHINY_LURE] =
+    {
+        .name = _("Glowing Lure"),
+        .price = 17000,
+        .holdEffectParam = 200,
+        .description = sSuperShinyLureDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Lure,
+        .secondaryId = 0,
+        .flingPower = 30,
+    },
+
+    [ITEM_MAX_SHINY_LURE] =
+    {
+        .name = _("Radiant Lure"),
+        .price = 20000,
+        .holdEffectParam = 250,
+        .description = sMaxShinyLureDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Lure,
+        .secondaryId = 0,
+        .flingPower = 30,
+    },
 };
+

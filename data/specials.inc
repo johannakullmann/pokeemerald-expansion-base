@@ -544,3 +544,4 @@ gSpecials::
 	def_special VsSeekerFreezeObjectsAfterChargeComplete
 	def_special LoadCatchTutorialParty
 	def_special HeadbuttWildEncounter
+	def_special IsShinyMonInParty

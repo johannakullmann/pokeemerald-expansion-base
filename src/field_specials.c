@@ -4276,3 +4276,21 @@ void PreparePartyForSkyBattle(void)
     VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
     CompactPartySlots();
 }
+
+void IsShinyMonInParty(void)
+{
+    u8 i;
+    struct Pokemon *pokemon;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            if (IsMonShiny(pokemon)) {
+                gSpecialVar_Result = i;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = PARTY_SIZE;
+}

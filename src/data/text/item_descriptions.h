@@ -3993,3 +3993,23 @@ static const u8 sGlimmeringCharmDesc[] = _(
     "A charm that will\n"
     "raise the shards\n"
     "from Tera Raids.");
+
+static const u8 sClubMemberCardDesc[] = _(
+    "A member card for\n"
+    "the Shiny Club in\n"
+    "Slateport City.");
+
+static const u8 sShinyLureDesc[] = _(
+    "Attracts shiny\n"
+    "Pokémon for\n"
+    "100 steps.");
+
+static const u8 sSuperShinyLureDesc[] = _(
+    "Attracts shiny\n"
+    "Pokémon for\n"
+    "200 steps.");
+
+static const u8 sMaxShinyLureDesc[] = _(
+    "Attracts shiny\n"
+    "Pokémon for\n"
+    "250 steps.");

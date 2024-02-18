@@ -1180,6 +1180,11 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth::
 	return
 
 
+SlateportCity_EventScript_ShinyClubSign::
+	msgbox SlateportCity_EventScript_ShinyClubSign_Text_0
+	return
+
+
 SlateportCity_EventScript_BattleTentClerk::
 	lock
 	faceplayer
@@ -1430,6 +1435,10 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_1:
 	.string "Hmmm… where could I find a\n"
 	.string "ground-type…\p"
 	.string "Ah, whatever, I'll just go explore!$"
+
+SlateportCity_EventScript_ShinyClubSign_Text_0:
+	.string "SHINY CLUB\p"
+	.string "Fans of odd-colored Pokémon!$"
 
 SlateportCity_Text_BattleTentClerkGreet::
 	.string "Hello! You must be a new trainer!\p"
