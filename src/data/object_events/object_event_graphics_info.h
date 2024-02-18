@@ -4237,12 +4237,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyGeodude = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wurmple = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 128,
     .width = 16,
     .height = 16,
-    .paletteSlot = PALSLOT_NPC_3,
+    .paletteSlot = PALSLOT_NPC_2,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .disableReflectionPaletteLoad = FALSE,
