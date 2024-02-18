@@ -23227,8 +23227,7 @@ static const struct LevelUpMove sGrockoLevelUpLearnset[] = {
     LEVEL_UP_MOVE(12, MOVE_MUD_SLAP),
     LEVEL_UP_MOVE(14, MOVE_ANCIENT_POWER),
     LEVEL_UP_MOVE(19, MOVE_ECHOED_VOICE),
-    LEVEL_UP_MOVE(25, MOVE_DRAGON_BREATH),
-    LEVEL_UP_MOVE(31, MOVE_POWER_GEM),
+    LEVEL_UP_MOVE(25, MOVE_POWER_GEM),
     LEVEL_UP_MOVE(37, MOVE_SANDSTORM),
     LEVEL_UP_MOVE(40, MOVE_SHED_TAIL),
     LEVEL_UP_MOVE(43, MOVE_FLASH_CANNON),
@@ -23243,13 +23242,13 @@ static const struct LevelUpMove sRubeckoLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_LICK),
     LEVEL_UP_MOVE( 1, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE(14, MOVE_MUD_SLAP),
-    LEVEL_UP_MOVE(17, MOVE_ANCIENT_POWER),
-    LEVEL_UP_MOVE(23, MOVE_ECHOED_VOICE),
-    LEVEL_UP_MOVE(30, MOVE_DRAGON_BREATH),
-    LEVEL_UP_MOVE(35, MOVE_POWER_GEM),
+    LEVEL_UP_MOVE(15, MOVE_ANCIENT_POWER),
+    LEVEL_UP_MOVE(21, MOVE_ECHOED_VOICE),
+    LEVEL_UP_MOVE(25, MOVE_DRAGON_BREATH),
+    LEVEL_UP_MOVE(28, MOVE_POWER_GEM),
     LEVEL_UP_MOVE(40, MOVE_SANDSTORM),
-    LEVEL_UP_MOVE(45, MOVE_SHED_TAIL),
-    LEVEL_UP_MOVE(47, MOVE_FLASH_CANNON),
+    LEVEL_UP_MOVE(44, MOVE_FLASH_CANNON),
+    LEVEL_UP_MOVE(47, MOVE_SHED_TAIL),
     LEVEL_UP_MOVE(55, MOVE_METEOR_BEAM),
     LEVEL_UP_END
 };
@@ -23261,13 +23260,13 @@ static const struct LevelUpMove sDrabuncleLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_LICK),
     LEVEL_UP_MOVE( 1, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE( 1, MOVE_MUD_SLAP),
-    LEVEL_UP_MOVE(25, MOVE_ANCIENT_POWER),
-    LEVEL_UP_MOVE(27, MOVE_ECHOED_VOICE),
-    LEVEL_UP_MOVE(34, MOVE_DRAGON_BREATH),
-    LEVEL_UP_MOVE(39, MOVE_POWER_GEM),
+    LEVEL_UP_MOVE(23, MOVE_ANCIENT_POWER),
+    LEVEL_UP_MOVE(24, MOVE_ECHOED_VOICE),
+    LEVEL_UP_MOVE(37, MOVE_DRAGON_BREATH),
+    LEVEL_UP_MOVE(32, MOVE_POWER_GEM),
     LEVEL_UP_MOVE(45, MOVE_SANDSTORM),
-    LEVEL_UP_MOVE(50, MOVE_SHED_TAIL),
-    LEVEL_UP_MOVE(55, MOVE_FLASH_CANNON),
+    LEVEL_UP_MOVE(49, MOVE_FLASH_CANNON),
+    LEVEL_UP_MOVE(55, MOVE_SHED_TAIL),
     LEVEL_UP_MOVE(60, MOVE_METEOR_BEAM),
     LEVEL_UP_END
 };
@@ -23294,17 +23293,6 @@ static const struct LevelUpMove sChimera1LevelUpLearnset[] = {
     LEVEL_UP_MOVE(46, MOVE_STOMPING_TANTRUM),
     LEVEL_UP_END
 };
-/*Pound, headbutt, take down, rage, horn attack, mega kick, roar, double team, swagger
-
-double kick, strength, stomp, close combat, feint attack, bulk up, jump kick, hi jump kick, 
-
-stomping tantrum, 
-
-aerial ace,  skull bash, bounce
-
-sucker punch, assurance, payback
-
-body press, earthquake, flamethrower, horn drill*/
 
 static const struct LevelUpMove sChimera2LevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_SUCKER_PUNCH),
