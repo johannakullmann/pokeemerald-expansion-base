@@ -1451,5 +1451,5 @@ SlateportCity_Text_BattleTentClerkExplainBattleTent::
 	.string "Battle Factory.\p"
 	.string "It's perfect for new trainers to\n"
 	.string "practice, and if you can win three\l"
-	.string "battles in a row, you'll win a Super Ball\l"
+	.string "battles in a row, you'll win a Great Ball\l"
 	.string "as a prize!$"
