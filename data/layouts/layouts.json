@@ -4650,6 +4650,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ReefCave_KyogreRoom/border.bin",
       "blockdata_filepath": "data/layouts/ReefCave_KyogreRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_SHINY_CLUB",
+      "name": "SlateportCity_ShinyClub_Layout",
+      "width": 11,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonFanClub",
+      "border_filepath": "data/layouts/SlateportCity_ShinyClub/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_ShinyClub/map.bin"
     }
   ]
 }

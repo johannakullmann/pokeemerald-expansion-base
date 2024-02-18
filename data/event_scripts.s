@@ -1115,3 +1115,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Underwater_ReefCave/scripts.inc"
 
 	.include "data/maps/ReefCave_KyogreRoom/scripts.inc"
+
+	.include "data/maps/SlateportCity_ShinyClub/scripts.inc"
