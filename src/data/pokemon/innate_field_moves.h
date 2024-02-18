@@ -2281,6 +2281,11 @@ static const u16 sMinunInnateFieldMoves[] = {
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+static const u16 sChubgrubInnateFieldMoves[] = {
+    MOVE_FLASH,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sVolbeatInnateFieldMoves[] = {
     MOVE_FLASH,
     MOVE_UNAVAILABLE,
