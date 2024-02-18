@@ -1909,6 +1909,18 @@ static const struct SpriteFrameImage sPicTable_Azurill[] = {
     overworld_frame(gObjectEventPic_Azurill, 2, 2, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_Geodude[] = {
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Geodude, 2, 2, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_Mom[] = {
     overworld_frame(gObjectEventPic_Mom, 2, 4, 0),
     overworld_frame(gObjectEventPic_Mom, 2, 4, 1),

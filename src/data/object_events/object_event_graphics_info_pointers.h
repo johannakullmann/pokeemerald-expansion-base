@@ -216,6 +216,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wingull;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KecleonBridgeShadow;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TuberMSwimming;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Azurill;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyGeodude;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mom;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkBrendan;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkMay;
@@ -540,6 +542,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KYOGRE_PMD] =               &gObjectEventGraphicsInfo_KyogrePMD,
     [OBJ_EVENT_GFX_GROUDON_PMD] =              &gObjectEventGraphicsInfo_GroudonPMD,
     [OBJ_EVENT_GFX_LEADER_MAY] =               &gObjectEventGraphicsInfo_LeaderMay,
+    [OBJ_EVENT_GFX_GEODUDE] =                  &gObjectEventGraphicsInfo_Geodude,
+    [OBJ_EVENT_GFX_SHINY_GEODUDE] =            &gObjectEventGraphicsInfo_ShinyGeodude,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
