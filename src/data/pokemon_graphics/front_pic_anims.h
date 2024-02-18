@@ -4175,6 +4175,14 @@ static const union AnimCmd sAnim_Minun_1[] =
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+static const union AnimCmd sAnim_Chubgrub_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 35),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Volbeat_1[] =
 {
     ANIMCMD_FRAME(0, 11),
@@ -11248,6 +11256,7 @@ SINGLE_ANIMATION(Plusle);
 SINGLE_ANIMATION(Minun);
 #endif //P_FAMILY_MINUN
 #if P_FAMILY_VOLBEAT_ILLUMISE
+SINGLE_ANIMATION(Chubgrub);
 SINGLE_ANIMATION(Volbeat);
 SINGLE_ANIMATION(Illumise);
 #endif //P_FAMILY_VOLBEAT_ILLUMISE

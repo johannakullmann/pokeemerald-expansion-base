@@ -861,6 +861,7 @@ gCryTable::
 	cry Cry_Minun
 .endif @ P_FAMILY_MINUN
 .if P_FAMILY_VOLBEAT_ILLUMISE == TRUE
+	cry Cry_Chubgrub
 	cry Cry_Volbeat
 	cry Cry_Illumise
 .endif @ P_FAMILY_VOLBEAT_ILLUMISE
@@ -3288,6 +3289,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Minun
 .endif @ P_FAMILY_MINUN
 .if P_FAMILY_VOLBEAT_ILLUMISE == TRUE
+	cry_reverse Cry_Chubgrub
 	cry_reverse Cry_Volbeat
 	cry_reverse Cry_Illumise
 .endif @ P_FAMILY_VOLBEAT_ILLUMISE

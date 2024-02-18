@@ -3605,6 +3605,56 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #endif //P_FAMILY_MINUN
 
 #if P_FAMILY_VOLBEAT_ILLUMISE
+    [SPECIES_CHUBGRUB] =
+    {
+        .baseHP        = 65,
+        .baseAttack    = 73,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 47,
+        .baseDefense   = 55,
+        .baseSpDefense = 75,
+        .types = { TYPE_BUG, TYPE_BUG },
+        .catchRate = 150,
+        .expYield = 151,
+        .evYield_Speed = 1,
+        .itemRare = ITEM_BRIGHT_POWDER,
+        .genderRatio = 50,
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_ERRATIC,
+        .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_ILLUMINATE, ABILITY_SWARM, ABILITY_PRANKSTER },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Chubgrub"),
+        .cryId = CRY_CHUBGRUB,
+        .natDexNum = NATIONAL_DEX_CHUBGRUB,
+        .categoryName = _("Larva"),
+        .height = 7,
+        .weight = 177,
+        .description = COMPOUND_STRING(
+            "This is a newly discovered Pokémon.\n"
+            "It is currently under investigation.\n"
+            "No detailed information is available\n"
+            "at this time."),
+        .pokemonScale = 442,
+        .pokemonOffset = 16,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Chubgrub, 48, 56),
+        .frontPicYOffset = 8,
+        .frontAnimFrames = sAnims_Chubgrub,
+        .frontAnimId = ANIM_H_STRETCH,
+        BACK_PIC(Chubgrub, 48, 64),
+        .backPicYOffset = 11,
+        .backAnimId = BACK_ANIM_V_STRETCH,
+        PALETTES(Chubgrub),
+        ICON(Chubgrub, 1),
+        .footprint = gMonFootprint_Chubgrub,
+        LEARNSETS(Chubgrub),
+        .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 20, SPECIES_ILLUMISE},
+                                {EVO_LEVEL_MALE, 20, SPECIES_VOLBEAT}),
+    },
+
     [SPECIES_VOLBEAT] =
     {
         .baseHP        = 65,

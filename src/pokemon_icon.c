@@ -1499,6 +1499,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_DODO2] = gMonIcon_Dodo2,
     [SPECIES_MBIELU] = gMonIcon_Mbielu,
     [SPECIES_MBIELAVA] = gMonIcon_Mbielava,
+    [SPECIES_CHUBGRUB] = gMonIcon_Chubgrub,
     [SPECIES_EGG] = gMonIcon_Egg,
 };
 */

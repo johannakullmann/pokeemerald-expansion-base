@@ -975,8 +975,9 @@
 #define SPECIES_DODO2                                   916
 #define SPECIES_MBIELU                                  917
 #define SPECIES_MBIELAVA                                918
+#define SPECIES_CHUBGRUB                                919
 
-#define FORMS_START SPECIES_MBIELAVA
+#define FORMS_START SPECIES_CHUBGRUB
 
 // Megas
 #define SPECIES_VENUSAUR_MEGA                           FORMS_START + 1
