@@ -851,6 +851,8 @@ const u8 gMoveNames[MOVES_COUNT_DYNAMAX][MOVE_NAME_LENGTH + 1] =
     [MOVE_UPPER_HAND] = _("Upper Hand"),
     [MOVE_MALIGNANT_CHAIN] = _("Malignant Chain"),
     [MOVE_PEBBLE_SHOT] = _("Pebble Shot"),
+    [MOVE_CRYSTAL_BARRAGE] = _("Crystal Barrage"),
+    [MOVE_KICK] = _("Kick"),
     // Max Moves
     [MOVE_MAX_GUARD] = _("Max Guard"),
     [MOVE_MAX_STRIKE] = _("Max Strike"),
@@ -1759,6 +1761,8 @@ const u8 gMoveNames[MOVES_COUNT_DYNAMAX][MOVE_NAME_LENGTH + 1] =
     [MOVE_UPPER_HAND] = _("Upper Hand"),
     [MOVE_MALIGNANT_CHAIN] = _("MalignntChan"),
     [MOVE_PEBBLE_SHOT] = _("Pebble Shot"),
+    [MOVE_CRYSTAL_BARRAGE] = _("Gem Barrage"),
+    [MOVE_KICK] = _("Kick"),
     // Max Moves
     [MOVE_MAX_GUARD] = _("M-Guard"),
     [MOVE_MAX_STRIKE] = _("M-Strike"),
