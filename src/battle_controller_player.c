@@ -1704,8 +1704,8 @@ static void MoveSelectionDisplayMoveNames(u32 battler)
 
 static void MoveSelectionDisplayPpString(u32 battler)
 {
-    StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
+    //StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
+    //BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 }
 
 static void MoveSelectionDisplayPpNumber(u32 battler)
@@ -1727,17 +1727,17 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
-    u8 *txtPtr;
+    //u8 *txtPtr;
     u8 type;
     u32 itemId;
     struct Pokemon *mon;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
 
-    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
+    //txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+    /**(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
     *(txtPtr)++ = EXT_CTRL_CODE_FONT;
     *(txtPtr)++ = FONT_NORMAL;
-
+    */
     if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_IVY_CUDGEL)
     {
         mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
@@ -1751,7 +1751,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     else
         type = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
 
-    StringCopy(txtPtr, gTypeNames[type]);
+    StringCopy(gDisplayedStringBattle, gTypeNames[type]);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 }
 
@@ -1761,7 +1761,7 @@ void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
     src[0] = baseTileNum + 1;
     src[1] = baseTileNum + 2;
 
-    CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
+    CopyToBgTilemapBufferRect_ChangePalette(0, src, 11 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
 
@@ -1771,7 +1771,7 @@ void MoveSelectionDestroyCursorAt(u8 cursorPosition)
     src[0] = 0x1016;
     src[1] = 0x1016;
 
-    CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
+    CopyToBgTilemapBufferRect_ChangePalette(0, src, 11 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
 

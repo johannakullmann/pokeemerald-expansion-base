@@ -970,6 +970,8 @@ extern const u8 gText_Accuracy2[];
 extern const u8 gText_Appeal[];
 extern const u8 gText_Jam[];
 extern const u8 gText_OTSlash[];
+extern const u8 gText_Ability[];
+extern const u8 gText_Species[];
 extern const u8 gText_IDNumber2[];
 extern const u8 gText_XNature[];
 extern const u8 gText_XNatureHatchedAtYZ[];

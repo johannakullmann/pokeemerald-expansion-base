@@ -2310,7 +2310,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
         .bgColor = 14,
         .shadowColor = 15,
     },
-    [B_WIN_PP] = {
+    /* [B_WIN_PP] = {
         .fillValue = PIXEL_FILL(0xE),
         .fontId = FONT_NARROW,
         .x = 0,
@@ -2319,7 +2319,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
         .fgColor = 12,
         .bgColor = 14,
         .shadowColor = 11,
-    },
+    }, */
     [B_WIN_DUMMY] = {
         .fillValue = PIXEL_FILL(0xE),
         .fontId = FONT_NORMAL,
@@ -2332,7 +2332,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     },
     [B_WIN_PP_REMAINING] = {
         .fillValue = PIXEL_FILL(0xE),
-        .fontId = FONT_NORMAL,
+        .fontId = FONT_NARROW,
         .x = 2,
         .y = 1,
         .speed = 0,
@@ -2550,7 +2550,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
         .bgColor = 14,
         .shadowColor = 15,
     },
-    [B_WIN_PP] = {
+    /* [B_WIN_PP] = {
         .fillValue = PIXEL_FILL(0xE),
         .fontId = FONT_NARROW,
         .x = 0,
@@ -2559,7 +2559,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
         .fgColor = 12,
         .bgColor = 14,
         .shadowColor = 11,
-    },
+    }, */
     [B_WIN_DUMMY] = {
         .fillValue = PIXEL_FILL(0xE),
         .fontId = FONT_NORMAL,
@@ -2572,7 +2572,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
     },
     [B_WIN_PP_REMAINING] = {
         .fillValue = PIXEL_FILL(0xE),
-        .fontId = FONT_NORMAL,
+        .fontId = FONT_NARROW,
         .x = 2,
         .y = 1,
         .speed = 0,
