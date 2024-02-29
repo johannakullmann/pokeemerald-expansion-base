@@ -18,6 +18,7 @@ mapscripts Route135_MapScripts {
 script Route135_EventScript_CatchTutorialEnterTop {
     lockall
     turnobject(LOCALID_RUTH, DIR_EAST)
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
     msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterTop)
@@ -28,6 +29,7 @@ script Route135_EventScript_CatchTutorialEnterTop {
 script Route135_EventScript_CatchTutorialEnterBottom {
     lockall
     turnobject(LOCALID_RUTH, DIR_EAST)
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
     msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterBottom)
@@ -68,6 +70,7 @@ script Route135_EventScript_CatchTutorialMain {
                 "I bet she'll love it!"))
     closemessage
     applymovement(LOCALID_RUTH, Route135_Movement_RuthLeave)
+    fadedefaultbgm
     waitmovement(0)
     setflag(TEMP_FLAG_HIDE_RUTH)
     removeobject(LOCALID_RUTH)
@@ -178,17 +181,17 @@ movement Route135_Movement_CatchTutorialEnterBottom {
 movement Route135_Movement_RuthLeave {
     walk_left *2
     walk_up *4
-    walk_left *3
+    walk_left *5
 }
 
 script Route135_EventScript_Boy1 {
     msgbox(format("Did you know that Pokémon have different weaknesses depending on their type?\p"
         "My Wingull can easily defeat wild Budew with its flying-type moves!\p"
-        "It doesn't do well against eletric or rock-type attacks, though…"), MSGBOX_NPC)
+        "It doesn't do well against electric or rock-type attacks, though…"), MSGBOX_NPC)
 }
 
 script Route135_EventScript_Lia {
-	trainerbattle_double(TRAINER_ALI_AND_LIA, 
+	trainerbattle_double(TRAINER_EMI_AND_LIA, 
             format("Lia: I'll battle you together with my sister!"), 
             format("Lia: Uh-oh, we lost."), 
             format("Lia: If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
@@ -197,7 +200,7 @@ script Route135_EventScript_Lia {
 }
 
 script Route135_EventScript_Ali{
-	trainerbattle_double(TRAINER_ALI_AND_LIA, 
+	trainerbattle_double(TRAINER_EMI_AND_LIA, 
             format("Ali: Let's go, Lia!"), 
             format("Ali: Aw."), 
             format("Ali: Oh, you only have one Pokémon! You can't battle us like that!"))
@@ -224,7 +227,7 @@ script Route135_EventScript_Lass {
 script Route135_EventScript_Tuber_F {
     lock
     faceplayer
-    msgbox (format("Hehe!\pMy footsteps make funny sounds!"), MSGBOX_AUTOCLOSE)
+    msgbox (format("Hihi!\pMy footsteps make funny sounds!"), MSGBOX_AUTOCLOSE)
     end
 }
 

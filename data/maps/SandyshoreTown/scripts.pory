@@ -87,6 +87,7 @@ script SandyshoreTown_EventScript_RuthNoticePlayer_Right {
 
 script SandyshoreTown_EventScript_RuthNoticePlayer {
     applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndDelay)
+    playbgm(MUS_ENCOUNTER_MAY, FALSE)
     playse(SE_PIN)
     waitmovement(0)
     msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))
@@ -100,6 +101,7 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
     closedoor(26, 8)
     removeobject(LOCALID_RUTH)
     setflag(TEMP_FLAG_HIDE_RUTH)
+    fadedefaultbgm
     waitdooranim
     setvar(VAR_LITTLEROOT_INTRO_STATE, 5)
     release
@@ -107,5 +109,5 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
 }
 
 text SandyshoreTown_Text_LittleGirlPreventExit {
-    format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\pI wanna go visit the professor too, but Grandma said he's busy and I shouldn't bother him…")
+    format("Ah, {PLAYER}!\pI saw Ruth in front of the Inn!\pI wanna go visit the professor too, but Grandma said he's busy…")
 }

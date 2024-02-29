@@ -5,6 +5,10 @@ const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_7
 
 mapscripts Sandyshore_Inn_2F_MapScripts {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_LITTLEROOT_INTRO_STATE, 5 {
+            clearflag(TEMP_FLAG_HIDE_RUTH)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
+        }
         VAR_LITTLEROOT_INTRO_STATE, 6 {
             clearflag(TEMP_FLAG_HIDE_RUTH)
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3)
@@ -24,34 +28,6 @@ mapscripts Sandyshore_Inn_2F_MapScripts {
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
         }
     ]
-}
-
-script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1 {
-    lock
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1)
-    waitmovement(OBJ_EVENT_ID_PLAYER) 
-    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
-}
-script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2 {
-    lock
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2)
-    waitmovement(OBJ_EVENT_ID_PLAYER) 
-    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
-}
-script Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_3 {
-    lock
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3)
-    waitmovement(OBJ_EVENT_ID_PLAYER) 
-    goto(Sandyshore_Inn_2F_EventScript_GoToBrendansRoom)
-}
-
-script Sandyshore_Inn_2F_EventScript_GoToBrendansRoom {
-    msgbox(format("I wonder what the professor wants us to help him with..\pOnly one way to find out!"))
-    closemessage
-    applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom)
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom)
-    waitmovement(0)
-    goto(Sandyshore_Inn_EventScript_BrendanNoticePlayer)
 }
 
 script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
@@ -156,19 +132,22 @@ script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft {
 }
 
 script Sandyshore_Inn_EventScript_PickMon {
-    if (flag(FLAG_SYS_POKEMON_GET)) {
+    if (flag(FLAG_RECEIVED_STARTER)) {
         lock
         msgbox(format("It's the professor's last Pokémon…"))
         release
         end
     }
     lock
-	setflag(FLAG_SYS_POKEMON_GET)
 	fadescreen(FADE_TO_BLACK)
 	special(ChooseStarter)
+
+    setflag(FLAG_SYS_POKEMON_GET)
+    setflag(FLAG_RECEIVED_STARTER)
     removeobject(LOCALID_POKEBALLS)
     setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2)
     addobject(LOCALID_POKEBALLS)
+
 	waitstate
     playfanfare(MUS_OBTAIN_ITEM)
     bufferleadmonspeciesname(STR_VAR_1)
@@ -185,7 +164,7 @@ script Sandyshore_Inn_EventScript_PickMon {
     else {
         closemessage
     }
-    setflag(FLAG_RECEIVED_STARTER)
+    
     applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkAfterChooseStarter)
     waitmovement(0)
     applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthWalkToPokeballs)
@@ -242,7 +221,26 @@ script Sandyshore_Inn_EventScript_PickMon {
 }
 
 script Sandyshore_Inn_EventScript_Ruth {
-    if (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
+    if (var(VAR_LITTLEROOT_INTRO_STATE) == 5) {
+        lock
+        faceplayer
+        msgbox(format("{PLAYER}! Let's find out why the Professor called!"))
+        closemessage
+        specialvar(VAR_TEMP_3, GetPlayerFacingDirection)
+        switch(var(VAR_TEMP_3)) {
+            case DIR_EAST:
+                applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_1)
+            case DIR_NORTH:
+                applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_2)
+            case DIR_WEST:
+                applymovement(OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_3)
+        }
+        applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom)
+        fadenewbgm(MUS_BIRCH_LAB)
+        waitmovement(0)
+        goto(Sandyshore_Inn_EventScript_BrendanNoticePlayer)
+    }
+    elif (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
         lock
         faceplayer
         msgbox(format("Ruth: {PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
@@ -431,27 +429,24 @@ script Sandyshore_Inn_2F_EventScript_OldWoman {
 script Sandyshore_Inn_2F_EventScript_OldMan {
 }
 
-movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1 {
-    walk_down
-    walk_right
-}
-movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2 {
-    walk_right
-}
-movement Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3 {
-    walk_up
-    walk_right
-}
-
 movement Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom {
-    walk_up*7
+    walk_up*5
     walk_left
     face_up
 }
 
-movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom {
+movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_1 {
     walk_right
-    walk_up *7
+    walk_up *5
+}
+
+movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_2 {
+    walk_up *6
+}
+
+movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_3 {
+    walk_left
+    walk_up *5
 }
 
 text Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes {

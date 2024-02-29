@@ -4013,3 +4013,7 @@ static const u8 sMaxShinyLureDesc[] = _(
     "Attracts shiny\n"
     "Pokémon for\n"
     "250 steps.");
+
+static const u8 sDivingEquipmentDesc[] = _(
+    "Allows breathing\n"
+    "underwater.");

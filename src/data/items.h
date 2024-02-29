@@ -9865,5 +9865,16 @@ const struct Item gItems[] =
         .secondaryId = 0,
         .flingPower = 30,
     },
+
+    [ITEM_DIVING_EQUIPMENT] =
+    {
+        .name = _("Diving Suit"),
+        .importance = 1,
+        .price = 0,
+        .description = sDivingEquipmentDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };
 

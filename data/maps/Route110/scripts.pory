@@ -1053,7 +1053,7 @@ script Route110_EventScript_AquaScene_Right {
 
 script Route110_EventScript_AquaScene {
 	lock
-	
+	playbgm(MUS_ENCOUNTER_MAY, FALSE)
 	applymovement(LOCALID_RUTH, Route110_Movement_RuthEnterScreen)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
@@ -1070,8 +1070,12 @@ script Route110_EventScript_AquaScene {
 	}
 	msgbox(format("Are you already on your way to Mauville?\p"
 			"I tried my hand in the Slateport Battle Tent, "
-			"but it's so hard to battle with Pokémon I am not familiar with..."))
+			"but it's so hard to battle with Pokémon I am not familiar with...\p"
+			"The drafting process made me realize how important it is to have team members that cover each other's weaknesses.\p"
+			"Hmmm, I think I'll look for a ground type next, that'll help a lot for the gym in Mauville too!\p"
+			"What about you? I wonder what your team will look like, {PLAYER}!"))
 	closemessage
+	playbgm(MUS_ENCOUNTER_AQUA, FALSE)
 	applymovement(LOCALID_GRUNT1, Route110_Movement_Grunt1Encounter)
 	waitmovement(0)
 	delay(8)

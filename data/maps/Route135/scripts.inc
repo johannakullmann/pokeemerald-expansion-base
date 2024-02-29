@@ -16,6 +16,7 @@ Route135_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 Route135_EventScript_CatchTutorialEnterTop::
 	lockall
 	turnobject 5, DIR_EAST
+	playbgm MUS_ENCOUNTER_MAY, TRUE
 	msgbox Route135_Text_CatchTutorialPsstComeOverHere
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterTop
@@ -27,6 +28,7 @@ Route135_EventScript_CatchTutorialEnterTop::
 Route135_EventScript_CatchTutorialEnterBottom::
 	lockall
 	turnobject 5, DIR_EAST
+	playbgm MUS_ENCOUNTER_MAY, TRUE
 	msgbox Route135_Text_CatchTutorialPsstComeOverHere
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterBottom
@@ -65,6 +67,7 @@ Route135_EventScript_CatchTutorialMain::
 	closemessage
 	applymovement 5, Route135_Movement_RuthLeave
 	waitmovement 0
+	fadedefaultbgm
 	setflag FLAG_TEMP_10
 	removeobject 5
 	setflag FLAG_DONE_CATCH_TUTORIAL
@@ -217,13 +220,13 @@ Route135_EventScript_Boy1::
 
 
 Route135_EventScript_Lia::
-	trainerbattle_double TRAINER_ALI_AND_LIA, Route135_EventScript_Lia_Text_0, Route135_EventScript_Lia_Text_1, Route135_EventScript_Lia_Text_2
+	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Lia_Text_0, Route135_EventScript_Lia_Text_1, Route135_EventScript_Lia_Text_2
 	msgbox Route135_EventScript_Lia_Text_3, MSGBOX_AUTOCLOSE
 	end
 
 
 Route135_EventScript_Ali::
-	trainerbattle_double TRAINER_ALI_AND_LIA, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1, Route135_EventScript_Ali_Text_2
+	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1, Route135_EventScript_Ali_Text_2
 	msgbox Route135_EventScript_Ali_Text_3, MSGBOX_AUTOCLOSE
 	end
 

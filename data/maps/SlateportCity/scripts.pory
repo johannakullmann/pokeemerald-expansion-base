@@ -1182,7 +1182,7 @@ script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
 }
 
 script SlateportCity_EventScript_ShinyClubSign {
-	msgbox(format("SHINY CLUB\pFans of odd-colored Pokémon!"))
+	msgbox(format("SHINY CLUB\pFans of odd-colored Pokémon!"), MSGBOX_SIGN)
 }
 
 script SlateportCity_EventScript_BattleTentClerk {

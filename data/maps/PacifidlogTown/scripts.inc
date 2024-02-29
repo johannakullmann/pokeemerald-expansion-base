@@ -47,6 +47,16 @@ PacifidlogTown_EventScript_NinjaBoy::
 	end
 
 
+PacifidlogTown_EventScript_OldMan::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_EventScript_OldMan_Text_0
+	closemessage
+	turnobject VAR_LAST_TALKED, DIR_NORTH
+	release
+	end
+
+
 PacifidlogTown_OnTransition::
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
 	switch VAR_PACIFIDLOG_TOWN_STATE
@@ -491,8 +501,6 @@ PacifidlogTown_Movement_BoatLeaveForSlateport:
 	walk_down
 	walk_down
 	walk_down
-	walk_down
-	walk_down
 	walk_left
 	walk_left
 	walk_left
@@ -540,7 +548,7 @@ PacifidlogTown_EventScript_Woman_2_Text_0:
 	.string "Pillar.\p"
 	.string "Who knows if we would have been able to\n"
 	.string "rebuild the town here at all if it\l"
-	.string "weren't for Rayquaza.$"
+	.string "weren't for its help.$"
 
 PacifidlogTown_EventScript_Fisherman_Text_0:
 	.string "This is my favourite fishing spot.\p"
@@ -551,6 +559,12 @@ PacifidlogTown_EventScript_NinjaBoy_Text_0:
 	.string "I'm sad our town isn't floating on the\n"
 	.string "ocean anymore.\p"
 	.string "But the big tower is pretty cool too!$"
+
+PacifidlogTown_EventScript_OldMan_Text_0:
+	.string "Rayquaza rests on top of this tower.\p"
+	.string "It keeps our town safe from the wrath\n"
+	.string "of the elements, and in turn, we make\l"
+	.string "sure it can rest undisturbed.$"
 
 PacifidlogTown_EventScript_MeetRuth_Text_0:
 	.string "{PLAYER}!$"
@@ -650,7 +664,9 @@ PacifidlogTown_EventScript_Sailor_Text_0:
 	.string "The sea between New Pacifidlog and\n"
 	.string "Slateport has a fast-running tide.\p"
 	.string "I strongly advise against trying to\n"
-	.string "surf there on the back of a Pokémon.$"
+	.string "surf there on the back of a Pokémon.\p"
+	.string "If you must go to Slateport, it's much\n"
+	.string "safer to go by boat.$"
 
 PacifidlogTown_EventScript_Sailor_Text_1:
 	.string "Cpt. Moore: Do you want to sail to\n"

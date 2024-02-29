@@ -106,42 +106,52 @@ Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst::
 
 
 Sandyshore_Playerhouse_EventScript_Mom::
-	goto_if_set FLAG_RECEIVED_STARTER, Sandyshore_Playerhouse_EventScript_Mom_2
+	goto_if_set FLAG_RECEIVED_STARTER, Sandyshore_Playerhouse_EventScript_Mom_1
 	switch VAR_LITTLEROOT_INTRO_STATE
-	case 1, Sandyshore_Playerhouse_EventScript_Mom_6
-	case 2, Sandyshore_Playerhouse_EventScript_Mom_6
-	case 3, Sandyshore_Playerhouse_EventScript_Mom_6
-	case 4, Sandyshore_Playerhouse_EventScript_Mom_6
-	case 5, Sandyshore_Playerhouse_EventScript_Mom_7
-	case 6, Sandyshore_Playerhouse_EventScript_Mom_7
-	case 7, Sandyshore_Playerhouse_EventScript_Mom_7
-Sandyshore_Playerhouse_EventScript_Mom_1:
-	end
+	case 1, Sandyshore_Playerhouse_EventScript_Mom_10
+	case 2, Sandyshore_Playerhouse_EventScript_Mom_10
+	case 3, Sandyshore_Playerhouse_EventScript_Mom_10
+	case 4, Sandyshore_Playerhouse_EventScript_Mom_10
+	case 5, Sandyshore_Playerhouse_EventScript_Mom_11
+	case 6, Sandyshore_Playerhouse_EventScript_Mom_11
+	case 7, Sandyshore_Playerhouse_EventScript_Mom_11
+	return
 
-Sandyshore_Playerhouse_EventScript_Mom_2:
+Sandyshore_Playerhouse_EventScript_Mom_1:
 	lock
 	faceplayer
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_0
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
 	incrementgamestat GAME_STAT_RESTED_AT_HOME
+	goto_if_unset FLAG_SHOWED_STARTER_TO_MOM, Sandyshore_Playerhouse_EventScript_Mom_6
+Sandyshore_Playerhouse_EventScript_Mom_4:
 	release
-	goto Sandyshore_Playerhouse_EventScript_Mom_1
+	end
+
+Sandyshore_Playerhouse_EventScript_Mom_5:
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
+	closemessage
+	goto Sandyshore_Playerhouse_EventScript_Mom_4
 
 Sandyshore_Playerhouse_EventScript_Mom_6:
+	goto_if_unset FLAG_ENABLE_MR_STONE_POKENAV, Sandyshore_Playerhouse_EventScript_Mom_5
+	goto Sandyshore_Playerhouse_EventScript_Mom_4
+
+Sandyshore_Playerhouse_EventScript_Mom_10:
 	lock
 	faceplayer
-	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	closemessage
 	applymovement 1, Common_Movement_WalkInPlaceUp
 	waitmovement 1
 	release
 	end
 
-Sandyshore_Playerhouse_EventScript_Mom_7:
+Sandyshore_Playerhouse_EventScript_Mom_11:
 	lock
 	faceplayer
-	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	release
 	end
 
@@ -222,6 +232,19 @@ Sandyshore_Playerhouse_EventScript_Mom_Text_0:
 	.string "I think you should rest a bit.$"
 
 Sandyshore_Playerhouse_EventScript_Mom_Text_1:
+	.string "Oh? Is that a Pokémon?\p"
+	.string "...\p"
+	.string "I see, the Professor asked you to take\n"
+	.string "care of it.\p"
+	.string "You got yourself a pretty active little\n"
+	.string "one there!\p"
+	.string "Sounds like you'll be spending a lot of\n"
+	.string "time outside now!\p"
+	.string "When you and your Pokémon get tired,\n"
+	.string "you can always come back home and\l"
+	.string "rest.$"
+
+Sandyshore_Playerhouse_EventScript_Mom_Text_2:
 	.string "Are you two going to visit the\n"
 	.string "Professor again?$"
 

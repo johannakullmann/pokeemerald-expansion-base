@@ -1042,6 +1042,7 @@ Route110_EventScript_AquaScene_Right::
 
 Route110_EventScript_AquaScene::
 	lock
+	playbgm MUS_ENCOUNTER_MAY, FALSE
 	applymovement 30, Route110_Movement_RuthEnterScreen
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
@@ -1056,6 +1057,7 @@ Route110_EventScript_AquaScene::
 Route110_EventScript_AquaScene_1:
 	msgbox Route110_EventScript_AquaScene_Text_1
 	closemessage
+	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	applymovement 31, Route110_Movement_Grunt1Encounter
 	waitmovement 0
 	delay 8
@@ -1637,7 +1639,16 @@ Route110_EventScript_AquaScene_Text_1:
 	.string "Are you already on your way to Mauville?\p"
 	.string "I tried my hand in the Slateport Battle\n"
 	.string "Tent, but it's so hard to battle with\l"
-	.string "Pokémon I am not familiar with...$"
+	.string "Pokémon I am not familiar with...\p"
+	.string "The drafting process made me realize\n"
+	.string "how important it is to have team\l"
+	.string "members that cover each other's\l"
+	.string "weaknesses.\p"
+	.string "Hmmm, I think I'll look for a ground type\n"
+	.string "next, that'll help a lot for the gym in\l"
+	.string "Mauville too!\p"
+	.string "What about you? I wonder what your\n"
+	.string "team will look like, {PLAYER}!$"
 
 Route110_EventScript_AquaScene_Text_2:
 	.string "???: Come on, hurry up you slowpoke!\pThe old man's catching up!$"

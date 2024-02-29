@@ -1,46 +1,31 @@
 Sandyshore_Inn_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_TRANSITION
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+
+Sandyshore_Inn_EventScript_Man::
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
-	goto_if_eq Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
-	setflag FLAG_TEMP_10
-	return
+	goto_if_eq Sandyshore_Inn_EventScript_Man_1
+	msgbox Sandyshore_Inn_EventScript_Man_Text_1, MSGBOX_NPC
+	end
 
-Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
-	clearflag FLAG_TEMP_10
-	return
-
-Sandyshore_Inn_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, Sandyshore_Inn_EventScript_RuthGoUpstairs
-	.2byte 0
-
-
-Sandyshore_Inn_EventScript_RuthGoUpstairs::
-	lock
-	msgbox Sandyshore_Inn_EventScript_RuthGoUpstairs_Text_0
-	closemessage
-	applymovement 1, Sandyshore_Inn_Movement_RuthWalkUpstairs
-	waitmovement 0
-	removeobject 1
-	setflag FLAG_TEMP_10
-	setvar VAR_LITTLEROOT_INTRO_STATE, 6
-	release
+Sandyshore_Inn_EventScript_Man_1:
+	msgbox Sandyshore_Inn_EventScript_Man_Text_0, MSGBOX_NPC
 	end
 
 
-Sandyshore_Inn_Movement_RuthWalkUpstairs:
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	step_end
+Sandyshore_Inn_EventScript_Woman::
+	end
 
-Sandyshore_Inn_EventScript_RuthGoUpstairs_Text_0:
-	.string "Here, this way!$"
+
+Sandyshore_Inn_EventScript_Man_Text_0:
+	.string "Are you looking for Ruth, {PLAYER}?\p"
+	.string "She just stormed past here and up the\n"
+	.string "stairs.$"
+
+Sandyshore_Inn_EventScript_Man_Text_1:
+	.string "There's a lot of guests at the inn this\n"
+	.string "time of the year.\p"
+	.string "In my not-at-all-biased opinion, our\n"
+	.string "small beachside inn is the best\l"
+	.string "vacation spot this side of Hoenn,\l"
+	.string "after all!$"

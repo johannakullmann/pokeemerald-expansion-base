@@ -4660,6 +4660,16 @@
       "secondary_tileset": "gTileset_PokemonFanClub",
       "border_filepath": "data/layouts/SlateportCity_ShinyClub/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_ShinyClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERWATER_PACIFIDLOG_TOWN",
+      "name": "Underwater_PacifidlogTown_Layout",
+      "width": 80,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Underwater_PacifidlogTown/border.bin",
+      "blockdata_filepath": "data/layouts/Underwater_PacifidlogTown/map.bin"
     }
   ]
 }

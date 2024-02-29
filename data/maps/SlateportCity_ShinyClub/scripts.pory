@@ -3,12 +3,22 @@ mapscripts SlateportCity_ShinyClub_MapScripts {
 }
 
 script SlateportCity_ShinyClub_EventScript_BugCatcher {
-    msgbox(format("I love Wurmple!\pI even found a purple one, look! Its name is Purmple!\pI'm so excited to see if it'll evolve into Beautifly or Dustox!"), MSGBOX_NPC)
+    msgbox(format("I love Wurmple!\pI even found a purple one, look! Its name is Purmple!\p"
+    "I can't wait to see if it'll evolve into Beautifly or Dustox!"), MSGBOX_NPC)
     end
 }
 
 script SlateportCity_ShinyClub_EventScript_Hiker {
     msgbox(format("I found this little nugget while hiking in the mountains!\pIt has been with me ever since."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_ShinyClub_EventScript_ShinyBook {
+    msgbox(format("Shiny Pokémon:\p"
+        "Very rarely, one can find Pokémon that differ in color from their usual coloration.\p"
+        "While they are not stronger than their normal-colored counterparts, "
+        "they are very sought after by collectors.\p"
+        "Finding one in the wild is said to be a sign of good luck."), MSGBOX_NPC)
     end
 }
 
@@ -67,7 +77,7 @@ script Route135_ShinyHouse_EventScript_ShinyLureSeller {
         pokemart(ShinyLureMart)
         lock
         faceplayer
-        msgbox("Good luck for your hunt!")
+        msgbox("Good luck on your hunt!")
     }
     else {
         msgbox(format("I invented a special lure that attracts odd-colored Pokémon!\p"

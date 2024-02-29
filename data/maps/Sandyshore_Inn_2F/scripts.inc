@@ -3,10 +3,11 @@ Sandyshore_Inn_2F_MapScripts::
 	.byte 0
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 7, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_1
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_2
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 9, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_3
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_1
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 7, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_2
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 8, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_3
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 9, Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_4
 	.2byte 0
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
@@ -16,14 +17,14 @@ Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_1:
 	clearflag FLAG_TEMP_7
-	setobjectxyperm 2, 20, 5
-	turnobject 2, DIR_SOUTH
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3
 	return
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_2:
-	setflag FLAG_TEMP_7
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL
+	clearflag FLAG_TEMP_7
+	setobjectxyperm 2, 20, 5
+	turnobject 2, DIR_SOUTH
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_3
 	return
 
 Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_3:
@@ -31,38 +32,9 @@ Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_3:
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL
 	return
 
-
-Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_1::
-	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1
-	waitmovement OBJ_EVENT_ID_PLAYER
-	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
-	return
-
-
-Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_2::
-	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2
-	waitmovement OBJ_EVENT_ID_PLAYER
-	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
-	return
-
-
-Sandyshore_Inn_2F_EventScript_ArriveBrendansRoom_3::
-	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3
-	waitmovement OBJ_EVENT_ID_PLAYER
-	goto Sandyshore_Inn_2F_EventScript_GoToBrendansRoom
-	return
-
-
-Sandyshore_Inn_2F_EventScript_GoToBrendansRoom::
-	msgbox Sandyshore_Inn_2F_EventScript_GoToBrendansRoom_Text_0
-	closemessage
-	applymovement 2, Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom
-	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom
-	waitmovement 0
-	goto Sandyshore_Inn_EventScript_BrendanNoticePlayer
+Sandyshore_Inn_2F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_4:
+	setflag FLAG_TEMP_7
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL
 	return
 
 
@@ -172,11 +144,12 @@ Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft::
 
 
 Sandyshore_Inn_EventScript_PickMon::
-	goto_if_set FLAG_SYS_POKEMON_GET, Sandyshore_Inn_EventScript_PickMon_2
+	goto_if_set FLAG_RECEIVED_STARTER, Sandyshore_Inn_EventScript_PickMon_2
 	lock
-	setflag FLAG_SYS_POKEMON_GET
 	fadescreen FADE_TO_BLACK
 	special ChooseStarter
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_RECEIVED_STARTER
 	removeobject 4
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL_2
 	addobject 4
@@ -192,7 +165,6 @@ Sandyshore_Inn_EventScript_PickMon::
 	goto_if_eq Sandyshore_Inn_EventScript_PickMon_5
 	closemessage
 Sandyshore_Inn_EventScript_PickMon_4:
-	setflag FLAG_RECEIVED_STARTER
 	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerWalkAfterChooseStarter
 	waitmovement 0
 	applymovement 2, Sandyshore_Inn_2F_Movement_RuthWalkToPokeballs
@@ -265,18 +237,49 @@ Sandyshore_Inn_EventScript_PickMon_12:
 
 
 Sandyshore_Inn_EventScript_Ruth::
-	compare VAR_LITTLEROOT_INTRO_STATE, 7
+	compare VAR_LITTLEROOT_INTRO_STATE, 5
 	goto_if_eq Sandyshore_Inn_EventScript_Ruth_2
+	compare VAR_LITTLEROOT_INTRO_STATE, 7
+	goto_if_eq Sandyshore_Inn_EventScript_Ruth_3
 Sandyshore_Inn_EventScript_Ruth_1:
 	end
 
 Sandyshore_Inn_EventScript_Ruth_2:
 	lock
 	faceplayer
+	msgbox Sandyshore_Inn_EventScript_Ruth_Text_0
+	closemessage
+	specialvar VAR_TEMP_3, GetPlayerFacingDirection
+	switch VAR_TEMP_3
+	case DIR_EAST, Sandyshore_Inn_EventScript_Ruth_8
+	case DIR_NORTH, Sandyshore_Inn_EventScript_Ruth_9
+	case DIR_WEST, Sandyshore_Inn_EventScript_Ruth_10
+Sandyshore_Inn_EventScript_Ruth_6:
+	applymovement 2, Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom
+	fadenewbgm MUS_BIRCH_LAB
+	waitmovement 0
+	goto Sandyshore_Inn_EventScript_BrendanNoticePlayer
+	goto Sandyshore_Inn_EventScript_Ruth_1
+
+Sandyshore_Inn_EventScript_Ruth_3:
+	lock
+	faceplayer
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_14
 	closemessage
 	release
 	goto Sandyshore_Inn_EventScript_Ruth_1
+
+Sandyshore_Inn_EventScript_Ruth_8:
+	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_1
+	goto Sandyshore_Inn_EventScript_Ruth_6
+
+Sandyshore_Inn_EventScript_Ruth_9:
+	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_2
+	goto Sandyshore_Inn_EventScript_Ruth_6
+
+Sandyshore_Inn_EventScript_Ruth_10:
+	applymovement OBJ_EVENT_ID_PLAYER, Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_3
+	goto Sandyshore_Inn_EventScript_Ruth_6
 
 
 Sandyshore_Inn_EventScript_Brendan::
@@ -543,23 +546,7 @@ Sandyshore_Inn_2F_EventScript_OldMan::
 	return
 
 
-Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_1:
-	walk_down
-	walk_right
-	step_end
-
-Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_2:
-	walk_right
-	step_end
-
-Sandyshore_Inn_2F_Movement_PlayerWalkToRuth_3:
-	walk_up
-	walk_right
-	step_end
-
 Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom:
-	walk_up
-	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -569,9 +556,16 @@ Sandyshore_Inn_2F_Movement_RuthGoToBrendansRoom:
 	face_up
 	step_end
 
-Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom:
+Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_1:
 	walk_right
 	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_2:
 	walk_up
 	walk_up
 	walk_up
@@ -580,10 +574,14 @@ Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom:
 	walk_up
 	step_end
 
-Sandyshore_Inn_2F_EventScript_GoToBrendansRoom_Text_0:
-	.string "I wonder what the professor wants us\n"
-	.string "to help him with..\p"
-	.string "Only one way to find out!$"
+Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_3:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_0:
 	.string "Oh! You're already here!$"
@@ -694,6 +692,10 @@ Sandyshore_Inn_EventScript_PickMon_Text_6:
 Sandyshore_Inn_EventScript_PickMon_Text_7:
 	.string "I'll go grab some Pokéballs, meet me at\n"
 	.string "the town exit!$"
+
+Sandyshore_Inn_EventScript_Ruth_Text_0:
+	.string "{PLAYER}! Let's find out why the\n"
+	.string "Professor called!$"
 
 Sandyshore_Inn_EventScript_Brendan_Text_0:
 	.string "Go ahead and choose one!\p"

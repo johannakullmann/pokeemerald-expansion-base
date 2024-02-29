@@ -10260,16 +10260,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_MayLinkPlaceholder),
     },
 
-    [TRAINER_ALI_AND_LIA] =
+    [TRAINER_EMI_AND_LIA] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_TWINS,
         .trainerPic = TRAINER_PIC_TWINS,
-        .trainerName = _("Ali & Lia"),
+        .trainerName = _("Emi & Lia"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_AliAndLia),
+        .party = TRAINER_PARTY(sParty_EmiAndLia),
     },
 
     [TRAINER_DARIEN] =
@@ -10352,5 +10352,16 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_ShinyCooltrainer),
+    },
+    [TRAINER_DIVING_INSTRUCTOR] =
+    {
+        .trainerClass = TRAINER_CLASS_DIVER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerName = _("Marius"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .party = TRAINER_PARTY(sParty_DivingInstructor),
     },
 };

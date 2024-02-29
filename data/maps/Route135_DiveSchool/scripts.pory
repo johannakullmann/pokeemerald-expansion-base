@@ -1,0 +1,83 @@
+mapscripts Route135_DiveSchool_MapScripts {
+}
+
+script Route135_DiveSchool_EventScript_DiveTeacher {
+    lock
+    faceplayer
+    if (!flag(FLAG_BADGE02_GET)) {
+        msgbox(format("Sandyshore Town has beautiful reefs just off the shore.\p"
+        "It's like entering a whole new world with the colorful corals and water Pokémon.\p"
+        "You'll need some diving equipment though.\p"
+        "But because of the strong tides recently it is dangerous to dive alone, "
+        "so we can only rent out equipment to trainers with at least five badges."), MSGBOX_NPC)
+        release
+        end
+    }
+    else {
+        checkitem(ITEM_DIVING_EQUIPMENT)
+        if (var(VAR_RESULT) == TRUE) {
+            msgbox(Route135_DiveSchool_Text_DivingInstructorExplainDive, MSGBOX_NPC)
+            release
+            end
+        }
+        elif (!defeated(TRAINER_DIVING_INSTRUCTOR)) {
+            msgbox(format("Sandyshore Town has beautiful reefs just off the shore.\p"
+            "It's like entering a whole new world with the colorful corals and water Pokémon.\p"
+            "You'll need some diving equipment though.\p"
+            "The strong tides recently make it dangerous to dive alone, but you seem like a strong trainer.\p"
+            "If you can beat me in a battle, I'll let you rent some equipment!"), MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES) {
+                trainerbattle_double (TRAINER_DIVING_INSTRUCTOR, 
+                        format("Then prove to me you can watch out for yourself out there!"), 
+                        format("Haha, good, good! Looks like you'll be fine!"),
+                        format("Hmmm, you seem to only have one Pokémon with you. You should have a few more with you if you want to stay safe out there."),
+                        Route135_DiveSchool_EventScript_DiveTeacherGetDivingEquipment,
+                        NO_MUSIC)
+            }
+        }
+        else {
+            goto (Route135_DiveSchool_EventScript_DiveTeacherGetDivingEquipment)
+        }
+        end
+    }
+}
+
+script Route135_DiveSchool_EventScript_DiveTeacherGetDivingEquipment {
+    lock
+    msgbox(format("I see, you'll be able to hold your ground out there.\p"
+        "I feel safe letting you use some of our equipment. It'll be ¥1500 for a set."), MSGBOX_YESNO) 
+    if (var(VAR_RESULT) == YES) {
+        checkmoney(1500)
+	    if (var(VAR_RESULT) == FALSE) {
+            msgbox(format("I'm sorry, but you don't seem to have enough money."))
+            closemessage
+            release
+            end
+        }
+        else {
+            msgbox(format("Here you go!"))
+            giveitem(ITEM_DIVING_EQUIPMENT)
+            removemoney(1500)
+            waitfanfare
+            msgbox(Route135_DiveSchool_Text_DivingInstructorExplainDive)
+            closemessage
+            release
+            end
+        }
+    }
+    closemessage
+    release
+    end
+
+}
+
+script Route135_DiveSchool_EventScript_Tuber {
+
+    end
+}
+
+text Route135_DiveSchool_Text_DivingInstructorExplainDive {
+    format("With that diving equipment, you'll be able to explore the seafloor.\p"
+    "You'll need a Pokémon that knows the move Dive to pull you along underwater.\p"
+    "When you find a spot where the water looks deep, just take a dive down and explore the seafloor!")
+}

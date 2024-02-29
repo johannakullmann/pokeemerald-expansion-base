@@ -19,8 +19,8 @@ SlateportCity_ShinyClub_EventScript_ShinyClubChairman::
 	special IsShinyMonInParty
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_lt SlateportCity_ShinyClub_EventScript_ShinyClubChairman_5
-SlateportCity_ShinyClub_EventScript_ShinyClubChairman_1:
 	msgbox SlateportCity_ShinyClub_EventScript_ShinyClubChairman_Text_3, MSGBOX_NPC
+SlateportCity_ShinyClub_EventScript_ShinyClubChairman_1:
 	end
 
 SlateportCity_ShinyClub_EventScript_ShinyClubChairman_2:

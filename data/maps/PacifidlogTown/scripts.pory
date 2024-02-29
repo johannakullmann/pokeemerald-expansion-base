@@ -35,7 +35,7 @@ script PacifidlogTown_EventScript_Woman_2 {
 	faceplayer
 	msgbox(format("The weather is always clear in New Pacifidlog.\p"
 	"That's because of the legendary Pokémon that lives on top of the Sky Pillar.\p"
-	"Who knows if we would have been able to rebuild the town here at all if it weren't for Rayquaza."))
+	"Who knows if we would have been able to rebuild the town here at all if it weren't for its help."))
 	closemessage
 	turnobject(VAR_LAST_TALKED, DIR_NORTH)
 	release
@@ -54,6 +54,17 @@ script PacifidlogTown_EventScript_Fisherman {
 
 script PacifidlogTown_EventScript_NinjaBoy {
 	msgbox(format("I'm sad our town isn't floating on the ocean anymore.\pBut the big tower is pretty cool too!"), MSGBOX_NPC)
+	end
+}
+
+script PacifidlogTown_EventScript_OldMan {
+	lock
+	faceplayer
+	msgbox(format("Rayquaza rests on top of this tower.\p"
+	"It keeps our town safe from the wrath of the elements, and in turn, we make sure it can rest undisturbed."))
+	closemessage
+	turnobject(VAR_LAST_TALKED, DIR_NORTH)
+	release
 	end
 }
 
@@ -318,7 +329,9 @@ script PacifidlogTown_EventScript_Sailor {
 		case 1:
 		case 2:
 		case 3:
-			msgbox(format("The sea between New Pacifidlog and Slateport has a fast-running tide.\pI strongly advise against trying to surf there on the back of a Pokémon."))
+			msgbox(format("The sea between New Pacifidlog and Slateport has a fast-running tide.\p"
+			"I strongly advise against trying to surf there on the back of a Pokémon.\p"
+			"If you must go to Slateport, it's much safer to go by boat."))
 		case 4:
 			msgbox(format("Cpt. Moore: Do you want to sail to Slateport?"), MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
@@ -382,7 +395,7 @@ movement PacifidlogTown_Movement_PlayerEnterBoat {
 
 movement PacifidlogTown_Movement_BoatLeaveForSlateport {
 	walk_left *2
-	walk_down *5
+	walk_down *3
 	walk_left *10
 }
 

@@ -864,6 +864,9 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FRESH_START_MOCHI] =  {gItemIcon_Mochi, gItemIconPalette_FreshStartMochi},
     [ITEM_GLIMMERING_CHARM] = {gItemIcon_GlimmeringCharm, gItemIconPalette_GlimmeringCharm},
     [ITEM_CLUB_MEMBER_CARD] = {gItemIcon_EonTicket, gItemIconPalette_EonTicket},
+
+    [ITEM_DIVING_EQUIPMENT] = {gItemIcon_DowsingMachine, gItemIconPalette_DowsingMachine},
+
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

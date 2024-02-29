@@ -993,8 +993,9 @@
 #define ITEM_SHINY_LURE 817
 #define ITEM_SUPER_SHINY_LURE 818
 #define ITEM_MAX_SHINY_LURE 819
+#define ITEM_DIVING_EQUIPMENT 820
 
-#define ITEMS_COUNT 820
+#define ITEMS_COUNT 821
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

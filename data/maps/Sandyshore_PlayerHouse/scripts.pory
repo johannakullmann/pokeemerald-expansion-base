@@ -102,7 +102,15 @@ script Sandyshore_Playerhouse_EventScript_Mom {
         closemessage
         call(Common_EventScript_OutOfCenterPartyHeal)
         incrementgamestat(GAME_STAT_RESTED_AT_HOME)
+        if (!flag(FLAG_SHOWED_STARTER_TO_MOM) && !flag(FLAG_ENABLE_MR_STONE_POKENAV)) {
+            msgbox(format("Oh? Is that a Pokémon?\p...\p"
+            "I see, the Professor asked you to take care of it.\pYou got yourself a pretty active little one there!\p"
+            "Sounds like you'll be spending a lot of time outside now!\p"
+            "When you and your Pokémon get tired, you can always come back home and rest."))
+            closemessage
+        }
         release
+        end
     }
     else {
         switch (var(VAR_LITTLEROOT_INTRO_STATE)) {
@@ -128,7 +136,6 @@ script Sandyshore_Playerhouse_EventScript_Mom {
                 end
         }  
     }
-    end
 }
 
 script Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes {

@@ -11788,7 +11788,7 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
     }
 };
 
-static const struct TrainerMon sParty_AliAndLia[] = {
+static const struct TrainerMon sParty_EmiAndLia[] = {
     {
     .lvl = 3,
     .species = SPECIES_PICHU,
@@ -11898,5 +11898,28 @@ static const struct TrainerMon sParty_ShinyCooltrainer[] = {
     .lvl = 32,
     .species = SPECIES_SHUCKLE,
     .isShiny = TRUE,
+    }
+};
+
+static const struct TrainerMon sParty_DivingInstructor[] = {
+    {
+    .lvl = 33,
+    .species = SPECIES_WAILMER,
+    },
+    {
+    .lvl = 30,
+    .species = SPECIES_HUNTAIL,
+    },
+    {
+    .lvl = 37,
+    .species = SPECIES_RELICANTH,
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_GYARADOS,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_GOREBYSS,
     }
 };

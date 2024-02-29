@@ -95,6 +95,7 @@ SandyshoreTown_EventScript_RuthNoticePlayer_Right::
 
 SandyshoreTown_EventScript_RuthNoticePlayer::
 	applymovement 1, Common_Movement_ExclamationMarkAndDelay
+	playbgm MUS_ENCOUNTER_MAY, FALSE
 	playse SE_PIN
 	waitmovement 0
 	msgbox SandyshoreTown_EventScript_RuthNoticePlayer_Text_0
@@ -108,6 +109,7 @@ SandyshoreTown_EventScript_RuthNoticePlayer::
 	closedoor 26, 8
 	removeobject 1
 	setflag FLAG_TEMP_10
+	fadedefaultbgm
 	waitdooranim
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	release
@@ -131,5 +133,4 @@ SandyshoreTown_Text_LittleGirlPreventExit::
 	.string "Ah, {PLAYER}!\p"
 	.string "I saw Ruth in front of the Inn!\p"
 	.string "I wanna go visit the professor too, but\n"
-	.string "Grandma said he's busy and I shouldn't\l"
-	.string "bother him…$"
+	.string "Grandma said he's busy…$"
