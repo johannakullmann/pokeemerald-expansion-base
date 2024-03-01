@@ -1424,16 +1424,15 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_0:
 	.string "We're here! Slateport City!\p"
 	.string "The nearest Pokémon Gym is in Mauville\n"
 	.string "City…\p"
-	.string "But I think I want to look for a\n"
-	.string "ground-type Pokémon before I arrive\l"
-	.string "there.\p"
-	.string "I don't think I'll do well in an\n"
-	.string "electric-type gym with my current\l"
-	.string "team.$"
+	.string "But I really need some more practice\n"
+	.string "before I go there.\p"
+	.string "I heard there's a bunch of trainers on\n"
+	.string "the beach looking for a challenge.\p"
+	.string "But I also wanted to take a look at the\n"
+	.string "oceanic museum, I heard the exhibit is\l"
+	.string "really cool!$"
 
 SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_1:
-	.string "Hmmm… where could I find a\n"
-	.string "ground-type…\p"
 	.string "Ah, whatever, I'll just go explore!$"
 
 SlateportCity_EventScript_ShinyClubSign_Text_0:

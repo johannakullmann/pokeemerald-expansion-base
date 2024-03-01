@@ -1068,7 +1068,7 @@ Route110_EventScript_AquaScene::
 Route110_EventScript_AquaScene_1:
 	msgbox Route110_EventScript_AquaScene_Text_1
 	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	playbgm MUS_ENCOUNTER_AQUA, TRUE
 	applymovement 31, Route110_Movement_Grunt1Encounter
 	waitmovement 0
 	delay 8
@@ -1254,10 +1254,10 @@ Route110_EventScript_StartAquaDoubleBattle::
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
 	setvar VAR_0x8004, SPECIAL_BATTLE_RUTH
 	setvar VAR_0x8005, 0
+	playbgm MUS_ROUTE110, FALSE
 	special DoSpecialTrainerBattle
 	waitstate
 	frontier_saveparty
-	special LoadPlayerParty
 	lock
 	switch VAR_RESULT
 	case 1, Route110_EventScript_StartAquaDoubleBattle_3

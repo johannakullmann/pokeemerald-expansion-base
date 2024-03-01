@@ -1168,11 +1168,11 @@ script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	msgbox(format("We're here! Slateport City!\p"
 			"The nearest Pokémon Gym is in Mauville City…\p"
-			"But I think I want to look for a ground-type Pokémon before I arrive there.\p"
-			"I don't think I'll do well in an electric-type gym with my current team."))
+			"But I really need some more practice before I go there.\p"
+			"I heard there's a bunch of trainers on the beach looking for a challenge.\p"
+			"But I also wanted to take a look at the oceanic museum, I heard the exhibit is really cool!"))
 	turnobject(LOCALID_RUTH, DIR_SOUTH)
-	msgbox(format("Hmmm… where could I find a ground-type…\p"
-			"Ah, whatever, I'll just go explore!"))
+	msgbox(format("Ah, whatever, I'll just go explore!"))
 	closemessage
 	applymovement(LOCALID_RUTH, SlateportCity_Movement_RuthLeave)
 	waitmovement(0)

@@ -11810,14 +11810,17 @@ static const struct TrainerMon sParty_RuthPacifidlogToxatiel[] = {
     {
     .lvl = 5,
     .species = SPECIES_BUDEW,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_GROCKO,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_EEVEE,
+    .gender = MALE,
     }
 };
 
@@ -11825,14 +11828,17 @@ static const struct TrainerMon sParty_RuthPacifidlogGrocko[] = {
     {
     .lvl = 5,
     .species = SPECIES_BUDEW,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_CHIMERA1,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_EEVEE,
+    .gender = MALE,
     }
 };
 
@@ -11840,14 +11846,17 @@ static const struct TrainerMon sParty_RuthPacifidlogChimera[] = {
     {
     .lvl = 5,
     .species = SPECIES_BUDEW,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_TOXATIEL,
+    .gender = FEMALE,
     },
     {
     .lvl = 5,
     .species = SPECIES_EEVEE,
+    .gender = MALE,
     }
 };
 

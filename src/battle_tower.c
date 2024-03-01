@@ -808,18 +808,21 @@ static const struct TrainerMon sRuthMonsToxatiel[MULTI_PARTY_SIZE] =
         .species = SPECIES_TOXATIEL,
         //.iv = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 7
     },
     {
         .species = SPECIES_BUDEW,
         //.iv = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 6
     },
     {
         .species = SPECIES_EEVEE,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = MALE,
         .lvl = 9
     }
 };
@@ -830,18 +833,21 @@ static const struct TrainerMon sRuthMonsGrocko[MULTI_PARTY_SIZE] =
         .species = SPECIES_GROCKO,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 7
     },
     {
         .species = SPECIES_BUDEW,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 6
     },
     {
         .species = SPECIES_EEVEE,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = MALE,
         .lvl = 9
     }
 };
@@ -852,18 +858,21 @@ static const struct TrainerMon sRuthMonsChimera[MULTI_PARTY_SIZE] =
         .species = SPECIES_CHIMERA1,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 7
     },
     {
         .species = SPECIES_BUDEW,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = FEMALE,
         .lvl = 6
     },
     {
         .species = SPECIES_EEVEE,
         //.fixedIV = USE_RANDOM_IVS,
         .nature = NATURE_HARDY,
+        .gender = MALE,
         .lvl = 9
     }
 };
@@ -3121,11 +3130,23 @@ static void FillPartnerParty(u16 trainerId)
             }
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
+            u8 nature;
+            u8 genderRatio;
+            bool8 gender = 0;
             do
-            {
+            {   
                 j = Random32();
+                nature = GetNatureFromPersonality(j);
+                genderRatio = GetGenderFromSpeciesAndPersonality(partnerParty[i].species, j);
+                if (genderRatio == MON_FEMALE) {
+                    gender = FEMALE;
+                }
+                else if (genderRatio == MON_MALE) {
+                    gender = MALE;
+                }
             } //while (IsShinyOtIdPersonality(STEVEN_OTID, j) || sStevenMons[i].nature != GetNatureFromPersonality(j));
-            while (IsShinyOtIdPersonality(STEVEN_OTID, j) || partnerParty[i].nature != GetNatureFromPersonality(j));
+            while (IsShinyOtIdPersonality(STEVEN_OTID, j) || partnerParty[i].nature != nature || (genderRatio != MON_GENDERLESS && partnerParty[i].gender != gender));
+
             CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
                         partnerParty[i].species,
                         partnerParty[i].lvl,
@@ -3133,7 +3154,7 @@ static void FillPartnerParty(u16 trainerId)
                         TRUE,
                         j,
                         OT_ID_PRESET, STEVEN_OTID);
-            
+
             /*CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
                       sStevenMons[i].species,
                       sStevenMons[i].level,
@@ -3151,6 +3172,8 @@ static void FillPartnerParty(u16 trainerId)
                 SetMonMoveSlot(&gPlayerParty[MULTI_PARTY_SIZE + i], sStevenMons[i].moves[j], j);*/
             //SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_STEVEN].trainerName);
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_RUTH_PACIFIDLOG_TOXATIEL].trainerName);
+            j = FEMALE;
+            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
             //j = MALE;
             //SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
             CalculateMonStats(&gPlayerParty[MULTI_PARTY_SIZE + i]);

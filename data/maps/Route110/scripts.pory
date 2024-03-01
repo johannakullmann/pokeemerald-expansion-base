@@ -1081,7 +1081,7 @@ script Route110_EventScript_AquaScene {
 			"Hmmm, I think I'll look for a ground type next, that'll help a lot for the gym in Mauville too!\p"
 			"What about you? I wonder what your team will look like, {PLAYER}!"))
 	closemessage
-	playbgm(MUS_ENCOUNTER_AQUA, FALSE)
+	playbgm(MUS_ENCOUNTER_AQUA, TRUE)
 	applymovement(LOCALID_GRUNT1, Route110_Movement_Grunt1Encounter)
 	waitmovement(0)
 	delay(8)
@@ -1225,10 +1225,10 @@ script Route110_EventScript_StartAquaDoubleBattle {
 	frontier_set(FRONTIER_DATA_SELECTED_MON_ORDER)
 	setvar(VAR_0x8004, SPECIAL_BATTLE_RUTH)
 	setvar(VAR_0x8005, 0)
+	playbgm(MUS_ROUTE110, FALSE)
 	special(DoSpecialTrainerBattle)
 	waitstate
 	frontier_saveparty
-	special(LoadPlayerParty)
 	lock
 	switch(var(VAR_RESULT)) {
 		case 1: 

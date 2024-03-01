@@ -543,7 +543,14 @@ static void DoBattlePyramidTrainerHillBattle(void)
 void StartWallyTutorialBattle(void)
 {
     u16 monData;
-    CreateMonWithNature(&gEnemyParty[0], SPECIES_BUDEW, 4, USE_RANDOM_IVS, NATURE_RELAXED);
+    u32 personality;
+    do
+    {
+        personality = Random32();
+    }
+    while (GetNatureFromPersonality(personality) != NATURE_RELAXED || GetGenderFromSpeciesAndPersonality(SPECIES_BUDEW, personality) != MON_FEMALE);
+    CreateMon(&gEnemyParty[0], SPECIES_BUDEW, 4, USE_RANDOM_IVS, TRUE, personality, OT_ID_PLAYER_ID, FALSE);
+    //CreateMonWithNature(&gEnemyParty[0], SPECIES_BUDEW, 4, USE_RANDOM_IVS, NATURE_RELAXED);
     monData = MOVE_GROWTH;
     SetMonData(&gEnemyParty[0], MON_DATA_MOVE1, &monData);
     monData = MOVE_NONE;
