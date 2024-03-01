@@ -286,6 +286,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeadbuttTre
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogrePMD;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonPMD;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeaderMay;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFishing;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -570,6 +571,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SHINY_GEODUDE] =            &gObjectEventGraphicsInfo_ShinyGeodude,
     [OBJ_EVENT_GFX_WURMPLE] =                  &gObjectEventGraphicsInfo_Wurmple,
     [OBJ_EVENT_GFX_SHINY_WURMPLE] =            &gObjectEventGraphicsInfo_ShinyWurmple,
+    [OBJ_EVENT_GFX_FISHERMAN_FISHING] =        &gObjectEventGraphicsInfo_FishermanFishing,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

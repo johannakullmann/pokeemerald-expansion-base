@@ -2597,3 +2597,15 @@ static const struct SpriteFrameImage sPicTable_KyogrePMD[] = {
     overworld_frame(gObjectEventPic_KyogrePMD, 8, 8, 7),
     overworld_frame(gObjectEventPic_KyogrePMD, 8, 8, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_FishermanFishing[] = {
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FishermanFishing, 8, 8, 2),
+};
