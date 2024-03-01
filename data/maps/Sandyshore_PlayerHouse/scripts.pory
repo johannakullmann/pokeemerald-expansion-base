@@ -107,6 +107,7 @@ script Sandyshore_Playerhouse_EventScript_Mom {
             "I see, the Professor asked you to take care of it.\pYou got yourself a pretty active little one there!\p"
             "Sounds like you'll be spending a lot of time outside now!\p"
             "When you and your Pokémon get tired, you can always come back home and rest."))
+            setflag(FLAG_SHOWED_STARTER_TO_MOM)
             closemessage
         }
         release

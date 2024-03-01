@@ -131,6 +131,7 @@ Sandyshore_Playerhouse_EventScript_Mom_4:
 
 Sandyshore_Playerhouse_EventScript_Mom_5:
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
+	setflag FLAG_SHOWED_STARTER_TO_MOM
 	closemessage
 	goto Sandyshore_Playerhouse_EventScript_Mom_4
 
