@@ -10207,7 +10207,7 @@ static const union AnimCmd sAnim_Hatchik_1[] =
 
 static const union AnimCmd sAnim_Dodo2_1[] =
 {
-    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 10),
     ANIMCMD_FRAME(1, 25),
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
