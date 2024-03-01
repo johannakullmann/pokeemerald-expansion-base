@@ -749,7 +749,7 @@ script Route111_EventScript_RuthFishing {
 	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH)
 	addobject(LOCALID_RUTH)
 	faceplayer
-	msgbox(format("Hey, {PLAYER}!\pI got this fishing rod in Mauville!\pI'm trying to catch a Barboach for the gym, but I've only been able to hook Magikarp…\p"
+	msgbox(format("Hey, {PLAYER}!\pI'm trying to catch a Barboach for the gym, but I've only been able to hook Magikarp…\p"
 		"Maybe I should just train the Pokémon I have now instead?"))
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)

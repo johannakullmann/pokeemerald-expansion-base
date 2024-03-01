@@ -458,7 +458,9 @@
     "MountainCave_PuzzleTest",
     "ReefCave_Entrance",
     "Underwater_ReefCave",
-    "ReefCave_KyogreRoom"
+    "ReefCave_KyogreRoom",
+    "Route102_Grove",
+    "PetalburgWoods_Grove"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -1119,3 +1119,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SlateportCity_ShinyClub/scripts.inc"
 
 	.include "data/maps/Underwater_PacifidlogTown/scripts.inc"
+
+	.include "data/maps/Route102_Grove/scripts.inc"
+
+	.include "data/maps/PetalburgWoods_Grove/scripts.inc"

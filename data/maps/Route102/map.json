@@ -144,7 +144,20 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 31,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE102_GROVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE102_GROVE",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 

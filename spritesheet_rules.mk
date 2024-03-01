@@ -710,10 +710,6 @@ $(OBJEVENTGFXDIR)/misc/headbutt_tree.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
 
 
-$(OBJEVENTGFXDIR)/people/ruth_fishing.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 8 -mheight 8
-
-
 $(FLDEFFGFXDIR)/arrow.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 

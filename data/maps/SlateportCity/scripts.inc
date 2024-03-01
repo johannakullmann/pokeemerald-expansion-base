@@ -1181,7 +1181,7 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth::
 
 
 SlateportCity_EventScript_ShinyClubSign::
-	msgbox SlateportCity_EventScript_ShinyClubSign_Text_0
+	msgbox SlateportCity_EventScript_ShinyClubSign_Text_0, MSGBOX_SIGN
 	return
 
 

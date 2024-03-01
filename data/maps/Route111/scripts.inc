@@ -757,7 +757,6 @@ Route111_EventScript_RuthFishing::
 
 Route111_EventScript_RuthFishing_Text_0:
 	.string "Hey, {PLAYER}!\p"
-	.string "I got this fishing rod in Mauville!\p"
 	.string "I'm trying to catch a Barboach for the\n"
 	.string "gym, but I've only been able to hook\l"
 	.string "Magikarp…\p"

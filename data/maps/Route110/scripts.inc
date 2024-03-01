@@ -10,13 +10,6 @@ Route110_OnResume:
 	special UpdateCyclingRoadState
 	end
 
-Route110_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
-	call Route110_EventScript_SetupAquaScene
-	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
-	end
-
 Route110_EventScript_SaveCyclingMusic::
 	savebgm MUS_CYCLING
 	return
@@ -990,6 +983,24 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+Route110_OnTransition::
+	call Route110_EventScript_SetupAquaScene
+	compare VAR_CYCLING_CHALLENGE_STATE, 1
+	goto_if_eq Route110_OnTransition_2
+Route110_OnTransition_1:
+	goto_if_unset FLAG_RECEIVED_OLD_ROD, Route110_OnTransition_5
+Route110_OnTransition_4:
+	end
+
+Route110_OnTransition_2:
+	call Route110_EventScript_SaveCyclingMusic
+	goto Route110_OnTransition_1
+
+Route110_OnTransition_5:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_FISHERMAN_FISHING
+	goto Route110_OnTransition_4
+
+
 Route110_EventScript_SetupAquaScene::
 	goto_if_unset FLAG_DONE_AQUA_DOUBLE_BATTLE, Route110_EventScript_SetupAquaScene_1
 	setflag FLAG_TEMP_6
@@ -1517,6 +1528,36 @@ Route110_EventScript_AfterAquaDoubleBattle_21:
 	goto Route110_EventScript_AfterAquaDoubleBattle_18
 
 
+Route110_EventScript_OldRodFisherman::
+	lock
+	faceplayer
+	msgbox Route110_EventScript_OldRodFisherman_Text_0
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_FISHERMAN
+	removeobject 34
+	addobject 34
+	applymovement 34, Common_Movement_FacePlayer
+	giveitem ITEM_OLD_ROD
+	msgbox Route110_EventScript_OldRodFisherman_Text_1
+	closemessage
+	setflag FLAG_RECEIVED_OLD_ROD
+	delay 16
+	dofieldeffectsparkle 23, 36, 0
+	delay 5
+	turnobject 34, DIR_NORTH
+	waitfieldeffect FLDEFF_SPARKLE
+	applymovement 34, Common_Movement_ExclamationMarkAndDelay
+	playse SE_PIN
+	waitmovement 0
+	waitse
+	msgbox Route110_EventScript_OldRodFisherman_Text_2
+	closemessage
+	applymovement 34, Route110_Movement_FishermanDive
+	waitmovement 0
+	removeobject 34
+	release
+	end
+
+
 Route110_Movement_RuthEnterScreen:
 	walk_up
 	walk_up
@@ -1620,6 +1661,11 @@ Route110_Movement_RuthLeave:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
+	step_end
+
+Route110_Movement_FishermanDive:
+	jump_up
+	set_invisible
 	step_end
 
 Route110_EventScript_Grunt1Trainer::
@@ -1757,6 +1803,22 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_14:
 	.string "So, {PLAYER}! Mauville is waiting for\n"
 	.string "us!\p"
 	.string "Let's see who gets the badge first!$"
+
+Route110_EventScript_OldRodFisherman_Text_0:
+	.string "This stupid rod is useless! USELESS, I\n"
+	.string "tell you!\p"
+	.string "I'd have a better chance catching a\n"
+	.string "Magikarp with my bare hands!\p"
+	.string "Here, take this stupid stick off of me!$"
+
+Route110_EventScript_OldRodFisherman_Text_1:
+	.string "To use it, you'll have to...\p"
+	.string "Ah, whatever, you'll figure it out.$"
+
+Route110_EventScript_OldRodFisherman_Text_2:
+	.string "Was that...?\p"
+	.string "I can't believe it! It's a golden one!\p"
+	.string "Wait for me, you beautiful-$"
 
 Route110_EventScript_Grunt1Trainer_Text_0:
 	.string "Argh!$"

@@ -66,8 +66,8 @@ Route135_EventScript_CatchTutorialMain::
 	msgbox Route135_EventScript_CatchTutorialMain_Text_4
 	closemessage
 	applymovement 5, Route135_Movement_RuthLeave
-	waitmovement 0
 	fadedefaultbgm
+	waitmovement 0
 	setflag FLAG_TEMP_10
 	removeobject 5
 	setflag FLAG_DONE_CATCH_TUTORIAL
@@ -212,6 +212,8 @@ Route135_Movement_RuthLeave:
 	walk_left
 	walk_left
 	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route135_EventScript_Boy1::
@@ -328,7 +330,7 @@ Route135_EventScript_Boy1_Text_0:
 	.string "their type?\p"
 	.string "My Wingull can easily defeat wild Budew\n"
 	.string "with its flying-type moves!\p"
-	.string "It doesn't do well against eletric or\n"
+	.string "It doesn't do well against electric or\n"
 	.string "rock-type attacks, though…$"
 
 Route135_EventScript_Lia_Text_0:
@@ -382,7 +384,7 @@ Route135_EventScript_Lass_Text_0:
 	.string "my shoes…$"
 
 Route135_EventScript_Tuber_F_Text_0:
-	.string "Hehe!\p"
+	.string "Hihi!\p"
 	.string "My footsteps make funny sounds!$"
 
 Route135_Text_CatchTutorialPsstComeOverHere::

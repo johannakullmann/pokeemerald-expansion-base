@@ -18,7 +18,7 @@ script SlateportCity_ShinyClub_EventScript_ShinyBook {
         "Very rarely, one can find Pokémon that differ in color from their usual coloration.\p"
         "While they are not stronger than their normal-colored counterparts, "
         "they are very sought after by collectors.\p"
-        "Finding one in the wild is said to be a sign of good luck."), MSGBOX_NPC)
+        "Finding one in the wild is said to be a sign of good luck."), MSGBOX_SIGN)
     end
 }
 

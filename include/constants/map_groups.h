@@ -427,6 +427,8 @@
 #define MAP_REEF_CAVE_ENTRANCE                       (116 | (25 << 8))
 #define MAP_UNDERWATER_REEF_CAVE                     (117 | (25 << 8))
 #define MAP_REEF_CAVE_KYOGRE_ROOM                    (118 | (25 << 8))
+#define MAP_ROUTE102_GROVE                           (119 | (25 << 8))
+#define MAP_PETALBURG_WOODS_GROVE                    (120 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

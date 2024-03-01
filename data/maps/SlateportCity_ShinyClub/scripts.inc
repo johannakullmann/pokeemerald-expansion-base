@@ -12,6 +12,11 @@ SlateportCity_ShinyClub_EventScript_Hiker::
 	end
 
 
+SlateportCity_ShinyClub_EventScript_ShinyBook::
+	msgbox SlateportCity_ShinyClub_EventScript_ShinyBook_Text_0, MSGBOX_SIGN
+	end
+
+
 SlateportCity_ShinyClub_EventScript_ShinyClubChairman::
 	checkitem ITEM_CLUB_MEMBER_CARD
 	compare VAR_RESULT, TRUE
@@ -100,13 +105,24 @@ SlateportCity_ShinyClub_EventScript_BugCatcher_Text_0:
 	.string "I love Wurmple!\p"
 	.string "I even found a purple one, look! Its\n"
 	.string "name is Purmple!\p"
-	.string "I'm so excited to see if it'll evolve into\n"
+	.string "I can't wait to see if it'll evolve into\n"
 	.string "Beautifly or Dustox!$"
 
 SlateportCity_ShinyClub_EventScript_Hiker_Text_0:
 	.string "I found this little nugget while hiking\n"
 	.string "in the mountains!\p"
 	.string "It has been with me ever since.$"
+
+SlateportCity_ShinyClub_EventScript_ShinyBook_Text_0:
+	.string "Shiny Pokémon:\p"
+	.string "Very rarely, one can find Pokémon that\n"
+	.string "differ in color from their usual\l"
+	.string "coloration.\p"
+	.string "While they are not stronger than their\n"
+	.string "normal-colored counterparts, they are\l"
+	.string "very sought after by collectors.\p"
+	.string "Finding one in the wild is said to be a\n"
+	.string "sign of good luck.$"
 
 SlateportCity_ShinyClub_EventScript_ShinyClubChairman_Text_0:
 	.string "Welcome back, {PLAYER}!\p"
@@ -160,7 +176,7 @@ Route135_ShinyHouse_EventScript_ShinyLureSeller_Text_0:
 	.string "some?$"
 
 Route135_ShinyHouse_EventScript_ShinyLureSeller_Text_1:
-	.string "Good luck for your hunt!$"
+	.string "Good luck on your hunt!$"
 
 Route135_ShinyHouse_EventScript_ShinyLureSeller_Text_2:
 	.string "I invented a special lure that attracts\n"
