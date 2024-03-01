@@ -3336,6 +3336,10 @@ static const u8 sPebbleShotDescription[] = _(
     "Flings a small rock at\n"
     "the enemy.");
 
+static const u8 sKickDescription[] = _(
+    "A kick that damages\n"
+    "the enemy.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4197,4 +4201,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 
     //Custom
     [MOVE_PEBBLE_SHOT - 1] = sPebbleShotDescription,
+    [MOVE_CRYSTAL_BARRAGE - 1] = sCloseCombatDescription,
+    [MOVE_KICK - 1] = sKickDescription,
 };

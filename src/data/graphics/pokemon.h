@@ -10929,10 +10929,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonFootprint_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/footprint.1bpp");
 
     const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
     const u32 gMonBackPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/back.4bpp.lz");
+    const u32 gMonBackPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
+    const u8 gMonIcon_ToxatriceF[] = INCBIN_U8("graphics/pokemon/toxatrice/icon_f.4bpp");
     const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
 #endif //P_FAMILY_TOXATIEL
 
@@ -10952,10 +10955,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonFootprint_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/footprint.1bpp");
 
     const u32 gMonFrontPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
     const u32 gMonBackPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/back.4bpp.lz");
+    const u32 gMonBackPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
     const u8 gMonIcon_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/icon.4bpp");
+    const u8 gMonIcon_DrabuncleF[] = INCBIN_U8("graphics/pokemon/drabuncle/icon_f.4bpp");
     const u8 gMonFootprint_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/footprint.1bpp");
 #endif //P_FAMILY_GROCKO
 
@@ -10975,10 +10981,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonFootprint_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
 
     const u32 gMonFrontPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
     const u32 gMonBackPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
+    const u32 gMonBackPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
     const u8 gMonIcon_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
+    const u8 gMonIcon_Chimera3F[] = INCBIN_U8("graphics/pokemon/chimera3/icon_f.4bpp");
     const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
 #endif //P_FAMILY_CHIMERA
 

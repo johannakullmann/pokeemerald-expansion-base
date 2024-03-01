@@ -14712,7 +14712,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
     [MOVE_PEBBLE_SHOT] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 35,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 20,
@@ -14722,6 +14722,35 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
+
+    [MOVE_CRYSTAL_BARRAGE] =
+    {
+        .effect = EFFECT_CLOSE_COMBAT,
+        .power = 120,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_KICK] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 35,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+    
 
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =

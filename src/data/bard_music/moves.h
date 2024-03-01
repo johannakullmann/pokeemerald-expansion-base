@@ -2854,6 +2854,22 @@ const struct BardSound gBardSounds_Moves[MOVES_COUNT][6] = {
         NULL_BARD_SOUND,
         NULL_BARD_SOUND,
     },
+    [MOVE_CRYSTAL_BARRAGE] = {
+        { .songLengthId = 12 },
+        { .songLengthId =  0 },
+        { .songLengthId = 48 },
+        { .songLengthId = 27 },
+        { .songLengthId = 51 },
+        NULL_BARD_SOUND,
+    },
+    [MOVE_KICK] = {
+        { .songLengthId = 17 },
+        { .songLengthId = 51 },
+        NULL_BARD_SOUND,
+        NULL_BARD_SOUND,
+        NULL_BARD_SOUND,
+        NULL_BARD_SOUND,
+    },
 };
 
 #endif //GUARD_DATA_BARD_MUSIC_MOVES_H
