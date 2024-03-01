@@ -10929,10 +10929,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonFootprint_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/footprint.1bpp");
 
     const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
     const u32 gMonBackPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/back.4bpp.lz");
+    const u32 gMonBackPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
+    const u8 gMonIcon_ToxatriceF[] = INCBIN_U8("graphics/pokemon/toxatrice/icon_f.4bpp");
     const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
 #endif //P_FAMILY_TOXATIEL
 
