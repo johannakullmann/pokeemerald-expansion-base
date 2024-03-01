@@ -472,6 +472,9 @@ $(OBJEVENTGFXDIR)/people/gym_leaders/may.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/prof_brendan_birch.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/fisherman_fishing.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+
 
 $(OBJEVENTGFXDIR)/pokemon/azumarill.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
