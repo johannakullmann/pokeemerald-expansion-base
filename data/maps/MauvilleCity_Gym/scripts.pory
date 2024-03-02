@@ -222,19 +222,6 @@ MauvilleCity_Gym_EventScript_Angelo::
 	msgbox MauvilleCity_Gym_Text_AngeloPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MauvilleCity_Gym_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuidePostVictory
-	msgbox MauvilleCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GymGuidePostVictory::
-	msgbox MauvilleCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
-
 MauvilleCity_Gym_EventScript_LeftGymStatue::
 	lockall
 	goto_if_set FLAG_BADGE03_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
@@ -256,21 +243,6 @@ MauvilleCity_Gym_EventScript_GymStatue::
 	msgbox MauvilleCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
 	releaseall
 	end
-
-MauvilleCity_Gym_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
-	.string "bound {PLAYER}?\p"
-	.string "WATTSON, the LEADER of MAUVILLE\n"
-	.string "GYM, uses ELECTRIC-type POKéMON.\p"
-	.string "If you challenge him with WATER-type\n"
-	.string "POKéMON, he'll zap them! Bzzt!\p"
-	.string "And, he's put in switch-controlled\n"
-	.string "doors all over his GYM! Eccentric!\p"
-	.string "Hey, go for it!$"
-
-MauvilleCity_Gym_Text_GymGuidePostVictory:
-	.string "Whoa, you're electrifying!\n"
-	.string "You've powered the door open!$"
 
 MauvilleCity_Gym_Text_KirkIntro:
 	.string "My electric soul, it'll shatter your\n"
@@ -421,3 +393,26 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "POKéMON, all right?$"
 
 `
+
+EventScript MauvilleCity_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+	if (flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
+		msgbox("Whoa, you're electrifying! You've powered the door open!", MSGBOX_DEFAULT)
+	}
+	else {
+		msgbox("Yo, how's it going?\p"
+		"You look like this is your first time here, am I right?\p"
+		"Haha, no need to be so anxious, I'm here to tell you exactly what you should expect!\p"
+		"See those electric doors?\p"
+		"You can turn them on or off by stepping on those switches on the floor!\p"
+		"Once you solve the puzzle, the real challenge starts!\p"
+		"Wattson, the Gym Leader, is a user of Electric-type Pokémon.\p"
+		"If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
+		"Oh, and before the fight, you'll be asked to pick up to three Pokémon to fight with.\p"
+		"That's the same number of Pokémon the Gym Leader will be using, after all.\p"
+		"Well, go for it! Show them what you're made of!", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}

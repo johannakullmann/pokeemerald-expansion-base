@@ -1511,15 +1511,15 @@
 #define FLAG_READ_BRENDANS_NOTE_CHIMERA             (SYSTEM_FLAGS + 0x8A)
 #define FLAG_READ_BRENDANS_NOTE_KYOGRE              (SYSTEM_FLAGS + 0x8B)
 #define FLAG_RECEIVED_STARTER                       (SYSTEM_FLAGS + 0x8C)
-#define FLAG_ENABLE_RUTH_MATCH_CALL                 (SYSTEM_FLAGS + 0x8D) // Unused Flag
-#define FLAG_STARTED_MC_TUTORIAL                    (SYSTEM_FLAGS + 0x8E) // Unused Flag
-#define FLAG_RUTH_MET                               (SYSTEM_FLAGS + 0x8F) // Unused Flag
-#define FLAG_DONE_CATCH_TUTORIAL                    (SYSTEM_FLAGS + 0x90) // Unused Flag
-#define FLAG_DEFEATED_RIVAL_1                       (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_DONE_AQUA_DOUBLE_BATTLE                (SYSTEM_FLAGS + 0x92) // Unused Flag
-#define FLAG_SHOWED_STARTER_TO_MOM                  (SYSTEM_FLAGS + 0x93) // Unused Flag
-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
+#define FLAG_ENABLE_RUTH_MATCH_CALL                 (SYSTEM_FLAGS + 0x8D)
+#define FLAG_STARTED_MC_TUTORIAL                    (SYSTEM_FLAGS + 0x8E)
+#define FLAG_RUTH_MET                               (SYSTEM_FLAGS + 0x8F)
+#define FLAG_DONE_CATCH_TUTORIAL                    (SYSTEM_FLAGS + 0x90)
+#define FLAG_DEFEATED_RIVAL_1                       (SYSTEM_FLAGS + 0x91)
+#define FLAG_DONE_AQUA_DOUBLE_BATTLE                (SYSTEM_FLAGS + 0x92) //Team Aqua battle on Route 110
+#define FLAG_SHOWED_STARTER_TO_MOM                  (SYSTEM_FLAGS + 0x93)
+#define FLAG_MET_RUTH_MAUVILLE                      (SYSTEM_FLAGS + 0x94) // Ruth encounter after Mauville badge
+#define FLAG_MET_WATTSON_MAUVILLE                   (SYSTEM_FLAGS + 0x95) // Met Wattson for gym intro
 #define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // Unused Flag
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag

@@ -621,12 +621,12 @@ static const struct TrainerMon sParty_GabbyAndTy6[] = {
 static const struct TrainerMon sParty_Lola1[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 12,
+    .lvl = 7,
     .species = SPECIES_AZURILL,
     },
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 12,
+    .lvl = 7,
     .species = SPECIES_AZURILL,
     }
 };
@@ -700,7 +700,7 @@ static const struct TrainerMon sParty_Lola5[] = {
 static const struct TrainerMon sParty_Ricky1[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 13,
+    .lvl = 9,
     .species = SPECIES_ZIGZAGOON,
     .moves = {MOVE_SAND_ATTACK, MOVE_HEADBUTT, MOVE_TAIL_WHIP, MOVE_SURF}
     }
@@ -708,11 +708,11 @@ static const struct TrainerMon sParty_Ricky1[] = {
 
 static const struct TrainerMon sParty_Simon[] = {
     {
-    .lvl = 12,
+    .lvl = 8,
     .species = SPECIES_AZURILL,
     },
     {
-    .lvl = 12,
+    .lvl = 9,
     .species = SPECIES_MARILL,
     }
 };
@@ -6017,12 +6017,12 @@ static const struct TrainerMon sParty_AmyAndLiv6[] = {
 static const struct TrainerMon sParty_Huey[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 12,
+    .lvl = 8,
     .species = SPECIES_WINGULL,
     },
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 12,
+    .lvl = 9,
     .species = SPECIES_MACHOP,
     }
 };
@@ -6047,15 +6047,15 @@ static const struct TrainerMon sParty_Ernest1[] = {
 
 static const struct TrainerMon sParty_Dwayne[] = {
     {
-    .lvl = 11,
+    .lvl = 8,
     .species = SPECIES_WINGULL,
     },
     {
-    .lvl = 11,
+    .lvl = 8,
     .species = SPECIES_MACHOP,
     },
     {
-    .lvl = 11,
+    .lvl = 8,
     .species = SPECIES_TENTACOOL,
     }
 };
@@ -8148,7 +8148,7 @@ static const struct TrainerMon sParty_KiraAndDan5[] = {
 
 static const struct TrainerMon sParty_Johanna[] = {
     {
-    .lvl = 13,
+    .lvl = 11,
     .species = SPECIES_GOLDEEN,
     }
 };
@@ -8915,11 +8915,11 @@ static const struct TrainerMon sParty_Hailey[] = {
 
 static const struct TrainerMon sParty_Chandler[] = {
     {
-    .lvl = 12,
+    .lvl = 7,
     .species = SPECIES_TENTACOOL,
     },
     {
-    .lvl = 12,
+    .lvl = 7,
     .species = SPECIES_TENTACOOL,
     }
 };
