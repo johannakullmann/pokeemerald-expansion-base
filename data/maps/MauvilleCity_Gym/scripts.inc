@@ -221,19 +221,6 @@ MauvilleCity_Gym_EventScript_Angelo::
 	msgbox MauvilleCity_Gym_Text_AngeloPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MauvilleCity_Gym_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuidePostVictory
-	msgbox MauvilleCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GymGuidePostVictory::
-	msgbox MauvilleCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
-
 MauvilleCity_Gym_EventScript_LeftGymStatue::
 	lockall
 	goto_if_set FLAG_BADGE03_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
@@ -255,21 +242,6 @@ MauvilleCity_Gym_EventScript_GymStatue::
 	msgbox MauvilleCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
 	releaseall
 	end
-
-MauvilleCity_Gym_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
-	.string "bound {PLAYER}?\p"
-	.string "WATTSON, the LEADER of MAUVILLE\n"
-	.string "GYM, uses ELECTRIC-type POKéMON.\p"
-	.string "If you challenge him with WATER-type\n"
-	.string "POKéMON, he'll zap them! Bzzt!\p"
-	.string "And, he's put in switch-controlled\n"
-	.string "doors all over his GYM! Eccentric!\p"
-	.string "Hey, go for it!$"
-
-MauvilleCity_Gym_Text_GymGuidePostVictory:
-	.string "Whoa, you're electrifying!\n"
-	.string "You've powered the door open!$"
 
 MauvilleCity_Gym_Text_KirkIntro:
 	.string "My electric soul, it'll shatter your\n"
@@ -418,3 +390,33 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "You've only one POKéMON with you!\p"
 	.string "Come see me with two or more\n"
 	.string "POKéMON, all right?$"
+
+MauvilleCity_Gym_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuide_2
+	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_1, MSGBOX_DEFAULT
+MauvilleCity_Gym_EventScript_GymGuide_1:
+	release
+	end
+
+MauvilleCity_Gym_EventScript_GymGuide_2:
+	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_0, MSGBOX_DEFAULT
+	goto MauvilleCity_Gym_EventScript_GymGuide_1
+
+
+MauvilleCity_Gym_EventScript_GymGuide_Text_0:
+	.string "Whoa, you're electrifying! You've powered the door open!$"
+
+MauvilleCity_Gym_EventScript_GymGuide_Text_1:
+	.string "Yo, how's it going?\p"
+	.string "You look like this is your first time here, am I right?\p"
+	.string "Haha, no need to be so anxious, I'm here to tell you exactly what you should expect!\p"
+	.string "See those electric doors?\p"
+	.string "You can turn them on or off by stepping on those switches on the floor!\p"
+	.string "Once you solve the puzzle, the real challenge starts!\p"
+	.string "Wattson, the Gym Leader, is a user of Electric-type Pokémon.\p"
+	.string "If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
+	.string "Oh, and before the fight, you'll be asked to pick up to three Pokémon to fight with.\p"
+	.string "That's the same number of Pokémon the Gym Leader will be using, after all.\p"
+	.string "Well, go for it! Show them what you're made of!$"

@@ -394,7 +394,7 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 
 `
 
-EventScript MauvilleCity_Gym_EventScript_GymGuide {
+script MauvilleCity_Gym_EventScript_GymGuide {
 	lock
 	faceplayer
 	if (flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
