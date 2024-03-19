@@ -409,7 +409,6 @@ MauvilleCity_EventScript_Wattson::
 	goto_if_set FLAG_GOT_BASEMENT_KEY_FROM_WATTSON, MauvilleCity_EventScript_BegunNewMauville
 	msgbox MauvilleCity_Text_WattsonNeedFavorTakeKey, MSGBOX_DEFAULT
 	giveitem ITEM_BASEMENT_KEY
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_GOT_BASEMENT_KEY_FROM_WATTSON
 	msgbox MauvilleCity_Text_WattsonWontBeChallenge, MSGBOX_DEFAULT
 	release
@@ -696,6 +695,9 @@ MauvilleCity_OnTransition_2:
 
 MauvilleCity_OnTransition_5:
 	setvar VAR_TEMP_8, 0
+	setvar VAR_TEMP_0, 0
+	setflag VAR_TEMP_9
+	removeobject 10
 	goto MauvilleCity_OnTransition_4
 
 MauvilleCity_OnTransition_6:
@@ -797,8 +799,8 @@ MauvilleCity_EventScript_MeetWattson_1:
 	applymovement 6, Common_Movement_WalkUp
 	waitmovement 0
 	closedoor 8, 5
-	waitdooranim
 	removeobject 6
+	waitdooranim
 	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
 	setflag FLAG_MET_WATTSON_MAUVILLE
 	setvar VAR_TEMP_8, 1
@@ -885,18 +887,15 @@ MauvilleCity_EventScript_MeetWattson_Text_1:
 
 MauvilleCity_EventScript_MeetWattson_Text_2:
 	.string "Oh?\p"
-	.string "Those shiny new Poké Balls tell me that\n"
-	.string "this is your first time in a Pokémon\l"
-	.string "Gym!\p"
+	.string "Those shiny new Poké Balls tell me this\n"
+	.string "is your first time in a Pokémon Gym!\p"
 	.string "I'll be looking forward to our battle!\p"
 	.string "Wahahahaha! No reason to be so\n"
 	.string "nervous, {STR_VAR_1}!\p"
-	.string "I'll be using a team of three Pokémon\n"
-	.string "you should be able to beat with proper\l"
-	.string "preparation.\p"
-	.string "Keep in mind that you are only allowed\n"
-	.string "to bring three Pokémon to our fight\l"
-	.string "too!\p"
+	.string "I'll be using a team you should be able\n"
+	.string "to beat with proper preparation.\p"
+	.string "If you have any questions, ask the aide\n"
+	.string "right next to the entrance.\p"
 	.string "And good luck solving my electrifying\n"
 	.string "gym puzzle!\p"
 	.string "Wahahahaha!$"

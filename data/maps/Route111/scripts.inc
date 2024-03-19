@@ -426,17 +426,6 @@ Route111_EventScript_HikerMirageTowerVisible::
 	release
 	end
 
-Route111_EventScript_RockSmashTipFatMan::
-	lockall
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox Route111_Text_MauvilleUncleToldMeToTakeRockSmash, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
 Route111_EventScript_Drew::
 	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
@@ -715,14 +704,6 @@ Route111_Text_RootFossilDisappeared:
 	.string "The ROOT FOSSIL disappeared into\n"
 	.string "the sand…$"
 
-Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
-	.string "Oh, no!\p"
-	.string "My uncle in MAUVILLE told me to take\n"
-	.string "ROCK SMASH with me if I was going to\l"
-	.string "ROUTE 111!\p"
-	.string "My uncle? He lives across from\n"
-	.string "the bike shop in MAUVILLE.$"
-
 Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
 	.string "“Scale the heights, you hot-blooded\n"
@@ -755,6 +736,22 @@ Route111_EventScript_RuthFishing::
 	end
 
 
+Route111_EventScript_RockSmashTipFatMan::
+	lock
+	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	msgbox Route111_EventScript_RockSmashTipFatMan_Text_0
+	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route111_EventScript_RockSmashTipFatMan_Text_1
+	closemessage
+	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	msgbox Route111_EventScript_RockSmashTipFatMan_Text_2
+	release
+	end
+
+
 Route111_EventScript_RuthFishing_Text_0:
 	.string "Hey, {PLAYER}!\p"
 	.string "I'm trying to catch a Barboach for the\n"
@@ -762,3 +759,16 @@ Route111_EventScript_RuthFishing_Text_0:
 	.string "Magikarp…\p"
 	.string "Maybe I should just train the Pokémon I\n"
 	.string "have now instead?$"
+
+Route111_EventScript_RockSmashTipFatMan_Text_0:
+	.string "C'mon Laxy! We gotta go!$"
+
+Route111_EventScript_RockSmashTipFatMan_Text_1:
+	.string "I am so sorry, my Snorlax is exhausted\n"
+	.string "from the trip here from Kanto…\p"
+	.string "My fiancé is already getting some\n"
+	.string "Chesto Berries to wake it up.\p"
+	.string "It won't take much longer, I promise!$"
+
+Route111_EventScript_RockSmashTipFatMan_Text_2:
+	.string "Sigh… What am I supposed to do with this sleepyhead?$"

@@ -742,20 +742,20 @@ script Route111_EventScript_RuthFishing {
 	end
 }
 
-Route111_EventScript_RockSmashTipFatMan {
+script Route111_EventScript_RockSmashTipFatMan {
 	lock
 	applymovement(LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	msgbox(format("C'mon Laxy! We gotta go!"))
 	applymovement(LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer)
 	waitmovement(0)
-	msgbox(format("I am so sorry, my Snorlax is exhausted from the trip here from Kanto...\p"
+	msgbox(format("I am so sorry, my Snorlax is exhausted from the trip here from Kanto…\p"
 		"My fiancé is already getting some Chesto Berries to wake it up.\p"
 		"It won't take much longer, I promise!"))
 	closemessage
 	applymovement(LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
-	msgbox("Sigh... What am I supposed to do with this sleepyhead?")
+	msgbox("Sigh… What am I supposed to do with this sleepyhead?")
 	release
 	end
 }

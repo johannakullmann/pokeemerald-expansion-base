@@ -482,8 +482,7 @@ script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
 	if (var(VAR_0x8008) == 5) {
 		applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerApproachFlannery_1)
 	}
-	if (var(VAR_0x8008) == 4)
-	else {
+	elif (var(VAR_0x8008) == 4) {
 		applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerApproachFlannery_2)
 	}
 	else {
@@ -626,7 +625,7 @@ movement LavaridgeTown_Movement_RuthLeave_1 {
 	walk_up *7
 }
 
-movement LavaridgeTown_Movement_RuthLeave_1 {
+movement LavaridgeTown_Movement_RuthLeave_2 {
 	walk_right *5
 	walk_up *6
 }

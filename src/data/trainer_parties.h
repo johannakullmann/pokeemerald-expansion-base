@@ -11878,7 +11878,7 @@ static const struct TrainerMon sParty_RuthLavaridgeToxatiel[] = {
     .lvl = 17,
     .species = SPECIES_EEVEE,
     .gender = MALE,
-    }
+    },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 15,
@@ -11906,7 +11906,7 @@ static const struct TrainerMon sParty_RuthLavaridgeGrocko[] = {
     .lvl = 17,
     .species = SPECIES_EEVEE,
     .gender = MALE,
-    }
+    },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 15,
@@ -11934,7 +11934,7 @@ static const struct TrainerMon sParty_RuthLavaridgeMerakid[] = {
     .lvl = 17,
     .species = SPECIES_EEVEE,
     .gender = MALE,
-    }
+    },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 15,
