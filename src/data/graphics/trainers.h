@@ -416,6 +416,9 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(JUNE, June),
+    TRAINER_SPRITE(AUGUST, August),
+    TRAINER_SPRITE(RUTH, Ruth),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
@@ -516,6 +519,30 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
     {gTrainerBackPic_Steven + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_June[] =
+{
+    {gTrainerBackPic_June + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_June + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_June + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_June + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_August[] =
+{
+    {gTrainerBackPic_August + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_August + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_August + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_August + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Ruth[] =
+{
+    {gTrainerBackPic_Ruth + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ruth + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ruth + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ruth + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
 // .backPic goes functionally unused, since none of these pics are compressed
 // and the place they would get extracted to gets overwritten later anyway
 // the casts are so they'll play nice with the strict struct definition
@@ -538,4 +565,7 @@ const struct TrainerBacksprite gTrainerBacksprites[] =
     TRAINER_BACK_SPRITE(RUBY_SAPPHIRE_MAY, 4, RubySapphireMay, Palette_RubySapphireMay, Hoenn),
     TRAINER_BACK_SPRITE(WALLY, 4, Wally, Palette_Wally, Hoenn),
     TRAINER_BACK_SPRITE(STEVEN, 4, Steven, Palette_Steven, Hoenn),
+    TRAINER_BACK_SPRITE(AUGUST, 4, August, Palette_August, Hoenn),
+    TRAINER_BACK_SPRITE(JUNE, 4, June, Palette_June, Hoenn),
+    TRAINER_BACK_SPRITE(RUTH, 4, Ruth, Palette_Ruth, Hoenn),
 };

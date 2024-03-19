@@ -687,7 +687,7 @@ static bool32 IsRegularWaterTrainer(u8 graphicsId)
     return FALSE;
 }
 
-static u8 GetResponseMovementTypeFromTrainerGraphicsId(u8 graphicsId)
+static u8 GetResponseMovementTypeFromTrainerGraphicsId(u16 graphicsId)
 {
     if (IsRegularLandTrainer(graphicsId) || IsRegularWaterTrainer(graphicsId))
         return MOVEMENT_TYPE_ROTATE_CLOCKWISE;
