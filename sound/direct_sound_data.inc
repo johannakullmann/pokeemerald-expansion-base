@@ -5214,6 +5214,10 @@ Cry_Appletun::
 	.align 2
 Cry_Dipplin::
 	.incbin "sound/direct_sound_samples/cries/dipplin.bin"
+
+	.align 2
+Cry_Hydrapple::
+	.incbin "sound/direct_sound_samples/cries/hydrapple.bin"
 .endif @ P_GEN_9_CROSS_EVOS
 .endif @ P_FAMILY_APPLIN
 
@@ -5421,6 +5425,10 @@ Cry_Arctovish::
 	.align 2
 Cry_Duraludon::
 	.incbin "sound/direct_sound_samples/cries/duraludon.bin"
+
+	.align 2
+Cry_Archaludon::
+	.incbin "sound/direct_sound_samples/cries/archaludon.bin"
 .endif @ P_FAMILY_DURALUDON
 
 .if P_FAMILY_DREEPY == TRUE
@@ -6113,7 +6121,6 @@ Cry_Fezandipiti::
 Cry_Ogerpon::
 	.incbin "sound/direct_sound_samples/cries/ogerpon.bin"
 .endif @ P_FAMILY_OGERPON
-
 .if P_FAMILY_TOXATIEL == TRUE
 	.align 2
 Cry_Toxatiel::
@@ -6177,30 +6184,6 @@ Cry_Mbielava::
 .endif @ P_FAMILY_MBIELU
 
 	.align 2
-DirectSoundWaveData_register_noise::
-	.incbin "sound/direct_sound_samples/register_noise.bin"
-
-	.align 2
-DirectSoundWaveData_unknown_18::
-	.incbin "sound/direct_sound_samples/unknown_18.bin"
-
-	.align 2
-DirectSoundWaveData_sc88pro_nylon_str_guitar::
-	.incbin "sound/direct_sound_samples/sc88pro_nylon_str_guitar.bin"
-
-	.align 2
-DirectSoundWaveData_sd90_special_scream_drive::
-	.incbin "sound/direct_sound_samples/sd90_special_scream_drive.bin"
-
-	.align 2
-DirectSoundWaveData_Phoneme_1::
-	.incbin "sound/direct_sound_samples/phonemes/01.bin"
-
-	.align 2
-DirectSoundWaveData_Phoneme_2::
-	.incbin "sound/direct_sound_samples/phonemes/02.bin"
-
-	.align 2
 DirectSoundWaveData_Phoneme_3::
 	.incbin "sound/direct_sound_samples/phonemes/03.bin"
 
@@ -6234,7 +6217,6 @@ DirectSoundWaveData_Phoneme_10::
 
 	.align 2
 DirectSoundWaveData_Phoneme_11::
-	.incbin "sound/direct_sound_samples/phonemes/11.bin"
 
 	.align 2
 DirectSoundWaveData_Phoneme_12::
