@@ -6121,6 +6121,43 @@ Cry_Fezandipiti::
 Cry_Ogerpon::
 	.incbin "sound/direct_sound_samples/cries/ogerpon.bin"
 .endif @ P_FAMILY_OGERPON
+
+.if P_FAMILY_GOUGING_FIRE == TRUE
+	.align 2
+Cry_GougingFire::
+	.incbin "sound/direct_sound_samples/cries/gouging_fire.bin"
+.endif @ P_FAMILY_GOUGING_FIRE
+
+.if P_FAMILY_RAGING_BOLT == TRUE
+	.align 2
+Cry_RagingBolt::
+	.incbin "sound/direct_sound_samples/cries/raging_bolt.bin"
+.endif @ P_FAMILY_RAGING_BOLT
+
+.if P_FAMILY_IRON_BOULDER == TRUE
+	.align 2
+Cry_IronBoulder::
+	.incbin "sound/direct_sound_samples/cries/iron_boulder.bin"
+.endif @ P_FAMILY_IRON_BOULDER
+
+.if P_FAMILY_IRON_CROWN == TRUE
+	.align 2
+Cry_IronCrown::
+	.incbin "sound/direct_sound_samples/cries/iron_crown.bin"
+.endif @ P_FAMILY_IRON_CROWN
+
+.if P_FAMILY_TERAPAGOS == TRUE
+	.align 2
+Cry_Terapagos::
+	.incbin "sound/direct_sound_samples/cries/terapagos.bin"
+.endif @ P_FAMILY_TERAPAGOS
+
+.if P_FAMILY_PECHARUNT == TRUE
+	.align 2
+Cry_Pecharunt::
+	.incbin "sound/direct_sound_samples/cries/pecharunt.bin"
+.endif @ P_FAMILY_PECHARUNT
+
 .if P_FAMILY_TOXATIEL == TRUE
 	.align 2
 Cry_Toxatiel::
@@ -6183,6 +6220,31 @@ Cry_Mbielava::
 	.incbin "sound/direct_sound_samples/cries/toxatoo.bin"
 .endif @ P_FAMILY_MBIELU
 
+
+	.align 2
+DirectSoundWaveData_register_noise::
+	.incbin "sound/direct_sound_samples/register_noise.bin"
+
+	.align 2
+DirectSoundWaveData_unknown_18::
+	.incbin "sound/direct_sound_samples/unknown_18.bin"
+
+	.align 2
+DirectSoundWaveData_sc88pro_nylon_str_guitar::
+	.incbin "sound/direct_sound_samples/sc88pro_nylon_str_guitar.bin"
+
+	.align 2
+DirectSoundWaveData_sd90_special_scream_drive::
+	.incbin "sound/direct_sound_samples/sd90_special_scream_drive.bin"
+
+	.align 2
+DirectSoundWaveData_Phoneme_1::
+	.incbin "sound/direct_sound_samples/phonemes/01.bin"
+
+	.align 2
+DirectSoundWaveData_Phoneme_2::
+	.incbin "sound/direct_sound_samples/phonemes/02.bin"
+
 	.align 2
 DirectSoundWaveData_Phoneme_3::
 	.incbin "sound/direct_sound_samples/phonemes/03.bin"
@@ -6217,6 +6279,7 @@ DirectSoundWaveData_Phoneme_10::
 
 	.align 2
 DirectSoundWaveData_Phoneme_11::
+	.incbin "sound/direct_sound_samples/phonemes/11.bin"
 
 	.align 2
 DirectSoundWaveData_Phoneme_12::
