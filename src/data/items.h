@@ -12621,7 +12621,10 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Member Card"),
         .price = 0,
-        .description = sClubMemberCardDesc,
+        .description = COMPOUND_STRING(
+            "A golden membership\n"
+            "card for the Shiny\n"
+            "Club in Slateport."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -12634,7 +12637,10 @@ const struct Item gItemsInfo[] =
         .name = _("Shiny Lure"),
         .price = 17000,
         .holdEffectParam = 200,
-        .description = sShinyLureDesc,
+        .description = COMPOUND_STRING(
+            "Attracts shiny\n"
+            "Pokémon for\n"
+            "100 steops."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
@@ -12647,7 +12653,10 @@ const struct Item gItemsInfo[] =
         .name = _("Glowing Lure"),
         .price = 17000,
         .holdEffectParam = 200,
-        .description = sSuperShinyLureDesc,
+        .description = COMPOUND_STRING(
+            "Attracts shiny\n"
+            "Pokémon for\n"
+            "150 steops."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
@@ -12660,7 +12669,10 @@ const struct Item gItemsInfo[] =
         .name = _("Radiant Lure"),
         .price = 20000,
         .holdEffectParam = 250,
-        .description = sMaxShinyLureDesc,
+        .description = COMPOUND_STRING(
+            "Attracts shiny\n"
+            "Pokémon for\n"
+            "250 steops."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
@@ -12673,7 +12685,10 @@ const struct Item gItemsInfo[] =
         .name = _("Diving Suit"),
         .importance = 1,
         .price = 0,
-        .description = sDivingEquipmentDesc,
+        .description = COMPOUND_STRING(
+            "Oxygen flask for\n"
+            "diving to the\n"
+            "ocean floor."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
     },

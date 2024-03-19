@@ -1035,19 +1035,17 @@ Route110_EventScript_StartAquaDoubleBattle::
 	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_0, MSGBOX_AUTOCLOSE
 	waitmovement 32
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
-	setvar VAR_0x8004, SPECIAL_BATTLE_RUTH
-	setvar VAR_0x8005, 0
 	playbgm MUS_ROUTE110, FALSE
-	special DoSpecialTrainerBattle
+	multi_2_vs_2 TRAINER_GRUNT_ROUTE110_1, Route110_EventScript_StartAquaDoubleBattle_Text_1, TRAINER_GRUNT_ROUTE110_2, Route110_EventScript_StartAquaDoubleBattle_Text_2, PARTNER_RUTH, TRAINER_BACK_PIC_RUTH
 	waitstate
-	frontier_saveparty
+	special LoadPlayerParty
 	lock
 	switch VAR_RESULT
 	case 1, Route110_EventScript_StartAquaDoubleBattle_3
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_2
+	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_4
 Route110_EventScript_StartAquaDoubleBattle_1:
 	special HealPlayerParty
 	goto Route110_EventScript_AfterAquaDoubleBattle
@@ -1057,7 +1055,7 @@ Route110_EventScript_StartAquaDoubleBattle_3:
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_1
+	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_3
 	goto Route110_EventScript_StartAquaDoubleBattle_1
 
 
@@ -1451,16 +1449,6 @@ Route110_Movement_FishermanDive:
 	set_invisible
 	step_end
 
-Route110_EventScript_Grunt1Trainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_1, 0, Route110_EventScript_Grunt1Trainer_Text_0, Route110_EventScript_Grunt1Trainer_Text_0
-	end
-
-
-Route110_EventScript_Grunt2Trainer::
-	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_2, 0, Route110_EventScript_Grunt2Trainer_Text_0, Route110_EventScript_Grunt2Trainer_Text_0
-	return
-
-
 Route110_EventScript_AquaScene_Text_0:
 	.string "{PLAYER}!$"
 
@@ -1509,9 +1497,15 @@ Route110_EventScript_StartAquaDoubleBattle_Text_0:
 	.string "???: Bring it on!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_1:
-	.string "Ruth: Ha, take that!$"
+	.string "Argh!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_2:
+	.string "What just happened?$"
+
+Route110_EventScript_StartAquaDoubleBattle_Text_3:
+	.string "Ruth: Ha, take that!$"
+
+Route110_EventScript_StartAquaDoubleBattle_Text_4:
 	.string "Ruth: Ugh, they're strong...$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_0:
@@ -1602,12 +1596,6 @@ Route110_EventScript_OldRodFisherman_Text_2:
 	.string "Was that...?\p"
 	.string "I can't believe it! It's a golden one!\p"
 	.string "Wait for me, you beautiful-$"
-
-Route110_EventScript_Grunt1Trainer_Text_0:
-	.string "Argh!$"
-
-Route110_EventScript_Grunt2Trainer_Text_0:
-	.string "What just happened?$"
 
 Route110_Text_HowsHeSoFast::
 	.string "He's almost here! How's he so fast?!$"

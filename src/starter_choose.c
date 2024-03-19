@@ -527,13 +527,15 @@ static void Task_WaitForStarterSprite(u8 taskId)
     }
 }
 
+
+
 static void Task_AskConfirmStarter(u8 taskId)
 {
     PlayCry_Normal(GetStarterPokemon(gTasks[taskId].tStarterSelection), 0);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
     //AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
     StringCopy(gStringVar1, GetSpeciesName(GetStarterPokemon(gTasks[taskId].tStarterSelection))); 
-    StringCopy(gStringVar2, gTypeNames[gSpeciesInfo[GetStarterPokemon(gTasks[taskId].tStarterSelection)].types[0]]);
+    StringCopy(gStringVar2, gTypesInfo[gSpeciesInfo[GetStarterPokemon(gTasks[taskId].tStarterSelection)].types[0]].name);
     //AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
     StringExpandPlaceholders(gStringVar4, gText_StarterMonDescription);
     AddTextPrinterParameterized(0, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);

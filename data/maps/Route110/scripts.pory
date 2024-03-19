@@ -1003,14 +1003,13 @@ script Route110_EventScript_StartAquaDoubleBattle {
 	applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceDown)
 	msgbox(format("???: Bring it on!"), MSGBOX_AUTOCLOSE)
 	waitmovement(LOCALID_GRUNT2)
-
 	frontier_set(FRONTIER_DATA_SELECTED_MON_ORDER)
-	setvar(VAR_0x8004, SPECIAL_BATTLE_RUTH)
-	setvar(VAR_0x8005, 0)
 	playbgm(MUS_ROUTE110, FALSE)
-	special(DoSpecialTrainerBattle)
+	multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
+				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
+				PARTNER_RUTH, TRAINER_BACK_PIC_RUTH)
 	waitstate
-	frontier_saveparty
+	special(LoadPlayerParty)
 	lock
 	switch(var(VAR_RESULT)) {
 		case 1: 
@@ -1356,15 +1355,6 @@ movement Route110_Movement_RuthLeave {
 movement Route110_Movement_FishermanDive {
 	jump_up
 	set_invisible
-}
-
-script Route110_EventScript_Grunt1Trainer{
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_GRUNT_ROUTE110_1, 0, "Argh!", "Argh!")
-	end
-}
-
-script Route110_EventScript_Grunt2Trainer {
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GRUNT_ROUTE110_2, 0, "What just happened?", "What just happened?")
 }
 
 text Route110_Text_HowsHeSoFast {
