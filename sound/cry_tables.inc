@@ -4856,6 +4856,25 @@ gCryTable_Reverse::
 .if P_FAMILY_OGERPON == TRUE
 	cry_reverse Cry_Ogerpon
 .endif @ P_FAMILY_OGERPON
+.if P_FAMILY_GOUGING_FIRE == TRUE
+	cry_reverse Cry_GougingFire
+.endif @ P_FAMILY_GOUGING_FIRE
+.if P_FAMILY_RAGING_BOLT == TRUE
+	cry_reverse Cry_RagingBolt
+.endif @ P_FAMILY_RAGING_BOLT
+.if P_FAMILY_IRON_BOULDER == TRUE
+	cry_reverse Cry_IronBoulder
+.endif @ P_FAMILY_IRON_BOULDER
+.if P_FAMILY_IRON_CROWN == TRUE
+	cry_reverse Cry_IronCrown
+.endif @ P_FAMILY_IRON_CROWN
+.if P_FAMILY_TERAPAGOS == TRUE
+	cry_reverse Cry_Terapagos
+.endif @ P_FAMILY_TERAPAGOS
+.if P_FAMILY_PECHARUNT == TRUE
+	cry_reverse Cry_Pecharunt
+.endif @ P_FAMILY_PECHARUNT
+
 .if P_FAMILY_TOXATIEL == TRUE
 	cry_reverse Cry_Toxatiel
 	cry_reverse Cry_Toxatoo

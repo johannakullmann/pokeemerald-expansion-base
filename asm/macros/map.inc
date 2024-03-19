@@ -36,7 +36,7 @@
 	.2byte \trainer_type
 	.2byte \sight_radius_tree_etc
 	.4byte \script
-	.2byte \event_flag
+	.2byte \event_flag 
 	.2byte 0
 	inc _num_npcs
 	.endm
@@ -45,7 +45,7 @@
 	@ NOTE: The handling for this type of event does not exist in Emerald by default; it is exclusive to FRLG.
 	.macro clone_event index:req, gfx:req, x:req, y:req, target_local_id:req, target_map_id:req
 	.byte \index
-	.byte \gfx
+	.2byte \gfx
 	.byte OBJ_KIND_CLONE
 	.space 1  @ Padding
 	.2byte \x, \y

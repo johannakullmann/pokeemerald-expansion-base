@@ -4323,13 +4323,20 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     {
         .baseHP        = 65,
         .baseAttack    = 73,
+        .baseDefense   = P_UPDATED_STATS >= GEN_7 ? 75 : 55,
         .baseSpeed     = 85,
         .baseSpAttack  = 47,
         .baseDefense   = 55,
         .baseSpDefense = 75,
         .types = { TYPE_BUG, TYPE_BUG },
         .catchRate = 150,
+    #if P_UPDATED_EXP_YIELDS >= GEN_7
         .expYield = 151,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 140,
+    #else
+        .expYield = 146,
+    #endif
         .evYield_Speed = 1,
         .itemRare = ITEM_BRIGHT_POWDER,
         .genderRatio = 50,
