@@ -1780,6 +1780,7 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_PushBoulder));
+        SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x -7, boulder->currentCoords.y - 7);
     }
     return FALSE;
 }
@@ -1939,6 +1940,10 @@ static bool8 PushLargeBoulder_End(struct Task *task, struct ObjectEvent *player,
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_PushLargeBoulder));
+        SetObjEventTemplateCoords(boulder_TL->localId, boulder_TL->currentCoords.x -7, boulder_TL->currentCoords.y - 7);
+        SetObjEventTemplateCoords(boulder_TR->localId, boulder_TR->currentCoords.x -7, boulder_TR->currentCoords.y - 7);
+        SetObjEventTemplateCoords(boulder_BL->localId, boulder_BL->currentCoords.x -7, boulder_BL->currentCoords.y - 7);
+        SetObjEventTemplateCoords(boulder_BR->localId, boulder_BR->currentCoords.x -7, boulder_BR->currentCoords.y - 7);
     }
     return FALSE;
 }
@@ -2054,6 +2059,9 @@ static bool8 PushLongBoulder_End(struct Task *task, struct ObjectEvent *player,
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_PushLongBoulder));
+        SetObjEventTemplateCoords(boulder_1->localId, boulder_1->currentCoords.x -7, boulder_1->currentCoords.y - 7);
+        SetObjEventTemplateCoords(boulder_2->localId, boulder_2->currentCoords.x -7, boulder_2->currentCoords.y - 7);
+        SetObjEventTemplateCoords(boulder_3->localId, boulder_3->currentCoords.x -7, boulder_3->currentCoords.y - 7);
     }
     return FALSE;
 }
