@@ -11860,6 +11860,90 @@ static const struct TrainerMon sParty_RuthPacifidlogChimera[] = {
     }
 };
 
+static const struct TrainerMon sParty_RuthLavaridgeToxatiel[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 13,
+    .species = SPECIES_BUDEW,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 16,
+    .species = SPECIES_RUBECKO,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 17,
+    .species = SPECIES_EEVEE,
+    .gender = MALE,
+    }
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 15,
+    .species = SPECIES_BARBOACH,
+    .isShiny = TRUE,
+    .gender = MALE,
+    }
+};
+
+static const struct TrainerMon sParty_RuthLavaridgeGrocko[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 13,
+    .species = SPECIES_BUDEW,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 16,
+    .species = SPECIES_CHIMERA2,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 17,
+    .species = SPECIES_EEVEE,
+    .gender = MALE,
+    }
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 15,
+    .species = SPECIES_BARBOACH,
+    .isShiny = TRUE,
+    .gender = MALE,
+    }
+};
+
+static const struct TrainerMon sParty_RuthLavaridgeMerakid[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 13,
+    .species = SPECIES_BUDEW,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 16,
+    .species = SPECIES_TOXATOO,
+    .gender = FEMALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 17,
+    .species = SPECIES_EEVEE,
+    .gender = MALE,
+    }
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 15,
+    .species = SPECIES_BARBOACH,
+    .isShiny = TRUE,
+    .gender = MALE,
+    }
+};
+
 static const struct TrainerMon sParty_GruntRoute110_1[] = {
     {
     .lvl = 5,

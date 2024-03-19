@@ -379,6 +379,7 @@ LavaridgeTown_Text_HerbShopSign:
 
 `
 const LOCALID_FLANNERY = 8
+const LOCALID_RUTH = 9
 const TEMP_FLAG_HIDE_FLANNERY = FLAG_TEMP_10
 
 mapscripts LavaridgeTown_MapScripts {
@@ -400,7 +401,7 @@ script LavaridgeTown_OnTransition {
 }
 
 script LavaridgeTown_OnLoad {
-	if (var(VAR_LAVARIDGE_TOWN_STATE) <= 1) {
+	if (var(VAR_LAVARIDGE_TOWN_STATE) <= 2) {
 		call (LavaridgeTown_EventScript_LockGymDoor)
 	}
 	return
@@ -415,11 +416,32 @@ script EventScript_ClosedLavaridgeGymDoor {
 	msgbox("The door is closed.", MSGBOX_SIGN)
 	closemessage
 	if (var(VAR_LAVARIDGE_TOWN_STATE) == 0) {
+		applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+		waitmovement(0)
+		msgbox(format("Hey, {PLAYER}...\pLooks like we can't challenge the Fire-type gym yet, the door's closed."))
+		goto(LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene)
+	}
+	end
+}
+
+script LavaridgeTown_EventScript_Ruth {
+	lock
+	faceplayer
+	if (var(VAR_LAVARIDGE_TOWN_STATE) == 0) {
+		msgbox(format("Hey, {PLAYER}...\pLooks like we can't challenge the Fire-type gym yet, the door's closed."))
+		closemessage
 		clearflag(TEMP_FLAG_HIDE_FLANNERY)
 		addobject(LOCALID_FLANNERY)
 		showobjectat(LOCALID_FLANNERY, MAP_LAVARIDGE_TOWN)
 		goto(LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene)
 	}
+	elif (var(VAR_LAVARIDGE_TOWN_STATE) == 1) {
+		msgbox(format("The gym leader hasn't come back yet... How about we have a go at it again?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			goto(LavaridgeTown_EventScript_RuthBattle)
+		}
+	}
+	release
 	end
 }
 
@@ -429,19 +451,115 @@ script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
 	delay(16)
 	applymovement(LOCALID_FLANNERY, LavaridgeTown_Movement_FlanneryApproachGym)
 	waitmovement(0)
-	msgbox(format("Oh? A challenger?"), MSGBOX_AUTOCLOSE)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-	applymovement(LOCALID_FLANNERY, LavaridgeTown_Movement_FlanneryApproachPlayer)
+	applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthNoticeFlannery)
 	waitmovement(0)
-	msgbox(format("The door is closed?\pThat means she's already left for the mountain!\pI hope I am not too late!"), MSGBOX_AUTOCLOSE)
+	msgbox(format("Flannery?!"))
+	closemessage
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	getplayerxy(VAR_0x8008, VAR_0x8009)
+	if (var(VAR_0x8008) == 5) {
+		applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthApproachFlannery_1)
+	}
+	else {
+		applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthApproachFlannery_2)
+	}
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	msgbox(format("What are you doing here?\pAren't you really busy with your new job?"))
+	closemessage
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Haha, the new gym leader asked me to help her out with some ruffians.\p"
+		"But! Ruth! Auntie told me you're collecting badges now?\p"
+		"Haha, to think last year you would've had to face me here!\p"
+		"I would've grilled you!"))
+	closemessage
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("Psh, just you wait! I'll put out that fire of yours some day!"))
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
+	msgbox(format("Ah, right! {PLAYER}!"))
+	if (var(VAR_0x8008) == 5) {
+		applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerApproachFlannery_1)
+	}
+	if (var(VAR_0x8008) == 4)
+	else {
+		applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerApproachFlannery_2)
+	}
+	else {
+		applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerApproachFlannery_3)
+	}
+	waitmovement(0)
+	turnobject(LOCALID_RUTH, DIR_SOUTH)
+	msgbox(format("You remember my cousin Flannery, right?\pShe was the gym leader of Lavaridge Town until a while ago."))
+	closemessage
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(LOCALID_RUTH, DIR_EAST)
+	msgbox(format("Ah, {PLAYER}! You're Ruth's neighbour, right?"))
+	closemessage
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	msgbox(format("Yes! {PLAYER} is also challenging the gyms! We're competing!\p"
+		"That reminds me, Flan, do you know where the new gym leader is? The gym door is locked."))
+	closemessage
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Huh? She's not inside?"))
+	turnobject(LOCALID_FLANNERY, DIR_EAST)
+	msgbox(format("That means she must've already left for Mt. Chimney!"), MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_FLANNERY, LavaridgeTown_Movement_FlanneryLeave_1)
 	waitmovement(0)
-	msgbox(format("Oh, yes! Wait here until the Gym Leader comes back! I hope it doesn't take too long!"), MSGBOX_AUTOCLOSE)
+	msgbox(format("Oh, yes. {PLAYER}, Ruth... Why don't you two check the hot springs until we got that thing sorted?"), MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_FLANNERY, LavaridgeTown_Movement_FlanneryLeave_2)
 	waitmovement(0)
 	setflag(TEMP_FLAG_HIDE_FLANNERY)
 	removeobject(LOCALID_FLANNERY)
 	setvar(VAR_LAVARIDGE_TOWN_STATE, 1)
+	delay(30)
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("There she goes..."))
+	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	msgbox(format("... I don't feel like lazing around in the hot springs.\p{PLAYER}, care for a quick battle to pass the time?"))
+	goto(LavaridgeTown_EventScript_RuthBattle)
+	release
+	end
+}
+
+script LavaridgeTown_EventScript_RuthBattle {
+	switch (var(VAR_STARTER_MON)) {
+			case 0:
+				trainerbattle_no_intro(TRAINER_RUTH_LAVARIDGE_TOXATIEL, LavaridgeTown_Text_RuthDefeat)
+			case 1:
+				trainerbattle_no_intro(TRAINER_RUTH_LAVARIDGE_GROCKO, LavaridgeTown_Text_RuthDefeat)
+			case 2:
+				trainerbattle_no_intro(TRAINER_RUTH_LAVARIDGE_MERAKID, LavaridgeTown_Text_RuthDefeat)
+	}	
+	goto(LavaridgeTown_EventScript_AfterRuthBattle)
+}
+
+script LavaridgeTown_EventScript_AfterRuthBattle {
+	lock
+	msgbox(format("Ah, I thought I could beat you this time.\p"
+		"Looks like I need to step up my game a little bit more to win against you!\p"
+		"I am confident in my abilities to beat the gym leader, though.\p"
+		"...\p"
+		"I don't feel like waiting here until they're done. {PLAYER}, let's go look for them!\p"
+		"Flannery said they're at Mt. Chimney, right?"), MSGBOX_AUTOCLOSE)
+	getplayerxy(VAR_0x8008, VAR_0x8009)
+	if (var(VAR_0x8008) == 5 && var(VAR_0x8009) == 16) {
+		applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthLeave_1)
+	}
+	else {
+		applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthLeave_2)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_RUTH)
+	setvar(VAR_LAVARIDGE_TOWN_STATE, 2)
+	setflag(FLAG_DEFEATED_RIVAL_2)
 	release
 	end
 }
@@ -466,4 +584,53 @@ movement LavaridgeTown_Movement_FlanneryLeave_1 {
 
 movement LavaridgeTown_Movement_FlanneryLeave_2 {
 	walk_fast_up*4
+}
+
+movement LavaridgeTown_Movement_RuthNoticeFlannery {
+	walk_in_place_fast_right
+	emote_exclamation_mark
+	delay_16*4
+}
+
+movement LavaridgeTown_Movement_RuthApproachFlannery_1 {
+	walk_fast_right *3
+}
+
+movement LavaridgeTown_Movement_RuthApproachFlannery_2 {
+	walk_fast_down
+	walk_fast_right*2
+	walk_fast_up
+	walk_fast_right
+}
+
+movement LavaridgeTown_Movement_PlayerApproachFlannery_1 {
+	walk_down
+	walk_right
+	face_up
+}
+
+movement LavaridgeTown_Movement_PlayerApproachFlannery_2 {
+	walk_right
+	face_up
+}
+
+movement LavaridgeTown_Movement_PlayerApproachFlannery_3 {
+	walk_down
+	walk_right*3
+	face_up
+}
+
+movement LavaridgeTown_Movement_RuthLeave_1 {
+	walk_down
+	walk_right *5
+	walk_up *7
+}
+
+movement LavaridgeTown_Movement_RuthLeave_1 {
+	walk_right *5
+	walk_up *6
+}
+
+text LavaridgeTown_Text_RuthDefeat {
+	format("Damn, I thought I could win this one.")
 }
