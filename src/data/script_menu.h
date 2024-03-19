@@ -788,6 +788,13 @@ static const struct MenuAction MultichoiceList_StarterNotesWithKyogre[] =
     {gText_Close},
 };
 
+static const struct MenuAction MultichoiceList_BerryPlot[] =
+{
+    {gText_Fertilize},
+    {gText_PlantBerry},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -918,6 +925,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_STARTER_NOTES]              = MULTICHOICE(MultichoiceList_StarterNotes),
     [MULTI_STARTER_NOTES_KYOGRE]       = MULTICHOICE(MultichoiceList_StarterNotesWithKyogre),
 
+    [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
 };
 
 const u8 *const gStdStrings[] =

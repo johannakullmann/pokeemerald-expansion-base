@@ -595,6 +595,12 @@
 #define P_FAMILY_MUNKIDORI               P_GEN_9_POKEMON
 #define P_FAMILY_FEZANDIPITI             P_GEN_9_POKEMON
 #define P_FAMILY_OGERPON                 P_GEN_9_POKEMON
+#define P_FAMILY_GOUGING_FIRE            P_GEN_9_POKEMON
+#define P_FAMILY_RAGING_BOLT             P_GEN_9_POKEMON
+#define P_FAMILY_IRON_BOULDER            P_GEN_9_POKEMON
+#define P_FAMILY_IRON_CROWN              P_GEN_9_POKEMON
+#define P_FAMILY_TERAPAGOS               P_GEN_9_POKEMON
+#define P_FAMILY_PECHARUNT               P_GEN_9_POKEMON
 
 #define P_FAMILY_TOXATIEL                P_CUSTOM_POKEMON
 #define P_FAMILY_GROCKO                  P_CUSTOM_POKEMON

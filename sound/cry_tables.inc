@@ -2023,6 +2023,7 @@ gCryTable::
 	cry Cry_Appletun
 .if P_GEN_9_CROSS_EVOS == TRUE
 	cry Cry_Dipplin
+	cry Cry_Hydrapple
 .endif @ P_GEN_9_CROSS_EVOS
 .endif @ P_FAMILY_APPLIN
 .if P_FAMILY_SILICOBRA == TRUE
@@ -2110,6 +2111,9 @@ gCryTable::
 .endif @ P_FAMILY_ARCTOVISH
 .if P_FAMILY_DURALUDON == TRUE
 	cry Cry_Duraludon
+.if P_GEN_9_CROSS_EVOS == TRUE
+	cry Cry_Archaludon
+.endif @ P_GEN_9_CROSS_EVOS
 .endif @ P_FAMILY_DURALUDON
 .if P_FAMILY_DREEPY == TRUE
 	cry Cry_Dreepy
@@ -2402,6 +2406,24 @@ gCryTable::
 .if P_FAMILY_OGERPON == TRUE
 	cry Cry_Ogerpon
 .endif @ P_FAMILY_OGERPON
+.if P_FAMILY_GOUGING_FIRE == TRUE
+	cry Cry_GougingFire
+.endif @ P_FAMILY_GOUGING_FIRE
+.if P_FAMILY_RAGING_BOLT == TRUE
+	cry Cry_RagingBolt
+.endif @ P_FAMILY_RAGING_BOLT
+.if P_FAMILY_IRON_BOULDER == TRUE
+	cry Cry_IronBoulder
+.endif @ P_FAMILY_IRON_BOULDER
+.if P_FAMILY_IRON_CROWN == TRUE
+	cry Cry_IronCrown
+.endif @ P_FAMILY_IRON_CROWN
+.if P_FAMILY_TERAPAGOS == TRUE
+	cry Cry_Terapagos
+.endif @ P_FAMILY_TERAPAGOS
+.if P_FAMILY_PECHARUNT == TRUE
+	cry Cry_Pecharunt
+.endif @ P_FAMILY_PECHARUNT
 .if P_FAMILY_TOXATIEL == TRUE
 	cry Cry_Toxatiel
 	cry Cry_Toxatoo
@@ -4451,6 +4473,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Appletun
 .if P_GEN_9_CROSS_EVOS == TRUE
 	cry_reverse Cry_Dipplin
+	cry_reverse Cry_Hydrapple
 .endif @ P_GEN_9_CROSS_EVOS
 .endif @ P_FAMILY_APPLIN
 .if P_FAMILY_SILICOBRA == TRUE
@@ -4538,6 +4561,9 @@ gCryTable_Reverse::
 .endif @ P_FAMILY_ARCTOVISH
 .if P_FAMILY_DURALUDON == TRUE
 	cry_reverse Cry_Duraludon
+.if P_GEN_9_CROSS_EVOS == TRUE
+	cry_reverse Cry_Archaludon
+.endif @ P_GEN_9_CROSS_EVOS
 .endif @ P_FAMILY_DURALUDON
 .if P_FAMILY_DREEPY == TRUE
 	cry_reverse Cry_Dreepy
