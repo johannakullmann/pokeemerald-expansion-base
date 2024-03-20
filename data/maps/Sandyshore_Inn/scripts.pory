@@ -2,6 +2,7 @@ mapscripts Sandyshore_Inn_MapScripts {
 }
 
 script Sandyshore_Inn_EventScript_Man {
+    speakername("Robert")
     if (var(VAR_LITTLEROOT_INTRO_STATE) == 5) {
         msgbox(format("Are you looking for Ruth, {PLAYER}?\p"
         "She just stormed past here and up the stairs."), MSGBOX_NPC)

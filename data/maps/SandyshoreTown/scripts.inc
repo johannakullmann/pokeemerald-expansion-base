@@ -65,6 +65,7 @@ SandyshoreTown_EventScript_PreventExit_Route135_3:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	turnobject 2, DIR_SOUTH
+	speakername SandyshoreTown_EventScript_PreventExit_Route135_Text_0
 	msgbox SandyshoreTown_Text_LittleGirlPreventExit
 	closemessage
 	applymovement 2, Common_Movement_WalkRight
@@ -74,6 +75,7 @@ SandyshoreTown_EventScript_PreventExit_Route135_3:
 SandyshoreTown_EventScript_LittleGirl::
 	lock
 	faceplayer
+	speakername SandyshoreTown_EventScript_PreventExit_Route135_Text_0
 	msgbox SandyshoreTown_EventScript_LittleGirl_Text_0
 	closemessage
 	end
@@ -98,6 +100,7 @@ SandyshoreTown_EventScript_RuthNoticePlayer::
 	playbgm MUS_ENCOUNTER_MAY, FALSE
 	playse SE_PIN
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox SandyshoreTown_EventScript_RuthNoticePlayer_Text_0
 	closemessage
 	applymovement 1, Common_Movement_WalkUp
@@ -118,6 +121,9 @@ SandyshoreTown_EventScript_RuthNoticePlayer::
 
 SandyshoreTown_EventScript_InnSign_Text_0:
 	.string "Sandyshore Inn$"
+
+SandyshoreTown_EventScript_PreventExit_Route135_Text_0:
+	.string "Minnie$"
 
 SandyshoreTown_EventScript_LittleGirl_Text_0:
 	.string "I wanna go visit the professor too, but\n"

@@ -1071,6 +1071,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+	.include "data/text/common_names.inc"
 
 	.include "data/maps/SandyshoreTown/scripts.inc"
 

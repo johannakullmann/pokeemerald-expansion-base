@@ -21,7 +21,7 @@ Sandyshore_Playerhouse_2F_EventScript_RuthCall::
 Sandyshore_Playerhouse_2F_RuthCall::
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
-	.string "Ruth: Hi, hi, {PLAYER}!\n"
+	.string "Hi, hi, {PLAYER}!\n"
 	.string "It's me, Ruth!\p"
 	.string "Did the Professor give you a\n"
 	.string "call too?\p"

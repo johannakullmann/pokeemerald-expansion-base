@@ -19,10 +19,12 @@ script Route135_EventScript_CatchTutorialEnterTop {
     lockall
     turnobject(LOCALID_RUTH, DIR_EAST)
     playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    speakername(CommonName_Ruth)
     msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterTop)
     waitmovement(0)
+    delay(10)
     goto(Route135_EventScript_CatchTutorialMain)
 }
 
@@ -30,6 +32,7 @@ script Route135_EventScript_CatchTutorialEnterBottom {
     lockall
     turnobject(LOCALID_RUTH, DIR_EAST)
     playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    speakername(CommonName_Ruth)
     msgbox(Route135_Text_CatchTutorialPsstComeOverHere)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterBottom)
@@ -40,6 +43,7 @@ script Route135_EventScript_CatchTutorialEnterBottom {
 
 script Route135_EventScript_CatchTutorialMain {
     turnobject(LOCALID_RUTH, DIR_WEST)
+    speakername(CommonName_Ruth)
     msgbox(format("See that Budew over there in the grass?\pWatch closely!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkLeft)
@@ -52,22 +56,31 @@ script Route135_EventScript_CatchTutorialMain {
     special(LoadPlayerParty)
     applymovement(LOCALID_RUTH, Common_Movement_WalkRight)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox(format("See? It's not hard at all!\pHere, you should try it yourself!"))
     closemessage
     giveitem(ITEM_POKE_BALL, 3)
+    speakername(CommonName_Ruth)
     msgbox(format("The more you weaken a Pokémon, the easier it is to catch.\pInflicting a status condition will also increase your chances!\p"
             "If you don't want to catch a Pokémon, you can defeat it instead.\pThat way your own Pokémon can earn battle experience!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox(format("Since I gave my three last balls to you, I'll go to the mart in Pacifidlog Town and buy new ones.\p"
                 "I wouldn't want to have to pass on a rare Pokémon just because I forgot to buy Poké Balls!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
-    msgbox(format("You should meet me there, and try to get the hang of battling on the way!\p"
-                "But before you go, why don't you show your new Pokémon to your mom?\p"
-                "I bet she'll love it!"))
+    speakername(CommonName_Ruth)
+    if (!flag(FLAG_SHOWED_STARTER_TO_MOM)) {
+        msgbox(format("You should meet me there, and try to get the hang of battling on the way!\p"
+                    "But before you go, why don't you show your new Pokémon to your mom?\p"
+                    "I bet she'll love it!"))
+    }
+    else {
+        msgbox(format("You should meet me there, and try to get the hang of battling on the way!"))
+    }
     closemessage
     applymovement(LOCALID_RUTH, Route135_Movement_RuthLeave)
     fadedefaultbgm
@@ -82,31 +95,24 @@ script Route135_EventScript_CatchTutorialMain {
 script Route135_EventScript_RockSmashGuy {
     lock
     faceplayer
+        speakername("Makoto")
     if (!flag(TEMP_FLAG_ROCK_DESTROYED)) {
-    msgbox(format("Rocks like these are breakable! Watch!"))
-    applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_WalkInPlaceDown)
-    waitmovement(0)
-    applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
-    playse(SE_M_ROCK_THROW)
-    msgbox("HIYA!")
-    waitmovement(0)
-    waitse
-	removeobject(LOCALID_ROCK_SMASH_ROCK)
-    setflag(TEMP_FLAG_ROCK_DESTROYED)
+        msgbox(format("Rocks like these are breakable! Watch!"))
+        applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_WalkInPlaceDown)
+        waitmovement(0)
+        applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
+        playse(SE_M_ROCK_THROW)
+        msgbox("HIYA!")
+        waitmovement(0)
+        waitse
+        removeobject(LOCALID_ROCK_SMASH_ROCK)
+        setflag(TEMP_FLAG_ROCK_DESTROYED)
 
-    specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
-    switch (var(VAR_TEMP_1)) {
-        case DIR_SOUTH:
-        case DIR_EAST:
-            turnobject(LOCALID_ROCK_SMASH_GUY, DIR_WEST)
-        case DIR_WEST:
-			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_EAST)
-        case DIR_NORTH:
-			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_SOUTH)
-    }
+        applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_FacePlayer)
+        waitmovement(0)
     }
     msgbox(format("If you steel your body and train your muscles, you can smash these rocks too!\p"
-            "Or you can ask a strong Pokémon to break them for you, I guess."))
+            "Or you can ask a strong Pokémon like Machop to break them for you, I guess."))
     release
     end
 }
@@ -153,6 +159,7 @@ script Route135_EventScript_RockSmashSpecialRock {
     }
     checkpartymove(MOVE_ROCK_SMASH)
 	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+    speakername("Makoto")
     msgbox(format("That's a powerful Rock Smash! You trained your {STR_VAR_1} well!\p"
             "Here, with this HM you can use it in battle too!\pOr you can teach it to other Pokémon that can't use it innately."))
     giveitem(ITEM_HM_ROCK_SMASH)
@@ -185,6 +192,7 @@ movement Route135_Movement_RuthLeave {
 }
 
 script Route135_EventScript_Boy1 {
+    speakername("Alvin")
     msgbox(format("Did you know that Pokémon have different weaknesses depending on their type?\p"
         "My Wingull can easily defeat wild Budew with its flying-type moves!\p"
         "It doesn't do well against electric or rock-type attacks, though…"), MSGBOX_NPC)
@@ -192,19 +200,21 @@ script Route135_EventScript_Boy1 {
 
 script Route135_EventScript_Lia {
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
-            format("Lia: I'll battle you together with my sister!"), 
+            format("I'll battle you together with my sister!"), 
             format("Lia: Uh-oh, we lost."), 
             format("Lia: If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
-    msgbox (format("Lia: You have to think about all kinds of things when you're battling against two trainers."), MSGBOX_AUTOCLOSE)
+    speakername("Lia")
+    msgbox (format("You have to think about all kinds of things when you're battling against two trainers."), MSGBOX_AUTOCLOSE)
 	end
 }
 
 script Route135_EventScript_Ali{
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
-            format("Ali: Let's go, Lia!"), 
-            format("Ali: Aw."), 
-            format("Ali: Oh, you only have one Pokémon! You can't battle us like that!"))
-    msgbox (format("Ali: Double battles are much harder than single battles!"), MSGBOX_AUTOCLOSE)
+            format("Let's go, Lia!"), 
+            format("Emi: Aw."), 
+            format("Emi: Oh, you only have one Pokémon! You can't battle us like that!"))
+    speakername("Emi")
+    msgbox (format("Double battles are much harder than single battles!"), MSGBOX_AUTOCLOSE)
 	end
 }
 
@@ -212,6 +222,7 @@ script Route135_EventScript_Darien {
 	trainerbattle_single(TRAINER_DARIEN, 
             format("{PLAYER}! You have a Pokémon too now?\pLet me check if you are any good!"), 
             format("Aw, shucks."))
+    speakername("Darien")
     msgbox (format("As a trainer, you have to be ready for a challenge anytime!"), MSGBOX_AUTOCLOSE)
 	end
 }
@@ -219,6 +230,7 @@ script Route135_EventScript_Darien {
 script Route135_EventScript_Lass {
     lock
     faceplayer
+    speakername("Kirstin")
     msgbox (format("I jumped down this ledge, but now I can't get back up!\p"
             "I could get back to Pacifidlog via the beach, but I don't want to get sand in my shoes…"), MSGBOX_AUTOCLOSE)
     end
@@ -227,6 +239,7 @@ script Route135_EventScript_Lass {
 script Route135_EventScript_Tuber_F {
     lock
     faceplayer
+    speakername("Ida")
     msgbox (format("Hihi!\pMy footsteps make funny sounds!"), MSGBOX_AUTOCLOSE)
     end
 }

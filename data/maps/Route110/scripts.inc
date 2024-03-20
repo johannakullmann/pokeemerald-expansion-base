@@ -1094,6 +1094,7 @@ Route110_EventScript_AfterAquaDoubleBattle_1:
 	setflag FLAG_TEMP_8
 	removeobject 31
 	removeobject 32
+	fadedefaultbgm
 	applymovement 29, Route110_Movement_BirchWalkToBox
 	waitmovement 0
 	delay 10

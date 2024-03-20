@@ -56,6 +56,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
         waitmovement(0)
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
         turnobject(LOCALID_LITTLE_GIRL, DIR_SOUTH)
+        speakername("Minnie")
         msgbox(SandyshoreTown_Text_LittleGirlPreventExit)
         closemessage
         applymovement(LOCALID_LITTLE_GIRL, Common_Movement_WalkRight)
@@ -68,6 +69,7 @@ script SandyshoreTown_EventScript_PreventExit_Route135 {
 script SandyshoreTown_EventScript_LittleGirl {
     lock
     faceplayer
+    speakername("Minnie")
     msgbox(format("I wanna go visit the professor too, but Grandma said he's busy and I shouldn't bother him…"))
     closemessage
     end
@@ -90,6 +92,7 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
     playbgm(MUS_ENCOUNTER_MAY, FALSE)
     playse(SE_PIN)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkUp)

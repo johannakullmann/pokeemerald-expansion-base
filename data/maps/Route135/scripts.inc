@@ -17,10 +17,12 @@ Route135_EventScript_CatchTutorialEnterTop::
 	lockall
 	turnobject 5, DIR_EAST
 	playbgm MUS_ENCOUNTER_MAY, TRUE
+	speakername CommonName_Ruth
 	msgbox Route135_Text_CatchTutorialPsstComeOverHere
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterTop
 	waitmovement 0
+	delay 10
 	goto Route135_EventScript_CatchTutorialMain
 	return
 
@@ -29,6 +31,7 @@ Route135_EventScript_CatchTutorialEnterBottom::
 	lockall
 	turnobject 5, DIR_EAST
 	playbgm MUS_ENCOUNTER_MAY, TRUE
+	speakername CommonName_Ruth
 	msgbox Route135_Text_CatchTutorialPsstComeOverHere
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route135_Movement_CatchTutorialEnterBottom
@@ -40,6 +43,7 @@ Route135_EventScript_CatchTutorialEnterBottom::
 
 Route135_EventScript_CatchTutorialMain::
 	turnobject 5, DIR_WEST
+	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_0
 	closemessage
 	applymovement 5, Common_Movement_WalkLeft
@@ -52,18 +56,24 @@ Route135_EventScript_CatchTutorialMain::
 	special LoadPlayerParty
 	applymovement 5, Common_Movement_WalkRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_1
 	closemessage
 	giveitem ITEM_POKE_BALL, 3
+	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_2
 	closemessage
 	applymovement 5, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_3
 	closemessage
 	applymovement 5, Common_Movement_WalkInPlaceRight
 	waitmovement 0
-	msgbox Route135_EventScript_CatchTutorialMain_Text_4
+	speakername CommonName_Ruth
+	goto_if_unset FLAG_SHOWED_STARTER_TO_MOM, Route135_EventScript_CatchTutorialMain_2
+	msgbox Route135_EventScript_CatchTutorialMain_Text_5
+Route135_EventScript_CatchTutorialMain_1:
 	closemessage
 	applymovement 5, Route135_Movement_RuthLeave
 	fadedefaultbgm
@@ -74,45 +84,34 @@ Route135_EventScript_CatchTutorialMain::
 	releaseall
 	end
 
+Route135_EventScript_CatchTutorialMain_2:
+	msgbox Route135_EventScript_CatchTutorialMain_Text_4
+	goto Route135_EventScript_CatchTutorialMain_1
+
 
 Route135_EventScript_RockSmashGuy::
 	lock
 	faceplayer
+	speakername Route135_EventScript_RockSmashGuy_Text_0
 	goto_if_unset FLAG_TEMP_11, Route135_EventScript_RockSmashGuy_2
 Route135_EventScript_RockSmashGuy_1:
-	msgbox Route135_EventScript_RockSmashGuy_Text_2
+	msgbox Route135_EventScript_RockSmashGuy_Text_3
 	release
 	end
 
 Route135_EventScript_RockSmashGuy_2:
-	msgbox Route135_EventScript_RockSmashGuy_Text_0
+	msgbox Route135_EventScript_RockSmashGuy_Text_1
 	applymovement 7, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	applymovement 3, Movement_SmashRock
 	playse SE_M_ROCK_THROW
-	msgbox Route135_EventScript_RockSmashGuy_Text_1
+	msgbox Route135_EventScript_RockSmashGuy_Text_2
 	waitmovement 0
 	waitse
 	removeobject 3
 	setflag FLAG_TEMP_11
-	specialvar VAR_TEMP_1, GetPlayerFacingDirection
-	switch VAR_TEMP_1
-	case DIR_SOUTH, Route135_EventScript_RockSmashGuy_5
-	case DIR_EAST, Route135_EventScript_RockSmashGuy_5
-	case DIR_WEST, Route135_EventScript_RockSmashGuy_6
-	case DIR_NORTH, Route135_EventScript_RockSmashGuy_7
-	goto Route135_EventScript_RockSmashGuy_1
-
-Route135_EventScript_RockSmashGuy_5:
-	turnobject 7, DIR_WEST
-	goto Route135_EventScript_RockSmashGuy_1
-
-Route135_EventScript_RockSmashGuy_6:
-	turnobject 7, DIR_EAST
-	goto Route135_EventScript_RockSmashGuy_1
-
-Route135_EventScript_RockSmashGuy_7:
-	turnobject 7, DIR_SOUTH
+	applymovement 7, Common_Movement_FacePlayer
+	waitmovement 0
 	goto Route135_EventScript_RockSmashGuy_1
 
 
@@ -151,6 +150,7 @@ Route135_EventScript_RockSmashSpecialRock_7:
 Route135_EventScript_RockSmashSpecialRock_10:
 	checkpartymove MOVE_ROCK_SMASH
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	speakername Route135_EventScript_RockSmashGuy_Text_0
 	msgbox Route135_EventScript_RockSmashSpecialRock_Text_0
 	giveitem ITEM_HM_ROCK_SMASH
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
@@ -217,39 +217,45 @@ Route135_Movement_RuthLeave:
 	step_end
 
 Route135_EventScript_Boy1::
-	msgbox Route135_EventScript_Boy1_Text_0, MSGBOX_NPC
+	speakername Route135_EventScript_Boy1_Text_0
+	msgbox Route135_EventScript_Boy1_Text_1, MSGBOX_NPC
 	return
 
 
 Route135_EventScript_Lia::
 	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Lia_Text_0, Route135_EventScript_Lia_Text_1, Route135_EventScript_Lia_Text_2
-	msgbox Route135_EventScript_Lia_Text_3, MSGBOX_AUTOCLOSE
+	speakername Route135_EventScript_Lia_Text_3
+	msgbox Route135_EventScript_Lia_Text_4, MSGBOX_AUTOCLOSE
 	end
 
 
 Route135_EventScript_Ali::
 	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1, Route135_EventScript_Ali_Text_2
-	msgbox Route135_EventScript_Ali_Text_3, MSGBOX_AUTOCLOSE
+	speakername Route135_EventScript_Ali_Text_3
+	msgbox Route135_EventScript_Ali_Text_4, MSGBOX_AUTOCLOSE
 	end
 
 
 Route135_EventScript_Darien::
 	trainerbattle_single TRAINER_DARIEN, Route135_EventScript_Darien_Text_0, Route135_EventScript_Darien_Text_1
-	msgbox Route135_EventScript_Darien_Text_2, MSGBOX_AUTOCLOSE
+	speakername Route135_EventScript_Darien_Text_2
+	msgbox Route135_EventScript_Darien_Text_3, MSGBOX_AUTOCLOSE
 	end
 
 
 Route135_EventScript_Lass::
 	lock
 	faceplayer
-	msgbox Route135_EventScript_Lass_Text_0, MSGBOX_AUTOCLOSE
+	speakername Route135_EventScript_Lass_Text_0
+	msgbox Route135_EventScript_Lass_Text_1, MSGBOX_AUTOCLOSE
 	end
 
 
 Route135_EventScript_Tuber_F::
 	lock
 	faceplayer
-	msgbox Route135_EventScript_Tuber_F_Text_0, MSGBOX_AUTOCLOSE
+	speakername Route135_EventScript_Tuber_F_Text_0
+	msgbox Route135_EventScript_Tuber_F_Text_1, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -303,18 +309,25 @@ Route135_EventScript_CatchTutorialMain_Text_4:
 	.string "your new Pokémon to your mom?\p"
 	.string "I bet she'll love it!$"
 
+Route135_EventScript_CatchTutorialMain_Text_5:
+	.string "You should meet me there, and try to\n"
+	.string "get the hang of battling on the way!$"
+
 Route135_EventScript_RockSmashGuy_Text_0:
-	.string "Rocks like these are breakable! Watch!$"
+	.string "Makoto$"
 
 Route135_EventScript_RockSmashGuy_Text_1:
-	.string "HIYA!$"
+	.string "Rocks like these are breakable! Watch!$"
 
 Route135_EventScript_RockSmashGuy_Text_2:
+	.string "HIYA!$"
+
+Route135_EventScript_RockSmashGuy_Text_3:
 	.string "If you steel your body and train your\n"
 	.string "muscles, you can smash these rocks\l"
 	.string "too!\p"
-	.string "Or you can ask a strong Pokémon to\n"
-	.string "break them for you, I guess.$"
+	.string "Or you can ask a strong Pokémon like\n"
+	.string "Machop to break them for you, I guess.$"
 
 Route135_EventScript_RockSmashSpecialRock_Text_0:
 	.string "That's a powerful Rock Smash! You\n"
@@ -325,6 +338,9 @@ Route135_EventScript_RockSmashSpecialRock_Text_0:
 	.string "that can't use it innately.$"
 
 Route135_EventScript_Boy1_Text_0:
+	.string "Alvin$"
+
+Route135_EventScript_Boy1_Text_1:
 	.string "Did you know that Pokémon have\n"
 	.string "different weaknesses depending on\l"
 	.string "their type?\p"
@@ -334,8 +350,7 @@ Route135_EventScript_Boy1_Text_0:
 	.string "rock-type attacks, though…$"
 
 Route135_EventScript_Lia_Text_0:
-	.string "Lia: I'll battle you together with my\n"
-	.string "sister!$"
+	.string "I'll battle you together with my sister!$"
 
 Route135_EventScript_Lia_Text_1:
 	.string "Lia: Uh-oh, we lost.$"
@@ -346,23 +361,29 @@ Route135_EventScript_Lia_Text_2:
 	.string "But don't cry if you lose!$"
 
 Route135_EventScript_Lia_Text_3:
-	.string "Lia: You have to think about all kinds\n"
-	.string "of things when you're battling against\l"
+	.string "Lia$"
+
+Route135_EventScript_Lia_Text_4:
+	.string "You have to think about all kinds of\n"
+	.string "things when you're battling against\l"
 	.string "two trainers.$"
 
 Route135_EventScript_Ali_Text_0:
-	.string "Ali: Let's go, Lia!$"
+	.string "Let's go, Lia!$"
 
 Route135_EventScript_Ali_Text_1:
-	.string "Ali: Aw.$"
+	.string "Emi: Aw.$"
 
 Route135_EventScript_Ali_Text_2:
-	.string "Ali: Oh, you only have one Pokémon! You\n"
+	.string "Emi: Oh, you only have one Pokémon! You\n"
 	.string "can't battle us like that!$"
 
 Route135_EventScript_Ali_Text_3:
-	.string "Ali: Double battles are much harder\n"
-	.string "than single battles!$"
+	.string "Emi$"
+
+Route135_EventScript_Ali_Text_4:
+	.string "Double battles are much harder than\n"
+	.string "single battles!$"
 
 Route135_EventScript_Darien_Text_0:
 	.string "{PLAYER}! You have a Pokémon too\n"
@@ -373,10 +394,16 @@ Route135_EventScript_Darien_Text_1:
 	.string "Aw, shucks.$"
 
 Route135_EventScript_Darien_Text_2:
+	.string "Darien$"
+
+Route135_EventScript_Darien_Text_3:
 	.string "As a trainer, you have to be ready for a\n"
 	.string "challenge anytime!$"
 
 Route135_EventScript_Lass_Text_0:
+	.string "Kirstin$"
+
+Route135_EventScript_Lass_Text_1:
 	.string "I jumped down this ledge, but now I\n"
 	.string "can't get back up!\p"
 	.string "I could get back to Pacifidlog via the\n"
@@ -384,6 +411,9 @@ Route135_EventScript_Lass_Text_0:
 	.string "my shoes…$"
 
 Route135_EventScript_Tuber_F_Text_0:
+	.string "Ida$"
+
+Route135_EventScript_Tuber_F_Text_1:
 	.string "Hihi!\p"
 	.string "My footsteps make funny sounds!$"
 

@@ -37,8 +37,10 @@ script Sandyshore_Playerhouse_EventScript_MomPleaseSetClock {
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+    speakername(CommonName_Mom)
     msgbox(format("Are you going out, dear?\p…\pI see, you're meeting up with Ruth.\pBefore you go, could you please set the new clock correctly?\p"
             "It's right there on the wall next to the stairs."))
+    closemessage
     turnobject(LOCALID_MOM, DIR_NORTH)
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
     setvar(VAR_LITTLEROOT_INTRO_STATE, 2)
@@ -82,8 +84,9 @@ script Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst {
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
+    speakername(CommonName_Mom)
     msgbox(format("The clock is right there on the wall next to the stairs."))
-    waitmessage
+    closemessage
     turnobject(LOCALID_MOM, DIR_NORTH)
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
@@ -96,17 +99,19 @@ script Sandyshore_Playerhouse_EventScript_Mom {
     if (flag(FLAG_RECEIVED_STARTER)) {
         lock
         faceplayer
-        msgbox(format("Mom: How are you doing, {PLAYER}?\n"
+        speakername(CommonName_Mom)
+        msgbox(format("How are you doing, {PLAYER}?\n"
                 "You look a little tired.\p"
                 "I think you should rest a bit.$"))
         closemessage
         call(Common_EventScript_OutOfCenterPartyHeal)
         incrementgamestat(GAME_STAT_RESTED_AT_HOME)
         if (!flag(FLAG_SHOWED_STARTER_TO_MOM) && !flag(FLAG_ENABLE_MR_STONE_POKENAV)) {
+            speakername(CommonName_Mom)
             msgbox(format("Oh? Is that a Pokémon?\p...\p"
-            "I see, the Professor asked you to take care of it.\pYou got yourself a pretty active little one there!\p"
-            "Sounds like you'll be spending a lot of time outside now!\p"
-            "When you and your Pokémon get tired, you can always come back home and rest."))
+                "I see, the Professor asked you to take care of it.\pYou got yourself a pretty active little one there!\p"
+                "Sounds like you'll be spending a lot of time outside now!\p"
+                "When you and your Pokémon get tired, you can always come back home and rest."))
             setflag(FLAG_SHOWED_STARTER_TO_MOM)
             closemessage
         }
@@ -121,6 +126,7 @@ script Sandyshore_Playerhouse_EventScript_Mom {
             case 4:
                 lock
                 faceplayer
+                speakername(CommonName_Mom)
                 msgbox(format("Are you two going to visit the Professor again?"))
                 closemessage
                 applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
@@ -132,6 +138,7 @@ script Sandyshore_Playerhouse_EventScript_Mom {
             case 7:
                 lock
                 faceplayer
+                speakername(CommonName_Mom)
                 msgbox(format("Are you two going to visit the Professor again?"))
                 release
                 end
@@ -146,6 +153,7 @@ script Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes {
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceFasterLeft)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+    speakername(CommonName_Mom)
     msgbox(format("Oh! Before I forget!"))
     closemessage
     applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkToShelf)
@@ -153,15 +161,20 @@ script Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes {
     delay(40)
     applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkFromShelfToPlayer)
     waitmovement(LOCALID_MOM)
+    speakername(CommonName_Mom)
     msgbox(format("Your new shoes arrived earlier today!"))
+    speakername(NULL)
 	playfanfare(MUS_OBTAIN_ITEM)
-	message(LittlerootTown_Text_SwitchShoesWithRunningShoes)
+	message(format("{PLAYER} switched shoes with the Running Shoes."))
 	waitfanfare
 	setflag(FLAG_RECEIVED_RUNNING_SHOES)
     setvar(VAR_LITTLEROOT_INTRO_STATE, 4)
     setflag(FLAG_SYS_B_DASH)
-	msgbox(LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT)
-    msgbox(format("You two go and have fun outside, and don't forget to call if you'll be back home late!"))
+    speakername(CommonName_Mom)
+	msgbox(format("{PLAYER}, those shoes came with instructions.\p"
+	    "“Press the B Button while wearing these Running Shoes to run extra-fast!\p"
+	    "“Slip on these Running Shoes and race in the great outdoors!”\p"
+        "You two go and have fun outside, and don't forget to call if you'll be back home late!"), MSGBOX_DEFAULT)
 	closemessage
     delay(10)
 	applymovement(LOCALID_MOM, Sandyshore_Playerhouse_Movement_MomWalkFromPlayerToSink)
@@ -174,7 +187,8 @@ script Sandyshore_Playerhouse_EventScript_Skitty {
     lock
     faceplayer
     playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
-    msgbox(format("Skitty: Meoww!"))
+    speakername("Skitty")
+    msgbox(format("Meoww!"))
     release
     end    
 }

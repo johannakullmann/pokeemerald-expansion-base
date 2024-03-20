@@ -53,6 +53,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Toxatiel,
         .levelUpLearnset = sToxatielLevelUpLearnset,
         .teachableLearnset = sToxatielTeachableLearnset,
+        .innateFieldMoves = sToxatielInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_TOXATOO}),
     },
 
@@ -107,6 +108,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Toxatoo,
         .levelUpLearnset = sToxatooLevelUpLearnset,
         .teachableLearnset = sToxatooTeachableLearnset,
+        .innateFieldMoves = sToxatooInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TOXATRICE}),
     },
 
@@ -163,6 +165,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Toxatrice,
         .levelUpLearnset = sToxatriceLevelUpLearnset,
         .teachableLearnset = sToxatriceTeachableLearnset,
+        .innateFieldMoves = sToxatriceInnateFieldMoves,
     },
 #endif //P_FAMILY_TOXATIEL
 
@@ -217,6 +220,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Grocko,
         .levelUpLearnset = sGrockoLevelUpLearnset,
         .teachableLearnset = sGrockoTeachableLearnset,
+        .innateFieldMoves = sGrockoInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RUBECKO}),
     },
 
@@ -270,6 +274,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Rubecko,
         .levelUpLearnset = sRubeckoLevelUpLearnset,
         .teachableLearnset = sRubeckoTeachableLearnset,
+        .innateFieldMoves = sRubeckoInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_DRABUNCLE}),
     },
 
@@ -326,6 +331,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Drabuncle,
         .levelUpLearnset = sDrabuncleLevelUpLearnset,
         .teachableLearnset = sDrabuncleTeachableLearnset,
+        .innateFieldMoves = sDrabuncleInnateFieldMoves,
     },
 #endif //P_FAMILY_GROCKO
 
@@ -380,6 +386,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Chimera1,
         .levelUpLearnset = sChimera1LevelUpLearnset,
         .teachableLearnset = sChimera1TeachableLearnset,
+        .innateFieldMoves = sChimera1InnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CHIMERA2}),
     },
 
@@ -433,6 +440,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Chimera2,
         .levelUpLearnset = sChimera2LevelUpLearnset,
         .teachableLearnset = sChimera2TeachableLearnset,
+        .innateFieldMoves = sChimera2InnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHIMERA3}),
     },
 
@@ -489,6 +497,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Chimera3,
         .levelUpLearnset = sChimera3LevelUpLearnset,
         .teachableLearnset = sChimera3TeachableLearnset,
+        .innateFieldMoves = sChimera3InnateFieldMoves,
     },
 #endif //P_FAMILY_CHIMERA
 
@@ -543,6 +552,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Hatchik,
         .levelUpLearnset = sHatchikLevelUpLearnset,
         .teachableLearnset = sHatchikTeachableLearnset,
+        .innateFieldMoves = sHatchikInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_DODO2}),
     },
 
@@ -596,6 +606,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Dodo2,
         .levelUpLearnset = sDodo2LevelUpLearnset,
         .teachableLearnset = sDodo2TeachableLearnset,
+        .innateFieldMoves = sDodo2InnateFieldMoves,
     },
 #endif //P_FAMILY_HATCHIK
 
@@ -650,6 +661,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Mbielu,
         .levelUpLearnset = sMbieluLevelUpLearnset,
         .teachableLearnset = sMbieluTeachableLearnset,
+        .innateFieldMoves = sMbieluInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_MBIELAVA}),
     },
 
@@ -703,6 +715,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Mbielava,
         .levelUpLearnset = sMbielavaLevelUpLearnset,
         .teachableLearnset = sMbielavaTeachableLearnset,
+        .innateFieldMoves = sMbielavaInnateFieldMoves,
     },
 #endif //P_FAMILY_HATCHIK
 

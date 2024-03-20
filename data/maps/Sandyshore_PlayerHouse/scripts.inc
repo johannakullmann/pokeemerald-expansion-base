@@ -49,7 +49,9 @@ Sandyshore_Playerhouse_EventScript_MomPleaseSetClock::
 	applymovement 1, Common_Movement_WalkInPlaceLeft
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomPleaseSetClock_Text_0
+	closemessage
 	turnobject 1, DIR_NORTH
 	applymovement 1, Common_Movement_WalkInPlaceUp
 	setvar VAR_LITTLEROOT_INTRO_STATE, 2
@@ -95,8 +97,9 @@ Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst::
 	applymovement 1, Common_Movement_WalkInPlaceLeft
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst_Text_0
-	waitmessage
+	closemessage
 	turnobject 1, DIR_NORTH
 	applymovement 1, Common_Movement_WalkInPlaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
@@ -120,6 +123,7 @@ Sandyshore_Playerhouse_EventScript_Mom::
 Sandyshore_Playerhouse_EventScript_Mom_1:
 	lock
 	faceplayer
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_0
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
@@ -130,6 +134,7 @@ Sandyshore_Playerhouse_EventScript_Mom_4:
 	end
 
 Sandyshore_Playerhouse_EventScript_Mom_5:
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
 	setflag FLAG_SHOWED_STARTER_TO_MOM
 	closemessage
@@ -142,6 +147,7 @@ Sandyshore_Playerhouse_EventScript_Mom_6:
 Sandyshore_Playerhouse_EventScript_Mom_10:
 	lock
 	faceplayer
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	closemessage
 	applymovement 1, Common_Movement_WalkInPlaceUp
@@ -152,6 +158,7 @@ Sandyshore_Playerhouse_EventScript_Mom_10:
 Sandyshore_Playerhouse_EventScript_Mom_11:
 	lock
 	faceplayer
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	release
 	end
@@ -164,6 +171,7 @@ Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes::
 	applymovement 1, Common_Movement_WalkInPlaceFasterLeft
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_0
 	closemessage
 	applymovement 1, Sandyshore_Playerhouse_Movement_MomWalkToShelf
@@ -171,15 +179,17 @@ Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes::
 	delay 40
 	applymovement 1, Sandyshore_Playerhouse_Movement_MomWalkFromShelfToPlayer
 	waitmovement 1
+	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_1
+	speakername NULL
 	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_Text_SwitchShoesWithRunningShoes
+	message Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_2
 	waitfanfare
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setvar VAR_LITTLEROOT_INTRO_STATE, 4
 	setflag FLAG_SYS_B_DASH
-	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
-	msgbox Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_2
+	speakername CommonName_Mom
+	msgbox Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_3, MSGBOX_DEFAULT
 	closemessage
 	delay 10
 	applymovement 1, Sandyshore_Playerhouse_Movement_MomWalkFromPlayerToSink
@@ -192,7 +202,8 @@ Sandyshore_Playerhouse_EventScript_Skitty::
 	lock
 	faceplayer
 	playmoncry SPECIES_SKITTY, CRY_MODE_NORMAL
-	msgbox Sandyshore_Playerhouse_EventScript_Skitty_Text_0
+	speakername Sandyshore_Playerhouse_EventScript_Skitty_Text_0
+	msgbox Sandyshore_Playerhouse_EventScript_Skitty_Text_1
 	release
 	end
 
@@ -228,7 +239,7 @@ Sandyshore_Playerhouse_EventScript_MomPleaseSetClockFirst_Text_0:
 	.string "next to the stairs.$"
 
 Sandyshore_Playerhouse_EventScript_Mom_Text_0:
-	.string "Mom: How are you doing, {PLAYER}?\n"
+	.string "How are you doing, {PLAYER}?\n"
 	.string "You look a little tired.\p"
 	.string "I think you should rest a bit.$"
 
@@ -256,9 +267,22 @@ Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_1:
 	.string "Your new shoes arrived earlier today!$"
 
 Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_2:
+	.string "{PLAYER} switched shoes with the\n"
+	.string "Running Shoes.$"
+
+Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_3:
+	.string "{PLAYER}, those shoes came with\n"
+	.string "instructions.\p"
+	.string "“Press the B Button while wearing these\n"
+	.string "Running Shoes to run extra-fast!\p"
+	.string "“Slip on these Running Shoes and race\n"
+	.string "in the great outdoors!”\p"
 	.string "You two go and have fun outside, and\n"
 	.string "don't forget to call if you'll be back\l"
 	.string "home late!$"
 
 Sandyshore_Playerhouse_EventScript_Skitty_Text_0:
-	.string "Skitty: Meoww!$"
+	.string "Skitty$"
+
+Sandyshore_Playerhouse_EventScript_Skitty_Text_1:
+	.string "Meoww!$"

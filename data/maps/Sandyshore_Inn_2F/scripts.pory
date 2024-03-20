@@ -36,6 +36,7 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     turnobject(LOCALID_BRENDAN, DIR_SOUTH)
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkDown)
     waitmovement(LOCALID_BRENDAN)
+    speakername(CommonName_Brendan)
     msgbox(format("Oh! You're already here!"))
     closemessage
     delay(10)
@@ -48,10 +49,12 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     delay(10)
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
-    msgbox(format("Ruth: Professor…"))
+    speakername(CommonName_Ruth)
+    msgbox(format("Professor…"))
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
-    msgbox(format("Brendan: I'm not a professor yet, I'm still in the middle of writing my thesis…"))
+    speakername(CommonName_Brendan)
+    msgbox(format("I'm not a professor yet, I'm still in the middle of writing my thesis…"))
     closemessage
     delay(20)
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceFasterDown)
@@ -59,48 +62,51 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     delay(20)
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceFasterUp)
     waitmovement(0)
+    speakername(CommonName_Brendan)
     msgbox(format("… I'm sorry, it's eating so much of my time I haven't had the time to tidy up."))
     closemessage
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
+    speakername(CommonName_Brendan)
     msgbox(format("Actually, that's part of the reason I wanted to talk to the both of you.\pYou already have experience with Pokémon, right?"))
     closemessage
     applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceRight)
     waitmovement(0)
-    msgbox(format("Ruth: Yes! I've already had a Pokémon since not too long ago!\pAnd {PLAYER}'s family has a Skitty at home."))
+    speakername(CommonName_Ruth)
+    msgbox(format("Yes! I've already had a Pokémon since not too long ago!\pAnd {PLAYER}'s family has a Skitty at home."))
     closemessage
     turnobject(LOCALID_RUTH, DIR_EAST)
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
-    msgbox(format("Brendan: Perfect."))
+    speakername(CommonName_Brendan)
+    msgbox(format("Perfect."))
     closemessage
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkDown)
     waitmovement(0)
+    speakername(CommonName_Brendan)
     msgbox(format("These are three rare Pokémon I have been studying.\p"
             "I caught them in the wild, so they prefer to be outside…"
             "but at the moment I am struggling to find time to properly care for all three of them."))
     turnobject(LOCALID_BRENDAN, DIR_WEST)
     msgbox(format("Would you two be able to take one of them each?"), MSGBOX_YESNO)
-    switch(var(VAR_RESULT)) {
-        case NO:
+    speakername(CommonName_Ruth)
+    if (var(VAR_RESULT) == NO) {
             applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
-            msgbox(format("Ruth: {PLAYER}, this is not the time to joke around!\pThe professor might think you're serious!"))
-            applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-            waitmovement(0)
-            msgbox(format("Of course, we're always happy to help out!"))
-        case YES:
-            applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-            waitmovement(0)
-            msgbox(format("Ruth: Of course, we're always happy to help out!"))
+            msgbox(format("{PLAYER}, this is not the time to joke around!\pThe professor might think you're serious!"))
     }
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("Of course, we're always happy to help out!"))
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkInPlaceLeft)
+    speakername(CommonName_Brendan)
     msgbox(format("Brendan: Thanks, that really means a lot to me."))
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkRight)
     waitmovement(0)
     turnobject(LOCALID_BRENDAN, DIR_WEST)
     msgbox(format("Please, go ahead and pick one.\pThere should be some notes about them on my desk to help you choose."))
     turnobject(LOCALID_RUTH, DIR_SOUTH)
-    msgbox(format("Ruth: {PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
+    speakername(CommonName_Ruth)
+    msgbox(format("{PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
     setvar(VAR_LITTLEROOT_INTRO_STATE, 7)
     closemessage
     releaseall
@@ -111,21 +117,10 @@ script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon {
     lock
     applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceDown)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox("Where are you going, {PLAYER}?")
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
-    waitmovement(0)
-    release
-    end
-}
-
-script Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft {
-    lock
-    applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceDown)
-    waitmovement(0)
-    msgbox("Where are you going, {PLAYER}?")
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
     waitmovement(0)
     release
     end
@@ -155,7 +150,8 @@ script Sandyshore_Inn_EventScript_PickMon {
     waitfanfare
     waitmessage
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkInPlaceLeft)
-    msgbox(format("Brendan: While you're at it, why not\n"
+    speakername(CommonName_Brendan)
+    msgbox(format("While you're at it, why not\n"
 	    "give a nickname to that {STR_VAR_1}?"), MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
         setvar(VAR_0x8004, 0)
@@ -177,7 +173,8 @@ script Sandyshore_Inn_EventScript_PickMon {
         case 2:
             bufferspeciesname(STR_VAR_1, SPECIES_TOXATIEL) //toxatiel
     }
-    msgbox("Ruth: Then I'll choose this {STR_VAR_1}!")
+    speakername(CommonName_Ruth)
+    msgbox("Then I'll choose this {STR_VAR_1}!")
     removeobject(LOCALID_POKEBALLS)
     setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     addobject(LOCALID_POKEBALLS)
@@ -190,17 +187,20 @@ script Sandyshore_Inn_EventScript_PickMon {
     delay(10)
     applymovement(LOCALID_BRENDAN, Sandyshore_Inn_2F_Movement_BrendanWalkAfterChooseStarter)
     waitmovement(0)
-    msgbox(format("Brendan: Thanks for helping me out! Please take good care of these two!"))
+    speakername(CommonName_Brendan)
+    msgbox(format("Thanks for helping me out! Please take good care of these two!"))
     closemessage
     delay(20)
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox(format("Hey, {PLAYER}…\pNow that you have a Pokémon, you know what we should do?"))
     closemessage
     delay(60)
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
     waitmovement(0)
+    speakername(CommonName_Ruth)
     msgbox(format("I should teach you how to catch a Pokémon, of course!\p"
             "What did you think? Battle?\p"
             "Nah, that wouldn't be fair.\p"
@@ -209,7 +209,8 @@ script Sandyshore_Inn_EventScript_PickMon {
     closemessage
     applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1)
     waitmovement(0)
-    msgbox(format("I'll go grab some Pokéballs, meet me at the town exit!"))
+    speakername(CommonName_Ruth)
+    msgbox(format("I'll go grab some Poké Balls, meet me at the town exit!"))
     closemessage
     applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom2)
     waitmovement(0)
@@ -225,6 +226,7 @@ script Sandyshore_Inn_EventScript_Ruth {
     if (var(VAR_LITTLEROOT_INTRO_STATE) == 5) {
         lock
         faceplayer
+        speakername(CommonName_Ruth)
         msgbox(format("{PLAYER}! Let's find out why the Professor called!"))
         closemessage
         specialvar(VAR_TEMP_3, GetPlayerFacingDirection)
@@ -244,7 +246,8 @@ script Sandyshore_Inn_EventScript_Ruth {
     elif (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
         lock
         faceplayer
-        msgbox(format("Ruth: {PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
+        speakername(CommonName_Ruth)
+        msgbox(format("{PLAYER}, you should pick one first, since you don't own a Pokémon yet."))
         closemessage
         release
     }
@@ -254,6 +257,7 @@ script Sandyshore_Inn_EventScript_Ruth {
 script Sandyshore_Inn_EventScript_Brendan {
     lock
     faceplayer
+    speakername(CommonName_Brendan)
     if (var(VAR_LITTLEROOT_INTRO_STATE) == 7) {
         msgbox(format("Go ahead and choose one!\pThere should be some notes about them on my desk so you can see which one fits best for you."))
     }

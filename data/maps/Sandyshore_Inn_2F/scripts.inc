@@ -44,6 +44,7 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer::
 	turnobject 1, DIR_SOUTH
 	applymovement 1, Common_Movement_WalkDown
 	waitmovement 1
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_0
 	closemessage
 	delay 10
@@ -56,9 +57,11 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer::
 	delay 10
 	applymovement 2, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_1
 	applymovement 1, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_2
 	closemessage
 	delay 20
@@ -67,55 +70,56 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer::
 	delay 20
 	applymovement 1, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_3
 	closemessage
 	applymovement 1, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_4
 	closemessage
 	applymovement 2, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_5
 	closemessage
 	turnobject 2, DIR_EAST
 	applymovement 1, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_6
 	closemessage
 	applymovement 1, Common_Movement_WalkDown
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_7
 	turnobject 1, DIR_WEST
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_8, MSGBOX_YESNO
-	switch VAR_RESULT
-	case NO, Sandyshore_Inn_EventScript_BrendanNoticePlayer_3
-	case YES, Sandyshore_Inn_EventScript_BrendanNoticePlayer_4
+	speakername CommonName_Ruth
+	compare VAR_RESULT, NO
+	goto_if_eq Sandyshore_Inn_EventScript_BrendanNoticePlayer_2
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_1:
+	applymovement 2, Common_Movement_WalkInPlaceRight
+	waitmovement 0
+	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_10
 	applymovement 1, Common_Movement_WalkInPlaceLeft
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_12
+	speakername CommonName_Brendan
+	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_11
 	applymovement 1, Common_Movement_WalkRight
 	waitmovement 0
 	turnobject 1, DIR_WEST
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_13
+	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_12
 	turnobject 2, DIR_SOUTH
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_14
+	speakername CommonName_Ruth
+	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_13
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7
 	closemessage
 	releaseall
 	end
 
-Sandyshore_Inn_EventScript_BrendanNoticePlayer_3:
+Sandyshore_Inn_EventScript_BrendanNoticePlayer_2:
 	applymovement 2, Common_Movement_WalkInPlaceDown
 	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_9
-	applymovement 2, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_10
-	goto Sandyshore_Inn_EventScript_BrendanNoticePlayer_1
-
-Sandyshore_Inn_EventScript_BrendanNoticePlayer_4:
-	applymovement 2, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_11
 	goto Sandyshore_Inn_EventScript_BrendanNoticePlayer_1
 
 
@@ -123,21 +127,10 @@ Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon::
 	lock
 	applymovement 2, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon_Text_0
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
-	waitmovement 0
-	release
-	end
-
-
-Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMonLeft::
-	lock
-	applymovement 2, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	msgbox Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon_Text_0
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	release
 	end
@@ -160,6 +153,7 @@ Sandyshore_Inn_EventScript_PickMon::
 	waitfanfare
 	waitmessage
 	applymovement 1, Common_Movement_WalkInPlaceLeft
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Sandyshore_Inn_EventScript_PickMon_5
@@ -174,6 +168,7 @@ Sandyshore_Inn_EventScript_PickMon_4:
 	case 1, Sandyshore_Inn_EventScript_PickMon_11
 	case 2, Sandyshore_Inn_EventScript_PickMon_12
 Sandyshore_Inn_EventScript_PickMon_8:
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_3
 	removeobject 4
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL
@@ -187,21 +182,25 @@ Sandyshore_Inn_EventScript_PickMon_8:
 	delay 10
 	applymovement 1, Sandyshore_Inn_2F_Movement_BrendanWalkAfterChooseStarter
 	waitmovement 0
+	speakername CommonName_Brendan
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_4
 	closemessage
 	delay 20
 	applymovement 2, Common_Movement_WalkInPlaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_5
 	closemessage
 	delay 60
 	applymovement 2, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_6
 	closemessage
 	applymovement 2, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_PickMon_Text_7
 	closemessage
 	applymovement 2, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom2
@@ -248,6 +247,7 @@ Sandyshore_Inn_EventScript_Ruth_1:
 Sandyshore_Inn_EventScript_Ruth_2:
 	lock
 	faceplayer
+	speakername CommonName_Ruth
 	msgbox Sandyshore_Inn_EventScript_Ruth_Text_0
 	closemessage
 	specialvar VAR_TEMP_3, GetPlayerFacingDirection
@@ -265,7 +265,8 @@ Sandyshore_Inn_EventScript_Ruth_6:
 Sandyshore_Inn_EventScript_Ruth_3:
 	lock
 	faceplayer
-	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_14
+	speakername CommonName_Ruth
+	msgbox Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_13
 	closemessage
 	release
 	goto Sandyshore_Inn_EventScript_Ruth_1
@@ -286,6 +287,7 @@ Sandyshore_Inn_EventScript_Ruth_10:
 Sandyshore_Inn_EventScript_Brendan::
 	lock
 	faceplayer
+	speakername CommonName_Brendan
 	compare VAR_LITTLEROOT_INTRO_STATE, 7
 	goto_if_eq Sandyshore_Inn_EventScript_Brendan_2
 	msgbox Sandyshore_Inn_EventScript_Brendan_Text_1
@@ -588,12 +590,11 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_0:
 	.string "Oh! You're already here!$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_1:
-	.string "Ruth: Professor…$"
+	.string "Professor…$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_2:
-	.string "Brendan: I'm not a professor yet, I'm\n"
-	.string "still in the middle of writing my\l"
-	.string "thesis…$"
+	.string "I'm not a professor yet, I'm still in the\n"
+	.string "middle of writing my thesis…$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_3:
 	.string "… I'm sorry, it's eating so much of my\n"
@@ -606,13 +607,13 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_4:
 	.string "Pokémon, right?$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_5:
-	.string "Ruth: Yes! I've already had a Pokémon\n"
-	.string "since not too long ago!\p"
+	.string "Yes! I've already had a Pokémon since\n"
+	.string "not too long ago!\p"
 	.string "And {PLAYER}'s family has a Skitty at\n"
 	.string "home.$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_6:
-	.string "Brendan: Perfect.$"
+	.string "Perfect.$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_7:
 	.string "These are three rare Pokémon I have\n"
@@ -627,8 +628,8 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_8:
 	.string "them each?$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_9:
-	.string "Ruth: {PLAYER}, this is not the time\n"
-	.string "to joke around!\p"
+	.string "{PLAYER}, this is not the time to joke\n"
+	.string "around!\p"
 	.string "The professor might think you're\n"
 	.string "serious!$"
 
@@ -637,22 +638,17 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_10:
 	.string "out!$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_11:
-	.string "Ruth: Of course, we're always happy to\n"
-	.string "help out!$"
-
-Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_12:
 	.string "Brendan: Thanks, that really means a\n"
 	.string "lot to me.$"
 
-Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_13:
+Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_12:
 	.string "Please, go ahead and pick one.\p"
 	.string "There should be some notes about them\n"
 	.string "on my desk to help you choose.$"
 
-Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_14:
-	.string "Ruth: {PLAYER}, you should pick one\n"
-	.string "first, since you don't own a Pokémon\l"
-	.string "yet.$"
+Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_13:
+	.string "{PLAYER}, you should pick one first,\n"
+	.string "since you don't own a Pokémon yet.$"
 
 Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon_Text_0:
 	.string "Where are you going, {PLAYER}?$"
@@ -664,16 +660,16 @@ Sandyshore_Inn_EventScript_PickMon_Text_1:
 	.string "{PLAYER} obtained the {STR_VAR_1}!$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_2:
-	.string "Brendan: While you're at it, why not\n"
+	.string "While you're at it, why not\n"
 	.string "give a nickname to that\l"
 	.string "{STR_VAR_1}?$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_3:
-	.string "Ruth: Then I'll choose this {STR_VAR_1}!$"
+	.string "Then I'll choose this {STR_VAR_1}!$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_4:
-	.string "Brendan: Thanks for helping me out!\n"
-	.string "Please take good care of these two!$"
+	.string "Thanks for helping me out! Please take\n"
+	.string "good care of these two!$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_5:
 	.string "Hey, {PLAYER}…\p"
@@ -691,7 +687,7 @@ Sandyshore_Inn_EventScript_PickMon_Text_6:
 	.string "Pokémon first.$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_7:
-	.string "I'll go grab some Pokéballs, meet me at\n"
+	.string "I'll go grab some Poké Balls, meet me at\n"
 	.string "the town exit!$"
 
 Sandyshore_Inn_EventScript_Ruth_Text_0:

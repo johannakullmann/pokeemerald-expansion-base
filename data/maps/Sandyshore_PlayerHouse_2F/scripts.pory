@@ -21,7 +21,7 @@ script Sandyshore_Playerhouse_2F_EventScript_RuthCall {
 text Sandyshore_Playerhouse_2F_RuthCall {
 	"… … … … … …\n"
 	"… … … … … Beep!\p"
-	"Ruth: Hi, hi, {PLAYER}!\n"
+	"Hi, hi, {PLAYER}!\n"
 	"It's me, Ruth!\p"
     "Did the Professor give you a\n"
     "call too?\p"
