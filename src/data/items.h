@@ -12635,12 +12635,12 @@ const struct Item gItemsInfo[] =
     [ITEM_SHINY_LURE] =
     {
         .name = _("Shiny Lure"),
-        .price = 17000,
-        .holdEffectParam = 200,
+        .price = 10000,
+        .holdEffectParam = 100,
         .description = COMPOUND_STRING(
             "Attracts shiny\n"
             "Pokémon for\n"
-            "100 steops."),
+            "100 steps."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
@@ -12651,12 +12651,12 @@ const struct Item gItemsInfo[] =
     [ITEM_SUPER_SHINY_LURE] =
     {
         .name = _("Glowing Lure"),
-        .price = 17000,
-        .holdEffectParam = 200,
+        .price = 14000,
+        .holdEffectParam = 150,
         .description = COMPOUND_STRING(
             "Attracts shiny\n"
             "Pokémon for\n"
-            "150 steops."),
+            "150 steps."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
@@ -12672,7 +12672,7 @@ const struct Item gItemsInfo[] =
         .description = COMPOUND_STRING(
             "Attracts shiny\n"
             "Pokémon for\n"
-            "250 steops."),
+            "250 steps."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Lure,

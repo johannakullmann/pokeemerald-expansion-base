@@ -209,6 +209,7 @@ Sandyshore_Inn_EventScript_PickMon_8:
 	removeobject 2
 	setflag FLAG_TEMP_7
 	setvar VAR_LITTLEROOT_INTRO_STATE, 8
+	fadedefaultbgm
 	release
 	end
 

@@ -216,6 +216,7 @@ script Sandyshore_Inn_EventScript_PickMon {
     removeobject(LOCALID_RUTH)
     setflag(TEMP_FLAG_HIDE_RUTH)
     setvar(VAR_LITTLEROOT_INTRO_STATE, 8)
+    fadedefaultbgm
 	release
 	end
 }

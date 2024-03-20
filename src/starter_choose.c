@@ -43,6 +43,7 @@ static void Task_WaitForStarterSprite(u8 taskId);
 static void Task_AskConfirmStarter(u8 taskId);
 static void Task_HandleConfirmStarterInput(u8 taskId);
 static void Task_DeclineStarter(u8 taskId);
+static void Task_WaitForCryAndExit(u8 taskId);
 static void Task_MoveStarterChooseCursor(u8 taskId);
 static void Task_CreateStarterLabel(u8 taskId);
 static void CreateStarterPokemonLabel(u8 selection);
@@ -551,11 +552,8 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:  // YES
-        // Return the starter choice and exit.
-        gSpecialVar_Result = gTasks[taskId].tStarterSelection;
-        ResetAllPicSprites();
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-        SetMainCallback2(gMain.savedCallback);
+        // Prepare exit.
+        gTasks[taskId].func = Task_WaitForCryAndExit;
         break;
     case 1:  // NO
     case MENU_B_PRESSED:
@@ -575,6 +573,16 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
 static void Task_DeclineStarter(u8 taskId)
 {
     gTasks[taskId].func = Task_StarterChoose;
+}
+
+static void Task_WaitForCryAndExit(u8 taskId)
+{
+    if(IsCryFinished()) {
+        gSpecialVar_Result = gTasks[taskId].tStarterSelection;
+        ResetAllPicSprites();
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+        SetMainCallback2(gMain.savedCallback);
+    }
 }
 
 static void CreateStarterPokemonLabel(u8 selection)
