@@ -2745,21 +2745,10 @@ static const u16 sJirachiInnateFieldMoves[] = {
 #endif //P_FAMILY_JIRACHI
 
 #if P_FAMILY_DEOXYS
-static const u16 sDeoxysNormalInnateFieldMoves[] = {
+static const u16 sDeoxysInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sDeoxysAttackInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
-};
-
-static const u16 sDeoxysDefenseInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
-};
-
-static const u16 sDeoxysSpeedInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
-};
 #endif //P_FAMILY_DEOXYS
 
 #if P_FAMILY_TURTWIG
@@ -5055,6 +5044,10 @@ static const u16 sAppletunInnateFieldMoves[] = {
 static const u16 sDipplinInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sHydrappleInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif //P_GEN_9_CROSS_EVOS
 #endif //P_FAMILY_APPLIN
 
@@ -5254,6 +5247,12 @@ static const u16 sArctovishInnateFieldMoves[] = {
 static const u16 sDuraludonInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
+#if P_GEN_9_CROSS_EVOS
+static const u16 sArchaludonInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+
+};
+#endif //P_GEN_9_CROSS_EVOS
 #endif //P_FAMILY_DURALUDON
 
 #if P_FAMILY_DREEPY
@@ -5401,11 +5400,7 @@ static const u16 sLechonkInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sOinkologneMaleInnateFieldMoves[] = {
-    MOVE_UNAVAILABLE,
-};
-
-static const u16 sOinkologneFemaleInnateFieldMoves[] = {
+static const u16 sOinkologneInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_LECHONK
@@ -5913,6 +5908,42 @@ static const u16 sOgerponInnateFieldMoves[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_OGERPON
+
+#if P_FAMILY_GOUGING_FIRE
+static const u16 sGougingFireInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_GOUGING_FIRE
+
+#if P_FAMILY_RAGING_BOLT
+static const u16 sRagingBoltInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_RAGING_BOLT
+
+#if P_FAMILY_IRON_BOULDER
+static const u16 sIronBoulderInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_IRON_BOULDER
+
+#if P_FAMILY_IRON_CROWN
+static const u16 sIronCrownInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_IRON_CROWN
+
+#if P_FAMILY_TERAPAGOS
+static const u16 sTerapagosInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TERAPAGOS
+
+#if P_FAMILY_PECHARUNT
+static const u16 sPecharuntInnateFieldMoves[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_PECHARUNT
 
 #if P_FAMILY_TOXATIEL
 static const u16 sToxatielInnateFieldMoves[] = {
