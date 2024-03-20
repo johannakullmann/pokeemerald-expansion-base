@@ -5747,9 +5747,11 @@ const u8 *GetTrainerPartnerName(void)
         {
             return GetTrainerNameFromId(TRAINER_STEVEN);
         }
-        if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_RUTH))
+        if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_RUTH_TOXATIEL) 
+                    || gPartnerTrainerId == TRAINER_PARTNER(PARTNER_RUTH_GROCKO) 
+                    || gPartnerTrainerId == TRAINER_PARTNER(PARTNER_RUTH_MERAKID))
         {
-            return gTrainers[TRAINER_RUTH_PACIFIDLOG_TOXATIEL].trainerName;
+            return GetTrainerNameFromId(TRAINER_RUTH_PACIFIDLOG_TOXATIEL);
         }
         else
         {

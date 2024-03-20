@@ -261,7 +261,7 @@ const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
 const u8 gText_BrendanNotesToxatiel[] = _("Toxatiel");
 const u8 gText_BrendanNotesGrocko[] = _("Grocko");
-const u8 gText_BrendanNotesChimera[] = _("Chimera");
+const u8 gText_BrendanNotesChimera[] = _("Merakid");
 const u8 gText_BrendanNotesKyogre[] = _("Mystery Note");
 const u8 gText_Close[] = _("Close");
 

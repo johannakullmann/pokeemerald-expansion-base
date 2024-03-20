@@ -451,10 +451,10 @@ movement Sandyshore_Inn_2F_Movement_PlayerGoToBrendansRoom_3 {
 }
 
 text Sandyshore_Inn_2F_Text_StarterBook_ToxatielNotes {
-    format("Toxatiel - A rare bird Pokémon from the treetops of Fortree City.\p"
+    format("Toxatiel - A rare bird Pokémon from the jungle treetops near Fortree City.\p"
             "This little bird is one of the most acrobatic fliers I've seen!\p"
-            "Its flight resembles bug-type Pokémon like Yanma rather than birds, which allows it to hover in the air and even fly backwards.\p"
-            "Its saliva irritates the skin, I suspect it to be toxic, possibly for use in hunting insects.")
+            "Its flight resembles bug-type Pokémon like Yanma, which allows it to hover in the air and even fly backwards.\p"
+            "Its saliva seems to be toxic, possibly for use in hunting insects.")
 }
 
 text Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes {
@@ -462,18 +462,16 @@ text Sandyshore_Inn_2F_Text_StarterBook_GrockoNotes {
             "I found this curious little Pokémon snuggled up in a cluster of crystals.\p"
             "Its feet aren't sticky, but I haven't yet found a surface it can't climb.\p"
             "It can even cling to ceilings without any effort!\p"
-            "It loves belly rubs, but doesn't seem to like when I touch the gems on its head and tail.")
+            "It loves belly rubs, but doesn't seem to like when I touch the gems on its body.")
 }
 
 text Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes {
-    format("Chimera - A feisty fighting-type from the cliffs of Mt. Ember.\p"
+    format("Merakid - A feisty fighting-type from the cliffs of Mt. Chimney.\p"
             "This especially energetic little Pokémon picks fights with everything.\p"
-            "Even inanimate objects aren't safe from its headbutt.\p"
-            "I am so glad the innkeeper isn't too mad about all the broken chairs…")
+            "Even inanimate objects aren't safe from its headbutt.")
 }
 
 text Sandyshore_Inn_2F_Text_StarterBook_KyogreNotes {
-    format("Needs text, and Jojo couldn't think of one yet. Basically, this is a cryptic note"
-            "about Brendans observation of the tides and ocean currents at the nearby underwater ruins,"
-            "suggesting there's something big down there.")
+    format("To do: Basically, this is a cryptic note about Brendans observation of the tides"
+            "and ocean currents at the nearby underwater ruins, suggesting there's something big down there.")
 }

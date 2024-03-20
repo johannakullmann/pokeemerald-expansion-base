@@ -174,6 +174,17 @@ void ChooseHalfPartyForBattle(void)
     InitChooseHalfPartyForBattle(0);
 }
 
+// Like "ChooseHalfPartyForBattle" but doesn't open the UI and sets first three mons
+void SetHalfPartyForBattle(void)
+{
+    VarSet(VAR_FRONTIER_FACILITY, FACILITY_MULTI_OR_EREADER);
+    u8 i = 0;
+    for (i = 0; i < 3; i++) {
+        gSaveBlock2Ptr->frontier.selectedPartyMons[i] = i+1;
+        gSelectedOrderFromParty[i] = i+1;
+    }
+}
+
 static void CB2_ReturnFromChooseHalfParty(void)
 {
     switch (gSelectedOrderFromParty[0])

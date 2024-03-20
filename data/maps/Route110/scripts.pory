@@ -978,6 +978,7 @@ script Route110_EventScript_PrepareForAquaDoubleBattle {
 	special(SavePlayerParty)
 	getpartysize
 	if (var(VAR_RESULT) <= 3) {
+		special(SetHalfPartyForBattle)
 		goto(Route110_EventScript_StartAquaDoubleBattle)
 	}
 	else {
@@ -985,7 +986,6 @@ script Route110_EventScript_PrepareForAquaDoubleBattle {
 		special(ChooseHalfPartyForBattle)
 		waitstate
 		if (var(VAR_RESULT) != 0) {
-			special(ReducePlayerPartyToSelectedMons)
 			goto(Route110_EventScript_StartAquaDoubleBattle)
 		}
 		special(LoadPlayerParty)
@@ -1005,10 +1005,20 @@ script Route110_EventScript_StartAquaDoubleBattle {
 	waitmovement(LOCALID_GRUNT2)
 	frontier_set(FRONTIER_DATA_SELECTED_MON_ORDER)
 	playbgm(MUS_ROUTE110, FALSE)
-	multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
+	switch(var(VAR_STARTER_MON)) {
+		case 0:
+			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
 				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
-				PARTNER_RUTH, TRAINER_BACK_PIC_RUTH)
-	waitstate
+				PARTNER_RUTH_TOXATIEL, TRAINER_BACK_PIC_RUTH)
+		case 1:
+			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
+				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
+				PARTNER_RUTH_GROCKO, TRAINER_BACK_PIC_RUTH)
+		case 2:
+			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
+				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
+				PARTNER_RUTH_MERAKID, TRAINER_BACK_PIC_RUTH)
+	}
 	special(LoadPlayerParty)
 	lock
 	switch(var(VAR_RESULT)) {
@@ -1076,7 +1086,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	setflag(FLAG_HIDE_GRUNTS)
 	removeobject(LOCALID_GRUNT1)
 	removeobject(LOCALID_GRUNT2)
-
+	fadedefaultbgm
 	applymovement(LOCALID_BIRCH, Route110_Movement_BirchWalkToBox)
 	waitmovement(0)
 	delay(10)

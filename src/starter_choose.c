@@ -577,7 +577,7 @@ static void Task_DeclineStarter(u8 taskId)
 
 static void Task_WaitForCryAndExit(u8 taskId)
 {
-    if(IsCryFinished()) {
+    if(IsCryFinished() && !gPaletteFade.active) {
         gSpecialVar_Result = gTasks[taskId].tStarterSelection;
         ResetAllPicSprites();
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);

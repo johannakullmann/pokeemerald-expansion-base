@@ -11946,22 +11946,22 @@ static const struct TrainerMon sParty_RuthLavaridgeMerakid[] = {
 
 static const struct TrainerMon sParty_GruntRoute110_1[] = {
     {
-    .lvl = 5,
+    .lvl = 6,
     .species = SPECIES_CARVANHA,
     },
     {
-    .lvl = 5,
+    .lvl = 6,
     .species = SPECIES_POOCHYENA,
     }
 };
 
 static const struct TrainerMon sParty_GruntRoute110_2[] = {
     {
-    .lvl = 5,
+    .lvl = 6,
     .species = SPECIES_POOCHYENA,
     },
     {
-    .lvl = 5,
+    .lvl = 6,
     .species = SPECIES_BARBOACH,
     }
 };

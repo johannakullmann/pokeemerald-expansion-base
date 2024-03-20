@@ -24,3 +24,57 @@ static const struct TrainerMon sParty_StevenPartner[] = {
         .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
     }
 };
+
+static const struct TrainerMon sParty_RuthPartnerToxatiel[] = {
+    {
+        .species = SPECIES_GROCKO,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 9,
+    },
+    {
+        .species = SPECIES_BUDEW,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 8,
+    },
+    {
+        .species = SPECIES_EEVEE,
+        .gender = TRAINER_MON_MALE,
+        .lvl = 10,
+    }
+};
+
+static const struct TrainerMon sParty_RuthPartnerGrocko[] = {
+    {
+        .species = SPECIES_CHIMERA1,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 9,
+    },
+    {
+        .species = SPECIES_BUDEW,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 8,
+    },
+    {
+        .species = SPECIES_EEVEE,
+        .gender = TRAINER_MON_MALE,
+        .lvl = 10,
+    }
+};
+
+static const struct TrainerMon sParty_RuthPartnerMerakid[] = {
+    {
+        .species = SPECIES_TOXATIEL,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 9,
+    },
+    {
+        .species = SPECIES_BUDEW,
+        .gender = TRAINER_MON_FEMALE,
+        .lvl = 8,
+    },
+    {
+        .species = SPECIES_EEVEE,
+        .gender = TRAINER_MON_MALE,
+        .lvl = 10,
+    }
+};

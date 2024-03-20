@@ -1017,11 +1017,11 @@ Route110_EventScript_PrepareForAquaDoubleBattle_4:
 	return
 
 Route110_EventScript_PrepareForAquaDoubleBattle_1:
+	special SetHalfPartyForBattle
 	goto Route110_EventScript_StartAquaDoubleBattle
 	return
 
 Route110_EventScript_PrepareForAquaDoubleBattle_5:
-	special ReducePlayerPartyToSelectedMons
 	goto Route110_EventScript_StartAquaDoubleBattle
 	goto Route110_EventScript_PrepareForAquaDoubleBattle_4
 
@@ -1036,27 +1036,42 @@ Route110_EventScript_StartAquaDoubleBattle::
 	waitmovement 32
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
 	playbgm MUS_ROUTE110, FALSE
-	multi_2_vs_2 TRAINER_GRUNT_ROUTE110_1, Route110_EventScript_StartAquaDoubleBattle_Text_1, TRAINER_GRUNT_ROUTE110_2, Route110_EventScript_StartAquaDoubleBattle_Text_2, PARTNER_RUTH, TRAINER_BACK_PIC_RUTH
-	waitstate
+	switch VAR_STARTER_MON
+	case 0, Route110_EventScript_StartAquaDoubleBattle_3
+	case 1, Route110_EventScript_StartAquaDoubleBattle_4
+	case 2, Route110_EventScript_StartAquaDoubleBattle_5
+Route110_EventScript_StartAquaDoubleBattle_1:
 	special LoadPlayerParty
 	lock
 	switch VAR_RESULT
-	case 1, Route110_EventScript_StartAquaDoubleBattle_3
+	case 1, Route110_EventScript_StartAquaDoubleBattle_8
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_4
-Route110_EventScript_StartAquaDoubleBattle_1:
+Route110_EventScript_StartAquaDoubleBattle_6:
 	special HealPlayerParty
 	goto Route110_EventScript_AfterAquaDoubleBattle
 	return
 
 Route110_EventScript_StartAquaDoubleBattle_3:
+	multi_2_vs_2 TRAINER_GRUNT_ROUTE110_1, Route110_EventScript_StartAquaDoubleBattle_Text_1, TRAINER_GRUNT_ROUTE110_2, Route110_EventScript_StartAquaDoubleBattle_Text_2, PARTNER_RUTH_TOXATIEL, TRAINER_BACK_PIC_RUTH
+	goto Route110_EventScript_StartAquaDoubleBattle_1
+
+Route110_EventScript_StartAquaDoubleBattle_4:
+	multi_2_vs_2 TRAINER_GRUNT_ROUTE110_1, Route110_EventScript_StartAquaDoubleBattle_Text_1, TRAINER_GRUNT_ROUTE110_2, Route110_EventScript_StartAquaDoubleBattle_Text_2, PARTNER_RUTH_GROCKO, TRAINER_BACK_PIC_RUTH
+	goto Route110_EventScript_StartAquaDoubleBattle_1
+
+Route110_EventScript_StartAquaDoubleBattle_5:
+	multi_2_vs_2 TRAINER_GRUNT_ROUTE110_1, Route110_EventScript_StartAquaDoubleBattle_Text_1, TRAINER_GRUNT_ROUTE110_2, Route110_EventScript_StartAquaDoubleBattle_Text_2, PARTNER_RUTH_MERAKID, TRAINER_BACK_PIC_RUTH
+	goto Route110_EventScript_StartAquaDoubleBattle_1
+
+Route110_EventScript_StartAquaDoubleBattle_8:
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_3
-	goto Route110_EventScript_StartAquaDoubleBattle_1
+	goto Route110_EventScript_StartAquaDoubleBattle_6
 
 
 Route110_EventScript_AfterAquaDoubleBattle::
