@@ -15,7 +15,8 @@ PacifidlogTown_EventScript_RayquazaPlaque::
 PacifidlogTown_EventScript_Woman_1::
 	lock
 	faceplayer
-	msgbox PacifidlogTown_EventScript_Woman_1_Text_0
+	speakername PacifidlogTown_EventScript_Woman_1_Text_0
+	msgbox PacifidlogTown_EventScript_Woman_1_Text_1
 	closemessage
 	turnobject VAR_LAST_TALKED, DIR_WEST
 	release
@@ -25,7 +26,8 @@ PacifidlogTown_EventScript_Woman_1::
 PacifidlogTown_EventScript_Woman_2::
 	lock
 	faceplayer
-	msgbox PacifidlogTown_EventScript_Woman_2_Text_0
+	speakername PacifidlogTown_EventScript_Woman_2_Text_0
+	msgbox PacifidlogTown_EventScript_Woman_2_Text_1
 	closemessage
 	turnobject VAR_LAST_TALKED, DIR_NORTH
 	release
@@ -35,7 +37,8 @@ PacifidlogTown_EventScript_Woman_2::
 PacifidlogTown_EventScript_Fisherman::
 	lock
 	faceplayer
-	msgbox PacifidlogTown_EventScript_Fisherman_Text_0
+	speakername PacifidlogTown_EventScript_Fisherman_Text_0
+	msgbox PacifidlogTown_EventScript_Fisherman_Text_1
 	closemessage
 	turnobject VAR_LAST_TALKED, DIR_EAST
 	release
@@ -43,14 +46,16 @@ PacifidlogTown_EventScript_Fisherman::
 
 
 PacifidlogTown_EventScript_NinjaBoy::
-	msgbox PacifidlogTown_EventScript_NinjaBoy_Text_0, MSGBOX_NPC
+	speakername PacifidlogTown_EventScript_NinjaBoy_Text_0
+	msgbox PacifidlogTown_EventScript_NinjaBoy_Text_1, MSGBOX_NPC
 	end
 
 
 PacifidlogTown_EventScript_OldMan::
 	lock
 	faceplayer
-	msgbox PacifidlogTown_EventScript_OldMan_Text_0
+	speakername PacifidlogTown_EventScript_OldMan_Text_0
+	msgbox PacifidlogTown_EventScript_OldMan_Text_1
 	closemessage
 	turnobject VAR_LAST_TALKED, DIR_NORTH
 	release
@@ -100,6 +105,7 @@ PacifidlogTown_EventScript_MeetRuth::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
 	applymovement 8, Common_Movement_Delay48
 	waitmovement 8
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MeetRuth_Text_0
 	closemessage
 	applymovement 8, Common_Movement_WalkDown
@@ -109,9 +115,11 @@ PacifidlogTown_EventScript_MeetRuth::
 	waitmovement OBJ_EVENT_ID_PLAYER
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MeetRuth_Text_1
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MeetRuth_Text_2
 	applymovement 8, Common_Movement_WalkInPlaceDown
 	setvar VAR_PACIFIDLOG_TOWN_STATE, 1
@@ -144,6 +152,7 @@ PacifidlogTown_EventScript_Ruth_1:
 	end
 
 PacifidlogTown_EventScript_Ruth_3:
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_Ruth_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq PacifidlogTown_EventScript_Ruth_6
@@ -206,6 +215,7 @@ PacifidlogTown_EventScript_AfterRuthBattle::
 	case DIR_WEST, PacifidlogTown_EventScript_AfterRuthBattle_3
 	case DIR_NORTH, PacifidlogTown_EventScript_AfterRuthBattle_4
 PacifidlogTown_EventScript_AfterRuthBattle_1:
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_AfterRuthBattle_Text_0
 	switch VAR_TEMP_1
 	case DIR_NORTH, PacifidlogTown_EventScript_AfterRuthBattle_7
@@ -224,6 +234,7 @@ PacifidlogTown_EventScript_AfterRuthBattle_5:
 	case DIR_SOUTH, PacifidlogTown_EventScript_AfterRuthBattle_16
 PacifidlogTown_EventScript_AfterRuthBattle_11:
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_AfterRuthBattle_Text_2
 	closemessage
 	switch VAR_TEMP_1
@@ -300,20 +311,24 @@ PacifidlogTown_EventScript_RuthBoatScene::
 	delay 16
 	applymovement 8, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_RuthBoatScene_Text_0
 	closemessage
 	turnobject 8, DIR_NORTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	applymovement 4, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_CptMoore
 	msgbox PacifidlogTown_EventScript_RuthBoatScene_Text_1
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_RuthBoatScene_Text_2
 	closemessage
 	applymovement 8, Common_Movement_WalkInPlaceRight
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_RuthBoatScene_Text_3
 	closemessage
 	delay 20
@@ -342,6 +357,7 @@ PacifidlogTown_EventScript_MatchCallTutorial_1:
 	delay 20
 	applymovement 8, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MatchCallTutorial_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq PacifidlogTown_EventScript_MatchCallTutorial_4
@@ -351,6 +367,7 @@ PacifidlogTown_EventScript_MatchCallTutorial_1:
 	end
 
 PacifidlogTown_EventScript_MatchCallTutorial_3:
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MatchCallTutorial_Text_0
 	closemessage
 	delay 20
@@ -386,6 +403,7 @@ PacifidlogTown_EventScript_LeaveForSlateport::
 PacifidlogTown_EventScript_Sailor::
 	lock
 	faceplayer
+	speakername CommonName_CptMoore
 	switch VAR_PACIFIDLOG_TOWN_STATE
 	case 0, PacifidlogTown_EventScript_Sailor_3
 	case 1, PacifidlogTown_EventScript_Sailor_3
@@ -534,6 +552,9 @@ PacifidlogTown_EventScript_RayquazaPlaque_Text_0:
 	.string "Pokémon of the sky.$"
 
 PacifidlogTown_EventScript_Woman_1_Text_0:
+	.string "Tessa$"
+
+PacifidlogTown_EventScript_Woman_1_Text_1:
 	.string "Our house got swept away in the huge\n"
 	.string "tidal wave that destroyed the old\l"
 	.string "Pacifidlog.\p"
@@ -541,6 +562,9 @@ PacifidlogTown_EventScript_Woman_1_Text_0:
 	.string "at the bottom of the ocean…$"
 
 PacifidlogTown_EventScript_Woman_2_Text_0:
+	.string "Katarina$"
+
+PacifidlogTown_EventScript_Woman_2_Text_1:
 	.string "The weather is always clear in New\n"
 	.string "Pacifidlog.\p"
 	.string "That's because of the legendary\n"
@@ -551,16 +575,25 @@ PacifidlogTown_EventScript_Woman_2_Text_0:
 	.string "weren't for its help.$"
 
 PacifidlogTown_EventScript_Fisherman_Text_0:
+	.string "Tomas$"
+
+PacifidlogTown_EventScript_Fisherman_Text_1:
 	.string "This is my favourite fishing spot.\p"
 	.string "I caught a huge Magikarp here\n"
 	.string "yesterday!$"
 
 PacifidlogTown_EventScript_NinjaBoy_Text_0:
+	.string "Silas$"
+
+PacifidlogTown_EventScript_NinjaBoy_Text_1:
 	.string "I'm sad our town isn't floating on the\n"
 	.string "ocean anymore.\p"
 	.string "But the big tower is pretty cool too!$"
 
 PacifidlogTown_EventScript_OldMan_Text_0:
+	.string "Bernard$"
+
+PacifidlogTown_EventScript_OldMan_Text_1:
 	.string "Rayquaza rests on top of this tower.\p"
 	.string "It keeps our town safe from the wrath\n"
 	.string "of the elements, and in turn, we make\l"
@@ -625,14 +658,14 @@ PacifidlogTown_EventScript_AfterRuthBattle_Text_2:
 	.string "get us to the mainland too.$"
 
 PacifidlogTown_EventScript_RuthBoatScene_Text_0:
-	.string "Ruth: This is Captain Moore, probably\n"
-	.string "the best sailor in all of Pacifidlog.\p"
+	.string "This is Captain Moore, probably the\n"
+	.string "best sailor in all of Pacifidlog.\p"
 	.string "He'll be able to get us to Slateport no\n"
 	.string "problem!$"
 
 PacifidlogTown_EventScript_RuthBoatScene_Text_1:
-	.string "Cpt. Moore: The currents between here\n"
-	.string "and Slateport are vicious, and it's only\l"
+	.string "The currents between here and\n"
+	.string "Slateport are vicious, and it's only\l"
 	.string "gotten worse in recent times.\p"
 	.string "The weather on the open seas has been\n"
 	.string "awful ever since Kyogre woke from its\l"

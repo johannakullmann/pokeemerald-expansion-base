@@ -1,7 +1,3 @@
-MauvilleCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_Gym_OnLoad
-	.byte 0
-
 MauvilleCity_Gym_OnLoad:
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_DeactivatePuzzle
 	switch VAR_MAUVILLE_GYM_STATE
@@ -391,32 +387,110 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "Come see me with two or more\n"
 	.string "POKéMON, all right?$"
 
+MauvilleCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_Gym_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_Gym_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	.byte 0
+
+MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_0, 1, MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	goto MauvilleCity_Gym_EventScript_GymIntro
+	return
+
+
+MauvilleCity_Gym_OnTransition::
+	goto_if_unset FLAG_DONE_MAUVILLE_GYM_INTRO, MauvilleCity_Gym_OnTransition_1
+	return
+
+MauvilleCity_Gym_OnTransition_1:
+	setvar VAR_TEMP_0, 1
+	return
+
+
+MauvilleCity_Gym_EventScript_GymIntro::
+	lock
+	applymovement 6, MauvilleCity_Gym_Movement_GymGuideApproach
+	waitmovement 0
+	speakername CommonName_GymGuide
+	msgbox MauvilleCity_Gym_EventScript_GymIntro_Text_0
+	closemessage
+	applymovement 6, MauvilleCity_Gym_Movement_GymGuideWalkBack
+	waitmovement 0
+	setvar VAR_TEMP_0, 0
+	setflag FLAG_DONE_MAUVILLE_GYM_INTRO
+	release
+	end
+
+
 MauvilleCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
+	speakername CommonName_GymGuide
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuide_2
-	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_1, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_1
 MauvilleCity_Gym_EventScript_GymGuide_1:
+	closemessage
 	release
 	end
 
 MauvilleCity_Gym_EventScript_GymGuide_2:
-	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_0, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_0
 	goto MauvilleCity_Gym_EventScript_GymGuide_1
 
 
+MauvilleCity_Gym_Movement_GymGuideApproach:
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	face_down
+	step_end
+
+MauvilleCity_Gym_Movement_GymGuideWalkBack:
+	walk_right
+	walk_right
+	walk_right
+	face_left
+	step_end
+
+MauvilleCity_Gym_EventScript_GymIntro_Text_0:
+	.string "Yo, how's it going?\p"
+	.string "You look like this is your first time\n"
+	.string "here, am I right?\p"
+	.string "Haha, no need to be so anxious, I'm here\n"
+	.string "to tell you exactly what to expect!\p"
+	.string "See those electric doors?\p"
+	.string "You can turn them on or off by stepping\n"
+	.string "on those switches on the floor!\p"
+	.string "Once you solve the puzzle, the real\n"
+	.string "challenge starts!\p"
+	.string "Wattson, the Gym Leader, is a user of\n"
+	.string "Electric-type Pokémon.\p"
+	.string "If you challenge him with Flying- or\n"
+	.string "Water-type Pokémon, he'll zap them!\l"
+	.string "Bzzt!\p"
+	.string "Oh, and before the fight, you'll be\n"
+	.string "asked to pick up to three Pokémon to\l"
+	.string "fight with.\p"
+	.string "That's the same number of Pokémon the\n"
+	.string "Gym Leader will be using, after all.\p"
+	.string "Well, go for it! Show them what you're\n"
+	.string "made of!$"
+
 MauvilleCity_Gym_EventScript_GymGuide_Text_0:
-	.string "Whoa, you're electrifying! You've powered the door open!$"
+	.string "Whoa, you're electrifying! You've\n"
+	.string "powered the door open!$"
 
 MauvilleCity_Gym_EventScript_GymGuide_Text_1:
-	.string "Yo, how's it going?\p"
-	.string "You look like this is your first time here, am I right?\p"
-	.string "Haha, no need to be so anxious, I'm here to tell you exactly what you should expect!\p"
-	.string "See those electric doors?\p"
-	.string "You can turn them on or off by stepping on those switches on the floor!\p"
-	.string "Once you solve the puzzle, the real challenge starts!\p"
-	.string "Wattson, the Gym Leader, is a user of Electric-type Pokémon.\p"
-	.string "If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
-	.string "Oh, and before the fight, you'll be asked to pick up to three Pokémon to fight with.\p"
-	.string "That's the same number of Pokémon the Gym Leader will be using, after all.\p"
-	.string "Well, go for it! Show them what you're made of!$"
+	.string "The puzzle is tricky, no?\p"
+	.string "You can turn the electric doors on and\n"
+	.string "off by stepping on those switches on\l"
+	.string "the floor!$"

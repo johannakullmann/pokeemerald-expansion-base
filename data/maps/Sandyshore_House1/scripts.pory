@@ -6,8 +6,10 @@ mapscripts Sandyshore_House1_MapScripts {}
 script Sandyshore_House1_Grandma {
     lock
     faceplayer
+    speakername("Berta")
     if (!flag(FLAG_DAILY_SANDYSHORE_RECEIVED_COOKIE)) {
         msgbox(format("Welcome, {PLAYER}! It is nice of you to visit.\pI just made cookies earlier. Please, take one!"))
+        speakername(NULL)
         giveitem(ITEM_LAVA_COOKIE)
         setflag(FLAG_DAILY_SANDYSHORE_RECEIVED_COOKIE)
     }
@@ -21,11 +23,13 @@ script Sandyshore_House1_Grandma {
 script Sandyshore_House1_Grandpa {
     lock
     faceplayer
+    speakername("Wilbert")
     msgbox(format("Zigzagoon and I like to take a stroll on the beach every once in a while.\pWith its ability Pickup, it sometimes brings me small gifts too!"))
     applymovement(LOCALID_GRANDPA, Common_Movement_WalkInPlaceRight)
     applymovement(LOCALID_ZIGZAGOON, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
     msgbox(format("You're such a good boy, aren't you!"))
+    speakername("Zigzagoon")
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)    
     msgbox("Gooo!")
     release
@@ -35,6 +39,7 @@ script Sandyshore_House1_Grandpa {
 script Sandyshore_House1_Zigzagoon {
     lock
     faceplayer
+    speakername("Zigzagoon")
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
     msgbox("Gooo!")
     closemessage

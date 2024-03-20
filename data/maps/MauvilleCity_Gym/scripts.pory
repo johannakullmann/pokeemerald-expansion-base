@@ -1,8 +1,4 @@
 raw `
-MauvilleCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_Gym_OnLoad
-	.byte 0
-
 MauvilleCity_Gym_OnLoad:
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_DeactivatePuzzle
 	switch VAR_MAUVILLE_GYM_STATE
@@ -393,16 +389,34 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "POKéMON, all right?$"
 `
 
-script MauvilleCity_Gym_EventScript_GymGuide {
-	lock
-	faceplayer
-	if (flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
-		msgbox("Whoa, you're electrifying! You've powered the door open!", MSGBOX_DEFAULT)
+const LOCALID_GYM_GUIDE = 6
+
+mapscripts MauvilleCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_LOAD: MauvilleCity_Gym_OnLoad
+	MAP_SCRIPT_ON_TRANSITION: MauvilleCity_Gym_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_0, 1 {
+			goto(MauvilleCity_Gym_EventScript_GymIntro)
+		}
+	]
+}
+
+script MauvilleCity_Gym_OnTransition {
+	if (!flag(FLAG_DONE_MAUVILLE_GYM_INTRO)) {
+		setvar(VAR_TEMP_0, 1)
 	}
 	else {
-		msgbox("Yo, how's it going?\p"
+	}
+}
+
+script MauvilleCity_Gym_EventScript_GymIntro {
+	lock
+	applymovement(LOCALID_GYM_GUIDE, MauvilleCity_Gym_Movement_GymGuideApproach)
+	waitmovement(0)
+	speakername(CommonName_GymGuide)
+	msgbox(format("Yo, how's it going?\p"
 		"You look like this is your first time here, am I right?\p"
-		"Haha, no need to be so anxious, I'm here to tell you exactly what you should expect!\p"
+		"Haha, no need to be so anxious, I'm here to tell you exactly what to expect!\p"
 		"See those electric doors?\p"
 		"You can turn them on or off by stepping on those switches on the floor!\p"
 		"Once you solve the puzzle, the real challenge starts!\p"
@@ -410,8 +424,39 @@ script MauvilleCity_Gym_EventScript_GymGuide {
 		"If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
 		"Oh, and before the fight, you'll be asked to pick up to three Pokémon to fight with.\p"
 		"That's the same number of Pokémon the Gym Leader will be using, after all.\p"
-		"Well, go for it! Show them what you're made of!", MSGBOX_DEFAULT)
-	}
+		"Well, go for it! Show them what you're made of!"))
+	closemessage
+	applymovement(LOCALID_GYM_GUIDE, MauvilleCity_Gym_Movement_GymGuideWalkBack)
+	waitmovement(0)
+	setvar(VAR_TEMP_0, 0)
+	setflag(FLAG_DONE_MAUVILLE_GYM_INTRO)
 	release
 	end
+}
+
+script MauvilleCity_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+	speakername(CommonName_GymGuide)
+	if (flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
+		msgbox(format("Whoa, you're electrifying! You've powered the door open!"))
+	}
+	else {
+		msgbox(format("The puzzle is tricky, no?\pYou can turn the electric doors on and off by stepping on those switches on the floor!"))
+	}
+	closemessage
+	release
+	end
+}
+
+movement MauvilleCity_Gym_Movement_GymGuideApproach {
+	emote_exclamation_mark
+	delay_16 *4
+	walk_left *3
+	face_down
+}
+
+movement MauvilleCity_Gym_Movement_GymGuideWalkBack {
+	walk_right *3
+	face_left
 }

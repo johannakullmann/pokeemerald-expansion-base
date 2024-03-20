@@ -658,7 +658,6 @@ MauvilleCity_Text_BeenCheckingOutTV:
 const LOCALID_RUTH = 10
 const LOCALID_WATTSON = 6
 const FLAG_TEMP_DISABLE_RUTH = VAR_TEMP_9
-const VAR_TEMP_DISABLE_WATTSON_TRIGGER = VAR_TEMP_8 //0 if enabled, else disabled
 
 mapscripts MauvilleCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
@@ -681,22 +680,14 @@ script MauvilleCity_OnTransition {
 	if (flag(FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON)) {
 		call (MauvilleCity_EventScript_MoveWattsonBackToGym)
 	}
-	if (!flag(FLAG_MET_WATTSON_MAUVILLE)) {
-		setvar(VAR_TEMP_DISABLE_WATTSON_TRIGGER, 0)
-		setvar(VAR_TEMP_0, 0)
-		setflag(FLAG_TEMP_DISABLE_RUTH)
-		removeobject(LOCALID_RUTH)
-	}
 	elif (flag(FLAG_DEFEATED_MAUVILLE_GYM) && !flag(FLAG_MET_RUTH_MAUVILLE)) {
 		setvar(VAR_TEMP_0, 1)
 		clearflag(FLAG_TEMP_DISABLE_RUTH)
-		setvar(VAR_TEMP_DISABLE_WATTSON_TRIGGER, 1)
 	}
 	else {
 		setvar(VAR_TEMP_0, 0)
 		setflag(FLAG_TEMP_DISABLE_RUTH)
 		removeobject(LOCALID_RUTH)
-		setvar(VAR_TEMP_DISABLE_WATTSON_TRIGGER, 1)
 	}
 	end
 }
@@ -704,11 +695,14 @@ script MauvilleCity_OnTransition {
 script MauvilleCity_EventScript_RuthScene {
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	if (var(VAR_TEMP_1) == 22) { //Enter Mauville from Pokecenter (used teleport to exit gym etc)
-		setobjectxyperm(LOCALID_RUTH, 14, 8)
+		setobjectxyperm(LOCALID_RUTH, 14, 6)
+		addobject(LOCALID_RUTH)
 		goto (MauvilleCity_EventScript_RuthScene_Center)
 	}
 	elif (var(VAR_TEMP_1) == 8) { //Enter Mauville from Gym 
-		setobjectxyperm(LOCALID_RUTH, 16, 8)
+		removeobject(LOCALID_RUTH)
+		setobjectxyperm(LOCALID_RUTH, 16, 6)
+		addobject(LOCALID_RUTH)
 		goto (MauvilleCity_EventScript_RuthScene_Gym)
 	}
 }
@@ -718,9 +712,11 @@ script MauvilleCity_EventScript_RuthScene_Gym {
 	playbgm(MUS_ENCOUNTER_MAY, FALSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToGym1)
 	waitmovement(0)
-	msgbox(format("{PLAYER}! {PLAYER}!"), MSGBOX_AUTOCLOSE)
+	speakername(CommonName_Ruth)
+	msgbox(MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToGym2)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthLeaveFromGym)
 	delay(32)
@@ -740,9 +736,11 @@ script MauvilleCity_EventScript_RuthScene_Center {
 	playbgm(MUS_ENCOUNTER_MAY, FALSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToCenter1)
 	waitmovement(0)
-	msgbox(format("{PLAYER}! {PLAYER}!"), MSGBOX_AUTOCLOSE)
+	speakername(CommonName_Ruth)
+	msgbox(MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToCenter2)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthLeaveFromCenter)
 	delay(32)
@@ -757,58 +755,19 @@ script MauvilleCity_EventScript_RuthScene_Center {
 	end
 }
 
-script MauvilleCity_EventScript_MeetWattson {
-	lock
-	clearflag(FLAG_HIDE_MAUVILLE_CITY_WATTSON)
-	setobjectxyperm(LOCALID_WATTSON, 16, 8)
-	addobject(LOCALID_WATTSON)
-	applymovement(LOCALID_WATTSON, MauvilleCity_Movement_WattsonApproachGym)
-	waitmovement(0)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown)
-	waitmovement(0)
-	checkplayergender
-	if (var(VAR_RESULT) == MALE) {
-		bufferstring(STR_VAR_1, "young man")
-	}
-	else {
-		bufferstring(STR_VAR_1, "young lady")
-	}
-	msgbox(format("Oh?\pThose shiny new Poké Balls tell me this is your first time in a Pokémon Gym!\p"
-		"I'll be looking forward to our battle!\p"
-		"Wahahahaha! No reason to be so nervous, {STR_VAR_1}!\p"
-		"I'll be using a team you should be able to beat with proper preparation.\p"
-		"If you have any questions, ask the aide right next to the entrance.\p"
-		"And good luck solving my electrifying gym puzzle!\pWahahahaha!"))
-	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
-	waitmovement(0)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
-	applymovement(LOCALID_WATTSON, Common_Movement_WalkUp)
-	opendoor(8, 5)
-	waitdooranim
-	applymovement(LOCALID_WATTSON, Common_Movement_WalkUp)
-	waitmovement(0)
-	closedoor(8, 5)
-	removeobject(LOCALID_WATTSON)
-	waitdooranim
-	setflag(FLAG_HIDE_MAUVILLE_CITY_WATTSON)
-	setflag(FLAG_MET_WATTSON_MAUVILLE)
-	setvar(VAR_TEMP_DISABLE_WATTSON_TRIGGER, 1)
-	release
-	end
-}
- 
-
 movement MauvilleCity_Movement_RuthWalkToGym1 {
-	walk_left *4
+	walk_left *3
 }
 
 movement MauvilleCity_Movement_RuthWalkToGym2 {
+	walk_fast_left
+	walk_fast_down
 	walk_fast_left *4
 	face_up
 }
 
 movement MauvilleCity_Movement_RuthLeaveFromGym {
+	walk_fast_down
 	walk_fast_right *8
 }
 
@@ -825,17 +784,16 @@ movement MauvilleCity_Movement_RuthLeaveFromCenter {
 	walk_fast_left *8
 }
 
-movement MauvilleCity_Movement_WattsonApproachGym {
-	walk_left *8
-	walk_up
+text MauvilleCity_Text_RuthCallPlayer{
+	format("{PLAYER}! {PLAYER}!")
 }
 
 text MauvilleCity_Text_RuthNoticeBadge {
 	format("Look what I caught!\p"
-			"I fished up tons and tons of Magikarp and some Goldeen, but then-\p"
-			"Wait...\p"
-			"Is that the Dynamo Badge?!\p"
-			"Argh, I was so preoccupied with fishing, and now you are already so far ahead.\p"
-			"{PLAYER}, I'll definitely beat you to Lavaridge Town's gym!\p"
-			"I can't waste any more time! Time to go train!")
+		"I fished up tons and tons of Magikarp and some Goldeen, but then-\p"
+		"Wait...\p"
+		"Is that the Dynamo Badge?!\p"
+		"Argh, I was so preoccupied with fishing, and now you are already so far ahead.\p"
+		"{PLAYER}, I'll definitely beat you to Lavaridge Town's gym!\p"
+		"I can't waste any more time! Time to go train!")
 }

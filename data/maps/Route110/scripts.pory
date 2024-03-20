@@ -845,6 +845,7 @@ script Route110_EventScript_AquaScene {
 	applymovement(LOCALID_RUTH, Route110_Movement_RuthEnterScreen)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+	speakername(CommonName_Ruth)
 	msgbox(format("{PLAYER}!"))
 	closemessage
 	applymovement(LOCALID_RUTH, Route110_Movement_RuthWalkUpToPlayer)
@@ -856,9 +857,10 @@ script Route110_EventScript_AquaScene {
 		case 2:
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
 	}
+	speakername(CommonName_Ruth)
 	msgbox(format("Are you already on your way to Mauville?\p"
 			"I tried my hand in the Slateport Battle Tent, "
-			"but it's so hard to battle with Pokémon I am not familiar with...\p"
+			"but it's so hard to battle with Pokémon I am not familiar with…\p"
 			"The drafting process made me realize how important it is to have team members that cover each other's weaknesses.\p"
 			"Hmmm, I think I'll look for a ground type next, that'll help a lot for the gym in Mauville too!\p"
 			"What about you? I wonder what your team will look like, {PLAYER}!"))
@@ -884,11 +886,13 @@ script Route110_EventScript_AquaScene {
 	delay(16)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	turnobject(LOCALID_RUTH, DIR_NORTH)
-	msgbox("???: Come on, hurry up you slowpoke!\pThe old man's catching up!")
+	speakername(CommonName_AquaGrunt)
+	msgbox("Come on, hurry up you slowpoke!\pThe old man's catching up!")
 	closemessage
 	applymovement(LOCALID_GRUNT2, Route110_Movement_Grunt2Encounter_1)
 	waitmovement(LOCALID_GRUNT2)
-	msgbox(format("???: Huff, huff...\pWait for me!"))
+	speakername(CommonName_AquaGrunt)
+	msgbox(format("Huff, huff…\pWait for me!"))
 	closemessage
 	applymovement(LOCALID_GRUNT2, Route110_Movement_Grunt2Encounter_2)
 	waitmovement(0)
@@ -902,9 +906,11 @@ script Route110_EventScript_AquaScene {
 			delay(16)
 			applymovement(LOCALID_GRUNT2, Common_Movement_WalkInPlaceRight)
 			waitmovement(0)
+			speakername(CommonName_AquaGrunt)
 			msgbox(Route110_Text_HowsHeSoFast)
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceLeft)
 			waitmovement(0)
+			speakername(CommonName_AquaGrunt)
 		msgbox(Route110_Text_WeWouldveLostHimAlready)
 		case 2:
 			turnobject(LOCALID_GRUNT2, DIR_WEST)
@@ -914,9 +920,11 @@ script Route110_EventScript_AquaScene {
 			delay(16)
 			applymovement(LOCALID_GRUNT2, Common_Movement_WalkInPlaceLeft)
 			waitmovement(0)
+			speakername(CommonName_AquaGrunt)
 			msgbox(Route110_Text_HowsHeSoFast)
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceRight)
 			waitmovement(0)
+			speakername(CommonName_AquaGrunt)
 			msgbox(Route110_Text_WeWouldveLostHimAlready)
 	}
 
@@ -931,7 +939,8 @@ script Route110_EventScript_AquaScene {
 			waitmovement(0)
 			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	}
-	msgbox(format("Ruth: They seem suspicious.\pI bet they stole that package from somebody!"))
+	speakername(CommonName_Ruth)
+	msgbox(format("They seem suspicious.\pI bet they stole that package from somebody!"))
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	turnobject(LOCALID_RUTH, DIR_NORTH)
 	closemessage
@@ -947,12 +956,13 @@ script Route110_EventScript_AquaScene {
 	hideobjectat(LOCALID_BOX, MAP_ROUTE110)
 	applymovement(LOCALID_GRUNT1, Common_Movement_WalkDown)
 	waitmovement(0)
+	speakername(CommonName_AquaGrunt)
 	checkplayergender
 	if (var(VAR_RESULT) == MALE) {
-		msgbox(format("???: Out of the way!"))
+		msgbox(format("Out of the way!"))
 	}
 	else {
-		msgbox(format("???: Out of the way, girls!"))
+		msgbox(format("Out of the way, girls!"))
 	}
 	applymovement(LOCALID_GRUNT2, Common_Movement_WalkDown)
 	waitmovement(0)
@@ -968,7 +978,8 @@ script Route110_EventScript_AquaScene {
 			waitmovement(0)
 			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	}
-	msgbox(format("Ruth: {PLAYER}! Let's stop these two together!"))
+	speakername(CommonName_Ruth)
+	msgbox(format("{PLAYER}! Let's stop these two together!"))
 	closemessage
 
 	goto(Route110_EventScript_PrepareForAquaDoubleBattle)
@@ -989,7 +1000,8 @@ script Route110_EventScript_PrepareForAquaDoubleBattle {
 			goto(Route110_EventScript_StartAquaDoubleBattle)
 		}
 		special(LoadPlayerParty)
-		msgbox(format("Ruth: Come on, {PLAYER}! We can do this!"))
+		speakername(CommonName_Ruth)
+		msgbox(format("Come on, {PLAYER}! We can do this!"))
 		closemessage
 		goto(Route110_EventScript_PrepareForAquaDoubleBattle)
 	}
@@ -1001,7 +1013,8 @@ script Route110_EventScript_StartAquaDoubleBattle {
 	turnobject(LOCALID_RUTH, DIR_NORTH)
 	delay(16)
 	applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceDown)
-	msgbox(format("???: Bring it on!"), MSGBOX_AUTOCLOSE)
+	speakername(CommonName_AquaGrunt)
+	msgbox(format("Bring it on!"), MSGBOX_AUTOCLOSE)
 	waitmovement(LOCALID_GRUNT2)
 	frontier_set(FRONTIER_DATA_SELECTED_MON_ORDER)
 	playbgm(MUS_ROUTE110, FALSE)
@@ -1021,17 +1034,18 @@ script Route110_EventScript_StartAquaDoubleBattle {
 	}
 	special(LoadPlayerParty)
 	lock
+	speakername(CommonName_Ruth)
 	switch(var(VAR_RESULT)) {
 		case 1: 
 			setflag(FLAG_DONE_AQUA_DOUBLE_BATTLE)
 			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 			waitmovement(0)
-			msgbox(format("Ruth: Ha, take that!"))
+			msgbox(format("Ha, take that!"))
 		default: 
 			setflag(FLAG_DONE_AQUA_DOUBLE_BATTLE)
 			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 			waitmovement(0)
-			msgbox(format("Ruth: Ugh, they're strong..."))
+			msgbox(format("Ugh, they're strong…"))
 	}
 	special(HealPlayerParty)
 	goto(Route110_EventScript_AfterAquaDoubleBattle)
@@ -1045,7 +1059,8 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	applymovement(LOCALID_GRUNT1, Common_Movement_ExclamationMarkAndDelay)
 	playse(SE_PIN)
 	applymovement(LOCALID_GRUNT2, Common_Movement_WalkInPlaceUp)
-	msgbox("Birch: There you are!\pGive me back my package, you thieves!")
+	speakername(CommonName_ProfBirch)
+	msgbox("There you are!\pGive me back my package, you thieves!")
 	waitse
 	closemessage
 	waitmovement(LOCALID_GRUNT1)
@@ -1057,6 +1072,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			delay(10)
 			turnobject(LOCALID_GRUNT2, DIR_EAST)
 			waitmovement(LOCALID_GRUNT1)
+			speakername(CommonName_AquaGrunt)
 			msgbox(Route110_Text_FineHavePackageBack)
 			closemessage
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceRight)	
@@ -1072,6 +1088,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			delay(10)
 			turnobject(LOCALID_GRUNT2, DIR_WEST)
 			waitmovement(LOCALID_GRUNT1)
+			speakername(CommonName_AquaGrunt)
 			msgbox(Route110_Text_FineHavePackageBack)
 			closemessage
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceLeft)	
@@ -1101,16 +1118,19 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	hideobjectat(LOCALID_BOX, MAP_ROUTE110)
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
-	msgbox(format("Birch: Thank you, I don't know if I would've been able to catch them if you didn't hold them back.\p...\p"
-			"That Pokémon you used...\pBy any chance, do you know my son Brendan?"))
+	speakername(CommonName_ProfBirch)
+	msgbox(format("Thank you, I don't know if I would've been able to catch them if you didn't hold them back.\p…\p"
+			"That Pokémon you used…\pBy any chance, do you know my son Brendan?"))
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("Ruth: Yes! He's staying in our hometown at the moment!\p"
-			"But... your son? That means... You're THE Professor Birch?!"))
+			"But… your son? That means… You're THE Professor Birch?!"))
 	closemessage
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
-	msgbox(format("Birch: Haha, yes. That's me."))
+	speakername(CommonName_ProfBirch)
+	msgbox(format("Haha, yes. That's me."))
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	msgbox(format("I was on my way to collect the new PokéDex model, when those goons snatched the package out of my hands."))
@@ -1129,12 +1149,14 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			waitmovement(0)
 			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	}
-	msgbox(format("Ruth: Ehrm... I didn't get one, did you, {PLAYER}?"))
+	speakername(CommonName_Ruth)
+	msgbox(format("Ehrm… I didn't get one, did you, {PLAYER}?"))
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
 	turnobject(LOCALID_RUTH, DIR_NORTH)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-	msgbox(format("Birch: Hmm, he must've been really busy with his work to forget that."))
+	speakername(CommonName_ProfBirch)
+	msgbox(format("Hmm, he must've been really busy with his work to forget that."))
 	closemessage
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
@@ -1151,6 +1173,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	delay(16)
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
+	speakername(CommonName_ProfBirch)
 	msgbox(format("Here, take these."))
 	closemessage
 	
@@ -1163,6 +1186,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			waitmovement(0)
 			turnobject(LOCALID_BIRCH, DIR_SOUTH)
 			delay(16)
+			speakername(CommonName_ProfBirch)
 			msgbox(Route110_Text_HereYouGetOneToo)
 			closemessage
 			applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
@@ -1182,6 +1206,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			waitmovement(0)
 			turnobject(LOCALID_BIRCH, DIR_SOUTH)
 			delay(16)
+			speakername(CommonName_ProfBirch)
 			msgbox(Route110_Text_HereYouGetOneToo)
 			closemessage
 			applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
@@ -1194,6 +1219,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			waitmovement(0)
 			turnobject(LOCALID_BIRCH, DIR_SOUTH)
 			delay(16)
+			speakername(CommonName_ProfBirch)
 			msgbox(Route110_Text_HereYouGetOneToo)
 			closemessage
 			applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
@@ -1207,16 +1233,19 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	setflag(FLAG_SYS_POKEDEX_GET)
 	special(SetUnlockedPokedexFlags)
 	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
-
+	
+	speakername(CommonName_ProfBirch)
 	msgbox(format("These devices collect information about the Pokémon you catch.\pIt's a very useful tool for every Pokémon trainer!"))
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
-	msgbox(format("Ruth: Thank you, Professor! We'll make sure to make good use of it!\pWhat did those guys want them for, anyway?"))
+	speakername(CommonName_Ruth)
+	msgbox(format("Thank you, Professor! We'll make sure to make good use of it!\pWhat did those guys want them for, anyway?"))
 	closemessage
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
-	msgbox(format("Birch: I don't know.\pIt doesn't even hold the information they're after."))
+	speakername(CommonName_ProfBirch)
+	msgbox(format("I don't know.\pIt doesn't even hold the information they're after."))
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
 	msgbox(format("Oh, and this is my PokéNav contact, you can call me if you want me to take a look at your PokéDex progress."))
@@ -1230,6 +1259,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	setflag(FLAG_ENABLE_PROF_BIRCH_MATCH_CALL)
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
+	speakername(CommonName_ProfBirch)
 	msgbox(format("Again, thanks for helping me out.\pYou should visit me at my lab in Littleroot Town sometime."))
 	closemessage
 	applymovement(LOCALID_BIRCH, Route110_Movement_BirchLeave)
@@ -1248,6 +1278,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			waitmovement(0)
 			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	}
+	speakername(CommonName_Ruth)
 	msgbox(format("So, {PLAYER}! Mauville is waiting for us!\pLet's see who gets the badge first!"))
 	closemessage
 	applymovement(LOCALID_RUTH, Route110_Movement_RuthLeave)
@@ -1264,6 +1295,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 script Route110_EventScript_OldRodFisherman {
 	lock
 	faceplayer
+	speakername("Edmar")
 	msgbox(format("This stupid rod is useless! USELESS, I tell you!\p"
 	"I'd have a better chance catching a Magikarp with my bare hands!\p"
 	"Here, take this stupid stick off of me!"))
@@ -1271,8 +1303,10 @@ script Route110_EventScript_OldRodFisherman {
 	removeobject(LOCALID_FISHERMAN)
 	addobject(LOCALID_FISHERMAN)
 	applymovement(LOCALID_FISHERMAN, Common_Movement_FacePlayer)
+	speakername(NULL)
 	giveitem(ITEM_OLD_ROD)
-	msgbox(format("To use it, you'll have to...\pAh, whatever, you'll figure it out."))
+	speakername("Edmar")
+	msgbox(format("To use it, you'll have to…\pAh, whatever, you'll figure it out."))
 	closemessage
 	setflag(FLAG_RECEIVED_OLD_ROD)
 	delay(16)
@@ -1284,7 +1318,8 @@ script Route110_EventScript_OldRodFisherman {
 	playse(SE_PIN)
 	waitmovement(0)
 	waitse
-	msgbox(format("Was that...?\pI can't believe it! It's a golden one!\pWait for me, you beautiful-"))
+	speakername("Edmar")
+	msgbox(format("Was that…?\pI can't believe it! It's a golden one!\pWait for me, you beautiful-"))
 	closemessage
 	applymovement(LOCALID_FISHERMAN, Route110_Movement_FishermanDive)
 	waitmovement(0)
@@ -1372,11 +1407,11 @@ text Route110_Text_HowsHeSoFast {
 }
 
 text Route110_Text_WeWouldveLostHimAlready {
-	format("???: If you weren't this slow, we would have lost him already!")
+	format("If you weren't this slow, we would have lost him already!")
 }
 
 text Route110_Text_FineHavePackageBack {
-	format("???: ...\pFine! Have your stupid package back!")
+	format("…\pFine! Have your stupid package back!")
 }
 
 text Route110_Text_HereYouGetOneToo {

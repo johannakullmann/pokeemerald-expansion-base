@@ -1519,7 +1519,7 @@
 #define FLAG_DONE_AQUA_DOUBLE_BATTLE                (SYSTEM_FLAGS + 0x92) //Team Aqua battle on Route 110
 #define FLAG_SHOWED_STARTER_TO_MOM                  (SYSTEM_FLAGS + 0x93)
 #define FLAG_MET_RUTH_MAUVILLE                      (SYSTEM_FLAGS + 0x94) // Ruth encounter after Mauville badge
-#define FLAG_MET_WATTSON_MAUVILLE                   (SYSTEM_FLAGS + 0x95) // Met Wattson for gym intro
+#define FLAG_DONE_MAUVILLE_GYM_INTRO                (SYSTEM_FLAGS + 0x95) // Spoke to gym guide for gym intro
 #define FLAG_DEFEATED_RIVAL_2                       (SYSTEM_FLAGS + 0x96) // Unused Flag
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag

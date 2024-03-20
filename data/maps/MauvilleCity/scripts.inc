@@ -679,37 +679,26 @@ MauvilleCity_OnTransition::
 	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	goto_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_OnTransition_2
-MauvilleCity_OnTransition_1:
-	goto_if_unset FLAG_MET_WATTSON_MAUVILLE, MauvilleCity_OnTransition_5
-	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_OnTransition_8
-MauvilleCity_OnTransition_7:
+	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_OnTransition_5
+MauvilleCity_OnTransition_4:
 	setvar VAR_TEMP_0, 0
 	setflag VAR_TEMP_9
 	removeobject 10
-	setvar VAR_TEMP_8, 1
-MauvilleCity_OnTransition_4:
+MauvilleCity_OnTransition_1:
 	end
 
 MauvilleCity_OnTransition_2:
 	call MauvilleCity_EventScript_MoveWattsonBackToGym
 	goto MauvilleCity_OnTransition_1
 
-MauvilleCity_OnTransition_5:
-	setvar VAR_TEMP_8, 0
-	setvar VAR_TEMP_0, 0
-	setflag VAR_TEMP_9
-	removeobject 10
-	goto MauvilleCity_OnTransition_4
-
-MauvilleCity_OnTransition_6:
+MauvilleCity_OnTransition_3:
 	setvar VAR_TEMP_0, 1
 	clearflag VAR_TEMP_9
-	setvar VAR_TEMP_8, 1
-	goto MauvilleCity_OnTransition_4
+	goto MauvilleCity_OnTransition_1
 
-MauvilleCity_OnTransition_8:
-	goto_if_unset FLAG_MET_RUTH_MAUVILLE, MauvilleCity_OnTransition_6
-	goto MauvilleCity_OnTransition_7
+MauvilleCity_OnTransition_5:
+	goto_if_unset FLAG_MET_RUTH_MAUVILLE, MauvilleCity_OnTransition_3
+	goto MauvilleCity_OnTransition_4
 
 
 MauvilleCity_EventScript_RuthScene::
@@ -736,9 +725,11 @@ MauvilleCity_EventScript_RuthScene_Gym::
 	playbgm MUS_ENCOUNTER_MAY, FALSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToGym1
 	waitmovement 0
-	msgbox MauvilleCity_EventScript_RuthScene_Gym_Text_0, MSGBOX_AUTOCLOSE
+	speakername CommonName_Ruth
+	msgbox MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToGym2
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthLeaveFromGym
 	delay 32
@@ -758,9 +749,11 @@ MauvilleCity_EventScript_RuthScene_Center::
 	playbgm MUS_ENCOUNTER_MAY, FALSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToCenter1
 	waitmovement 0
-	msgbox MauvilleCity_EventScript_RuthScene_Gym_Text_0, MSGBOX_AUTOCLOSE
+	speakername CommonName_Ruth
+	msgbox MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToCenter2
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthLeaveFromCenter
 	delay 32
@@ -773,44 +766,6 @@ MauvilleCity_EventScript_RuthScene_Center::
 	fadedefaultbgm
 	release
 	end
-
-
-MauvilleCity_EventScript_MeetWattson::
-	lock
-	clearflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
-	setobjectxyperm 6, 16, 8
-	addobject 6
-	applymovement 6, MauvilleCity_Movement_WattsonApproachGym
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq MauvilleCity_EventScript_MeetWattson_2
-	bufferstring STR_VAR_1, MauvilleCity_EventScript_MeetWattson_Text_1
-MauvilleCity_EventScript_MeetWattson_1:
-	msgbox MauvilleCity_EventScript_MeetWattson_Text_2
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	applymovement 6, Common_Movement_WalkUp
-	opendoor 8, 5
-	waitdooranim
-	applymovement 6, Common_Movement_WalkUp
-	waitmovement 0
-	closedoor 8, 5
-	removeobject 6
-	waitdooranim
-	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
-	setflag FLAG_MET_WATTSON_MAUVILLE
-	setvar VAR_TEMP_8, 1
-	release
-	end
-
-MauvilleCity_EventScript_MeetWattson_2:
-	bufferstring STR_VAR_1, MauvilleCity_EventScript_MeetWattson_Text_0
-	goto MauvilleCity_EventScript_MeetWattson_1
 
 
 MauvilleCity_Movement_RuthWalkToGym1:
@@ -865,41 +820,8 @@ MauvilleCity_Movement_RuthLeaveFromCenter:
 	walk_fast_left
 	step_end
 
-MauvilleCity_Movement_WattsonApproachGym:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	step_end
-
-MauvilleCity_EventScript_RuthScene_Gym_Text_0:
+MauvilleCity_Text_RuthCallPlayer::
 	.string "{PLAYER}! {PLAYER}!$"
-
-MauvilleCity_EventScript_MeetWattson_Text_0:
-	.string "young man$"
-
-MauvilleCity_EventScript_MeetWattson_Text_1:
-	.string "young lady$"
-
-MauvilleCity_EventScript_MeetWattson_Text_2:
-	.string "Oh?\p"
-	.string "Those shiny new Poké Balls tell me this\n"
-	.string "is your first time in a Pokémon Gym!\p"
-	.string "I'll be looking forward to our battle!\p"
-	.string "Wahahahaha! No reason to be so\n"
-	.string "nervous, {STR_VAR_1}!\p"
-	.string "I'll be using a team you should be able\n"
-	.string "to beat with proper preparation.\p"
-	.string "If you have any questions, ask the aide\n"
-	.string "right next to the entrance.\p"
-	.string "And good luck solving my electrifying\n"
-	.string "gym puzzle!\p"
-	.string "Wahahahaha!$"
 
 MauvilleCity_Text_RuthNoticeBadge::
 	.string "Look what I caught!\p"

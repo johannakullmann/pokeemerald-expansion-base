@@ -840,6 +840,7 @@ Route110_EventScript_AquaScene::
 	applymovement 30, Route110_Movement_RuthEnterScreen
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AquaScene_Text_0
 	closemessage
 	applymovement 30, Route110_Movement_RuthWalkUpToPlayer
@@ -849,6 +850,7 @@ Route110_EventScript_AquaScene::
 	case 1, Route110_EventScript_AquaScene_4
 	case 2, Route110_EventScript_AquaScene_4
 Route110_EventScript_AquaScene_1:
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AquaScene_Text_1
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, TRUE
@@ -868,10 +870,12 @@ Route110_EventScript_AquaScene_5:
 	delay 16
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	turnobject 30, DIR_NORTH
+	speakername CommonName_AquaGrunt
 	msgbox Route110_EventScript_AquaScene_Text_2
 	closemessage
 	applymovement 32, Route110_Movement_Grunt2Encounter_1
 	waitmovement 32
+	speakername CommonName_AquaGrunt
 	msgbox Route110_EventScript_AquaScene_Text_3
 	closemessage
 	applymovement 32, Route110_Movement_Grunt2Encounter_2
@@ -886,6 +890,7 @@ Route110_EventScript_AquaScene_9:
 	case 1, Route110_EventScript_AquaScene_16
 	case 2, Route110_EventScript_AquaScene_16
 Route110_EventScript_AquaScene_13:
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AquaScene_Text_4
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	turnobject 30, DIR_NORTH
@@ -899,6 +904,7 @@ Route110_EventScript_AquaScene_17:
 	hideobjectat 33, MAP_ROUTE110
 	applymovement 31, Common_Movement_WalkDown
 	waitmovement 0
+	speakername CommonName_AquaGrunt
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Route110_EventScript_AquaScene_22
@@ -911,6 +917,7 @@ Route110_EventScript_AquaScene_21:
 	case 1, Route110_EventScript_AquaScene_28
 	case 2, Route110_EventScript_AquaScene_28
 Route110_EventScript_AquaScene_25:
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AquaScene_Text_7
 	closemessage
 	goto Route110_EventScript_PrepareForAquaDoubleBattle
@@ -942,9 +949,11 @@ Route110_EventScript_AquaScene_11:
 	delay 16
 	applymovement 32, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_HowsHeSoFast
 	applymovement 31, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_WeWouldveLostHimAlready
 	goto Route110_EventScript_AquaScene_9
 
@@ -956,9 +965,11 @@ Route110_EventScript_AquaScene_12:
 	delay 16
 	applymovement 32, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_HowsHeSoFast
 	applymovement 31, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_WeWouldveLostHimAlready
 	goto Route110_EventScript_AquaScene_9
 
@@ -1011,6 +1022,7 @@ Route110_EventScript_PrepareForAquaDoubleBattle::
 	goto_if_ne Route110_EventScript_PrepareForAquaDoubleBattle_5
 Route110_EventScript_PrepareForAquaDoubleBattle_4:
 	special LoadPlayerParty
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_PrepareForAquaDoubleBattle_Text_0
 	closemessage
 	goto Route110_EventScript_PrepareForAquaDoubleBattle
@@ -1032,6 +1044,7 @@ Route110_EventScript_StartAquaDoubleBattle::
 	turnobject 30, DIR_NORTH
 	delay 16
 	applymovement 31, Common_Movement_WalkInPlaceDown
+	speakername CommonName_AquaGrunt
 	msgbox Route110_EventScript_StartAquaDoubleBattle_Text_0, MSGBOX_AUTOCLOSE
 	waitmovement 32
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
@@ -1043,6 +1056,7 @@ Route110_EventScript_StartAquaDoubleBattle::
 Route110_EventScript_StartAquaDoubleBattle_1:
 	special LoadPlayerParty
 	lock
+	speakername CommonName_Ruth
 	switch VAR_RESULT
 	case 1, Route110_EventScript_StartAquaDoubleBattle_8
 	setflag FLAG_DONE_AQUA_DOUBLE_BATTLE
@@ -1082,6 +1096,7 @@ Route110_EventScript_AfterAquaDoubleBattle::
 	applymovement 31, Common_Movement_ExclamationMarkAndDelay
 	playse SE_PIN
 	applymovement 32, Common_Movement_WalkInPlaceUp
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_0
 	waitse
 	closemessage
@@ -1107,13 +1122,16 @@ Route110_EventScript_AfterAquaDoubleBattle_5:
 	hideobjectat 33, MAP_ROUTE110
 	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_1
 	closemessage
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_2
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceDown
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_3
 	applymovement 29, Common_Movement_WalkInPlaceUp
 	waitmovement 0
@@ -1127,11 +1145,13 @@ Route110_EventScript_AfterAquaDoubleBattle_5:
 	case 1, Route110_EventScript_AfterAquaDoubleBattle_12
 	case 2, Route110_EventScript_AfterAquaDoubleBattle_12
 Route110_EventScript_AfterAquaDoubleBattle_9:
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_6
 	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	turnobject 30, DIR_NORTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_7
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceRight
@@ -1149,6 +1169,7 @@ Route110_EventScript_AfterAquaDoubleBattle_9:
 	delay 16
 	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_8
 	closemessage
 	switch VAR_TEMP_2
@@ -1159,14 +1180,17 @@ Route110_EventScript_AfterAquaDoubleBattle_13:
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_9
 	closemessage
 	applymovement 30, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_10
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_11
 	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
@@ -1181,6 +1205,7 @@ Route110_EventScript_AfterAquaDoubleBattle_13:
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
 	applymovement 29, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	speakername CommonName_ProfBirch
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_13
 	closemessage
 	applymovement 29, Route110_Movement_BirchLeave
@@ -1193,6 +1218,7 @@ Route110_EventScript_AfterAquaDoubleBattle_13:
 	case 1, Route110_EventScript_AfterAquaDoubleBattle_21
 	case 2, Route110_EventScript_AfterAquaDoubleBattle_21
 Route110_EventScript_AfterAquaDoubleBattle_18:
+	speakername CommonName_Ruth
 	msgbox Route110_EventScript_AfterAquaDoubleBattle_Text_14
 	closemessage
 	applymovement 30, Route110_Movement_RuthLeave
@@ -1210,6 +1236,7 @@ Route110_EventScript_AfterAquaDoubleBattle_3:
 	delay 10
 	turnobject 32, DIR_EAST
 	waitmovement 31
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_FineHavePackageBack
 	closemessage
 	applymovement 31, Common_Movement_WalkInPlaceRight
@@ -1227,6 +1254,7 @@ Route110_EventScript_AfterAquaDoubleBattle_4:
 	delay 10
 	turnobject 32, DIR_WEST
 	waitmovement 31
+	speakername CommonName_AquaGrunt
 	msgbox Route110_Text_FineHavePackageBack
 	closemessage
 	applymovement 31, Common_Movement_WalkInPlaceLeft
@@ -1267,6 +1295,7 @@ Route110_EventScript_AfterAquaDoubleBattle_15:
 	waitmovement 0
 	turnobject 29, DIR_SOUTH
 	delay 16
+	speakername CommonName_ProfBirch
 	msgbox Route110_Text_HereYouGetOneToo
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceDown
@@ -1288,6 +1317,7 @@ Route110_EventScript_AfterAquaDoubleBattle_16:
 	waitmovement 0
 	turnobject 29, DIR_SOUTH
 	delay 16
+	speakername CommonName_ProfBirch
 	msgbox Route110_Text_HereYouGetOneToo
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceDown
@@ -1302,6 +1332,7 @@ Route110_EventScript_AfterAquaDoubleBattle_17:
 	waitmovement 0
 	turnobject 29, DIR_SOUTH
 	delay 16
+	speakername CommonName_ProfBirch
 	msgbox Route110_Text_HereYouGetOneToo
 	closemessage
 	applymovement 29, Common_Movement_WalkInPlaceDown
@@ -1328,13 +1359,16 @@ Route110_EventScript_AfterAquaDoubleBattle_21:
 Route110_EventScript_OldRodFisherman::
 	lock
 	faceplayer
-	msgbox Route110_EventScript_OldRodFisherman_Text_0
+	speakername Route110_EventScript_OldRodFisherman_Text_0
+	msgbox Route110_EventScript_OldRodFisherman_Text_1
 	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_FISHERMAN
 	removeobject 34
 	addobject 34
 	applymovement 34, Common_Movement_FacePlayer
+	speakername NULL
 	giveitem ITEM_OLD_ROD
-	msgbox Route110_EventScript_OldRodFisherman_Text_1
+	speakername Route110_EventScript_OldRodFisherman_Text_0
+	msgbox Route110_EventScript_OldRodFisherman_Text_2
 	closemessage
 	setflag FLAG_RECEIVED_OLD_ROD
 	delay 16
@@ -1346,7 +1380,8 @@ Route110_EventScript_OldRodFisherman::
 	playse SE_PIN
 	waitmovement 0
 	waitse
-	msgbox Route110_EventScript_OldRodFisherman_Text_2
+	speakername Route110_EventScript_OldRodFisherman_Text_0
+	msgbox Route110_EventScript_OldRodFisherman_Text_3
 	closemessage
 	applymovement 34, Route110_Movement_FishermanDive
 	waitmovement 0
@@ -1472,7 +1507,7 @@ Route110_EventScript_AquaScene_Text_1:
 	.string "Are you already on your way to Mauville?\p"
 	.string "I tried my hand in the Slateport Battle\n"
 	.string "Tent, but it's so hard to battle with\l"
-	.string "Pokémon I am not familiar with...\p"
+	.string "Pokémon I am not familiar with…\p"
 	.string "The drafting process made me realize\n"
 	.string "how important it is to have team\l"
 	.string "members that cover each other's\l"
@@ -1484,33 +1519,32 @@ Route110_EventScript_AquaScene_Text_1:
 	.string "team will look like, {PLAYER}!$"
 
 Route110_EventScript_AquaScene_Text_2:
-	.string "???: Come on, hurry up you slowpoke!\pThe old man's catching up!$"
+	.string "Come on, hurry up you slowpoke!\pThe old man's catching up!$"
 
 Route110_EventScript_AquaScene_Text_3:
-	.string "???: Huff, huff...\p"
+	.string "Huff, huff…\p"
 	.string "Wait for me!$"
 
 Route110_EventScript_AquaScene_Text_4:
-	.string "Ruth: They seem suspicious.\p"
+	.string "They seem suspicious.\p"
 	.string "I bet they stole that package from\n"
 	.string "somebody!$"
 
 Route110_EventScript_AquaScene_Text_5:
-	.string "???: Out of the way!$"
+	.string "Out of the way!$"
 
 Route110_EventScript_AquaScene_Text_6:
-	.string "???: Out of the way, girls!$"
+	.string "Out of the way, girls!$"
 
 Route110_EventScript_AquaScene_Text_7:
-	.string "Ruth: {PLAYER}! Let's stop these two\n"
+	.string "{PLAYER}! Let's stop these two\n"
 	.string "together!$"
 
 Route110_EventScript_PrepareForAquaDoubleBattle_Text_0:
-	.string "Ruth: Come on, {PLAYER}! We can do\n"
-	.string "this!$"
+	.string "Come on, {PLAYER}! We can do this!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_0:
-	.string "???: Bring it on!$"
+	.string "Bring it on!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_1:
 	.string "Argh!$"
@@ -1519,31 +1553,31 @@ Route110_EventScript_StartAquaDoubleBattle_Text_2:
 	.string "What just happened?$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_3:
-	.string "Ruth: Ha, take that!$"
+	.string "Ha, take that!$"
 
 Route110_EventScript_StartAquaDoubleBattle_Text_4:
-	.string "Ruth: Ugh, they're strong...$"
+	.string "Ugh, they're strong…$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_0:
-	.string "Birch: There you are!\pGive me back my package, you thieves!$"
+	.string "There you are!\pGive me back my package, you thieves!$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_1:
-	.string "Birch: Thank you, I don't know if I\n"
-	.string "would've been able to catch them if you\l"
-	.string "didn't hold them back.\p"
-	.string "...\p"
-	.string "That Pokémon you used...\p"
+	.string "Thank you, I don't know if I would've\n"
+	.string "been able to catch them if you didn't\l"
+	.string "hold them back.\p"
+	.string "…\p"
+	.string "That Pokémon you used…\p"
 	.string "By any chance, do you know my son\n"
 	.string "Brendan?$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_2:
 	.string "Ruth: Yes! He's staying in our hometown\n"
 	.string "at the moment!\p"
-	.string "But... your son? That means... You're THE\n"
+	.string "But… your son? That means… You're THE\n"
 	.string "Professor Birch?!$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_3:
-	.string "Birch: Haha, yes. That's me.$"
+	.string "Haha, yes. That's me.$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_4:
 	.string "I was on my way to collect the new\n"
@@ -1555,12 +1589,12 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_5:
 	.string "right?$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_6:
-	.string "Ruth: Ehrm... I didn't get one, did you,\n"
+	.string "Ehrm… I didn't get one, did you,\n"
 	.string "{PLAYER}?$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_7:
-	.string "Birch: Hmm, he must've been really busy\n"
-	.string "with his work to forget that.$"
+	.string "Hmm, he must've been really busy with\n"
+	.string "his work to forget that.$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_8:
 	.string "Here, take these.$"
@@ -1572,13 +1606,13 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_9:
 	.string "Pokémon trainer!$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_10:
-	.string "Ruth: Thank you, Professor! We'll make\n"
-	.string "sure to make good use of it!\p"
+	.string "Thank you, Professor! We'll make sure to\n"
+	.string "make good use of it!\p"
 	.string "What did those guys want them for,\n"
 	.string "anyway?$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_11:
-	.string "Birch: I don't know.\p"
+	.string "I don't know.\p"
 	.string "It doesn't even hold the information\n"
 	.string "they're after.$"
 
@@ -1598,18 +1632,21 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_14:
 	.string "Let's see who gets the badge first!$"
 
 Route110_EventScript_OldRodFisherman_Text_0:
+	.string "Edmar$"
+
+Route110_EventScript_OldRodFisherman_Text_1:
 	.string "This stupid rod is useless! USELESS, I\n"
 	.string "tell you!\p"
 	.string "I'd have a better chance catching a\n"
 	.string "Magikarp with my bare hands!\p"
 	.string "Here, take this stupid stick off of me!$"
 
-Route110_EventScript_OldRodFisherman_Text_1:
-	.string "To use it, you'll have to...\p"
+Route110_EventScript_OldRodFisherman_Text_2:
+	.string "To use it, you'll have to…\p"
 	.string "Ah, whatever, you'll figure it out.$"
 
-Route110_EventScript_OldRodFisherman_Text_2:
-	.string "Was that...?\p"
+Route110_EventScript_OldRodFisherman_Text_3:
+	.string "Was that…?\p"
 	.string "I can't believe it! It's a golden one!\p"
 	.string "Wait for me, you beautiful-$"
 
@@ -1617,11 +1654,11 @@ Route110_Text_HowsHeSoFast::
 	.string "He's almost here! How's he so fast?!$"
 
 Route110_Text_WeWouldveLostHimAlready::
-	.string "???: If you weren't this slow, we would\n"
-	.string "have lost him already!$"
+	.string "If you weren't this slow, we would have\n"
+	.string "lost him already!$"
 
 Route110_Text_FineHavePackageBack::
-	.string "???: ...\p"
+	.string "…\p"
 	.string "Fine! Have your stupid package back!$"
 
 Route110_Text_HereYouGetOneToo::

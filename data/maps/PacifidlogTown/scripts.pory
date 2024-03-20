@@ -22,6 +22,7 @@ script PacifidlogTown_EventScript_RayquazaPlaque {
 script PacifidlogTown_EventScript_Woman_1 {
 	lock
 	faceplayer
+	speakername("Tessa")
 	msgbox(format("Our house got swept away in the huge tidal wave that destroyed the old Pacifidlog.\p"
 		"I wonder if it is still there somewhere, at the bottom of the ocean…"))
 	closemessage
@@ -33,6 +34,7 @@ script PacifidlogTown_EventScript_Woman_1 {
 script PacifidlogTown_EventScript_Woman_2 {
 	lock
 	faceplayer
+	speakername("Katarina")
 	msgbox(format("The weather is always clear in New Pacifidlog.\p"
 	"That's because of the legendary Pokémon that lives on top of the Sky Pillar.\p"
 	"Who knows if we would have been able to rebuild the town here at all if it weren't for its help."))
@@ -45,6 +47,7 @@ script PacifidlogTown_EventScript_Woman_2 {
 script PacifidlogTown_EventScript_Fisherman {	
 	lock
 	faceplayer
+	speakername("Tomas")
 	msgbox(format("This is my favourite fishing spot.\pI caught a huge Magikarp here yesterday!"))
 	closemessage
 	turnobject(VAR_LAST_TALKED, DIR_EAST)
@@ -53,6 +56,7 @@ script PacifidlogTown_EventScript_Fisherman {
 }
 
 script PacifidlogTown_EventScript_NinjaBoy {
+	speakername("Silas")
 	msgbox(format("I'm sad our town isn't floating on the ocean anymore.\pBut the big tower is pretty cool too!"), MSGBOX_NPC)
 	end
 }
@@ -60,6 +64,7 @@ script PacifidlogTown_EventScript_NinjaBoy {
 script PacifidlogTown_EventScript_OldMan {
 	lock
 	faceplayer
+	speakername("Bernard")
 	msgbox(format("Rayquaza rests on top of this tower.\p"
 	"It keeps our town safe from the wrath of the elements, and in turn, we make sure it can rest undisturbed."))
 	closemessage
@@ -103,6 +108,7 @@ script PacifidlogTown_EventScript_MeetRuth {
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
     applymovement(LOCALID_RUTH, Common_Movement_Delay48)
     waitmovement(LOCALID_RUTH)
+	speakername(CommonName_Ruth)
 	msgbox("{PLAYER}!")
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkDown)
@@ -112,9 +118,11 @@ script PacifidlogTown_EventScript_MeetRuth {
 	waitmovement(OBJ_EVENT_ID_PLAYER)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("You got here faster than I expected!\pHow did you manage? Were you able to catch some Pokémon?"))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("If you run out of Pokéballs, you can buy more at the mart here.\pThey also sell potions and some other useful items!"))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
 	setvar(VAR_PACIFIDLOG_TOWN_STATE, 1)
@@ -138,6 +146,7 @@ script PacifidlogTown_EventScript_Ruth {
 	faceplayer
 	switch (var(VAR_PACIFIDLOG_TOWN_STATE)) {
 		case 1:
+			speakername(CommonName_Ruth)
 			msgbox("Are you ready?", MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
 				goto(PacifidlogTown_EventScript_RuthBattle)
@@ -187,6 +196,7 @@ script PacifidlogTown_EventScript_AfterRuthBattle {
         case DIR_NORTH:
 			turnobject(LOCALID_RUTH, DIR_WEST)
     }
+	speakername(CommonName_Ruth)
 	msgbox("Ha…\pHahaha!")
 	switch (var(VAR_TEMP_1)) {
         case DIR_NORTH:
@@ -214,6 +224,7 @@ script PacifidlogTown_EventScript_AfterRuthBattle {
 			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
     }
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("You know what?\pWe'll make this a challenge!\pWe fight the gym leaders and see who can collect the most badges!\p"
 			"I think I know just the right person to get us to the mainland too."))
 	closemessage
@@ -242,22 +253,26 @@ script PacifidlogTown_EventScript_RuthBoatScene {
 	delay(16)
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
-	msgbox(format("Ruth: This is Captain Moore, probably the best sailor in all of Pacifidlog.\pHe'll be able to get us to Slateport no problem!"))
+	speakername(CommonName_Ruth)
+	msgbox(format("This is Captain Moore, probably the best sailor in all of Pacifidlog.\pHe'll be able to get us to Slateport no problem!"))
 	closemessage
 	turnobject(LOCALID_RUTH, DIR_NORTH)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	applymovement(LOCALID_SAILOR, Common_Movement_WalkInPlaceDown)
 	waitmovement(0)
-	msgbox(format("Cpt. Moore: The currents between here and Slateport are vicious, and it's only gotten worse in recent times.\p"
+	speakername(CommonName_CptMoore)
+	msgbox(format("The currents between here and Slateport are vicious, and it's only gotten worse in recent times.\p"
 			"The weather on the open seas has been awful ever since Kyogre woke from its slumber.\p"
 			"I'm glad you two are asking for help from someone experienced.\pWe can set sail right now, if the two of you are ready."))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("Ruth: Thank you, sir!\pAnd yes, we're ready to go!\p...\pWait."))
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	speakername(CommonName_Ruth)
 	msgbox(format("{PLAYER}, you should call your mom and tell her where you're going.\pYou have your PokéNav with you, right?"))
 	closemessage
 	delay(20)
@@ -278,6 +293,7 @@ script PacifidlogTown_EventScript_MatchCallTutorial {
 	case 6:
 	case 7:
 	case MULTI_B_PRESSED:
+		speakername(CommonName_Ruth)
 		msgbox(format("Come on, we shouldn't let Mr. Moore wait!\pGo give your mom a quick call!"))
 		closemessage
 		delay(20)
@@ -289,6 +305,7 @@ script PacifidlogTown_EventScript_MatchCallTutorial {
 	delay(20)
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
+	speakername(CommonName_Ruth)
 	msgbox(format("Nice! Now, are you ready to leave?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		msgbox(format("Perfect, let's go!"))
@@ -324,6 +341,7 @@ script PacifidlogTown_EventScript_LeaveForSlateport {
 script PacifidlogTown_EventScript_Sailor {
 	lock
 	faceplayer
+	speakername(CommonName_CptMoore)
 	switch (var(VAR_PACIFIDLOG_TOWN_STATE)){
 		case 0:
 		case 1:

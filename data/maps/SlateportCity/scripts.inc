@@ -1118,6 +1118,7 @@ SlateportCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 SlateportCity_EventScript_Sailor::
 	lock
 	faceplayer
+	speakername CommonName_CptMoore
 	msgbox SlateportCity_EventScript_Sailor_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq SlateportCity_EventScript_Sailor_2
@@ -1168,6 +1169,7 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth::
 	applymovement 26, Common_Movement_WalkInPlaceRight
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	speakername CommonName_Ruth
 	msgbox SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_0
 	turnobject 26, DIR_SOUTH
 	msgbox SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_1
@@ -1177,7 +1179,8 @@ SlateportCity_EventScript_ArriveFromPacifidlogWithRuth::
 	removeobject 26
 	setflag FLAG_TEMP_9
 	setvar VAR_SLATEPORT_CITY_STATE, 1
-	return
+	release
+	end
 
 
 SlateportCity_EventScript_ShinyClubSign::
@@ -1188,6 +1191,7 @@ SlateportCity_EventScript_ShinyClubSign::
 SlateportCity_EventScript_BattleTentClerk::
 	lock
 	faceplayer
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -1200,6 +1204,7 @@ SlateportCity_EventScript_BattleTentClerkScene_1::
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_1
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkGreet
 	closemessage
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_1
@@ -1217,6 +1222,7 @@ SlateportCity_EventScript_BattleTentClerkScene_2::
 	waitmovement 0
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_2
 	waitmovement 0
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkGreet
 	closemessage
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_2
@@ -1235,6 +1241,7 @@ SlateportCity_EventScript_BattleTentClerkScene_3::
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_3
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkGreet
 	closemessage
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_3
@@ -1253,6 +1260,7 @@ SlateportCity_EventScript_BattleTentClerkScene_4::
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_4
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkGreet
 	closemessage
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_4
@@ -1271,6 +1279,7 @@ SlateportCity_EventScript_BattleTentClerkScene_5::
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_5
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	speakername CommonName_TentClerk
 	msgbox SlateportCity_Text_BattleTentClerkGreet
 	closemessage
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_5
@@ -1417,8 +1426,7 @@ SlateportCity_Movement_PlayerFollowBattleTentClerk_5:
 	step_end
 
 SlateportCity_EventScript_Sailor_Text_0:
-	.string "Cpt. Moore: Do you want to sail to\n"
-	.string "Pacifidlog Town?$"
+	.string "Do you want to sail to Pacifidlog Town?$"
 
 SlateportCity_EventScript_ArriveFromPacifidlogWithRuth_Text_0:
 	.string "We're here! Slateport City!\p"

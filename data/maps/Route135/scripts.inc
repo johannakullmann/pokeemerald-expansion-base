@@ -353,11 +353,11 @@ Route135_EventScript_Lia_Text_0:
 	.string "I'll battle you together with my sister!$"
 
 Route135_EventScript_Lia_Text_1:
-	.string "Lia: Uh-oh, we lost.$"
+	.string "Uh-oh, we lost.$"
 
 Route135_EventScript_Lia_Text_2:
-	.string "Lia: If you have two Pokémon, you can\n"
-	.string "try to beat us!\p"
+	.string "If you have two Pokémon, you can try to\n"
+	.string "beat us!\p"
 	.string "But don't cry if you lose!$"
 
 Route135_EventScript_Lia_Text_3:
@@ -372,10 +372,10 @@ Route135_EventScript_Ali_Text_0:
 	.string "Let's go, Lia!$"
 
 Route135_EventScript_Ali_Text_1:
-	.string "Emi: Aw.$"
+	.string "Aw.$"
 
 Route135_EventScript_Ali_Text_2:
-	.string "Emi: Oh, you only have one Pokémon! You\n"
+	.string "Oh, you only have one Pokémon! You\n"
 	.string "can't battle us like that!$"
 
 Route135_EventScript_Ali_Text_3:

@@ -95,7 +95,7 @@ script Route135_EventScript_CatchTutorialMain {
 script Route135_EventScript_RockSmashGuy {
     lock
     faceplayer
-        speakername("Makoto")
+    speakername("Makoto")
     if (!flag(TEMP_FLAG_ROCK_DESTROYED)) {
         msgbox(format("Rocks like these are breakable! Watch!"))
         applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_WalkInPlaceDown)
@@ -201,8 +201,8 @@ script Route135_EventScript_Boy1 {
 script Route135_EventScript_Lia {
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
             format("I'll battle you together with my sister!"), 
-            format("Lia: Uh-oh, we lost."), 
-            format("Lia: If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
+            format("Uh-oh, we lost."), 
+            format("If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
     speakername("Lia")
     msgbox (format("You have to think about all kinds of things when you're battling against two trainers."), MSGBOX_AUTOCLOSE)
 	end
@@ -211,8 +211,8 @@ script Route135_EventScript_Lia {
 script Route135_EventScript_Ali{
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
             format("Let's go, Lia!"), 
-            format("Emi: Aw."), 
-            format("Emi: Oh, you only have one Pokémon! You can't battle us like that!"))
+            format("Aw."), 
+            format("Oh, you only have one Pokémon! You can't battle us like that!"))
     speakername("Emi")
     msgbox (format("Double battles are much harder than single battles!"), MSGBOX_AUTOCLOSE)
 	end

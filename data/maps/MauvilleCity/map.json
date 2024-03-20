@@ -218,15 +218,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_8",
-      "var_value": "0",
-      "script": "MauvilleCity_EventScript_MeetWattson"
-    }
+
   ],
   "bg_events": [
     {

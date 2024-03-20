@@ -1122,7 +1122,8 @@ mapscripts SlateportCity_MapScripts {
 script SlateportCity_EventScript_Sailor {
 	lock
 	faceplayer
-	msgbox(format("Cpt. Moore: Do you want to sail to Pacifidlog Town?"), MSGBOX_YESNO)
+	speakername(CommonName_CptMoore)
+	msgbox(format("Do you want to sail to Pacifidlog Town?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		closemessage
 		applymovement(LOCALID_SAILOR, Common_Movement_WalkUp)
@@ -1166,6 +1167,7 @@ script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	speakername(CommonName_Ruth)
 	msgbox(format("We're here! Slateport City!\p"
 			"The nearest Pokémon Gym is in Mauville City…\p"
 			"But I really need some more practice before I go there.\p"
@@ -1179,6 +1181,8 @@ script SlateportCity_EventScript_ArriveFromPacifidlogWithRuth {
 	removeobject(LOCALID_RUTH)
 	setflag(FLAG_TEMP_DISABLE_RUTH)
 	setvar(VAR_SLATEPORT_CITY_STATE, 1)
+	release 
+	end
 }
 
 script SlateportCity_EventScript_ShinyClubSign {
@@ -1188,6 +1192,7 @@ script SlateportCity_EventScript_ShinyClubSign {
 script SlateportCity_EventScript_BattleTentClerk {
 	lock
 	faceplayer
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	release 
 	end
@@ -1200,6 +1205,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_1 {
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_1)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkGreet)
 	closemessage
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_1)
@@ -1217,6 +1223,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_2 {
 	waitmovement(0)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_2)
 	waitmovement(0)
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkGreet)
 	closemessage
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_2)
@@ -1235,6 +1242,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_3{
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_3)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkGreet)
 	closemessage
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_3)
@@ -1253,6 +1261,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_4 {
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_4)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkGreet)
 	closemessage
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_4)
@@ -1271,6 +1280,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_5 {
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_5)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	speakername(CommonName_TentClerk)
 	msgbox(SlateportCity_Text_BattleTentClerkGreet)
 	closemessage
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkBackToTent_5)
