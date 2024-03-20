@@ -19800,6 +19800,63 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         }),
     },
 
+    [MOVE_KICK] =
+    {
+        .name = COMPOUND_STRING("Kick"),
+        .description = COMPOUND_STRING(
+            "A kicking attack that\n"
+            "that damages the enemy."),
+        .effect = EFFECT_HIT,
+        .power = 35,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 40,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+    },
+
+    [MOVE_PEBBLE_SHOT] =
+    {
+        .name = COMPOUND_STRING("Pebble Shot"),
+        .description = COMPOUND_STRING(
+            "Flings a small rock\n"
+            "at the enemy."),
+        .effect = EFFECT_HIT,
+        .power = 35,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 40,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+    },
+
+    [MOVE_CRYSTAL_BARRAGE] =
+    {
+        .name = HANDLE_EXPANDED_MOVE_NAME("Gem Barrage", "Crystal Barrage"),
+        .description = sCloseCombatDescription,
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 40,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .contestEffect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_DEF_SPDEF_DOWN,
+            .self = TRUE,
+        })
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
