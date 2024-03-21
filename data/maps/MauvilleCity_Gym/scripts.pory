@@ -70,44 +70,6 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	special MauvilleGymDeactivatePuzzle
 	end
 
-MauvilleCity_Gym_EventScript_Wattson::
-	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
-	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonDefeated::
-	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_SCOTT
-	setflag FLAG_DEFEATED_MAUVILLE_GYM
-	setflag FLAG_BADGE03_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 3
-	call Common_EventScript_SetGymTrainers
-	special MauvilleGymDeactivatePuzzle
-	special DrawWholeMapView
-	playse SE_UNLOCK
-	call MauvilleCity_Gym_EventScript_GiveShockWave
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
-	release
-	end
-
 MauvilleCity_Gym_EventScript_GiveShockWave2::
 	giveitem ITEM_TM_SHOCK_WAVE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -310,9 +272,7 @@ MauvilleCity_Gym_Text_WattsonIntro:
 	.string "What's that? You say you've gotten\n"
 	.string "past all my rigged doors?\p"
 	.string "Wahahahah!\n"
-	.string "Now, that is amusing!\p"
-	.string "Then, I, WATTSON, the LEADER of\n"
-	.string "MAUVILLE GYM, shall electrify you!$"
+	.string "Now, that is amusing!$"
 
 MauvilleCity_Gym_Text_WattsonDefeat:
 	.string "Wahahahah!\n"
@@ -395,7 +355,7 @@ mapscripts MauvilleCity_Gym_MapScripts {
 	MAP_SCRIPT_ON_LOAD: MauvilleCity_Gym_OnLoad
 	MAP_SCRIPT_ON_TRANSITION: MauvilleCity_Gym_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_TEMP_0, 1 {
+		VAR_TEMP_1, 1 {
 			goto(MauvilleCity_Gym_EventScript_GymIntro)
 		}
 	]
@@ -403,7 +363,7 @@ mapscripts MauvilleCity_Gym_MapScripts {
 
 script MauvilleCity_Gym_OnTransition {
 	if (!flag(FLAG_DONE_MAUVILLE_GYM_INTRO)) {
-		setvar(VAR_TEMP_0, 1)
+		setvar(VAR_TEMP_1, 1)
 	}
 	else {
 	}
@@ -416,10 +376,22 @@ script MauvilleCity_Gym_EventScript_GymIntro {
 	speakername(CommonName_GymGuide)
 	msgbox(format("Yo, how's it going?\p"
 		"You look like this is your first time here, am I right?\p"
-		"Haha, no need to be so anxious, I'm here to tell you exactly what to expect!\p"
-		"See those electric doors?\p"
-		"You can turn them on or off by stepping on those switches on the floor!\p"
-		"Once you solve the puzzle, the real challenge starts!\p"
+		"Haha, no need to be so anxious, I'm here to tell you exactly what to expect!"))
+	closemessage
+	turnobject(LOCALID_GYM_GUIDE, DIR_NORTH)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, SkyPillar_Top_Movement_CameraPanUp)
+	waitmovement(0)
+	speakername(CommonName_GymGuide)
+	msgbox(format("See those electric doors?\p"
+		"You can turn them on or off by stepping on those switches on the floor!"))
+	closemessage
+	applymovement(OBJ_EVENT_ID_CAMERA, SkyPillar_Top_Movement_CameraPanDown)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	turnobject(LOCALID_GYM_GUIDE, DIR_SOUTH)
+	speakername(CommonName_GymGuide)
+	msgbox(format("Once you solve the puzzle, the real challenge starts!\p"
 		"Wattson, the Gym Leader, is a user of Electric-type Pokémon.\p"
 		"If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
 		"Oh, and before the fight, you'll be asked to pick up to three Pokémon to fight with.\p"
@@ -428,7 +400,7 @@ script MauvilleCity_Gym_EventScript_GymIntro {
 	closemessage
 	applymovement(LOCALID_GYM_GUIDE, MauvilleCity_Gym_Movement_GymGuideWalkBack)
 	waitmovement(0)
-	setvar(VAR_TEMP_0, 0)
+	setvar(VAR_TEMP_1, 0)
 	setflag(FLAG_DONE_MAUVILLE_GYM_INTRO)
 	release
 	end
@@ -442,12 +414,113 @@ script MauvilleCity_Gym_EventScript_GymGuide {
 		msgbox(format("Whoa, you're electrifying! You've powered the door open!"))
 	}
 	else {
-		msgbox(format("The puzzle is tricky, no?\pYou can turn the electric doors on and off by stepping on those switches on the floor!"))
+		msgbox(format("Wattson, the Gym Leader, is a user of Electric-type Pokémon.\p"
+		"If you challenge him with Flying- or Water-type Pokémon, he'll zap them! Bzzt!\p"
+		"Good luck, challenger!"))
 	}
 	closemessage
 	release
 	end
 }
+
+script MauvilleCity_Gym_EventScript_Wattson {
+	lock
+	faceplayer
+	speakername(CommonName_Wattson)
+	msgbox(MauvilleCity_Gym_Text_WattsonIntro)
+	special(SavePlayerParty)
+	getpartysize
+	if (var(VAR_RESULT) <= 3) {
+		special(SetHalfPartyForBattle)
+		goto(MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty)
+	}
+	else {
+		speakername(CommonName_Wattson)
+		msgbox(format("Then go ahead and choose your team of three!"))
+		fadescreen(FADE_TO_BLACK)
+		special(ChooseHalfPartyForBattle)
+		waitstate
+		if (var(VAR_RESULT) != 0) {
+			goto(MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty)
+		}
+		special(LoadPlayerParty)
+		release
+		end
+	}
+}
+
+script MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty {
+	lock
+	special(ReducePlayerPartyToSelectedMons)
+	getpartysize
+	if (var(VAR_RESULT) < 3) {
+		speakername(CommonName_Wattson)
+		msgbox(format("Wahaha! You got guts, going into your first gym battle with a handicap!\p"
+		"Are you sure you want to face me with less than three Pokémon?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			goto(MauvilleCity_Gym_EventScript_WattsonGymBattle) 
+		}
+		else {
+			special(LoadPlayerParty)
+			release
+			end
+		}
+	}
+	else {
+		goto(MauvilleCity_Gym_EventScript_WattsonGymBattle)
+	}
+}
+
+script MauvilleCity_Gym_EventScript_WattsonGymBattle {
+	lock
+	if (!defeated(TRAINER_WATTSON_1)) {
+		setflag(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE)
+		trainerbattle_single(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonLetsGetStarted, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonAfterBattle, NO_MUSIC)
+	}
+	specialvar(VAR_RESULT, ShouldTryRematchBattle)
+	goto_if_eq(VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch)
+	goto_if_unset(FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2)
+	goto_if_eq(VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville)
+	msgbox(MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script MauvilleCity_Gym_EventScript_WattsonAfterBattle {
+	special(LoadPlayerParty)
+	if (!defeated(TRAINER_WATTSON_1)) {
+		//lost, white out
+		special(SetCB2WhiteOut)
+		waitstate
+		end
+	}
+	//won, give badge and do stuff
+	message(MauvilleCity_Gym_Text_ReceivedDynamoBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	speakername(CommonName_Wattson)
+	msgbox(MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_DEFEATED_MAUVILLE_GYM)
+	setflag(FLAG_BADGE03_GET)
+	setvar(VAR_0x8008, 3)
+	call(Common_EventScript_SetGymTrainers)
+	special(MauvilleGymDeactivatePuzzle)
+	special(DrawWholeMapView)
+	playse(SE_UNLOCK)
+	call(MauvilleCity_Gym_EventScript_GiveShockWave)
+	closemessage
+	delay(30)
+	speakername(NULL)
+	playfanfare(MUS_REGISTER_MATCH_CALL)
+	msgbox(MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	delay(30)
+	setflag(FLAG_ENABLE_WATTSON_MATCH_CALL)
+	release
+	end
+}
+
 
 movement MauvilleCity_Gym_Movement_GymGuideApproach {
 	emote_exclamation_mark
@@ -459,4 +532,8 @@ movement MauvilleCity_Gym_Movement_GymGuideApproach {
 movement MauvilleCity_Gym_Movement_GymGuideWalkBack {
 	walk_right *3
 	face_left
+}
+
+text MauvilleCity_Gym_Text_WattsonLetsGetStarted{
+	format("Then let's get started, shall we?\pI, Wattson, the leader of Mauville Gym, shall electrify you!")
 }

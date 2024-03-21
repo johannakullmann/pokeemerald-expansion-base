@@ -67,6 +67,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/flags.h"
 
 struct CableClubPlayer
 {
@@ -1591,6 +1592,10 @@ void CB2_WhiteOut(void)
 
     if (++gMain.state >= 120)
     {
+        if (FlagGet(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE)) {
+            FlagClear(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE);
+            LoadPlayerParty();
+        }
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();

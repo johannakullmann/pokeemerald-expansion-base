@@ -24,3 +24,6 @@ CommonName_AquaGrunt:
 
 CommonName_MagmaGrunt:
 	.string "Magma Grunt$"
+
+CommonName_Wattson:
+	.string "Wattson$"

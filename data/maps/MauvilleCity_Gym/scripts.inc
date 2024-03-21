@@ -69,44 +69,6 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	special MauvilleGymDeactivatePuzzle
 	end
 
-MauvilleCity_Gym_EventScript_Wattson::
-	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
-	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonDefeated::
-	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_SCOTT
-	setflag FLAG_DEFEATED_MAUVILLE_GYM
-	setflag FLAG_BADGE03_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 3
-	call Common_EventScript_SetGymTrainers
-	special MauvilleGymDeactivatePuzzle
-	special DrawWholeMapView
-	playse SE_UNLOCK
-	call MauvilleCity_Gym_EventScript_GiveShockWave
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
-	release
-	end
-
 MauvilleCity_Gym_EventScript_GiveShockWave2::
 	giveitem ITEM_TM_SHOCK_WAVE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -309,9 +271,7 @@ MauvilleCity_Gym_Text_WattsonIntro:
 	.string "What's that? You say you've gotten\n"
 	.string "past all my rigged doors?\p"
 	.string "Wahahahah!\n"
-	.string "Now, that is amusing!\p"
-	.string "Then, I, WATTSON, the LEADER of\n"
-	.string "MAUVILLE GYM, shall electrify you!$"
+	.string "Now, that is amusing!$"
 
 MauvilleCity_Gym_Text_WattsonDefeat:
 	.string "Wahahahah!\n"
@@ -394,7 +354,7 @@ MauvilleCity_Gym_MapScripts::
 	.byte 0
 
 MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_TEMP_0, 1, MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	map_script_2 VAR_TEMP_1, 1, MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
 	.2byte 0
 
 MauvilleCity_Gym_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
@@ -407,7 +367,7 @@ MauvilleCity_Gym_OnTransition::
 	return
 
 MauvilleCity_Gym_OnTransition_1:
-	setvar VAR_TEMP_0, 1
+	setvar VAR_TEMP_1, 1
 	return
 
 
@@ -418,9 +378,23 @@ MauvilleCity_Gym_EventScript_GymIntro::
 	speakername CommonName_GymGuide
 	msgbox MauvilleCity_Gym_EventScript_GymIntro_Text_0
 	closemessage
+	turnobject 6, DIR_NORTH
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, SkyPillar_Top_Movement_CameraPanUp
+	waitmovement 0
+	speakername CommonName_GymGuide
+	msgbox MauvilleCity_Gym_EventScript_GymIntro_Text_1
+	closemessage
+	applymovement OBJ_EVENT_ID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
+	waitmovement 0
+	special RemoveCameraObject
+	turnobject 6, DIR_SOUTH
+	speakername CommonName_GymGuide
+	msgbox MauvilleCity_Gym_EventScript_GymIntro_Text_2
+	closemessage
 	applymovement 6, MauvilleCity_Gym_Movement_GymGuideWalkBack
 	waitmovement 0
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_1, 0
 	setflag FLAG_DONE_MAUVILLE_GYM_INTRO
 	release
 	end
@@ -440,6 +414,114 @@ MauvilleCity_Gym_EventScript_GymGuide_1:
 MauvilleCity_Gym_EventScript_GymGuide_2:
 	msgbox MauvilleCity_Gym_EventScript_GymGuide_Text_0
 	goto MauvilleCity_Gym_EventScript_GymGuide_1
+
+
+MauvilleCity_Gym_EventScript_Wattson::
+	lock
+	faceplayer
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_Text_WattsonIntro
+	special SavePlayerParty
+	getpartysize
+	compare VAR_RESULT, 3
+	goto_if_le MauvilleCity_Gym_EventScript_Wattson_1
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_EventScript_Wattson_Text_0
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
+	compare VAR_RESULT, 0
+	goto_if_ne MauvilleCity_Gym_EventScript_Wattson_5
+MauvilleCity_Gym_EventScript_Wattson_4:
+	special LoadPlayerParty
+	release
+	end
+
+MauvilleCity_Gym_EventScript_Wattson_1:
+	special SetHalfPartyForBattle
+	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty
+	return
+
+MauvilleCity_Gym_EventScript_Wattson_5:
+	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty
+	goto MauvilleCity_Gym_EventScript_Wattson_4
+
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty::
+	lock
+	special ReducePlayerPartyToSelectedMons
+	getpartysize
+	compare VAR_RESULT, 3
+	goto_if_lt MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_1
+	goto MauvilleCity_Gym_EventScript_WattsonGymBattle
+	return
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_1:
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_4
+	special LoadPlayerParty
+	release
+	end
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_4:
+	goto MauvilleCity_Gym_EventScript_WattsonGymBattle
+	return
+
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle::
+	lock
+	checktrainerflag TRAINER_WATTSON_1
+	goto_if 0, MauvilleCity_Gym_EventScript_WattsonGymBattle_2
+MauvilleCity_Gym_EventScript_WattsonGymBattle_1:
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
+	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
+	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle_2:
+	setflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
+	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonLetsGetStarted, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonAfterBattle, NO_MUSIC
+	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_1
+
+
+MauvilleCity_Gym_EventScript_WattsonAfterBattle::
+	special LoadPlayerParty
+	checktrainerflag TRAINER_WATTSON_1
+	goto_if 0, MauvilleCity_Gym_EventScript_WattsonAfterBattle_2
+	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_MAUVILLE_GYM
+	setflag FLAG_BADGE03_GET
+	setvar VAR_0x8008, 3
+	call Common_EventScript_SetGymTrainers
+	special MauvilleGymDeactivatePuzzle
+	special DrawWholeMapView
+	playse SE_UNLOCK
+	call MauvilleCity_Gym_EventScript_GiveShockWave
+	closemessage
+	delay 30
+	speakername NULL
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
+	release
+	end
+
+MauvilleCity_Gym_EventScript_WattsonAfterBattle_2:
+	special SetCB2WhiteOut
+	waitstate
+	end
 
 
 MauvilleCity_Gym_Movement_GymGuideApproach:
@@ -466,10 +548,14 @@ MauvilleCity_Gym_EventScript_GymIntro_Text_0:
 	.string "You look like this is your first time\n"
 	.string "here, am I right?\p"
 	.string "Haha, no need to be so anxious, I'm here\n"
-	.string "to tell you exactly what to expect!\p"
+	.string "to tell you exactly what to expect!$"
+
+MauvilleCity_Gym_EventScript_GymIntro_Text_1:
 	.string "See those electric doors?\p"
 	.string "You can turn them on or off by stepping\n"
-	.string "on those switches on the floor!\p"
+	.string "on those switches on the floor!$"
+
+MauvilleCity_Gym_EventScript_GymIntro_Text_2:
 	.string "Once you solve the puzzle, the real\n"
 	.string "challenge starts!\p"
 	.string "Wattson, the Gym Leader, is a user of\n"
@@ -490,7 +576,24 @@ MauvilleCity_Gym_EventScript_GymGuide_Text_0:
 	.string "powered the door open!$"
 
 MauvilleCity_Gym_EventScript_GymGuide_Text_1:
-	.string "The puzzle is tricky, no?\p"
-	.string "You can turn the electric doors on and\n"
-	.string "off by stepping on those switches on\l"
-	.string "the floor!$"
+	.string "Wattson, the Gym Leader, is a user of\n"
+	.string "Electric-type Pokémon.\p"
+	.string "If you challenge him with Flying- or\n"
+	.string "Water-type Pokémon, he'll zap them!\l"
+	.string "Bzzt!\p"
+	.string "Good luck, challenger!$"
+
+MauvilleCity_Gym_EventScript_Wattson_Text_0:
+	.string "Then go ahead and choose your team of\n"
+	.string "three!$"
+
+MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_Text_0:
+	.string "Wahaha! You got guts, going into your\n"
+	.string "first gym battle with a handicap!\p"
+	.string "Are you sure you want to face me with\n"
+	.string "less than three Pokémon?$"
+
+MauvilleCity_Gym_Text_WattsonLetsGetStarted::
+	.string "Then let's get started, shall we?\p"
+	.string "I, Wattson, the leader of Mauville Gym,\n"
+	.string "shall electrify you!$"

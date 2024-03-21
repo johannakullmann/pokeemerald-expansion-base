@@ -710,12 +710,15 @@ MauvilleCity_EventScript_RuthScene::
 	return
 
 MauvilleCity_EventScript_RuthScene_1:
-	setobjectxyperm 10, 14, 8
+	setobjectxyperm 10, 14, 6
+	addobject 10
 	goto MauvilleCity_EventScript_RuthScene_Center
 	return
 
 MauvilleCity_EventScript_RuthScene_2:
-	setobjectxyperm 10, 16, 8
+	removeobject 10
+	setobjectxyperm 10, 16, 6
+	addobject 10
 	goto MauvilleCity_EventScript_RuthScene_Gym
 	return
 
@@ -772,10 +775,11 @@ MauvilleCity_Movement_RuthWalkToGym1:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
 	step_end
 
 MauvilleCity_Movement_RuthWalkToGym2:
+	walk_fast_left
+	walk_fast_down
 	walk_fast_left
 	walk_fast_left
 	walk_fast_left
@@ -784,6 +788,7 @@ MauvilleCity_Movement_RuthWalkToGym2:
 	step_end
 
 MauvilleCity_Movement_RuthLeaveFromGym:
+	walk_fast_down
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
