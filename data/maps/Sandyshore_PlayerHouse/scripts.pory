@@ -33,16 +33,16 @@ mapscripts Sandyshore_PlayerHouse_MapScripts {
 script Sandyshore_Playerhouse_EventScript_MomPleaseSetClock {
     lockall
     delay(10)
-    turnobject(LOCALID_MOM, DIR_WEST)
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
     speakername(CommonName_Mom)
     msgbox(format("Are you going out, dear?\p…\pI see, you're meeting up with Ruth.\pBefore you go, could you please set the new clock correctly?\p"
             "It's right there on the wall next to the stairs."))
     closemessage
     turnobject(LOCALID_MOM, DIR_NORTH)
     applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
     setvar(VAR_LITTLEROOT_INTRO_STATE, 2)
 	releaseall
 	end
@@ -149,10 +149,9 @@ script Sandyshore_Playerhouse_EventScript_Mom {
 script Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes {
     lockall
     delay(20)
-    turnobject(LOCALID_MOM, DIR_WEST)
-    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceFasterLeft)
+    applymovement(LOCALID_MOM, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
     speakername(CommonName_Mom)
     msgbox(format("Oh! Before I forget!"))
     closemessage

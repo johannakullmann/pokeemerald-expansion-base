@@ -58,21 +58,19 @@ script Route135_EventScript_CatchTutorialMain {
     waitmovement(0)
     speakername(CommonName_Ruth)
     msgbox(format("See? It's not hard at all!\pHere, you should try it yourself!"))
-    closemessage
+    speakername(NULL)
     giveitem(ITEM_POKE_BALL, 3)
     speakername(CommonName_Ruth)
     msgbox(format("The more you weaken a Pokémon, the easier it is to catch.\pInflicting a status condition will also increase your chances!\p"
-            "If you don't want to catch a Pokémon, you can defeat it instead.\pThat way your own Pokémon can earn battle experience!"))
+            "If you don't want to catch it, you can defeat it instead.\pThat way your own Pokémon can earn battle experience!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
     speakername(CommonName_Ruth)
     msgbox(format("Since I gave my three last balls to you, I'll go to the mart in Pacifidlog Town and buy new ones.\p"
                 "I wouldn't want to have to pass on a rare Pokémon just because I forgot to buy Poké Balls!"))
-    closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
-    speakername(CommonName_Ruth)
     if (!flag(FLAG_SHOWED_STARTER_TO_MOM)) {
         msgbox(format("You should meet me there, and try to get the hang of battling on the way!\p"
                     "But before you go, why don't you show your new Pokémon to your mom?\p"
@@ -98,10 +96,13 @@ script Route135_EventScript_RockSmashGuy {
     speakername("Makoto")
     if (!flag(TEMP_FLAG_ROCK_DESTROYED)) {
         msgbox(format("Rocks like these are breakable! Watch!"))
+        closemessage
         applymovement(LOCALID_ROCK_SMASH_GUY, Common_Movement_WalkInPlaceDown)
         waitmovement(0)
+        delay(20)
         applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
         playse(SE_M_ROCK_THROW)
+        speakername("Makoto")
         msgbox("HIYA!")
         waitmovement(0)
         waitse
@@ -200,7 +201,7 @@ script Route135_EventScript_Boy1 {
 
 script Route135_EventScript_Lia {
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
-            format("I'll battle you together with my sister!"), 
+            format("We'll battle you together!"), 
             format("Uh-oh, we lost."), 
             format("If you have two Pokémon, you can try to beat us!\pBut don't cry if you lose!"))
     speakername("Lia")
@@ -210,7 +211,7 @@ script Route135_EventScript_Lia {
 
 script Route135_EventScript_Ali{
 	trainerbattle_double(TRAINER_EMI_AND_LIA, 
-            format("Let's go, Lia!"), 
+            format("We'll battle you together!"), 
             format("Aw."), 
             format("Oh, you only have one Pokémon! You can't battle us like that!"))
     speakername("Emi")

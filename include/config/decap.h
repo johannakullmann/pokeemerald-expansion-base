@@ -11,7 +11,7 @@ Exceptions:
 - ASM strings that use `.fixstr`
 - If mirroring enabled, string addresses passed through MirrorPtr
 */
-#define DECAP_ENABLED FALSE
+#define DECAP_ENABLED TRUE
 // Enables signaling that a string's case should be preserved
 // by *mirroring* its address: i.e 08xxxxxx to 0Axxxxxx
 // Unless you are targeting a different platform than the GBA,
@@ -28,7 +28,7 @@ Exceptions:
 #define DECAP_PARTY_MENU    TRUE // Party menu text.
 #define DECAP_MAP_NAMES     TRUE // Map and location names.
 #define DECAP_EASY_CHAT     TRUE // Easy Chat words and interface.
-#define DECAP_FIELD_MSG     TRUE // Field messages (including scripts!).
+#define DECAP_FIELD_MSG     FALSE // Field messages (including scripts!).
 #define DECAP_SUMMARY       TRUE // Summary interface text.
 #define DECAP_ITEM_NAMES    TRUE // Item names (obtained via ItemId_GetName).
 

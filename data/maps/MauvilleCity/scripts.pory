@@ -713,38 +713,20 @@ script MauvilleCity_EventScript_RuthScene_Gym {
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToGym1)
 	waitmovement(0)
 	speakername(CommonName_Ruth)
-	msgbox(MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE)
+	msgbox(format("{PLAYER}! {PLAYER}!"), MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToGym2)
 	waitmovement(0)
 	speakername(CommonName_Ruth)
-	msgbox(MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE)
+	msgbox(format("Look what I caught!\p"
+		"I fished up tons and tons of Magikarp and some Goldeen, but then-\p"
+		"Wait...\p"
+		"Is that the Dynamo Badge?!\p"
+		"Argh, I was so preoccupied with fishing, and now you are already so far ahead.\p"
+		"{PLAYER}, I'll definitely beat you to Lavaridge Town's gym!\p"
+		"I can't waste any more time! Time to go train!"), MSGBOX_AUTOCLOSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthLeaveFromGym)
 	delay(32)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-	waitmovement(0)
-	setflag(FLAG_TEMP_DISABLE_RUTH)
-	setflag(FLAG_MET_RUTH_MAUVILLE)
-	setvar(VAR_TEMP_0, 0)
-	removeobject(LOCALID_RUTH)
-	fadedefaultbgm
-	release
-	end
-}
-
-script MauvilleCity_EventScript_RuthScene_Center {
-	lock
-	playbgm(MUS_ENCOUNTER_MAY, FALSE)
-	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToCenter1)
-	waitmovement(0)
-	speakername(CommonName_Ruth)
-	msgbox(MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE)
-	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToCenter2)
-	waitmovement(0)
-	speakername(CommonName_Ruth)
-	msgbox(MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE)
-	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthLeaveFromCenter)
-	delay(32)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
 	waitmovement(0)
 	setflag(FLAG_TEMP_DISABLE_RUTH)
 	setflag(FLAG_MET_RUTH_MAUVILLE)

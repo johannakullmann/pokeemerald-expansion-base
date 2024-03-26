@@ -122,7 +122,6 @@ script PacifidlogTown_EventScript_MeetRuth {
 	msgbox(format("You got here faster than I expected!\pHow did you manage? Were you able to catch some Pokémon?"))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
-	speakername(CommonName_Ruth)
 	msgbox(format("If you run out of Pokéballs, you can buy more at the mart here.\pThey also sell potions and some other useful items!"))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
 	setvar(VAR_PACIFIDLOG_TOWN_STATE, 1)
@@ -156,6 +155,7 @@ script PacifidlogTown_EventScript_Ruth {
 			goto(PacifidlogTown_EventScript_RuthBoatScene)
 		case 3:
 			faceplayer
+			speakername(CommonName_Ruth)
 			msgbox(format("Are you ready to leave?"), MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
 				msgbox(format("Perfect, let's go!"))
@@ -213,17 +213,6 @@ script PacifidlogTown_EventScript_AfterRuthBattle {
 				"I think you have a knack for this, {PLAYER}."))
 	closemessage
 	delay(10)
-	switch (var(VAR_TEMP_1)) {
-        case DIR_NORTH:
-			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
-        case DIR_EAST:
-			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
-        case DIR_WEST:
-			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-        case DIR_SOUTH:
-			applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
-    }
-	waitmovement(0)
 	speakername(CommonName_Ruth)
 	msgbox(format("You know what?\pWe'll make this a challenge!\pWe fight the gym leaders and see who can collect the most badges!\p"
 			"I think I know just the right person to get us to the mainland too."))
@@ -237,8 +226,6 @@ script PacifidlogTown_EventScript_AfterRuthBattle {
 			applymovement(LOCALID_RUTH, PacifidlogTown_Movement_RuthLeaveForBoat2)
     }
 	waitmovement(0)
-	if (flag(FLAG_TEMP_1)) {
-	}
 	setvar(VAR_PACIFIDLOG_TOWN_STATE, 2)
 	setflag(FLAG_DEFEATED_RIVAL_1)
 	setobjectxyperm(LOCALID_RUTH, 36, 30)

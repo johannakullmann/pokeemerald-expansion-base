@@ -755,10 +755,6 @@ Route110_Text_HeardYouInstallMatchCall:
 	.string "I can rate your POKéDEX anytime.\p"
 	.string "… … … … … …$"
 
-Route110_Text_RegisteredBirchInPokenav:
-	.string "Registered PROF. BIRCH\n"
-	.string "in the POKéNAV.$"
-
 Route110_Text_KeepAnEyeOutForRival:
 	.string "PROF. BIRCH: {PLAYER}{KUN}…\p"
 	.string "Please keep an eye out for my {RIVAL}.\n"
@@ -1663,3 +1659,7 @@ Route110_Text_FineHavePackageBack::
 
 Route110_Text_HereYouGetOneToo::
 	.string "Here, you get one too!$"
+
+Route110_Text_RegisteredBirchInPokenav::
+	.string "Registered Prof. Birch\n"
+	.string "in the PokéNav.$"

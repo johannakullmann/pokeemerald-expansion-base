@@ -119,7 +119,6 @@ PacifidlogTown_EventScript_MeetRuth::
 	msgbox PacifidlogTown_EventScript_MeetRuth_Text_1
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_MeetRuth_Text_2
 	applymovement 8, Common_Movement_WalkInPlaceDown
 	setvar VAR_PACIFIDLOG_TOWN_STATE, 1
@@ -165,6 +164,7 @@ PacifidlogTown_EventScript_Ruth_4:
 
 PacifidlogTown_EventScript_Ruth_5:
 	faceplayer
+	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_Ruth_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq PacifidlogTown_EventScript_Ruth_8
@@ -227,25 +227,16 @@ PacifidlogTown_EventScript_AfterRuthBattle_5:
 	msgbox PacifidlogTown_EventScript_AfterRuthBattle_Text_1
 	closemessage
 	delay 10
-	switch VAR_TEMP_1
-	case DIR_NORTH, PacifidlogTown_EventScript_AfterRuthBattle_13
-	case DIR_EAST, PacifidlogTown_EventScript_AfterRuthBattle_14
-	case DIR_WEST, PacifidlogTown_EventScript_AfterRuthBattle_15
-	case DIR_SOUTH, PacifidlogTown_EventScript_AfterRuthBattle_16
-PacifidlogTown_EventScript_AfterRuthBattle_11:
-	waitmovement 0
 	speakername CommonName_Ruth
 	msgbox PacifidlogTown_EventScript_AfterRuthBattle_Text_2
 	closemessage
 	switch VAR_TEMP_1
-	case DIR_NORTH, PacifidlogTown_EventScript_AfterRuthBattle_19
-	case DIR_SOUTH, PacifidlogTown_EventScript_AfterRuthBattle_19
-	case DIR_WEST, PacifidlogTown_EventScript_AfterRuthBattle_19
-	case DIR_EAST, PacifidlogTown_EventScript_AfterRuthBattle_20
-PacifidlogTown_EventScript_AfterRuthBattle_17:
+	case DIR_NORTH, PacifidlogTown_EventScript_AfterRuthBattle_13
+	case DIR_SOUTH, PacifidlogTown_EventScript_AfterRuthBattle_13
+	case DIR_WEST, PacifidlogTown_EventScript_AfterRuthBattle_13
+	case DIR_EAST, PacifidlogTown_EventScript_AfterRuthBattle_14
+PacifidlogTown_EventScript_AfterRuthBattle_11:
 	waitmovement 0
-	goto_if_set FLAG_TEMP_1, PacifidlogTown_EventScript_AfterRuthBattle_22
-PacifidlogTown_EventScript_AfterRuthBattle_21:
 	setvar VAR_PACIFIDLOG_TOWN_STATE, 2
 	setflag FLAG_DEFEATED_RIVAL_1
 	setobjectxyperm 8, 36, 30
@@ -280,31 +271,12 @@ PacifidlogTown_EventScript_AfterRuthBattle_10:
 	goto PacifidlogTown_EventScript_AfterRuthBattle_5
 
 PacifidlogTown_EventScript_AfterRuthBattle_13:
-	applymovement 8, Common_Movement_WalkInPlaceDown
+	applymovement 8, PacifidlogTown_Movement_RuthLeaveForBoat
 	goto PacifidlogTown_EventScript_AfterRuthBattle_11
 
 PacifidlogTown_EventScript_AfterRuthBattle_14:
-	applymovement 8, Common_Movement_WalkInPlaceLeft
-	goto PacifidlogTown_EventScript_AfterRuthBattle_11
-
-PacifidlogTown_EventScript_AfterRuthBattle_15:
-	applymovement 8, Common_Movement_WalkInPlaceRight
-	goto PacifidlogTown_EventScript_AfterRuthBattle_11
-
-PacifidlogTown_EventScript_AfterRuthBattle_16:
-	applymovement 8, Common_Movement_WalkInPlaceUp
-	goto PacifidlogTown_EventScript_AfterRuthBattle_11
-
-PacifidlogTown_EventScript_AfterRuthBattle_19:
-	applymovement 8, PacifidlogTown_Movement_RuthLeaveForBoat
-	goto PacifidlogTown_EventScript_AfterRuthBattle_17
-
-PacifidlogTown_EventScript_AfterRuthBattle_20:
 	applymovement 8, PacifidlogTown_Movement_RuthLeaveForBoat2
-	goto PacifidlogTown_EventScript_AfterRuthBattle_17
-
-PacifidlogTown_EventScript_AfterRuthBattle_22:
-	goto PacifidlogTown_EventScript_AfterRuthBattle_21
+	goto PacifidlogTown_EventScript_AfterRuthBattle_11
 
 
 PacifidlogTown_EventScript_RuthBoatScene::

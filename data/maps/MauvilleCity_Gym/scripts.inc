@@ -69,21 +69,6 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	special MauvilleGymDeactivatePuzzle
 	end
 
-MauvilleCity_Gym_EventScript_GiveShockWave2::
-	giveitem ITEM_TM_SHOCK_WAVE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GiveShockWave::
-	giveitem ITEM_TM_SHOCK_WAVE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
-	return
-
 MauvilleCity_Gym_EventScript_CompletedNewMauville::
 	msgbox MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor, MSGBOX_DEFAULT
 	release
@@ -273,38 +258,6 @@ MauvilleCity_Gym_Text_WattsonIntro:
 	.string "Wahahahah!\n"
 	.string "Now, that is amusing!$"
 
-MauvilleCity_Gym_Text_WattsonDefeat:
-	.string "Wahahahah!\n"
-	.string "Fine, I lost!\p"
-	.string "You ended up giving me a thrill!\n"
-	.string "Take this BADGE!$"
-
-MauvilleCity_Gym_Text_ReceivedDynamoBadge:
-	.string "{PLAYER} received the DYNAMO BADGE\n"
-	.string "from WATTSON.$"
-
-MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis:
-	.string "With the DYNAMO BADGE, POKéMON can\n"
-	.string "use ROCK SMASH out of battle.\p"
-	.string "And, it will make your POKéMON a little\n"
-	.string "bit faster, too.\p"
-	.string "Hmm…\n"
-	.string "You should take this, too!$"
-
-MauvilleCity_Gym_Text_ExplainShockWave:
-	.string "That TM34 there contains SHOCK WAVE.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
-	.string "… … … … … …$"
-
-MauvilleCity_Gym_Text_RegisteredWattson:
-	.string "Registered GYM LEADER WATTSON\n"
-	.string "in the POKéNAV.$"
-
-MauvilleCity_Gym_Text_WattsonPostBattle:
-	.string "I swell with optimism, seeing a promising\n"
-	.string "young TRAINER like you!$"
-
 MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor:
 	.string "Wahahahah!\n"
 	.string "Go forth and endeavor, youngster!$"
@@ -419,32 +372,43 @@ MauvilleCity_Gym_EventScript_GymGuide_2:
 MauvilleCity_Gym_EventScript_Wattson::
 	lock
 	faceplayer
+	checktrainerflag TRAINER_WATTSON_1
+	goto_if 0, MauvilleCity_Gym_EventScript_Wattson_2
+MauvilleCity_Gym_EventScript_Wattson_1:
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
+	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+MauvilleCity_Gym_EventScript_Wattson_2:
 	speakername CommonName_Wattson
 	msgbox MauvilleCity_Gym_Text_WattsonIntro
 	special SavePlayerParty
 	getpartysize
 	compare VAR_RESULT, 3
-	goto_if_le MauvilleCity_Gym_EventScript_Wattson_1
+	goto_if_le MauvilleCity_Gym_EventScript_Wattson_4
 	speakername CommonName_Wattson
 	msgbox MauvilleCity_Gym_EventScript_Wattson_Text_0
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
 	compare VAR_RESULT, 0
-	goto_if_ne MauvilleCity_Gym_EventScript_Wattson_5
-MauvilleCity_Gym_EventScript_Wattson_4:
+	goto_if_ne MauvilleCity_Gym_EventScript_Wattson_8
+MauvilleCity_Gym_EventScript_Wattson_7:
 	special LoadPlayerParty
 	release
 	end
 
-MauvilleCity_Gym_EventScript_Wattson_1:
+MauvilleCity_Gym_EventScript_Wattson_4:
 	special SetHalfPartyForBattle
 	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty
-	return
+	goto MauvilleCity_Gym_EventScript_Wattson_1
 
-MauvilleCity_Gym_EventScript_Wattson_5:
+MauvilleCity_Gym_EventScript_Wattson_8:
 	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty
-	goto MauvilleCity_Gym_EventScript_Wattson_4
+	goto MauvilleCity_Gym_EventScript_Wattson_7
 
 
 MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty::
@@ -471,33 +435,18 @@ MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_4:
 
 
 MauvilleCity_Gym_EventScript_WattsonGymBattle::
-	lock
-	checktrainerflag TRAINER_WATTSON_1
-	goto_if 0, MauvilleCity_Gym_EventScript_WattsonGymBattle_2
-MauvilleCity_Gym_EventScript_WattsonGymBattle_1:
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
-	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonGymBattle_2:
 	setflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
 	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonLetsGetStarted, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonAfterBattle, NO_MUSIC
-	goto MauvilleCity_Gym_EventScript_WattsonGymBattle_1
+	return
 
 
 MauvilleCity_Gym_EventScript_WattsonAfterBattle::
+	lock
 	special LoadPlayerParty
-	checktrainerflag TRAINER_WATTSON_1
-	goto_if 0, MauvilleCity_Gym_EventScript_WattsonAfterBattle_2
-	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
+	clearflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
+	message MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	speakername CommonName_Wattson
-	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_MAUVILLE_GYM
 	setflag FLAG_BADGE03_GET
 	setvar VAR_0x8008, 3
@@ -505,22 +454,22 @@ MauvilleCity_Gym_EventScript_WattsonAfterBattle::
 	special MauvilleGymDeactivatePuzzle
 	special DrawWholeMapView
 	playse SE_UNLOCK
-	call MauvilleCity_Gym_EventScript_GiveShockWave
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_1, MSGBOX_DEFAULT
+	speakername NULL
+	giveitem ITEM_TM_SHOCK_WAVE
+	speakername CommonName_Wattson
+	msgbox MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_2, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	speakername NULL
 	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_3, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
 	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonAfterBattle_2:
-	special SetCB2WhiteOut
-	waitstate
 	end
 
 
@@ -593,7 +542,32 @@ MauvilleCity_Gym_EventScript_WattsonGymBattle_CheckConfirmSmallParty_Text_0:
 	.string "Are you sure you want to face me with\n"
 	.string "less than three Pokémon?$"
 
+MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_0:
+	.string "{PLAYER} received the Dynamo Badge\nfrom Wattson.$"
+
+MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_1:
+	.string "Hmm…\nYou should take this, too!$"
+
+MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_2:
+	.string "That TM34 there contains Shock Wave.\p"
+	.string "It's a trustworthy move that never\n"
+	.string "misses! You can count on it!\p"
+	.string "… … … … … …$"
+
+MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_3:
+	.string "Registered Gym Leader Wattson\nin the PokéNav.$"
+
 MauvilleCity_Gym_Text_WattsonLetsGetStarted::
 	.string "Then let's get started, shall we?\p"
 	.string "I, Wattson, the leader of Mauville Gym,\n"
 	.string "shall electrify you!$"
+
+MauvilleCity_Gym_Text_WattsonDefeat::
+	.string "Wahahahah!\n"
+	.string "Fine, I lost!\p"
+	.string "You ended up giving me a thrill!\n"
+	.string "Take this Badge!$"
+
+MauvilleCity_Gym_Text_WattsonPostBattle::
+	.string "I swell with optimism, seeing a promising\n"
+	.string "young trainer like you!$"
