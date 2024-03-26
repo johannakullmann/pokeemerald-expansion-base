@@ -435,6 +435,7 @@ EventScript_ClosedLavaridgeGymDoor_2:
 LavaridgeTown_EventScript_Ruth::
 	lock
 	faceplayer
+	speakername CommonName_Ruth
 	compare VAR_LAVARIDGE_TOWN_STATE, 0
 	goto_if_eq LavaridgeTown_EventScript_Ruth_2
 	compare VAR_LAVARIDGE_TOWN_STATE, 1
@@ -470,7 +471,9 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene::
 	applymovement 8, LavaridgeTown_Movement_FlanneryApproachGym
 	waitmovement 0
 	applymovement 9, LavaridgeTown_Movement_RuthNoticeFlannery
+	playse SE_PIN
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_0
 	closemessage
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
@@ -481,17 +484,21 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene::
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_1:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_1
 	closemessage
 	applymovement 8, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Flannery
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_2
 	closemessage
 	applymovement 9, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_3
 	applymovement 9, Common_Movement_WalkInPlaceLeft
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_4
+	closemessage
 	compare VAR_0x8008, 5
 	goto_if_eq LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_6
 	compare VAR_0x8008, 4
@@ -500,24 +507,30 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_1:
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_5:
 	waitmovement 0
 	turnobject 9, DIR_SOUTH
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_5
 	closemessage
 	applymovement 8, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 9, DIR_EAST
+	speakername CommonName_Flannery
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_6
 	closemessage
 	applymovement 9, Common_Movement_WalkInPlaceRight
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_7
 	closemessage
 	applymovement 8, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
+	speakername CommonName_Flannery
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_8
 	turnobject 8, DIR_EAST
-	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_9, MSGBOX_AUTOCLOSE
+	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_9
+	closemessage
 	applymovement 8, LavaridgeTown_Movement_FlanneryLeave_1
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_10, MSGBOX_AUTOCLOSE
 	applymovement 8, LavaridgeTown_Movement_FlanneryLeave_2
 	waitmovement 0
@@ -527,8 +540,9 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_5:
 	delay 30
 	applymovement 9, Common_Movement_WalkInPlaceRight
 	waitmovement 0
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_11
-	applymovement 9, Common_Movement_WalkInPlaceUp
+	applymovement 9, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_12
@@ -573,6 +587,7 @@ LavaridgeTown_EventScript_RuthBattle_5:
 
 LavaridgeTown_EventScript_AfterRuthBattle::
 	lock
+	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_AfterRuthBattle_Text_0, MSGBOX_AUTOCLOSE
 	getplayerxy VAR_0x8008, VAR_0x8009
 	compare VAR_0x8008, 5
@@ -614,8 +629,6 @@ LavaridgeTown_Movement_FlanneryApproachPlayer:
 
 LavaridgeTown_Movement_FlanneryLeave_1:
 	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_up
 	walk_up
 	delay_16
@@ -640,16 +653,16 @@ LavaridgeTown_Movement_RuthNoticeFlannery:
 	step_end
 
 LavaridgeTown_Movement_RuthApproachFlannery_1:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	step_end
-
-LavaridgeTown_Movement_RuthApproachFlannery_2:
 	walk_fast_down
 	walk_fast_right
 	walk_fast_right
 	walk_fast_up
+	walk_fast_right
+	step_end
+
+LavaridgeTown_Movement_RuthApproachFlannery_2:
+	walk_fast_right
+	walk_fast_right
 	walk_fast_right
 	step_end
 
@@ -706,12 +719,12 @@ EventScript_ClosedLavaridgeGymDoor_Text_0:
 	.string "The door is closed.$"
 
 EventScript_ClosedLavaridgeGymDoor_Text_1:
-	.string "Hey, {PLAYER}...\p"
+	.string "Hey, {PLAYER}…\p"
 	.string "Looks like we can't challenge the\n"
 	.string "Fire-type gym yet, the door's closed.$"
 
 LavaridgeTown_EventScript_Ruth_Text_0:
-	.string "The gym leader hasn't come back yet...\n"
+	.string "The gym leader hasn't come back yet…\n"
 	.string "How about we have a go at it again?$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_0:
@@ -762,15 +775,15 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_9:
 	.string "Mt. Chimney!$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_10:
-	.string "Oh, yes. {PLAYER}, Ruth... Why don't\n"
-	.string "you two check the hot springs until we\l"
-	.string "got that thing sorted?$"
+	.string "Oh, yes. {PLAYER}, Ruth… Why don't you\n"
+	.string "two check the hot springs until we got\l"
+	.string "that thing sorted?$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_11:
-	.string "There she goes...$"
+	.string "There she goes…$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_12:
-	.string "... I don't feel like lazing around in the\n"
+	.string "… I don't feel like lazing around in the\n"
 	.string "hot springs.\p"
 	.string "{PLAYER}, care for a quick battle to\n"
 	.string "pass the time?$"
@@ -782,7 +795,7 @@ LavaridgeTown_EventScript_AfterRuthBattle_Text_0:
 	.string "little bit more to win against you!\p"
 	.string "I am confident in my abilities to beat\n"
 	.string "the gym leader, though.\p"
-	.string "...\p"
+	.string "…\p"
 	.string "I don't feel like waiting here until\n"
 	.string "they're done. {PLAYER}, let's go look\l"
 	.string "for them!\p"

@@ -667,7 +667,7 @@ MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 MauvilleCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
-	call MauvilleCity_EventScript_RuthScene
+	call MauvilleCity_EventScript_RuthScene_Gym
 	return
 
 
@@ -701,66 +701,23 @@ MauvilleCity_OnTransition_5:
 	goto MauvilleCity_OnTransition_4
 
 
-MauvilleCity_EventScript_RuthScene::
-	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 22
-	goto_if_eq MauvilleCity_EventScript_RuthScene_1
-	compare VAR_TEMP_1, 8
-	goto_if_eq MauvilleCity_EventScript_RuthScene_2
-	return
-
-MauvilleCity_EventScript_RuthScene_1:
-	setobjectxyperm 10, 14, 6
-	addobject 10
-	goto MauvilleCity_EventScript_RuthScene_Center
-	return
-
-MauvilleCity_EventScript_RuthScene_2:
+MauvilleCity_EventScript_RuthScene_Gym::
 	removeobject 10
 	setobjectxyperm 10, 16, 6
 	addobject 10
-	goto MauvilleCity_EventScript_RuthScene_Gym
-	return
-
-
-MauvilleCity_EventScript_RuthScene_Gym::
 	lock
 	playbgm MUS_ENCOUNTER_MAY, FALSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToGym1
 	waitmovement 0
 	speakername CommonName_Ruth
-	msgbox MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE
+	msgbox MauvilleCity_EventScript_RuthScene_Gym_Text_0, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthWalkToGym2
 	waitmovement 0
 	speakername CommonName_Ruth
-	msgbox MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE
+	msgbox MauvilleCity_EventScript_RuthScene_Gym_Text_1, MSGBOX_AUTOCLOSE
 	applymovement 10, MauvilleCity_Movement_RuthLeaveFromGym
 	delay 32
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	waitmovement 0
-	setflag VAR_TEMP_9
-	setflag FLAG_MET_RUTH_MAUVILLE
-	setvar VAR_TEMP_0, 0
-	removeobject 10
-	fadedefaultbgm
-	release
-	end
-
-
-MauvilleCity_EventScript_RuthScene_Center::
-	lock
-	playbgm MUS_ENCOUNTER_MAY, FALSE
-	applymovement 10, MauvilleCity_Movement_RuthWalkToCenter1
-	waitmovement 0
-	speakername CommonName_Ruth
-	msgbox MauvilleCity_Text_RuthCallPlayer, MSGBOX_AUTOCLOSE
-	applymovement 10, MauvilleCity_Movement_RuthWalkToCenter2
-	waitmovement 0
-	speakername CommonName_Ruth
-	msgbox MauvilleCity_Text_RuthNoticeBadge, MSGBOX_AUTOCLOSE
-	applymovement 10, MauvilleCity_Movement_RuthLeaveFromCenter
-	delay 32
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	waitmovement 0
 	setflag VAR_TEMP_9
 	setflag FLAG_MET_RUTH_MAUVILLE
@@ -825,6 +782,22 @@ MauvilleCity_Movement_RuthLeaveFromCenter:
 	walk_fast_left
 	step_end
 
+MauvilleCity_EventScript_RuthScene_Gym_Text_0:
+	.string "{PLAYER}! {PLAYER}!$"
+
+MauvilleCity_EventScript_RuthScene_Gym_Text_1:
+	.string "Look what I caught!\p"
+	.string "I fished up tons and tons of Magikarp\n"
+	.string "and some Goldeen, but then-\p"
+	.string "Wait…\p"
+	.string "Is that the Dynamo Badge?!\p"
+	.string "Argh, I was so preoccupied with fishing,\n"
+	.string "and now you are already so far ahead.\p"
+	.string "{PLAYER}, I'll definitely beat you to\n"
+	.string "Lavaridge Town's gym!\p"
+	.string "I can't waste any more time! Time to go\n"
+	.string "train!$"
+
 MauvilleCity_Text_RuthCallPlayer::
 	.string "{PLAYER}! {PLAYER}!$"
 
@@ -832,7 +805,7 @@ MauvilleCity_Text_RuthNoticeBadge::
 	.string "Look what I caught!\p"
 	.string "I fished up tons and tons of Magikarp\n"
 	.string "and some Goldeen, but then-\p"
-	.string "Wait...\p"
+	.string "Wait…\p"
 	.string "Is that the Dynamo Badge?!\p"
 	.string "Argh, I was so preoccupied with fishing,\n"
 	.string "and now you are already so far ahead.\p"

@@ -1596,6 +1596,7 @@ void CB2_WhiteOut(void)
             FlagClear(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE);
             LoadPlayerParty();
         }
+        SetSpeakerName(NULL);
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();

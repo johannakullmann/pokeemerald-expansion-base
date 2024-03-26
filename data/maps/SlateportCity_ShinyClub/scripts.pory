@@ -3,13 +3,17 @@ mapscripts SlateportCity_ShinyClub_MapScripts {
 }
 
 script SlateportCity_ShinyClub_EventScript_BugCatcher {
+    speakername("Tim")
     msgbox(format("I love Wurmple!\pI even found a purple one, look! Its name is Purmple!\p"
     "I can't wait to see if it'll evolve into Beautifly or Dustox!"), MSGBOX_NPC)
+    closemessage
     end
 }
 
 script SlateportCity_ShinyClub_EventScript_Hiker {
+    speakername("Frederic")
     msgbox(format("I found this little nugget while hiking in the mountains!\pIt has been with me ever since."), MSGBOX_NPC)
+    closemessage
     end
 }
 
@@ -23,6 +27,9 @@ script SlateportCity_ShinyClub_EventScript_ShinyBook {
 }
 
 script SlateportCity_ShinyClub_EventScript_ShinyClubChairman {
+    lock
+    faceplayer
+    speakername(CommonName_ShinyChairman)
     checkitem(ITEM_CLUB_MEMBER_CARD) 
     if (var(VAR_RESULT) == TRUE) {
         msgbox(format("Welcome back, {PLAYER}!\pHow have you been?"))
@@ -36,26 +43,30 @@ script SlateportCity_ShinyClub_EventScript_ShinyClubChairman {
             msgbox(format("I'm the chairman of the Shiny Pokémon Club!\p"
             "Here, we're big fans of rare odd-colored Pokémon and show them off to each other.\p"
             "What about you? Do you have a shiny Pokémon?\p"
-            "... Oh? Your {STR_VAR_1}...\p"
+            "… Oh? Your {STR_VAR_1}…\p"
             "What a beauty! You're so lucky to have found such a rare Pokémon!\p"
             "Are you interested in joining our little club? Of course you are!\p"
-            "Here, take this membership card!"), MSGBOX_NPC)
+            "Here, take this membership card!"))
+            speakername(NULL)
             giveitem(ITEM_CLUB_MEMBER_CARD)
-            msgbox(format("I hope you stop by often!"), MSGBOX_NPC)
+            speakername(CommonName_ShinyChairman)
+            msgbox(format("I hope you stop by often!"))
         }
         else {
             msgbox(format("I'm the chairman of the Shiny Pokémon Club!\p"
             "Here, we're big fans of rare odd-colored Pokémon and show them off to each other.\p"
             "What about you? Do you have a shiny Pokémon?\p"
-            "If you find one, make sure to come back and show it to me!"), MSGBOX_NPC)
+            "If you find one, make sure to come back and show it to me!"))
         }
     }
+    closemessage
     end
 }
 
 script SlateportCity_ShinyClub_EventScript_Cooltrainer {
     lock
     faceplayer
+    speakername("Luma")
     if (defeated(TRAINER_SHINY_COOLTRAINER)) {
         msgbox(format("Finding a surprise shiny on your journey makes you use Pokémon you otherwise wouldn't have."))
     }
@@ -65,37 +76,52 @@ script SlateportCity_ShinyClub_EventScript_Cooltrainer {
 	        trainerbattle_no_intro(TRAINER_SHINY_COOLTRAINER, format("Wow."))
         }
     }
-    release 
+    release
 	end
 }
 
 script Route135_ShinyHouse_EventScript_ShinyLureSeller {
+    lock
+    faceplayer
+    speakername("Rupert")
     checkitem(ITEM_CLUB_MEMBER_CARD) 
     if (var(VAR_RESULT) == TRUE) {
-        msgbox(format("I invented a special lure that attracts odd-colored Pokémon! Want to buy some?"), MSGBOX_NPC)
+        msgbox(format("I invented a special lure that attracts odd-colored Pokémon! Want to buy some?"))
         waitmessage
-        pokemart(ShinyLureMart)
         lock
-        faceplayer
+        pokemart(ShinyLureMart)
         msgbox("Good luck on your hunt!")
     }
     else {
         msgbox(format("I invented a special lure that attracts odd-colored Pokémon!\p"
-                "They're hard to make, so I only sell them to members for now."), MSGBOX_NPC)
+                "They're hard to make, so I only sell them to members for now."))
     }
-        release
-        end
+    closemessage
+    release
+    end
 }
 
 script SlateportCity_ShinyClub_EventScript_Geodude {
+    speakername(CommonName_Geodude)
     playmoncry(SPECIES_GEODUDE, CRY_MODE_NORMAL)
-    msgbox(format("Geodude: Gyuuu!"), MSGBOX_NPC)
+    msgbox(format("Gyuuu!"), MSGBOX_NPC)
+    closemessage
     end
 }
 
 script SlateportCity_ShinyClub_EventScript_Wurmple {
+    speakername(CommonName_Wurmple)
     playmoncry(SPECIES_WURMPLE, CRY_MODE_NORMAL)
-    msgbox(format("Wurmple: Rrrrz!"), MSGBOX_NPC)
+    msgbox(format("Rrrrz!"), MSGBOX_NPC)
+    closemessage
+    end
+}
+
+script SlateportCity_ShinyClub_EventScript_Purmple {
+    speakername("Purmple")
+    playmoncry(SPECIES_WURMPLE, CRY_MODE_NORMAL)
+    msgbox(format("Rrrrz!"), MSGBOX_NPC)
+    closemessage
     end
 }
 

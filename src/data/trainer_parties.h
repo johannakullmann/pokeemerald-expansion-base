@@ -11968,27 +11968,27 @@ static const struct TrainerMon sParty_GruntRoute110_2[] = {
 
 static const struct TrainerMon sParty_ShinyCooltrainer[] = {
     {
-    .lvl = 33,
+    .lvl = 16,
     .species = SPECIES_GROVYLE,
     .isShiny = TRUE,
     },
     {
-    .lvl = 30,
+    .lvl = 15,
     .species = SPECIES_DRAGONAIR,
     .isShiny = TRUE,
     },
     {
-    .lvl = 37,
+    .lvl = 14,
     .species = SPECIES_RELICANTH,
     .isShiny = TRUE,
     },
     {
-    .lvl = 34,
+    .lvl = 16,
     .species = SPECIES_MILOTIC,
     .isShiny = TRUE,
     },
     {
-    .lvl = 32,
+    .lvl = 12,
     .species = SPECIES_SHUCKLE,
     .isShiny = TRUE,
     }

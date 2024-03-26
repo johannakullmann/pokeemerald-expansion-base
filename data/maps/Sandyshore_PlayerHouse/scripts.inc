@@ -45,15 +45,15 @@ Sandyshore_PlayerHouse_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_4:
 Sandyshore_Playerhouse_EventScript_MomPleaseSetClock::
 	lockall
 	delay 10
-	turnobject 1, DIR_WEST
 	applymovement 1, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
 	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomPleaseSetClock_Text_0
 	closemessage
 	turnobject 1, DIR_NORTH
 	applymovement 1, Common_Movement_WalkInPlaceUp
+	waitmovement 0
 	setvar VAR_LITTLEROOT_INTRO_STATE, 2
 	releaseall
 	end
@@ -167,10 +167,9 @@ Sandyshore_Playerhouse_EventScript_Mom_11:
 Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes::
 	lockall
 	delay 20
-	turnobject 1, DIR_WEST
-	applymovement 1, Common_Movement_WalkInPlaceFasterLeft
+	applymovement 1, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
 	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_MomGiveRunningShoes_Text_0
 	closemessage

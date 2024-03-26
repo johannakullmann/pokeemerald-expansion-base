@@ -665,7 +665,7 @@ mapscripts MauvilleCity_MapScripts {
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_0, 1 {
-			call(MauvilleCity_EventScript_RuthScene)
+			call(MauvilleCity_EventScript_RuthScene_Gym)
 		}
 	]
 }
@@ -692,22 +692,10 @@ script MauvilleCity_OnTransition {
 	end
 }
 
-script MauvilleCity_EventScript_RuthScene {
-	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-	if (var(VAR_TEMP_1) == 22) { //Enter Mauville from Pokecenter (used teleport to exit gym etc)
-		setobjectxyperm(LOCALID_RUTH, 14, 6)
-		addobject(LOCALID_RUTH)
-		goto (MauvilleCity_EventScript_RuthScene_Center)
-	}
-	elif (var(VAR_TEMP_1) == 8) { //Enter Mauville from Gym 
-		removeobject(LOCALID_RUTH)
-		setobjectxyperm(LOCALID_RUTH, 16, 6)
-		addobject(LOCALID_RUTH)
-		goto (MauvilleCity_EventScript_RuthScene_Gym)
-	}
-}
-
 script MauvilleCity_EventScript_RuthScene_Gym {
+	removeobject(LOCALID_RUTH)
+	setobjectxyperm(LOCALID_RUTH, 16, 6)
+	addobject(LOCALID_RUTH)
 	lock
 	playbgm(MUS_ENCOUNTER_MAY, FALSE)
 	applymovement(LOCALID_RUTH, MauvilleCity_Movement_RuthWalkToGym1)
@@ -719,7 +707,7 @@ script MauvilleCity_EventScript_RuthScene_Gym {
 	speakername(CommonName_Ruth)
 	msgbox(format("Look what I caught!\p"
 		"I fished up tons and tons of Magikarp and some Goldeen, but then-\p"
-		"Wait...\p"
+		"Wait…\p"
 		"Is that the Dynamo Badge?!\p"
 		"Argh, I was so preoccupied with fishing, and now you are already so far ahead.\p"
 		"{PLAYER}, I'll definitely beat you to Lavaridge Town's gym!\p"
@@ -773,7 +761,7 @@ text MauvilleCity_Text_RuthCallPlayer{
 text MauvilleCity_Text_RuthNoticeBadge {
 	format("Look what I caught!\p"
 		"I fished up tons and tons of Magikarp and some Goldeen, but then-\p"
-		"Wait...\p"
+		"Wait…\p"
 		"Is that the Dynamo Badge?!\p"
 		"Argh, I was so preoccupied with fishing, and now you are already so far ahead.\p"
 		"{PLAYER}, I'll definitely beat you to Lavaridge Town's gym!\p"

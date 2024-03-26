@@ -759,7 +759,7 @@ script Route111_EventScript_RockSmashTipFatMan {
 	applymovement(LOCALID_SNORLAX_MAN, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	speakername("Carl")
-	msgbox("Sigh… What am I supposed to do with this sleepyhead?")
+	msgbox(format("Sigh… What am I supposed to do with this sleepyhead?"))
 	release
 	end
 }

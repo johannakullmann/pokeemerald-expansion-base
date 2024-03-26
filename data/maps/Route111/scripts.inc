@@ -725,6 +725,7 @@ Route111_EventScript_RuthFishing::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH
 	addobject 47
 	faceplayer
+	speakername CommonName_Ruth
 	msgbox Route111_EventScript_RuthFishing_Text_0
 	closemessage
 	applymovement 47, Common_Movement_WalkInPlaceLeft
@@ -738,16 +739,18 @@ Route111_EventScript_RuthFishing::
 
 Route111_EventScript_RockSmashTipFatMan::
 	lock
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp
+	applymovement 44, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	msgbox Route111_EventScript_RockSmashTipFatMan_Text_0
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer
-	waitmovement 0
+	speakername Route111_EventScript_RockSmashTipFatMan_Text_0
 	msgbox Route111_EventScript_RockSmashTipFatMan_Text_1
-	closemessage
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_WalkInPlaceUp
+	applymovement 44, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox Route111_EventScript_RockSmashTipFatMan_Text_2
+	closemessage
+	applymovement 44, Common_Movement_WalkInPlaceUp
+	waitmovement 0
+	speakername Route111_EventScript_RockSmashTipFatMan_Text_0
+	msgbox Route111_EventScript_RockSmashTipFatMan_Text_3
 	release
 	end
 
@@ -761,14 +764,18 @@ Route111_EventScript_RuthFishing_Text_0:
 	.string "have now instead?$"
 
 Route111_EventScript_RockSmashTipFatMan_Text_0:
-	.string "C'mon Laxy! We gotta go!$"
+	.string "Carl$"
 
 Route111_EventScript_RockSmashTipFatMan_Text_1:
+	.string "C'mon Laxy! We gotta go!$"
+
+Route111_EventScript_RockSmashTipFatMan_Text_2:
 	.string "I am so sorry, my Snorlax is exhausted\n"
 	.string "from the trip here from Kanto…\p"
 	.string "My fiancé is already getting some\n"
 	.string "Chesto Berries to wake it up.\p"
 	.string "It won't take much longer, I promise!$"
 
-Route111_EventScript_RockSmashTipFatMan_Text_2:
-	.string "Sigh… What am I supposed to do with this sleepyhead?$"
+Route111_EventScript_RockSmashTipFatMan_Text_3:
+	.string "Sigh… What am I supposed to do with\n"
+	.string "this sleepyhead?$"

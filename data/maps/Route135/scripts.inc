@@ -58,7 +58,7 @@ Route135_EventScript_CatchTutorialMain::
 	waitmovement 0
 	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_1
-	closemessage
+	speakername NULL
 	giveitem ITEM_POKE_BALL, 3
 	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_2
@@ -67,10 +67,8 @@ Route135_EventScript_CatchTutorialMain::
 	waitmovement 0
 	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_3
-	closemessage
 	applymovement 5, Common_Movement_WalkInPlaceRight
 	waitmovement 0
-	speakername CommonName_Ruth
 	goto_if_unset FLAG_SHOWED_STARTER_TO_MOM, Route135_EventScript_CatchTutorialMain_2
 	msgbox Route135_EventScript_CatchTutorialMain_Text_5
 Route135_EventScript_CatchTutorialMain_1:
@@ -101,10 +99,13 @@ Route135_EventScript_RockSmashGuy_1:
 
 Route135_EventScript_RockSmashGuy_2:
 	msgbox Route135_EventScript_RockSmashGuy_Text_1
+	closemessage
 	applymovement 7, Common_Movement_WalkInPlaceDown
 	waitmovement 0
+	delay 20
 	applymovement 3, Movement_SmashRock
 	playse SE_M_ROCK_THROW
+	speakername Route135_EventScript_RockSmashGuy_Text_0
 	msgbox Route135_EventScript_RockSmashGuy_Text_2
 	waitmovement 0
 	waitse
@@ -230,9 +231,9 @@ Route135_EventScript_Lia::
 
 
 Route135_EventScript_Ali::
-	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1, Route135_EventScript_Ali_Text_2
-	speakername Route135_EventScript_Ali_Text_3
-	msgbox Route135_EventScript_Ali_Text_4, MSGBOX_AUTOCLOSE
+	trainerbattle_double TRAINER_EMI_AND_LIA, Route135_EventScript_Lia_Text_0, Route135_EventScript_Ali_Text_0, Route135_EventScript_Ali_Text_1
+	speakername Route135_EventScript_Ali_Text_2
+	msgbox Route135_EventScript_Ali_Text_3, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -289,8 +290,8 @@ Route135_EventScript_CatchTutorialMain_Text_2:
 	.string "easier it is to catch.\p"
 	.string "Inflicting a status condition will also\n"
 	.string "increase your chances!\p"
-	.string "If you don't want to catch a Pokémon,\n"
-	.string "you can defeat it instead.\p"
+	.string "If you don't want to catch it, you can\n"
+	.string "defeat it instead.\p"
 	.string "That way your own Pokémon can earn\n"
 	.string "battle experience!$"
 
@@ -350,7 +351,7 @@ Route135_EventScript_Boy1_Text_1:
 	.string "rock-type attacks, though…$"
 
 Route135_EventScript_Lia_Text_0:
-	.string "I'll battle you together with my sister!$"
+	.string "We'll battle you together!$"
 
 Route135_EventScript_Lia_Text_1:
 	.string "Uh-oh, we lost.$"
@@ -369,19 +370,16 @@ Route135_EventScript_Lia_Text_4:
 	.string "two trainers.$"
 
 Route135_EventScript_Ali_Text_0:
-	.string "Let's go, Lia!$"
-
-Route135_EventScript_Ali_Text_1:
 	.string "Aw.$"
 
-Route135_EventScript_Ali_Text_2:
+Route135_EventScript_Ali_Text_1:
 	.string "Oh, you only have one Pokémon! You\n"
 	.string "can't battle us like that!$"
 
-Route135_EventScript_Ali_Text_3:
+Route135_EventScript_Ali_Text_2:
 	.string "Emi$"
 
-Route135_EventScript_Ali_Text_4:
+Route135_EventScript_Ali_Text_3:
 	.string "Double battles are much harder than\n"
 	.string "single battles!$"
 

@@ -86,7 +86,7 @@ Route112_EventScript_FieryPathSign::
 
 
 Route112_EventScript_Hiker_Text_0:
-	.string "They smoothed out these ledges, so you\n"
+	.string "They smoothed out these ledges so you\n"
 	.string "can get to Lavaridge without having to\l"
 	.string "hike down Jagged Pass.\p"
 	.string "I think it's nice and all, but it's just\n"

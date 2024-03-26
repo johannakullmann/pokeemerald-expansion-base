@@ -378,7 +378,9 @@ MauvilleCity_Gym_EventScript_Wattson_1:
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
 	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
+	speakername CommonName_Wattson
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -444,6 +446,7 @@ MauvilleCity_Gym_EventScript_WattsonAfterBattle::
 	lock
 	special LoadPlayerParty
 	clearflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
+	speakername NULL
 	message MauvilleCity_Gym_EventScript_WattsonAfterBattle_Text_0
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare

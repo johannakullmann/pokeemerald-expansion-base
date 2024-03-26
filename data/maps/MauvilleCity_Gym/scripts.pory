@@ -448,6 +448,7 @@ script MauvilleCity_Gym_EventScript_WattsonAfterBattle {
 	lock
 	special(LoadPlayerParty)
 	clearflag(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE)
+	speakername(NULL)
 	message("{PLAYER} received the Dynamo Badge\nfrom Wattson.")
 	waitmessage
 	call(Common_EventScript_PlayGymBadgeFanfare)

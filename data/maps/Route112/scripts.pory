@@ -73,7 +73,7 @@ Route112_Text_RouteSignLavaridge:
 `
 
 script Route112_EventScript_Hiker {
-	msgbox(format("They smoothed out these ledges, so you can get to Lavaridge without having to hike down Jagged Pass.\p"
+	msgbox(format("They smoothed out these ledges so you can get to Lavaridge without having to hike down Jagged Pass.\p"
 			"I think it's nice and all, but it's just not the same, ya know?"), MSGBOX_NPC)
 	end
 }
