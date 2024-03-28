@@ -528,8 +528,6 @@ script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
 	removeobject(LOCALID_FLANNERY)
 	setvar(VAR_LAVARIDGE_TOWN_STATE, 1)
 	delay(30)
-	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-	waitmovement(0)
 	speakername(CommonName_Ruth)
 	msgbox(format("There she goes…"))
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
@@ -626,13 +624,13 @@ movement LavaridgeTown_Movement_PlayerApproachFlannery_1 {
 }
 
 movement LavaridgeTown_Movement_PlayerApproachFlannery_2 {
-	walk_right *2
+	walk_right *3
 	face_up
 }
 
 movement LavaridgeTown_Movement_PlayerApproachFlannery_3 {
 	walk_down
-	walk_right*3
+	walk_right*4
 	face_up
 }
 

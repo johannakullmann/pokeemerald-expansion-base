@@ -49,3 +49,6 @@ CommonName_Zigzagoon:
 
 CommonName_Geodude:
 	.string "Geodude$"
+
+CommonName_Snorlax:
+	.string "Snorlax$"

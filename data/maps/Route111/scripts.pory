@@ -744,7 +744,7 @@ script Route111_EventScript_RuthFishing {
 	end
 }
 
-script Route111_EventScript_RockSmashTipFatMan {
+script Route111_EventScript_SnorlaxMan {
 	lock
 	applymovement(LOCALID_SNORLAX_MAN, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
@@ -760,6 +760,15 @@ script Route111_EventScript_RockSmashTipFatMan {
 	waitmovement(0)
 	speakername("Carl")
 	msgbox(format("Sigh… What am I supposed to do with this sleepyhead?"))
+	release
+	end
+}
+
+script Route111_EventScript_Snorlax {
+	lock
+	speakername(CommonName_Snorlax)
+	msgbox("…")
+	closemessage
 	release
 	end
 }

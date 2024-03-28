@@ -159,6 +159,15 @@
       "var": "VAR_LITTLEROOT_INTRO_STATE",
       "var_value": "7",
       "script": "Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_INTRO_STATE",
+      "var_value": "7",
+      "script": "Sandyshore_Inn_EventScript_PreventPlayerLeavingBeforePickingMon"
     }
   ],
   "bg_events": [

@@ -538,8 +538,6 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_5:
 	removeobject 8
 	setvar VAR_LAVARIDGE_TOWN_STATE, 1
 	delay 30
-	applymovement 9, Common_Movement_WalkInPlaceRight
-	waitmovement 0
 	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_11
 	applymovement 9, Common_Movement_WalkInPlaceDown
@@ -590,11 +588,14 @@ LavaridgeTown_EventScript_AfterRuthBattle::
 	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_AfterRuthBattle_Text_0, MSGBOX_AUTOCLOSE
 	getplayerxy VAR_0x8008, VAR_0x8009
-	compare VAR_0x8008, 5
-	goto_if_eq LavaridgeTown_EventScript_AfterRuthBattle_4
-LavaridgeTown_EventScript_AfterRuthBattle_3:
-	applymovement 9, LavaridgeTown_Movement_RuthLeave_2
+	compare VAR_0x8008, 7
+	goto_if_eq LavaridgeTown_EventScript_AfterRuthBattle_3
 LavaridgeTown_EventScript_AfterRuthBattle_1:
+	compare VAR_0x8008, 5
+	goto_if_eq LavaridgeTown_EventScript_AfterRuthBattle_9
+LavaridgeTown_EventScript_AfterRuthBattle_8:
+	applymovement 9, LavaridgeTown_Movement_RuthLeave_2
+LavaridgeTown_EventScript_AfterRuthBattle_6:
 	waitmovement 0
 	removeobject 9
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
@@ -603,13 +604,22 @@ LavaridgeTown_EventScript_AfterRuthBattle_1:
 	end
 
 LavaridgeTown_EventScript_AfterRuthBattle_2:
-	applymovement 9, LavaridgeTown_Movement_RuthLeave_1
+	applymovement 9, LavaridgeTown_Movement_RuthLeave_3
 	goto LavaridgeTown_EventScript_AfterRuthBattle_1
 
-LavaridgeTown_EventScript_AfterRuthBattle_4:
-	compare VAR_0x8009, 16
+LavaridgeTown_EventScript_AfterRuthBattle_3:
+	compare VAR_0x8009, 17
 	goto_if_eq LavaridgeTown_EventScript_AfterRuthBattle_2
-	goto LavaridgeTown_EventScript_AfterRuthBattle_3
+	goto LavaridgeTown_EventScript_AfterRuthBattle_1
+
+LavaridgeTown_EventScript_AfterRuthBattle_7:
+	applymovement 9, LavaridgeTown_Movement_RuthLeave_1
+	goto LavaridgeTown_EventScript_AfterRuthBattle_6
+
+LavaridgeTown_EventScript_AfterRuthBattle_9:
+	compare VAR_0x8009, 16
+	goto_if_eq LavaridgeTown_EventScript_AfterRuthBattle_7
+	goto LavaridgeTown_EventScript_AfterRuthBattle_8
 
 
 LavaridgeTown_Movement_FlanneryApproachGym:
@@ -669,16 +679,20 @@ LavaridgeTown_Movement_RuthApproachFlannery_2:
 LavaridgeTown_Movement_PlayerApproachFlannery_1:
 	walk_down
 	walk_right
+	walk_right
 	face_up
 	step_end
 
 LavaridgeTown_Movement_PlayerApproachFlannery_2:
+	walk_right
+	walk_right
 	walk_right
 	face_up
 	step_end
 
 LavaridgeTown_Movement_PlayerApproachFlannery_3:
 	walk_down
+	walk_right
 	walk_right
 	walk_right
 	walk_right
@@ -705,6 +719,17 @@ LavaridgeTown_Movement_RuthLeave_2:
 	walk_right
 	walk_right
 	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+LavaridgeTown_Movement_RuthLeave_3:
 	walk_right
 	walk_right
 	walk_up
@@ -763,9 +788,9 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_6:
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_7:
 	.string "Yes! {PLAYER} is also challenging the\n"
 	.string "gyms! We're competing!\p"
-	.string "That reminds me, Flan, do you know where\n"
-	.string "the new gym leader is? The gym door is\l"
-	.string "locked.$"
+	.string "That reminds me, Flanny, do you know\n"
+	.string "where the new gym leader is? The gym\l"
+	.string "door is locked.$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_8:
 	.string "Huh? She's not inside?$"

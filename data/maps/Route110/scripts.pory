@@ -175,14 +175,6 @@ Route110_EventScript_Edwin::
 	release
 	end
 
-Route110_EventScript_EdwinRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_EdwinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_EDWIN_1
-	release
-	end
-
 Route110_EventScript_EdwinRematch::
 	trainerbattle_rematch TRAINER_EDWIN_1, Route110_Text_EdwinRematchIntro, Route110_Text_EdwinRematchDefeated
 	msgbox Route110_Text_EdwinRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -211,14 +203,6 @@ Route110_EventScript_Benjamin::
 	release
 	end
 
-Route110_EventScript_BenjaminRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_BenjaminRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BENJAMIN_1
-	release
-	end
-
 Route110_EventScript_BenjaminRematch::
 	trainerbattle_rematch TRAINER_BENJAMIN_1, Route110_Text_BenjaminRematchIntro, Route110_Text_BenjaminRematchDefeated
 	msgbox Route110_Text_BenjaminRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -237,14 +221,6 @@ Route110_EventScript_Abigail::
 	release
 	end
 
-Route110_EventScript_AbigailRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_AbigailRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ABIGAIL_1
-	release
-	end
-
 Route110_EventScript_AbigailRematch::
 	trainerbattle_rematch TRAINER_ABIGAIL_1, Route110_Text_AbigailRematchIntro, Route110_Text_AbigailRematchDefeated
 	msgbox Route110_Text_AbigailRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -255,14 +231,6 @@ Route110_EventScript_Isabel::
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
 	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISABEL_1
 	release
 	end
 
@@ -1320,6 +1288,50 @@ script Route110_EventScript_OldRodFisherman {
 	applymovement(LOCALID_FISHERMAN, Route110_Movement_FishermanDive)
 	waitmovement(0)
 	removeobject(LOCALID_FISHERMAN)
+	release
+	end
+}
+
+script Route110_EventScript_IsabelRegisterMatchCallAfterBattle {
+	special(PlayerFaceTrainerAfterBattle)
+	waitmovement(0)
+	speakername("Isabel")
+	msgbox(Route110_Text_IsabelRegister, MSGBOX_DEFAULT)
+	speakername(NULL)
+	register_matchcall(TRAINER_ISABEL_1)
+	release
+	end
+}
+
+script Route110_EventScript_AbigailRegisterMatchCallAfterBattle {
+	special(PlayerFaceTrainerAfterBattle)
+	waitmovement(0)
+	speakername("Abigail")
+	msgbox(Route110_Text_AbigailRegister, MSGBOX_DEFAULT)
+	speakername(NULL)
+	register_matchcall(TRAINER_ABIGAIL_1)
+	release
+	end
+}
+
+script Route110_EventScript_EdwinRegisterMatchCallAfterBattle {
+	special(PlayerFaceTrainerAfterBattle)
+	waitmovement(0)
+	speakername("Edwin")
+	msgbox(Route110_Text_EdwinRegister, MSGBOX_DEFAULT)
+	speakername(NULL)
+	register_matchcall(TRAINER_EDWIN_1)
+	release
+	end
+}
+
+script Route110_EventScript_BenjaminRegisterMatchCallAfterBattle {
+	special(PlayerFaceTrainerAfterBattle)
+	waitmovement(0)
+	speakername("Benjamin")
+	msgbox(Route110_Text_BenjaminRegister, MSGBOX_DEFAULT)
+	speakername(NULL)
+	register_matchcall(TRAINER_BENJAMIN_1)
 	release
 	end
 }

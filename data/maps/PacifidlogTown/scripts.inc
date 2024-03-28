@@ -93,7 +93,7 @@ PacifidlogTown_OnTransition_5:
 
 PacifidlogTown_EventScript_MeetRuth::
 	lock
-	opendoor 65, 27
+	opendoor 65, 22
 	waitdooranim
 	clearflag FLAG_TEMP_10
 	addobject 8
@@ -110,7 +110,7 @@ PacifidlogTown_EventScript_MeetRuth::
 	closemessage
 	applymovement 8, Common_Movement_WalkDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
-	closedoor 65, 27
+	closedoor 65, 22
 	waitdooranim
 	waitmovement OBJ_EVENT_ID_PLAYER
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceUp

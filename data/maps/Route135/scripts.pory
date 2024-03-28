@@ -81,6 +81,7 @@ script Route135_EventScript_CatchTutorialMain {
     }
     closemessage
     applymovement(LOCALID_RUTH, Route135_Movement_RuthLeave)
+    savebgm(MUS_DUMMY)
     fadedefaultbgm
     waitmovement(0)
     setflag(TEMP_FLAG_HIDE_RUTH)

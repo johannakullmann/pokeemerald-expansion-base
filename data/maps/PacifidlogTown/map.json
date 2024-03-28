@@ -15,12 +15,12 @@
   "connections": [
     {
       "map": "MAP_ROUTE132",
-      "offset": 20,
+      "offset": 15,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE130",
-      "offset": 20,
+      "offset": 15,
       "direction": "right"
     },
     {
@@ -38,7 +38,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
       "x": 61,
-      "y": 32,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -51,7 +51,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
       "x": 53,
-      "y": 50,
+      "y": 45,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -64,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 45,
-      "y": 29,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -77,7 +77,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 36,
-      "y": 29,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -90,7 +90,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
       "x": 55,
-      "y": 34,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 2,
@@ -103,7 +103,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 53,
-      "y": 15,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -116,7 +116,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LARGE_BOAT",
       "x": 32,
-      "y": 27,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -129,7 +129,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_RUTH",
       "x": 65,
-      "y": 27,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -142,7 +142,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 32,
-      "y": 33,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -156,49 +156,49 @@
   "warp_events": [
     {
       "x": 48,
-      "y": 24,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 33,
-      "y": 50,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 37,
-      "y": 26,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 43,
-      "y": 49,
+      "y": 44,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE3",
       "dest_warp_id": "0"
     },
     {
       "x": 42,
-      "y": 23,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE4",
       "dest_warp_id": "0"
     },
     {
       "x": 66,
-      "y": 33,
+      "y": 28,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE5",
       "dest_warp_id": "0"
     },
     {
       "x": 65,
-      "y": 27,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_MART",
       "dest_warp_id": "0"
@@ -208,7 +208,7 @@
     {
       "type": "trigger",
       "x": 65,
-      "y": 28,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_PACIFIDLOG_TOWN_STATE",
       "var_value": "0",
@@ -219,7 +219,7 @@
     {
       "type": "sign",
       "x": 49,
-      "y": 24,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -227,7 +227,7 @@
     {
       "type": "sign",
       "x": 41,
-      "y": 32,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PacifidlogTown_EventScript_TownSign"
@@ -235,7 +235,7 @@
     {
       "type": "sign",
       "x": 50,
-      "y": 24,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -243,7 +243,7 @@
     {
       "type": "sign",
       "x": 66,
-      "y": 27,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -251,7 +251,7 @@
     {
       "type": "sign",
       "x": 67,
-      "y": 27,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -259,7 +259,7 @@
     {
       "type": "sign",
       "x": 56,
-      "y": 32,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PacifidlogTown_EventScript_RayquazaPlaque"

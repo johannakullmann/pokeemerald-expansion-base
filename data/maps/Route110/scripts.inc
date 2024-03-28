@@ -174,14 +174,6 @@ Route110_EventScript_Edwin::
 	release
 	end
 
-Route110_EventScript_EdwinRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_EdwinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_EDWIN_1
-	release
-	end
-
 Route110_EventScript_EdwinRematch::
 	trainerbattle_rematch TRAINER_EDWIN_1, Route110_Text_EdwinRematchIntro, Route110_Text_EdwinRematchDefeated
 	msgbox Route110_Text_EdwinRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -210,14 +202,6 @@ Route110_EventScript_Benjamin::
 	release
 	end
 
-Route110_EventScript_BenjaminRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_BenjaminRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BENJAMIN_1
-	release
-	end
-
 Route110_EventScript_BenjaminRematch::
 	trainerbattle_rematch TRAINER_BENJAMIN_1, Route110_Text_BenjaminRematchIntro, Route110_Text_BenjaminRematchDefeated
 	msgbox Route110_Text_BenjaminRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -236,14 +220,6 @@ Route110_EventScript_Abigail::
 	release
 	end
 
-Route110_EventScript_AbigailRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_AbigailRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ABIGAIL_1
-	release
-	end
-
 Route110_EventScript_AbigailRematch::
 	trainerbattle_rematch TRAINER_ABIGAIL_1, Route110_Text_AbigailRematchIntro, Route110_Text_AbigailRematchDefeated
 	msgbox Route110_Text_AbigailRematchPostBattle, MSGBOX_AUTOCLOSE
@@ -254,14 +230,6 @@ Route110_EventScript_Isabel::
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
 	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISABEL_1
 	release
 	end
 
@@ -1386,6 +1354,50 @@ Route110_EventScript_OldRodFisherman::
 	end
 
 
+Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	speakername Route110_EventScript_IsabelRegisterMatchCallAfterBattle_Text_0
+	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
+	speakername NULL
+	register_matchcall TRAINER_ISABEL_1
+	release
+	end
+
+
+Route110_EventScript_AbigailRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	speakername Route110_EventScript_AbigailRegisterMatchCallAfterBattle_Text_0
+	msgbox Route110_Text_AbigailRegister, MSGBOX_DEFAULT
+	speakername NULL
+	register_matchcall TRAINER_ABIGAIL_1
+	release
+	end
+
+
+Route110_EventScript_EdwinRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	speakername Route110_EventScript_EdwinRegisterMatchCallAfterBattle_Text_0
+	msgbox Route110_Text_EdwinRegister, MSGBOX_DEFAULT
+	speakername NULL
+	register_matchcall TRAINER_EDWIN_1
+	release
+	end
+
+
+Route110_EventScript_BenjaminRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	speakername Route110_EventScript_BenjaminRegisterMatchCallAfterBattle_Text_0
+	msgbox Route110_Text_BenjaminRegister, MSGBOX_DEFAULT
+	speakername NULL
+	register_matchcall TRAINER_BENJAMIN_1
+	release
+	end
+
+
 Route110_Movement_RuthEnterScreen:
 	walk_up
 	walk_up
@@ -1645,6 +1657,18 @@ Route110_EventScript_OldRodFisherman_Text_3:
 	.string "Was that…?\p"
 	.string "I can't believe it! It's a golden one!\p"
 	.string "Wait for me, you beautiful-$"
+
+Route110_EventScript_IsabelRegisterMatchCallAfterBattle_Text_0:
+	.string "Isabel$"
+
+Route110_EventScript_AbigailRegisterMatchCallAfterBattle_Text_0:
+	.string "Abigail$"
+
+Route110_EventScript_EdwinRegisterMatchCallAfterBattle_Text_0:
+	.string "Edwin$"
+
+Route110_EventScript_BenjaminRegisterMatchCallAfterBattle_Text_0:
+	.string "Benjamin$"
 
 Route110_Text_HowsHeSoFast::
 	.string "He's almost here! How's he so fast?!$"

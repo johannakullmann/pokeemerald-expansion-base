@@ -74,6 +74,7 @@ Route135_EventScript_CatchTutorialMain::
 Route135_EventScript_CatchTutorialMain_1:
 	closemessage
 	applymovement 5, Route135_Movement_RuthLeave
+	savebgm MUS_DUMMY
 	fadedefaultbgm
 	waitmovement 0
 	setflag FLAG_TEMP_10

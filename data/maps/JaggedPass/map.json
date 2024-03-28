@@ -244,51 +244,6 @@
       "y": 19,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "trigger",
-      "x": 51,
-      "y": 15,
-      "elevation": 3,
-      "var": "VAR_JAGGED_PASS_STATE",
-      "var_value": "1",
-      "script": "JaggedPass_EventScript_OpenMagmaHideout"
-    },
-    {
-      "type": "trigger",
-      "x": 52,
-      "y": 20,
-      "elevation": 3,
-      "var": "VAR_JAGGED_PASS_STATE",
-      "var_value": "1",
-      "script": "JaggedPass_EventScript_OpenMagmaHideout"
-    },
-    {
-      "type": "trigger",
-      "x": 51,
-      "y": 20,
-      "elevation": 3,
-      "var": "VAR_JAGGED_PASS_STATE",
-      "var_value": "1",
-      "script": "JaggedPass_EventScript_OpenMagmaHideout"
-    },
-    {
-      "type": "trigger",
-      "x": 44,
-      "y": 15,
-      "elevation": 3,
-      "var": "VAR_JAGGED_PASS_STATE",
-      "var_value": "1",
-      "script": "JaggedPass_EventScript_OpenMagmaHideout"
-    },
-    {
-      "type": "trigger",
-      "x": 43,
-      "y": 15,
-      "elevation": 3,
-      "var": "VAR_JAGGED_PASS_STATE",
-      "var_value": "1",
-      "script": "JaggedPass_EventScript_OpenMagmaHideout"
     }
   ],
   "bg_events": [
