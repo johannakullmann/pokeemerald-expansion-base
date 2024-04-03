@@ -431,5 +431,8 @@ const u32 gObjectEventPic_GroudonPMD[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_KyogrePMD[] = INCBIN_U32("graphics/object_events/pics/pokemon/kyogre_pmd.4bpp");
 const u16 gObjectEventPal_GroudonKyogrePMD[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
 const u16 gObjectEventPal_GroudonKyogrePMDReflection[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
+const u32 gObjectEventPic_Toxatoo[] = INCBIN_U32("graphics/object_events/pics/pokemon/toxatoo.4bpp");
+const u32 gObjectEventPic_Rubecko[] = INCBIN_U32("graphics/object_events/pics/pokemon/rubecko.4bpp");
+const u32 gObjectEventPic_Amalgoat[] = INCBIN_U32("graphics/object_events/pics/pokemon/amalgoat.4bpp");
 
 const u32 gObjectEventPic_FishermanFishing[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_fishing.4bpp");
