@@ -574,6 +574,7 @@ script LavaridgeTown_EventScript_AfterRuthBattle {
 	removeobject(LOCALID_RUTH)
 	setvar(VAR_LAVARIDGE_TOWN_STATE, 2)
 	setflag(FLAG_DEFEATED_RIVAL_2)
+	setflag(FLAG_HIDE_JAGGED_PASS_NPCS)
 	release
 	end
 }

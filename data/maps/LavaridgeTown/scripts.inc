@@ -600,6 +600,7 @@ LavaridgeTown_EventScript_AfterRuthBattle_6:
 	removeobject 9
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
 	setflag FLAG_DEFEATED_RIVAL_2
+	setflag FLAG_HIDE_JAGGED_PASS_NPCS
 	release
 	end
 

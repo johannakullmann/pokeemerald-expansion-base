@@ -52,3 +52,15 @@ CommonName_Geodude:
 
 CommonName_Snorlax:
 	.string "Snorlax$"
+
+CommonName_Rubecko:
+	.string "Rubecko$"
+
+CommonName_Amalgoat:
+	.string "Amalgoat$"
+
+CommonName_Toxatoo:
+	.string "Toxatoo$"
+
+CommonNAme_BufferedNameString1:
+	.string " {STR_VAR_1}$"

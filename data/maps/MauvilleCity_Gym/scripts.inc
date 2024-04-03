@@ -452,6 +452,7 @@ MauvilleCity_Gym_EventScript_WattsonAfterBattle::
 	call Common_EventScript_PlayGymBadgeFanfare
 	setflag FLAG_DEFEATED_MAUVILLE_GYM
 	setflag FLAG_BADGE03_GET
+	setflag FLAG_HIDE_ROUTE_111_SNORLAX
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
 	special MauvilleGymDeactivatePuzzle

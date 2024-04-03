@@ -648,7 +648,7 @@ PacifidlogTown_EventScript_RuthBoatScene_Text_1:
 	.string "you are ready.$"
 
 PacifidlogTown_EventScript_RuthBoatScene_Text_2:
-	.string "Ruth: Thank you, sir!\p"
+	.string "Thank you, sir!\p"
 	.string "And yes, we're ready to go!\p"
 	.string "...\p"
 	.string "Wait.$"

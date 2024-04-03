@@ -267,6 +267,9 @@ JaggedPass_Text_AutumnPostBattle:
 	.string "a little up the hill from here?$"
 `
 
+const LOCALID_RUTH = 14
+const LOCALID_RUTHS_MON = 15
+
 script JaggedPass_EventScript_FootprintNerd {
 	lock
 	faceplayer
@@ -308,4 +311,104 @@ script JaggedPass_EventScript_HeadbuttTreeMan {
 		"I bet a Pokémon that knows the move Headbutt could knock them out of the branches."), MSGBOX_NPC)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	end
+}
+
+script JaggedPass_EventScript_Ruth {
+	lock
+	faceplayer
+	speakername(CommonName_Ruth)
+	msgbox(format("Grr! He won't let me through!\p{PLAYER}, go ahead, I'll catch up once I beat this guy!"))
+	turnobject(VAR_LAST_TALKED, DIR_WEST)
+	switch(var(VAR_STARTER_MON)) {
+		case 0:
+			bufferspeciesname(STR_VAR_1, SPECIES_RUBECKO)
+			msgbox(JaggedPass_Text_GetHim)
+			closemessage
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+			call(JaggedPass_EventScript_Rubecko)
+		case 1:
+			bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA2)
+			msgbox(JaggedPass_Text_GetHim)
+			closemessage
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+			call(JaggedPass_EventScript_Amalgoat)
+		case 2:
+			bufferspeciesname(STR_VAR_1, SPECIES_TOXATOO)
+			msgbox(JaggedPass_Text_GetHim)
+			closemessage
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect)
+			call(JaggedPass_EventScript_Toxatoo)
+	}
+	closemessage
+	release
+	end
+}
+
+script JaggedPass_EventScript_RuthsMon {
+	lock
+	switch(var(VAR_STARTER_MON)){
+		case 0:
+			call(JaggedPass_EventScript_Rubecko)
+		case 1:
+			call(JaggedPass_EventScript_Amalgoat)
+		case 2:
+			call(JaggedPass_EventScript_Toxatoo)
+	}
+	closemessage
+	release
+	end
+}
+
+script JaggedPass_EventScript_Rubecko {
+	speakername(CommonName_Rubecko)
+	playmoncry(SPECIES_RUBECKO, CRY_MODE_NORMAL)
+	msgbox(JaggedPass_Text_RubeckoCry)
+	waitmovement(0)
+	waitmoncry
+}
+
+script JaggedPass_EventScript_Amalgoat {
+	speakername(CommonName_Amalgoat)
+	playmoncry(SPECIES_CHIMERA2, CRY_MODE_NORMAL)
+	msgbox(JaggedPass_Text_AmalgoatCry)
+	waitmovement(0)
+	waitmoncry
+}
+
+script JaggedPass_EventScript_Toxatoo {
+	speakername(CommonName_Toxatoo)
+	playmoncry(SPECIES_TOXATOO, CRY_MODE_NORMAL)
+	msgbox(JaggedPass_Text_ToxatooCry)
+	waitmovement(0)
+	waitmoncry
+}
+
+text JaggedPass_Text_GetHim {
+	"Get him, {STR_VAR_1}!"
+}
+
+text JaggedPass_Text_RubeckoCry {
+	"Ribbit!"
+}
+
+text JaggedPass_Text_AmalgoatCry {
+	"Maaaaaah!"
+}
+
+text JaggedPass_Text_ToxatooCry {
+	"Too! Tootoo!"
+}
+
+movement JaggedPass_Movement_JumpInPlaceLeftTwice {
+	jump_in_place_left
+	jump_in_place_left
+	step_end
+}
+
+movement JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect {
+	disable_jump_landing_ground_effect
+	jump_in_place_left
+	disable_jump_landing_ground_effect
+	jump_in_place_left
+	step_end
 }

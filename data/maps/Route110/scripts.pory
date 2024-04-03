@@ -1057,7 +1057,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 			closemessage
 			applymovement(LOCALID_GRUNT1, Common_Movement_WalkInPlaceLeft)	
 			clearflag(FLAG_HIDE_BOX)
-			setobjectxy(LOCALID_BOX, 8, 85)
+			setobjectxyperm(LOCALID_BOX, 8, 85)
 			showobjectat(LOCALID_BOX, MAP_ROUTE110)
 			waitmovement(0)
 			applymovement(LOCALID_GRUNT1, Route110_Movement_GruntLeave_Right)
@@ -1067,6 +1067,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	setflag(FLAG_HIDE_GRUNTS)
 	removeobject(LOCALID_GRUNT1)
 	removeobject(LOCALID_GRUNT2)
+	savebgm(MUS_DUMMY)
 	fadedefaultbgm
 	applymovement(LOCALID_BIRCH, Route110_Movement_BirchWalkToBox)
 	waitmovement(0)
@@ -1089,7 +1090,7 @@ script Route110_EventScript_AfterAquaDoubleBattle {
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	speakername(CommonName_Ruth)
-	msgbox(format("Ruth: Yes! He's staying in our hometown at the moment!\p"
+	msgbox(format("Yes! He's staying in our hometown at the moment!\p"
 			"But… your son? That means… You're THE Professor Birch?!"))
 	closemessage
 	applymovement(LOCALID_BIRCH, Common_Movement_WalkInPlaceDown)

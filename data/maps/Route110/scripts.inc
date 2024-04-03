@@ -1073,6 +1073,7 @@ Route110_EventScript_AfterAquaDoubleBattle_1:
 	setflag FLAG_TEMP_8
 	removeobject 31
 	removeobject 32
+	savebgm MUS_DUMMY
 	fadedefaultbgm
 	applymovement 29, Route110_Movement_BirchWalkToBox
 	waitmovement 0
@@ -1223,7 +1224,7 @@ Route110_EventScript_AfterAquaDoubleBattle_4:
 	closemessage
 	applymovement 31, Common_Movement_WalkInPlaceLeft
 	clearflag FLAG_TEMP_6
-	setobjectxy 33, 8, 85
+	setobjectxyperm 33, 8, 85
 	showobjectat 33, MAP_ROUTE110
 	waitmovement 0
 	applymovement 31, Route110_Movement_GruntLeave_Right
@@ -1579,8 +1580,8 @@ Route110_EventScript_AfterAquaDoubleBattle_Text_1:
 	.string "Brendan?$"
 
 Route110_EventScript_AfterAquaDoubleBattle_Text_2:
-	.string "Ruth: Yes! He's staying in our hometown\n"
-	.string "at the moment!\p"
+	.string "Yes! He's staying in our hometown at\n"
+	.string "the moment!\p"
 	.string "But… your son? That means… You're THE\n"
 	.string "Professor Birch?!$"
 

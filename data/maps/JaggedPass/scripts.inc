@@ -305,6 +305,109 @@ JaggedPass_EventScript_HeadbuttTreeMan::
 	end
 
 
+JaggedPass_EventScript_Ruth::
+	lock
+	faceplayer
+	speakername CommonName_Ruth
+	msgbox JaggedPass_EventScript_Ruth_Text_0
+	turnobject VAR_LAST_TALKED, DIR_WEST
+	switch VAR_STARTER_MON
+	case 0, JaggedPass_EventScript_Ruth_3
+	case 1, JaggedPass_EventScript_Ruth_4
+	case 2, JaggedPass_EventScript_Ruth_5
+JaggedPass_EventScript_Ruth_1:
+	closemessage
+	release
+	end
+
+JaggedPass_EventScript_Ruth_3:
+	bufferspeciesname STR_VAR_1, SPECIES_RUBECKO
+	msgbox JaggedPass_Text_GetHim
+	closemessage
+	applymovement 15, JaggedPass_Movement_JumpInPlaceLeftTwice
+	call JaggedPass_EventScript_Rubecko
+	goto JaggedPass_EventScript_Ruth_1
+
+JaggedPass_EventScript_Ruth_4:
+	bufferspeciesname STR_VAR_1, SPECIES_CHIMERA2
+	msgbox JaggedPass_Text_GetHim
+	closemessage
+	applymovement 15, JaggedPass_Movement_JumpInPlaceLeftTwice
+	call JaggedPass_EventScript_Amalgoat
+	goto JaggedPass_EventScript_Ruth_1
+
+JaggedPass_EventScript_Ruth_5:
+	bufferspeciesname STR_VAR_1, SPECIES_TOXATOO
+	msgbox JaggedPass_Text_GetHim
+	closemessage
+	applymovement 15, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect
+	call JaggedPass_EventScript_Toxatoo
+	goto JaggedPass_EventScript_Ruth_1
+
+
+JaggedPass_EventScript_RuthsMon::
+	lock
+	switch VAR_STARTER_MON
+	case 0, JaggedPass_EventScript_RuthsMon_3
+	case 1, JaggedPass_EventScript_RuthsMon_4
+	case 2, JaggedPass_EventScript_RuthsMon_5
+JaggedPass_EventScript_RuthsMon_1:
+	closemessage
+	release
+	end
+
+JaggedPass_EventScript_RuthsMon_3:
+	call JaggedPass_EventScript_Rubecko
+	goto JaggedPass_EventScript_RuthsMon_1
+
+JaggedPass_EventScript_RuthsMon_4:
+	call JaggedPass_EventScript_Amalgoat
+	goto JaggedPass_EventScript_RuthsMon_1
+
+JaggedPass_EventScript_RuthsMon_5:
+	call JaggedPass_EventScript_Toxatoo
+	goto JaggedPass_EventScript_RuthsMon_1
+
+
+JaggedPass_EventScript_Rubecko::
+	speakername CommonName_Rubecko
+	playmoncry SPECIES_RUBECKO, CRY_MODE_NORMAL
+	msgbox JaggedPass_Text_RubeckoCry
+	waitmovement 0
+	waitmoncry
+	return
+
+
+JaggedPass_EventScript_Amalgoat::
+	speakername CommonName_Amalgoat
+	playmoncry SPECIES_CHIMERA2, CRY_MODE_NORMAL
+	msgbox JaggedPass_Text_RubeckoCry
+	waitmovement 0
+	waitmoncry
+	return
+
+
+JaggedPass_EventScript_Toxatoo::
+	speakername CommonName_Toxatoo
+	playmoncry SPECIES_TOXATOO, CRY_MODE_NORMAL
+	msgbox JaggedPass_Text_AmalgoatCry
+	waitmovement 0
+	waitmoncry
+	return
+
+
+JaggedPass_Movement_JumpInPlaceLeftTwice:
+	jump_in_place_left
+	jump_in_place_left
+	step_end
+
+JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect:
+	disable_jump_landing_ground_effect
+	jump_in_place_left
+	disable_jump_landing_ground_effect
+	jump_in_place_left
+	step_end
+
 JaggedPass_EventScript_FootprintNerd_Text_0:
 	.string "There's lots of footprints in the ash\n"
 	.string "here!\p"
@@ -344,3 +447,20 @@ JaggedPass_EventScript_HeadbuttTreeMan_Text_0:
 	.string "I bet a Pokémon that knows the move\n"
 	.string "Headbutt could knock them out of the\l"
 	.string "branches.$"
+
+JaggedPass_EventScript_Ruth_Text_0:
+	.string "Grr! He won't let me through!\p"
+	.string "{PLAYER}, go ahead, I'll catch up once\n"
+	.string "I beat this guy!$"
+
+JaggedPass_Text_GetHim::
+	.string "Get him, {STR_VAR_1}!$"
+
+JaggedPass_Text_RubeckoCry::
+	.string "Ribbit!$"
+
+JaggedPass_Text_AmalgoatCry::
+	.string "Maaaaaah!$"
+
+JaggedPass_Text_ToxatooCry::
+	.string "Too! Tootoo!$"

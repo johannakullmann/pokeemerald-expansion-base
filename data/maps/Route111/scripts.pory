@@ -711,7 +711,7 @@ Route111_Text_TrainerHillSign:
 	.string "TRAINERS!”$"
 `
 
-const LOCALID_RUTH = 47
+const LOCALID_RUTH = 45
 const LOCALID_SNORLAX_MAN = 44
 
 const FLAG_HIDE_RUTH = FLAG_TEMP_8
@@ -727,8 +727,8 @@ script Route111_EventScript_SetRuthFishing {
 
 script Route111_EventScript_RuthFishing {
 	lock
-	removeobject(LOCALID_RUTH)
 	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH)
+	removeobject(LOCALID_RUTH)
 	addobject(LOCALID_RUTH)
 	faceplayer
 	speakername(CommonName_Ruth)

@@ -721,18 +721,18 @@ Route111_EventScript_SetRuthFishing_1:
 
 Route111_EventScript_RuthFishing::
 	lock
-	removeobject 47
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH
-	addobject 47
+	removeobject 45
+	addobject 45
 	faceplayer
 	speakername CommonName_Ruth
 	msgbox Route111_EventScript_RuthFishing_Text_0
 	closemessage
-	applymovement 47, Common_Movement_WalkInPlaceLeft
+	applymovement 45, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
-	removeobject 47
+	removeobject 45
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUTH_FISHING
-	addobject 47
+	addobject 45
 	release
 	end
 

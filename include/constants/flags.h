@@ -1520,10 +1520,10 @@
 #define FLAG_SHOWED_STARTER_TO_MOM                  (SYSTEM_FLAGS + 0x93)
 #define FLAG_MET_RUTH_MAUVILLE                      (SYSTEM_FLAGS + 0x94) // Ruth encounter after Mauville badge
 #define FLAG_DONE_MAUVILLE_GYM_INTRO                (SYSTEM_FLAGS + 0x95) // Spoke to gym guide for gym intro
-#define FLAG_DEFEATED_RIVAL_2                       (SYSTEM_FLAGS + 0x96) // Unused Flag
-#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
-#define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
-#define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag
+#define FLAG_DEFEATED_RIVAL_2                       (SYSTEM_FLAGS + 0x96) // Defeated Ruth in Lavaridge
+#define FLAG_HIDE_JAGGED_PASS_NPCS                  (SYSTEM_FLAGS + 0x97) 
+#define FLAG_HIDE_JAGGED_PASS_GRUNTS                (SYSTEM_FLAGS + 0x98) 
+#define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99)
 #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
 #define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
 #define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C) // Unused Flag

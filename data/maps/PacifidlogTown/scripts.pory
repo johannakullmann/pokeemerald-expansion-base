@@ -254,7 +254,7 @@ script PacifidlogTown_EventScript_RuthBoatScene {
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	speakername(CommonName_Ruth)
-	msgbox(format("Ruth: Thank you, sir!\pAnd yes, we're ready to go!\p...\pWait."))
+	msgbox(format("Thank you, sir!\pAnd yes, we're ready to go!\p...\pWait."))
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
