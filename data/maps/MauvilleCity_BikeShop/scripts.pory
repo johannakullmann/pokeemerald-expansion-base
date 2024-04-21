@@ -97,10 +97,6 @@ MauvilleCity_BikeShop_EventScript_SwitchMachForAcro::
 	goto MauvilleCity_BikeShop_EventScript_ComeBackToSwitchBikes
 	end
 
-MauvilleCity_BikeShop_EventScript_Assistant::
-	msgbox MauvilleCity_BikeShop_Text_HandbooksAreInBack, MSGBOX_NPC
-	end
-
 MauvilleCity_BikeShop_EventScript_MachBikeHandbook::
 	message MauvilleCity_BikeShop_Text_MachHandbookWhichPage
 	waitmessage
@@ -321,3 +317,93 @@ MauvilleCity_BikeShop_Text_Jumps:
 	.string "change directions while jumping.\p"
 	.string "Want to read a different page?$"
 `
+
+const LOCALID_BIKESHOP_CLERK = 3
+
+script MauvilleCity_BikeShop_EventScript_BikeShopClerk {
+	lock
+	faceplayer
+	speakername("Shop Clerk")
+	if (!flag(FLAG_PREORDERED_BIKE)) {
+		msgbox(format("Good day!\pWelcome at Rydel's Bike Shop!\pYes, the one and only!\pAre you here to buy one of our famous bikes?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			turnobject (LOCALID_BIKESHOP_CLERK, DIR_WEST)
+			msgbox(format("Let me check my list…\p… What did you say your name was? {PLAYER}?\p…"))
+			turnobject (LOCALID_BIKESHOP_CLERK, DIR_SOUTH)
+			msgbox(format("I'm sorry, you don't seem to on the list of reservations.\p"
+					"But you can put down a pre-order for you, if you'd like that."), MSGBOX_YESNO)
+			if (var(VAR_RESULT) == YES) {
+				showmoneybox(0, 0)
+				msgbox(format("That'll be a payment of ¥5000 up-front, and another ¥10000 once you pick up your bike.\pIs that okay with you?"), MSGBOX_YESNO)
+				if (var(VAR_RESULT) == YES) {
+					checkmoney(5000)
+					if (var(VAR_RESULT) == TRUE){
+						removemoney(5000)
+						updatemoneybox
+						msgbox(format("Please sign here… and here…\pThank you! That's all!\pHere's our number, we'll call you once your order arrives."))
+						hidemoneybox
+						setflag(FLAG_PREORDERED_BIKE)
+						setflag(FLAG_ENABLE_BIKE_SHOP_MATCH_CALL)
+					}
+					else {
+						hidemoneybox
+						msgbox(format("I am sorry, but you don't seem to have enough money with you."))
+					}
+				}
+			}
+		}
+	}
+	elif (!flag(FLAG_RECEIVED_BIKE)) {
+		msgbox(format("Good day!\pWelcome at Rydel's Bike Shop!\pYes, the one and only!\pAre you here to check up on your pre-order?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			msgbox(format("Let me check my list…"))
+			turnobject (LOCALID_BIKESHOP_CLERK, DIR_WEST)
+			msgbox(format("… Hmmm… {PLAYER}, right?\p…"))
+			turnobject (LOCALID_BIKESHOP_CLERK, DIR_SOUTH)
+			msgbox(format("It looks like your order has not arrived yet.\p"
+					"We'll give you a call once your bike is ready for pick-up!"))
+		}
+	}
+	else {
+		msgbox(format("Good day!\pWelcome at Rydel's Bike Shop!\pFeel free to browse around!"))
+	}
+	closemessage
+	release
+	end
+}
+
+script MauvilleCity_BikeShop_EventScript_Lass {
+	lock
+	faceplayer
+	speakername("Neena")
+	msgbox(format("Rydel's bikes are so popular right now you can't even get your hands on one without pre-ordering!\p"
+		"I pre-ordered one of the new bikes a soon as I got the chance to!\p"
+		"Ahhhh, I can barely wait for it to arrive!"))
+	closemessage
+	release
+	end
+}
+
+script MauvilleCity_BikeShop_EventScript_Triathlete {
+	lock
+	faceplayer
+	speakername("Georgios")
+	msgbox(format("I really want to swap out my rickety old Mach Bike for a new one, but all of these bikes here are reserved.\p"
+			"If I have to order one anyway, I might as well get one of them fancy new hybrid bikes.\p"
+			"They're fast like a Mach Bike, but can also be used to traverse difficult terrain.\p"
+			"Trying my hand at the Mount Chimney downhill sounds nice for a change!"))
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	closemessage
+	release
+	end
+}
+
+script MauvilleCity_BikeShop_EventScript_Assistant {
+	lock
+	faceplayer
+	speakername("Fred")
+	msgbox(format("There's a lot of customers here these days.\pGuess the owner's idea of giving out free bikes as advertisement really paid off!"))
+	closemessage
+	release
+	end
+}

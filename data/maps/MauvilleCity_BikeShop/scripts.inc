@@ -96,10 +96,6 @@ MauvilleCity_BikeShop_EventScript_SwitchMachForAcro::
 	goto MauvilleCity_BikeShop_EventScript_ComeBackToSwitchBikes
 	end
 
-MauvilleCity_BikeShop_EventScript_Assistant::
-	msgbox MauvilleCity_BikeShop_Text_HandbooksAreInBack, MSGBOX_NPC
-	end
-
 MauvilleCity_BikeShop_EventScript_MachBikeHandbook::
 	message MauvilleCity_BikeShop_Text_MachHandbookWhichPage
 	waitmessage
@@ -319,3 +315,201 @@ MauvilleCity_BikeShop_Text_Jumps:
 	.string "Press it backwards to make the BIKE\n"
 	.string "change directions while jumping.\p"
 	.string "Want to read a different page?$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk::
+	lock
+	faceplayer
+	speakername MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_0
+	goto_if_unset FLAG_PREORDERED_BIKE, MauvilleCity_BikeShop_EventScript_BikeShopClerk_2
+	goto_if_unset FLAG_RECEIVED_BIKE, MauvilleCity_BikeShop_EventScript_BikeShopClerk_3
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_11
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_1:
+	closemessage
+	release
+	end
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_2:
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MauvilleCity_BikeShop_EventScript_BikeShopClerk_7
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_3:
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_7, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MauvilleCity_BikeShop_EventScript_BikeShopClerk_9
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_7:
+	turnobject 3, DIR_WEST
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_2
+	turnobject 3, DIR_SOUTH
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MauvilleCity_BikeShop_EventScript_BikeShopClerk_11
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_9:
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_8
+	turnobject 3, DIR_WEST
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_9
+	turnobject 3, DIR_SOUTH
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_10
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_11:
+	showmoneybox 0, 0
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MauvilleCity_BikeShop_EventScript_BikeShopClerk_13
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_13:
+	checkmoney 5000
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_BikeShop_EventScript_BikeShopClerk_15
+	hidemoneybox
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_6
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_15:
+	removemoney 5000
+	updatemoneybox
+	msgbox MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_5
+	hidemoneybox
+	setflag FLAG_PREORDERED_BIKE
+	setflag FLAG_ENABLE_BIKE_SHOP_MATCH_CALL
+	goto MauvilleCity_BikeShop_EventScript_BikeShopClerk_1
+
+
+MauvilleCity_BikeShop_EventScript_Lass::
+	lock
+	faceplayer
+	speakername MauvilleCity_BikeShop_EventScript_Lass_Text_0
+	msgbox MauvilleCity_BikeShop_EventScript_Lass_Text_1
+	closemessage
+	release
+	end
+
+
+MauvilleCity_BikeShop_EventScript_Triathlete::
+	lock
+	faceplayer
+	speakername MauvilleCity_BikeShop_EventScript_Triathlete_Text_0
+	msgbox MauvilleCity_BikeShop_EventScript_Triathlete_Text_1
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	closemessage
+	release
+	end
+
+
+MauvilleCity_BikeShop_EventScript_Assistant::
+	lock
+	faceplayer
+	speakername MauvilleCity_BikeShop_EventScript_Assistant_Text_0
+	msgbox MauvilleCity_BikeShop_EventScript_Assistant_Text_1
+	closemessage
+	release
+	end
+
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_0:
+	.string "Shop Clerk$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_1:
+	.string "Good day!\p"
+	.string "Welcome at Rydel's Bike Shop!\p"
+	.string "Yes, the one and only!\p"
+	.string "Are you here to buy one of our famous\n"
+	.string "bikes?$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_2:
+	.string "Let me check my list…\p"
+	.string "… What did you say your name was?\n"
+	.string "{PLAYER}?\p"
+	.string "…$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_3:
+	.string "I'm sorry, you don't seem to on the list\n"
+	.string "of reservations.\p"
+	.string "But you can put down a pre-order for\n"
+	.string "you, if you'd like that.$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_4:
+	.string "That'll be a payment of ¥5000 up-front,\n"
+	.string "and another ¥10000 once you pick up\l"
+	.string "your bike.\p"
+	.string "Is that okay with you?$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_5:
+	.string "Please sign here… and here…\p"
+	.string "Thank you! That's all!\p"
+	.string "Here's our number, we'll call you once\n"
+	.string "your order arrives.$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_6:
+	.string "I am sorry, but you don't seem to have\n"
+	.string "enough money with you.$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_7:
+	.string "Good day!\p"
+	.string "Welcome at Rydel's Bike Shop!\p"
+	.string "Yes, the one and only!\p"
+	.string "Are you here to check up on your\n"
+	.string "pre-order?$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_8:
+	.string "Let me check my list…$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_9:
+	.string "… Hmmm… {PLAYER}, right?\p"
+	.string "…$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_10:
+	.string "It looks like your order has not arrived\n"
+	.string "yet.\p"
+	.string "We'll give you a call once your bike is\n"
+	.string "ready for pick-up!$"
+
+MauvilleCity_BikeShop_EventScript_BikeShopClerk_Text_11:
+	.string "Good day!\p"
+	.string "Welcome at Rydel's Bike Shop!\p"
+	.string "Feel free to browse around!$"
+
+MauvilleCity_BikeShop_EventScript_Lass_Text_0:
+	.string "Neena$"
+
+MauvilleCity_BikeShop_EventScript_Lass_Text_1:
+	.string "Rydel's bikes are so popular right now\n"
+	.string "you can't even get your hands on one\l"
+	.string "without pre-ordering!\p"
+	.string "I pre-ordered one of the new bikes a\n"
+	.string "soon as I got the chance to!\p"
+	.string "Ahhhh, I can barely wait for it to\n"
+	.string "arrive!$"
+
+MauvilleCity_BikeShop_EventScript_Triathlete_Text_0:
+	.string "Georgios$"
+
+MauvilleCity_BikeShop_EventScript_Triathlete_Text_1:
+	.string "I really want to swap out my rickety old\n"
+	.string "Mach Bike for a new one, but all of\l"
+	.string "these bikes here are reserved.\p"
+	.string "If I have to order one anyway, I might\n"
+	.string "as well get one of them fancy new\l"
+	.string "hybrid bikes.\p"
+	.string "They're fast like a Mach Bike, but can\n"
+	.string "also be used to traverse difficult\l"
+	.string "terrain.\p"
+	.string "Trying my hand at the Mount Chimney\n"
+	.string "downhill sounds nice for a change!$"
+
+MauvilleCity_BikeShop_EventScript_Assistant_Text_0:
+	.string "Fred$"
+
+MauvilleCity_BikeShop_EventScript_Assistant_Text_1:
+	.string "There's a lot of customers here these\n"
+	.string "days.\p"
+	.string "Guess the owner's idea of giving out\n"
+	.string "free bikes as advertisement really\l"
+	.string "paid off!$"

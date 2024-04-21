@@ -2518,6 +2518,9 @@ extern const u8 MatchCall_Text_Ruth3[];
 extern const u8 MatchCall_Text_Ruth4[];
 extern const u8 MatchCall_Text_Ruth5[];
 extern const u8 MatchCall_Text_Ruth_Nearby[];
+extern const u8 MatchCall_Text_BikeShop1[];
+extern const u8 MatchCall_Text_BikeShop2[];
+extern const u8 MatchCall_Text_BikeShop3[];
 
 extern const u8 gText_MrStoneMatchCallDesc[];
 extern const u8 gText_MrStoneMatchCallName[];
@@ -2544,6 +2547,8 @@ extern const u8 gText_ProfBirchMatchCallDesc[];
 extern const u8 gText_ProfBirchMatchCallName[];
 extern const u8 gText_RuthMatchCallDesc[];
 extern const u8 gText_RuthMatchCallName[];
+extern const u8 gText_BikeShopMatchCallDesc[];
+extern const u8 gText_BikeShopMatchCallName[];
 extern const u8 gText_MatchCallSteven_Strategy[];
 extern const u8 gText_MatchCallSteven_Pokemon[];
 extern const u8 gText_MatchCallSteven_Intro1_BeforeMeteorFallsBattle[];

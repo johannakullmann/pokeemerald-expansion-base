@@ -2960,28 +2960,28 @@ MatchCall_Text_MrStone11::
 	.string "sometime!$"
 
 	MatchCall_Text_Ruth1::
-	.string "Ruth: {PLAYER}! Hurry up!\p"
+	.string "{PLAYER}! Hurry up!\p"
 	.string "I'm waiting outside!$"
 
 	MatchCall_Text_Ruth2::
-	.string "Ruth: Oh, {PLAYER}!\n"
+	.string "Oh, {PLAYER}!\n"
 	.string "I'm waiting for you on Route 137!\p"
 	.string "You can get there by going north\n"
 	.string "from Sandyshore!$"
 
 	MatchCall_Text_Ruth3::
-	.string "Ruth: Hey, {PLAYER}!\n"
+	.string "Hey, {PLAYER}!\n"
 	.string "How's the journey going?\p"
 	.string "I'm at the store in Pacifidlog, but\n"
 	.string "I can't decide which balls to buy…\p"
-	.string "Super Balls are better, but I could\n"
+	.string "Great Balls are better, but I could\n"
 	.string "get three normal balls for the same\l"
 	.string "price…\p"
 	.string "When you arrive, meet me at the mart!\n"
 	.string "It's the building with the blue roof!$"
 
 	MatchCall_Text_Ruth4::
-	.string "Ruth: … Oh, it's you!\n"
+	.string "… Oh, it's you!\n"
 	.string "I found Mr. Moore!\p"
 	.string "He said he'll be able to take us\n"
 	.string "over to Slateport!\p"
@@ -2989,15 +2989,40 @@ MatchCall_Text_MrStone11::
 	.string "Pacifidlog!$"
 
 	MatchCall_Text_Ruth5::
-	.string "Ruth: … {PLAYER}!\p"
+	.string "… {PLAYER}!\p"
 	.string "When you're ready with your\n"
 	.string "preparations, we should start going!\p"
 	.string "I'm waiting near the pier in\n"
 	.string "Pacifidlog!$"
 
 	MatchCall_Text_Ruth_Nearby::
-	.string "Ruth: Huh?\p"
+	.string "Huh?\p"
 	.string "Why are you calling me?\n"
 	.string "I'm right next to you!$"
 
-	
+	MatchCall_Text_BikeShop1::
+	.string "Hello, this is Rydel's Bike Shop!\p"
+	.string "… Your pre-order?\n"
+	.string "One second, let me check for you.\p"
+	.string "… Hmmm, it seems like it's not\n"
+	.string "ready for pick-up yet.\p"
+	.string "We'll give you a call once your\n"
+	.string "new bike is ready for you!$"
+
+	MatchCall_Text_BikeShop2::
+	.string "Hello, this is Rydel's Bike Shop!\p"
+	.string "… Your pre-order?\n"
+	.string "One second, let me check for you.\p"
+	.string "… Oh! It looks like your new bike\n"
+	.string "is here for you!\p"
+	.string "It's ready for pick-up in our store\n"
+	.string "in Mauville City!$"
+
+	MatchCall_Text_BikeShop3::
+	.string "Hello, this is Rydel's Bike Shop!\p"
+	.string "Thank you for purchasing one of\n"
+	.string "our bikes.\p"
+	.string "If you have any issues or repairs\n"
+	.string "that need to be taken care of,\n"
+	.string "please visit us in our store in\n"
+	.string "Mauville City!$"

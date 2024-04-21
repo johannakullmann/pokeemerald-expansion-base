@@ -1523,8 +1523,8 @@
 #define FLAG_DEFEATED_RIVAL_2                       (SYSTEM_FLAGS + 0x96) // Defeated Ruth in Lavaridge
 #define FLAG_HIDE_JAGGED_PASS_NPCS                  (SYSTEM_FLAGS + 0x97) 
 #define FLAG_HIDE_JAGGED_PASS_GRUNTS                (SYSTEM_FLAGS + 0x98) 
-#define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99)
-#define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // Unused Flag
+#define FLAG_PREORDERED_BIKE                        (SYSTEM_FLAGS + 0x99)
+#define FLAG_ENABLE_BIKE_SHOP_MATCH_CALL            (SYSTEM_FLAGS + 0x9A)
 #define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
 #define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C) // Unused Flag
 #define FLAG_UNUSED_0x8FD                           (SYSTEM_FLAGS + 0x9D) // Unused Flag

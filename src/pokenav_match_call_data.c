@@ -179,6 +179,23 @@ static const struct MatchCallStructNPC sRuthMatchCallHeader =
     .textData = sRuthTextScripts
 };
 
+static const match_call_text_data_t sBikeShopTextScripts[] = {
+    { MatchCall_Text_BikeShop1,  0xFFFF,                          0xFFFF},
+    { MatchCall_Text_BikeShop2,  0x0000,                          0xFFFF},
+    { MatchCall_Text_BikeShop3,  FLAG_RECEIVED_BIKE,              0xFFFF},
+    { NULL,                      0xFFFF,                          0xFFFF}
+};
+
+static const struct MatchCallStructNPC sBikeShopMatchCallHeader =
+{
+    .type = MC_TYPE_NPC,
+    .mapSec = MAPSEC_MAUVILLE_CITY,
+    .flag = FLAG_ENABLE_BIKE_SHOP_MATCH_CALL,
+    .desc = gText_BikeShopMatchCallDesc,
+    .name = gText_BikeShopMatchCallName,
+    .textData = sBikeShopTextScripts
+};
+
 static const match_call_text_data_t sMomTextScripts[] = {
     { MatchCall_Text_Mom1, 0xFFFF,                      0xFFFF },
     { MatchCall_Text_Mom2, FLAG_RECEIVED_STARTER,       0xFFFF },
@@ -619,7 +636,8 @@ static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_GLACIA]     = {.leader = &sGlaciaMatchCallHeader},
     [MC_HEADER_DRAKE]      = {.leader = &sDrakeMatchCallHeader},
     [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader},
-    [MC_HEADER_RUTH]       = {.npc = &sRuthMatchCallHeader}
+    [MC_HEADER_RUTH]       = {.npc = &sRuthMatchCallHeader},
+    [MC_HEADER_BIKE_SHOP]  = {.npc = &sBikeShopMatchCallHeader}
 };
 
 static bool32 (*const sMatchCallGetEnabledFuncs[])(match_call_t) = {

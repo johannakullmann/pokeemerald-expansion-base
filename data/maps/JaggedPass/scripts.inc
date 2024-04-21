@@ -381,7 +381,7 @@ JaggedPass_EventScript_Rubecko::
 JaggedPass_EventScript_Amalgoat::
 	speakername CommonName_Amalgoat
 	playmoncry SPECIES_CHIMERA2, CRY_MODE_NORMAL
-	msgbox JaggedPass_Text_RubeckoCry
+	msgbox JaggedPass_Text_AmalgoatCry
 	waitmovement 0
 	waitmoncry
 	return
@@ -390,7 +390,7 @@ JaggedPass_EventScript_Amalgoat::
 JaggedPass_EventScript_Toxatoo::
 	speakername CommonName_Toxatoo
 	playmoncry SPECIES_TOXATOO, CRY_MODE_NORMAL
-	msgbox JaggedPass_Text_AmalgoatCry
+	msgbox JaggedPass_Text_ToxatooCry
 	waitmovement 0
 	waitmoncry
 	return
