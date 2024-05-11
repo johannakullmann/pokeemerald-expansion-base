@@ -11863,7 +11863,7 @@ static const struct TrainerMon sParty_RuthPacifidlogChimera[] = {
 static const struct TrainerMon sParty_RuthLavaridgeToxatiel[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_BUDEW,
     .gender = FEMALE,
     },
@@ -11881,7 +11881,7 @@ static const struct TrainerMon sParty_RuthLavaridgeToxatiel[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 15,
+    .lvl = 12,
     .species = SPECIES_BARBOACH,
     .isShiny = TRUE,
     .gender = MALE,
@@ -11891,7 +11891,7 @@ static const struct TrainerMon sParty_RuthLavaridgeToxatiel[] = {
 static const struct TrainerMon sParty_RuthLavaridgeGrocko[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_BUDEW,
     .gender = FEMALE,
     },
@@ -11909,7 +11909,7 @@ static const struct TrainerMon sParty_RuthLavaridgeGrocko[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 15,
+    .lvl = 12,
     .species = SPECIES_BARBOACH,
     .isShiny = TRUE,
     .gender = MALE,
@@ -11919,7 +11919,7 @@ static const struct TrainerMon sParty_RuthLavaridgeGrocko[] = {
 static const struct TrainerMon sParty_RuthLavaridgeMerakid[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 13,
+    .lvl = 15,
     .species = SPECIES_BUDEW,
     .gender = FEMALE,
     },
@@ -11937,7 +11937,7 @@ static const struct TrainerMon sParty_RuthLavaridgeMerakid[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 15,
+    .lvl = 12,
     .species = SPECIES_BARBOACH,
     .isShiny = TRUE,
     .gender = MALE,

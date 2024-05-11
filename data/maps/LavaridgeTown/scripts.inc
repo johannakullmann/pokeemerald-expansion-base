@@ -819,8 +819,9 @@ LavaridgeTown_EventScript_AfterRuthBattle_Text_0:
 	.string "time.\p"
 	.string "Looks like I need to step up my game a\n"
 	.string "little bit more to win against you!\p"
-	.string "I am confident in my abilities to beat\n"
-	.string "the gym leader, though.\p"
+	.string "I noticed my Barboach was falling off a\n"
+	.string "bit, I might have to go back to\l"
+	.string "training…\p"
 	.string "…\p"
 	.string "I don't feel like waiting here until\n"
 	.string "they're done. {PLAYER}, let's go look\l"
@@ -829,4 +830,4 @@ LavaridgeTown_EventScript_AfterRuthBattle_Text_0:
 	.string "right?$"
 
 LavaridgeTown_Text_RuthDefeat::
-	.string "Damn, I thought I could win this one.$"
+	.string "Darn, I thought I could win this one.$"

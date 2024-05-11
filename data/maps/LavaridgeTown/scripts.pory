@@ -556,7 +556,7 @@ script LavaridgeTown_EventScript_AfterRuthBattle {
 	speakername(CommonName_Ruth)
 	msgbox(format("Ah, I thought I could beat you this time.\p"
 		"Looks like I need to step up my game a little bit more to win against you!\p"
-		"I am confident in my abilities to beat the gym leader, though.\p"
+		"I noticed my Barboach was falling off a bit, I might have to go back to training…\p"
 		"…\p"
 		"I don't feel like waiting here until they're done. {PLAYER}, let's go look for them!\p"
 		"Flannery said they're at Mt. Chimney, right?"), MSGBOX_AUTOCLOSE)
@@ -652,5 +652,5 @@ movement LavaridgeTown_Movement_RuthLeave_3 {
 }
 
 text LavaridgeTown_Text_RuthDefeat {
-	format("Damn, I thought I could win this one.")
+	format("Darn, I thought I could win this one.")
 }

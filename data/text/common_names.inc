@@ -30,6 +30,9 @@ CommonName_AquaGrunt:
 CommonName_MagmaGrunt:
 	.string "Magma Grunt$"
 
+CommonName_Tabitha:
+	.string "Tabitha$"
+	
 
 CommonName_Wattson:
 	.string "Wattson$"
@@ -62,5 +65,8 @@ CommonName_Amalgoat:
 CommonName_Toxatoo:
 	.string "Toxatoo$"
 
-CommonNAme_BufferedNameString1:
+CommonName_Poochyena:
+	.string "Poochyena$"
+
+CommonName_BufferedNameString1:
 	.string " {STR_VAR_1}$"

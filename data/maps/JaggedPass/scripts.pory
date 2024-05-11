@@ -20,10 +20,6 @@ JaggedPass_EventScript_SetReadyToOpenHideout::
 	setvar VAR_JAGGED_PASS_STATE, 1
 	return
 
-JaggedPass_OnTransition:
-	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
-	end
-
 JaggedPass_EventScript_SetWeatherAsh::
 	setweather WEATHER_VOLCANIC_ASH
 	doweather
@@ -269,8 +265,58 @@ JaggedPass_Text_AutumnPostBattle:
 
 const LOCALID_RUTH = 14
 const LOCALID_RUTHS_MON = 15
+const LOCALID_POOCHYENA = 13
+const LOCALID_MAGMA_GRUNT_W_POOCHYENA = 12
+const LOCALID_RUNNING_POOCHYENA = 21
+const LOCALID_MAY = 22
+const LOCALID_MAGMA_ADMIN = 23
+const LOCALID_FLANNERY = 24
+const LOCALID_MAGMA_GRUNT_1 = 28
+const LOCALID_MAGMA_GRUNT_2 = 29
+const LOCALID_FOOTPRINT_NERD = 8
+const FLAG_TEMP_HIDE_RUTHS_MON = FLAG_TEMP_10
+const FLAG_TEMP_HIDE_RUTH = FLAG_TEMP_9
+const FLAG_TEMP_HIDE_FLANNERY = FLAG_TEMP_8
+const FLAG_TEMP_HIDE_RUNNING_POOCHYENA = FLAG_TEMP_7
+const FLAG_TEMP_HIDE_FOOTPRINT_MANIAC_BLOCKING_NORTH_EXIT = FLAG_TEMP_6
+const VAR_TEMP_DISABLE_MAY_CUTSCENE_TRIGGER = VAR_TEMP_1
 
 script JaggedPass_EventScript_FootprintNerd {
+	//stopping player from progressing to Fallarbor until 
+	if (var(VAR_JAGGED_PASS_STATE) <= 3) { 
+		lock
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+		waitmovement(0)
+		speakername("Gunther")
+		msgbox(format("Hello! You!\pTake a look at these fascinating Pokémon footprints here!"))
+		closemessage
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+		applymovement(OBJ_EVENT_GFX_PLAYER, JaggedPass_Movement_PlayerWalkUpToAsh)
+		waitmovement(0)
+		speakername("Gunther")
+		msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+			waitmovement(0)
+			msgbox(JaggedPass_Text_FootprintNerdStory)
+			applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+			msgbox(JaggedPass_Text_FootprintNeedToStudy_1)
+		}
+		else {
+			applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+			msgbox(JaggedPass_Text_FootprintNeedToStudy_2)
+		}
+		closemessage
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+		turnobject(LOCALID_FOOTPRINT_NERD, DIR_NORTH)
+		waitmovement(0)
+		release
+		end
+	}
+	//footprint minigame TODO
+	else {
 	lock
 	faceplayer
 	specialvar(VAR_RESULT, ScriptGetPokedexInfo)
@@ -298,6 +344,7 @@ script JaggedPass_EventScript_FootprintNerd {
 	}
 	release
 	end
+	}
 }
 
 script JaggedPass_EventScript_MachBikeTriathlete {
@@ -314,38 +361,57 @@ script JaggedPass_EventScript_HeadbuttTreeMan {
 }
 
 script JaggedPass_EventScript_Ruth {
-	lock
-	faceplayer
-	speakername(CommonName_Ruth)
-	msgbox(format("Grr! He won't let me through!\p{PLAYER}, go ahead, I'll catch up once I beat this guy!"))
-	turnobject(VAR_LAST_TALKED, DIR_WEST)
-	switch(var(VAR_STARTER_MON)) {
+	switch (var(VAR_JAGGED_PASS_STATE)) {
 		case 0:
-			bufferspeciesname(STR_VAR_1, SPECIES_RUBECKO)
-			msgbox(JaggedPass_Text_GetHim)
-			closemessage
-			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
-			call(JaggedPass_EventScript_Rubecko)
 		case 1:
-			bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA2)
-			msgbox(JaggedPass_Text_GetHim)
-			closemessage
-			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
-			call(JaggedPass_EventScript_Amalgoat)
 		case 2:
-			bufferspeciesname(STR_VAR_1, SPECIES_TOXATOO)
-			msgbox(JaggedPass_Text_GetHim)
+			faceplayer
+			speakername(CommonName_Ruth)
+			msgbox(format("Grr! He won't let me through!\p{PLAYER}, go ahead, I'll catch up once I beat this guy!"))
+			turnobject(VAR_LAST_TALKED, DIR_WEST)
+			switch(var(VAR_STARTER_MON)) {
+				case 0:
+					bufferspeciesname(STR_VAR_1, SPECIES_RUBECKO)
+					msgbox(JaggedPass_Text_GetHim)
+					applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+					call(JaggedPass_EventScript_Rubecko)
+				case 1:
+					bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA2)
+					msgbox(JaggedPass_Text_GetHim)
+					applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+					call(JaggedPass_EventScript_Amalgoat)
+				case 2:
+					bufferspeciesname(STR_VAR_1, SPECIES_TOXATOO)
+					msgbox(JaggedPass_Text_GetHim)
+					applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect)
+					call(JaggedPass_EventScript_Toxatoo)
+			}
 			closemessage
-			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect)
-			call(JaggedPass_EventScript_Toxatoo)
+			release
+			end
+		case 3:
+			lock
+			faceplayer
+			speakername(CommonName_Ruth)
+			switch (var(VAR_STARTER_MON)) {
+				case 0:
+				case 2:
+					msgbox(format("Hey, {PLAYER}!\pMy Barboach is starting to catch up!\pJust a little bit more…\p"
+					"Oh, by the way! Do you see that large tree there?\pThat man over there said you can knock Pokémon out of the branches.\p"
+					"Argh, I wish one of my Pokémon knew the move Headbutt!\pI want to check out what lives up there…"))
+				case 1:
+					msgbox(format("Hey, {PLAYER}!\pMy Barboach is starting to catch up!\pJust a little bit more…\p"
+					"Oh, by the way! Do you see that large tree there?\pMy Amalgoat knocked a little Seedot out of the branches!\p"
+					"Do you have a Pokémon that knows the move Headbutt?\pYou should really try it out!"))
+			}
+			closemessage
+			release
+			end
 	}
-	closemessage
-	release
-	end
+	
 }
 
 script JaggedPass_EventScript_RuthsMon {
-	lock
 	switch(var(VAR_STARTER_MON)){
 		case 0:
 			call(JaggedPass_EventScript_Rubecko)
@@ -359,11 +425,106 @@ script JaggedPass_EventScript_RuthsMon {
 	end
 }
 
+script JaggedPass_EventScript_GruntTryStopPlayer1_T {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
+	speakername(CommonName_MagmaGrunt)
+	msgbox(JaggedPass_Text_PoochyenaGetThem)
+	closemessage
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaApprachPlayer_T)
+	waitmovement(0)
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	waitmoncry
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaJumpAtPlayer)
+	delay(4)
+	applymovement(OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_PlayerStumbleBackwards)
+	waitmovement(LOCALID_POOCHYENA)
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaRetreat_T)
+	waitmovement(0)
+	release
+	end
+}
+
+script JaggedPass_EventScript_GruntTryStopPlayer1_C {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
+	speakername(CommonName_MagmaGrunt)
+	msgbox(JaggedPass_Text_PoochyenaGetThem)
+	closemessage
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaApprachPlayer_C)
+	waitmovement(0)
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	waitmoncry
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaJumpAtPlayer)
+	delay(4)
+	applymovement(OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_PlayerStumbleBackwards)
+	waitmovement(LOCALID_POOCHYENA)
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaRetreat_C)
+	waitmovement(0)
+	release
+	end
+}
+
+script JaggedPass_EventScript_GruntTryStopPlayer1_B {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
+	speakername(CommonName_MagmaGrunt)
+	msgbox(JaggedPass_Text_PoochyenaGetThem)
+	closemessage
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaApprachPlayer_B)
+	waitmovement(0)
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	waitmoncry
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaJumpAtPlayer)
+	delay(4)
+	applymovement(OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_PlayerStumbleBackwards)
+	waitmovement(LOCALID_POOCHYENA)
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_PoochyenaRetreat_B)
+	waitmovement(0)
+	release
+	end
+}
+
+script JaggedPass_EventScript_GruntTryStopPlayer2 {
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_FacePlayer)
+	speakername(CommonName_MagmaGrunt)
+	msgbox(format("Hey! You can't-"))
+	closemessage
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_FaceOriginalDirection)
+	switch(var(VAR_STARTER_MON)){
+		case 0:
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+			playmoncry(SPECIES_RUBECKO, CRY_MODE_NORMAL)
+		case 1:
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
+			playmoncry(SPECIES_CHIMERA2, CRY_MODE_NORMAL)
+		case 2:
+			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect)
+			playmoncry(SPECIES_TOXATOO, CRY_MODE_NORMAL)
+	}
+	waitmovement(0)
+	waitmoncry
+	applymovement(LOCALID_POOCHYENA, JaggedPass_Movement_JumpInPlaceRightTwice)
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	waitmovement(0)
+	waitmoncry
+	speakername(CommonName_MagmaGrunt)
+	msgbox(format("Argh! This annoying little…!"))
+	setvar(VAR_JAGGED_PASS_STATE, 2)
+	release
+	end
+}
+
 script JaggedPass_EventScript_Rubecko {
 	speakername(CommonName_Rubecko)
 	playmoncry(SPECIES_RUBECKO, CRY_MODE_NORMAL)
 	msgbox(JaggedPass_Text_RubeckoCry)
-	waitmovement(0)
 	waitmoncry
 }
 
@@ -371,7 +532,6 @@ script JaggedPass_EventScript_Amalgoat {
 	speakername(CommonName_Amalgoat)
 	playmoncry(SPECIES_CHIMERA2, CRY_MODE_NORMAL)
 	msgbox(JaggedPass_Text_AmalgoatCry)
-	waitmovement(0)
 	waitmoncry
 }
 
@@ -379,8 +539,339 @@ script JaggedPass_EventScript_Toxatoo {
 	speakername(CommonName_Toxatoo)
 	playmoncry(SPECIES_TOXATOO, CRY_MODE_NORMAL)
 	msgbox(JaggedPass_Text_ToxatooCry)
-	waitmovement(0)
 	waitmoncry
+}
+
+script JaggedPass_EventScript_Poochyena {
+	speakername(CommonName_Poochyena)
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	msgbox(MtChimney_Text_Bufoh)
+	waitmoncry
+}
+
+script JaggedPass_EventScript_GruntWithLostPoochyena {
+	if (!flag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)) {
+		speakername(CommonName_MagmaGrunt)
+		applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceLeft)
+		waitmovement(0)
+		msgbox(format("Come back up here, Poochyena!\pWe've got things to do and stairs to guard!"))
+		closemessage
+		applymovement(LOCALID_RUNNING_POOCHYENA, JaggedPass_Movement_PoochyenaRunAway)
+		playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+		waitmovement(0)
+		speakername(CommonName_MagmaGrunt)
+		msgbox(format("Wha-? Where are you going?!"))
+		closemessage
+		playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+		waitmoncry
+		playmoncry(SPECIES_NUMEL, CRY_MODE_NORMAL)
+		waitmoncry
+		applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceLeft)
+		waitmovement(0)
+		speakername(CommonName_MagmaGrunt)
+		msgbox(format("No! Leave that wild Numel alone! Bad girl!"))
+		closemessage
+		setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
+	}
+	else {
+		speakername(CommonName_MagmaGrunt)
+		msgbox(format("What am I supposed to do now?\pI can't stand guard without my Poochyena!\pI should've trained the little rascal better…"))
+		closemessage
+	}
+	release
+	end
+}
+
+script JaggedPass_EventScript_MayScene {
+	lock
+	playbgm(MUS_ENCOUNTER_MAGMA, FALSE)
+	applymovement(LOCALID_MAGMA_ADMIN, JaggedPass_Movement_TabithaWalkBackwards)
+	waitmovement(0)
+	speakername(CommonName_Tabitha)
+	msgbox(format("Ugh… You're as strong as ever."))
+	closemessage
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	speakername(CommonName_May)
+	msgbox(format("I can't allow you to enter this cave.\pIt's not safe, a cave-in could trap you inside."))
+	closemessage
+	applymovement(LOCALID_MAGMA_ADMIN, Common_Movement_WalkLeft)
+	waitmovement(0)
+	speakername(CommonName_Tabitha)
+	msgbox(format("Spare me the sarcasm, girl.\p"
+			"We both know the real reason why you're trying to stop us from entering our old hideout.\p"
+			"But it doesn't matter, we'll get in there one way or another."))
+	closemessage
+	applymovement(LOCALID_MAGMA_ADMIN, JaggedPass_Movement_TabithaWalkAway)
+	applymovement(LOCALID_MAGMA_GRUNT_1, JaggedPass_Movement_Grunt1WalkAway)
+	applymovement(LOCALID_MAGMA_GRUNT_2, JaggedPass_Movement_Grunt2WalkAway)
+	delay(64)
+	fadedefaultbgm
+	waitmovement(0)
+	removeobject(LOCALID_MAGMA_GRUNT_1)
+	removeobject(LOCALID_MAGMA_GRUNT_2)
+	removeobject(LOCALID_MAGMA_ADMIN)
+	delay(128)
+	clearflag(FLAG_TEMP_HIDE_FLANNERY)
+	addobject(LOCALID_FLANNERY)
+	playse(SE_FU_ZAKU)
+	waitse
+	turnobject(LOCALID_MAY, DIR_NORTH)
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkDown)
+	waitmovement(0)
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	speakername(CommonName_May)
+	msgbox(format("So, how far did they get?"))
+	closemessage
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	speakername(CommonName_Flannery)
+	msgbox(format("They cleared out a bunch, but the path's still blocked by boulders and debris."))
+	closemessage 
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	speakername(CommonName_May)
+	msgbox(format("That's good, at least…\pI'll have to see what I can do to close off the cave."))
+	closemessage
+	setobjectxyperm(LOCALID_RUTH, 36, 20)
+	addobject(LOCALID_RUTH)
+	applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthApproachPlayer)
+	waitmovement(0)
+	speakername(CommonName_Ruth)
+	msgbox(format("{PLAYER}, there you are!"))
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	closemessage
+	getplayerxy(VAR_0x8000, VAR_0x8001)
+	switch(var(VAR_0x8001)) {
+		case 19:
+			applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthApproachPlayer_T)
+			waitmovement(0)
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+		case 20:
+			applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthApproachPlayer_C)
+			waitmovement(0)
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+		case 21:
+			applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthApproachPlayer_B)
+			waitmovement(0)
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	}
+	speakername(CommonName_Ruth)
+	msgbox(format("Oh, and Flannery! And…\pUhm…"))
+	closemessage
+	turnobject(LOCALID_MAY, DIR_WEST)
+	turnobject(LOCALID_FLANNERY, DIR_WEST)
+	switch(var(VAR_0x8001)) {
+		case 19:
+			applymovement(LOCALID_MAY, JaggedPass_Movement_MayApproachPlayer_2)
+		case 20:
+		case 21:
+			applymovement(LOCALID_MAY, JaggedPass_Movement_MayApproachPlayer_1)
+	}
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	speakername(CommonName_May)
+	msgbox(format("The name's May!\pI took over Lavaridge Gym recently.\pAnd you are?"))
+	closemessage
+	switch(var(VAR_0x8001)) {
+		case 19:
+			applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryApproachPlayer_2)
+		case 20:
+		case 21:
+			applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryApproachPlayer_1)
+	}
+	waitmovement(0)
+	turnobject(LOCALID_MAY, DIR_NORTH)
+	speakername(CommonName_Flannery)
+	msgbox(format("This is my little cousin Ruth, and her friend {PLAYER}.\pThey came to earn themselves a shiny new badge."))
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	turnobject(LOCALID_FLANNERY, DIR_WEST)
+	speakername(CommonName_May)
+	msgbox(format("Oh, I'm sorry I kept you waiting!\pWe can go back to Lavaridge immediately, if the two of you are ready."))
+	closemessage
+	applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthUnsure)
+	waitmovement(0)
+	speakername(CommonName_Ruth)
+	msgbox(format("Wait, right now?\pI… I think I'll stay here for a bit."))
+	applymovement(LOCALID_RUTH, Common_Movement_FacePlayer)
+	switch(var(VAR_0x8001)) {
+		case 19:
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+		case 20:
+		case 21:
+			turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	}
+	msgbox(format("{PLAYER}, as much as I want to get this badge before you, I don't think I can afford to rush it right now.\p"
+			"I'll take my time to build a strong foundation and catch up to you in no time!"))
+	closemessage
+	applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthLeave)
+	delay(16)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	waitmovement(0)
+	removeobject(LOCALID_RUTH)
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	speakername(CommonName_Flannery)
+	msgbox(format("Huh? What was that?\pMy little cousin… being reasonable?"))
+	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(LOCALID_MAY, DIR_NORTH)
+	msgbox(format("Anyway, May, I think I have to go now.\pYou've got the situation under control?"))
+	closemessage
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	speakername(CommonName_May)
+	msgbox(format("Yes, thanks for your help, Flannery!"))
+	closemessage
+	applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryLeave)
+	delay(16)
+	turnobject(LOCALID_MAY, DIR_EAST)
+	waitmovement(0)
+	speakername(CommonName_Flannery)
+	msgbox(format("Next visit to the hot springs is on you, May!"))
+	closemessage
+	setfieldeffectargument(0, 1)
+	playmoncry(SPECIES_MOLTRES, CRY_MODE_NORMAL)
+	delay(16)
+	dofieldeffect(FLDEFF_NPCFLY_OUT)
+	delay(10)
+	removeobject(LOCALID_FLANNERY)
+	waitfieldeffect(FLDEFF_NPCFLY_OUT)
+	delay(32)
+	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	speakername(CommonName_May)
+	msgbox(format("I'll be looking forward to our battle, {PLAYER}!"))
+	closemessage
+	switch(var(VAR_0x8001)) {
+		case 19:
+			applymovement(LOCALID_MAY, JaggedPass_Movement_MayLeave_2)
+		case 20:
+		case 21:
+			applymovement(LOCALID_MAY, JaggedPass_Movement_MayLeave_1)
+	}
+	delay(16)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+	waitmovement(0)
+	removeobject(LOCALID_MAY)
+
+	setvar(VAR_JAGGED_PASS_STATE, 3)
+	setobjectxyperm(LOCALID_RUTH, 10, 33)
+	addobject(LOCALID_RUTH)
+	setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_LOOK_AROUND)
+	removeobject(LOCALID_RUTHS_MON)
+	setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
+	setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
+	setflag(FLAG_HIDE_JAGGED_PASS_NPCS) //until left + re-entered, no NPCs here yet
+	special(DrawWholeMapView)
+	release
+	end
+}
+
+script JaggedPass_EventScript_FootprintNerdTryStopPlayer_L {
+	lock
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
+	speakername("Gunther")
+	msgbox(JaggedPass_Text_FootprintNerdHey)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	msgbox(JaggedPass_Text_FootprintNerdPerfectFootprints)
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+		waitmovement(0)
+		msgbox(JaggedPass_Text_FootprintNerdStory)
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+		msgbox(JaggedPass_Text_FootprintNeedToStudy_1)
+	}
+	else {
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+		msgbox(JaggedPass_Text_FootprintNeedToStudy_2)
+	}
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+	turnobject(LOCALID_FOOTPRINT_NERD, DIR_NORTH)
+	waitmovement(0)
+	release
+	end
+}
+
+script JaggedPass_EventScript_FootprintNerdTryStopPlayer_R {
+	lock
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
+	speakername("Gunther")
+	msgbox(JaggedPass_Text_FootprintNerdHey)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	msgbox(JaggedPass_Text_FootprintNerdPerfectFootprints)
+	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
+		waitmovement(0)
+		msgbox(JaggedPass_Text_FootprintNerdStory)
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+		msgbox(JaggedPass_Text_FootprintNeedToStudy_1)
+	}
+	else {
+		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+		msgbox(JaggedPass_Text_FootprintNeedToStudy_2)
+	}
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+	turnobject(LOCALID_FOOTPRINT_NERD, DIR_NORTH)
+	waitmovement(0)
+	release
+	end
+}
+
+text JaggedPass_Text_FootprintNerdHey {
+	format("Hey!\pHey hey!")
+}
+
+text JaggedPass_Text_FootprintNerdPerfectFootprints {
+	format("You didn't intend to step on this ash, right?\p"
+		"Just take a look at those perfect Pokémon footprints!")
+}
+
+text JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere {
+	format("What a specimen!\pJust a look at them and I can see the scene it in front of my eyes!\p"
+		"Want to know what happened here?")
+}
+
+text JaggedPass_Text_FootprintNerdStory {
+	format("These tracks belong to a young Numel, snoozing in the volcanic ash, when suddenly…\p"
+			"Bam!\p"
+			"A Poochyena attacks! Completely out of nowhere!\p"
+			"The Numel, disoriented, gets up and tries to run away.\p"
+			"The Poochyena prepares a second attack…\p"
+			"But it gets distracted by something else and runs off.")
+}
+
+text JaggedPass_Text_FootprintNeedToStudy_1 {
+	format("Fascinating, isn't it?\pI'll have to study these more!\p"
+			"I'll have to ask you not to step on this patch of ash until I'm done, though.\pSorry.")
+}
+
+text JaggedPass_Text_FootprintNeedToStudy_2 {
+	format("Still, I have to study these!\p"
+			"I'll have to ask you not to step on this patch of ash until I'm done.\pSorry.")
 }
 
 text JaggedPass_Text_GetHim {
@@ -399,10 +890,162 @@ text JaggedPass_Text_ToxatooCry {
 	"Too! Tootoo!"
 }
 
+text JaggedPass_Text_PoochyenaGetThem {
+	format("Hey! You can't go here!\pPoochyena, get them!")
+}
+
 movement JaggedPass_Movement_JumpInPlaceLeftTwice {
 	jump_in_place_left
 	jump_in_place_left
-	step_end
+}
+
+movement JaggedPass_Movement_JumpInPlaceRightTwice {
+	jump_in_place_right
+	jump_in_place_right
+}
+
+movement JaggedPass_Movement_PoochyenaRunAway {
+	jump_in_place_right
+	jump_in_place_right
+	delay_16
+	walk_fast_left *6
+}
+
+movement JaggedPass_Movement_PoochyenaApprachPlayer_T {
+	walk_fast_up
+	walk_fast_right
+}
+
+movement JaggedPass_Movement_PoochyenaApprachPlayer_C {
+	walk_fast_right
+}
+
+movement JaggedPass_Movement_PoochyenaApprachPlayer_B {
+	walk_fast_down
+	walk_fast_right
+}
+
+movement JaggedPass_Movement_PoochyenaJumpAtPlayer {
+	jump_right
+	delay_16
+}
+
+movement JaggedPass_Movement_PlayerStumbleBackwards {
+	lock_facing_direction
+	walk_faster_right
+	unlock_facing_direction
+}
+
+movement JaggedPass_Movement_PoochyenaRetreat_T {
+	walk_fast_left *2
+	walk_fast_down
+	face_right
+}
+
+movement JaggedPass_Movement_PoochyenaRetreat_C {
+	walk_fast_left *2
+	face_right
+}
+
+movement JaggedPass_Movement_PoochyenaRetreat_B {
+	walk_fast_left *2
+	walk_fast_up
+	face_right
+}
+
+movement JaggedPass_Movement_TabithaWalkBackwards {
+	lock_facing_direction
+	walk_right
+	unlock_facing_direction
+}
+
+movement JaggedPass_Movement_TabithaWalkAway {
+	walk_up
+	walk_right *5
+}
+
+movement JaggedPass_Movement_Grunt1WalkAway {
+	delay_16 *3
+	walk_up
+	walk_right*3
+}
+
+movement JaggedPass_Movement_Grunt2WalkAway {
+	delay_16 *3
+	walk_up *2
+	walk_right*3
+}
+
+movement JaggedPass_Movement_RuthApproachPlayer {
+	walk_right*6
+}
+
+movement JaggedPass_Movement_RuthApproachPlayer_T {
+	walk_right*2
+}
+
+movement JaggedPass_Movement_RuthApproachPlayer_C {
+	walk_up
+	walk_right*2
+}
+
+movement JaggedPass_Movement_RuthApproachPlayer_B {
+	walk_right*2
+}
+
+movement JaggedPass_Movement_RuthLeave {
+	walk_left *8
+}
+
+movement JaggedPass_Movement_FlanneryApproachPlayer_1 {
+	walk_left
+	walk_in_place_down
+}
+
+movement JaggedPass_Movement_FlanneryApproachPlayer_2 {
+	walk_left
+	walk_down
+}
+
+movement JaggedPass_Movement_MayApproachPlayer_1 {
+	walk_left
+}
+
+movement JaggedPass_Movement_MayApproachPlayer_2 {
+	walk_down
+	walk_left
+}
+
+movement JaggedPass_Movement_FlanneryLeave {
+	walk_right
+	walk_down
+	walk_right
+	delay_8
+	walk_in_place_left
+}
+
+movement JaggedPass_Movement_MayLeave_1 {
+	walk_down*2
+	jump_down
+	walk_down*2
+}
+
+movement JaggedPass_Movement_MayLeave_2 {
+	walk_down
+	jump_down
+	walk_down*3
+}
+
+movement JaggedPass_Movement_RuthUnsure {
+	delay_16
+	face_player
+	delay_16
+	face_right
+}
+
+movement JaggedPass_Movement_PlayerWalkUpToAsh {
+	walk_right
+	walk_up
 }
 
 movement JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect {
@@ -410,5 +1053,56 @@ movement JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect {
 	jump_in_place_left
 	disable_jump_landing_ground_effect
 	jump_in_place_left
-	step_end
+}
+
+script JaggedPass_OnTransition {
+	switch (var(VAR_JAGGED_PASS_STATE)) {
+		case 0: //grunts there, ruth not there
+			setflag(FLAG_HIDE_JAGGED_PASS_NPCS)
+			clearflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
+			setobjectmovementtype(LOCALID_POOCHYENA, MOVEMENT_TYPE_FACE_RIGHT)
+			setflag(FLAG_TEMP_HIDE_RUTH)
+			setflag(FLAG_TEMP_HIDE_RUTHS_MON)
+		case 1: //grunts there, ruth there
+		case 2: //after grunt has tried to prevent player from moving past
+			setflag(FLAG_HIDE_JAGGED_PASS_NPCS)
+			clearflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
+			setobjectmovementtype(LOCALID_POOCHYENA, MOVEMENT_TYPE_FACE_RIGHT)
+			clearflag(FLAG_TEMP_HIDE_RUTH)
+			clearflag(FLAG_TEMP_HIDE_RUTHS_MON)
+			switch (var(VAR_STARTER_MON)) {
+			case 0:
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUBECKO)
+			case 1:
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_AMALGOAT)
+			case 2:
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TOXATOO)
+			}
+		case 3: //after cutscene with may, flannery and tabitha
+			setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
+			clearflag(FLAG_HIDE_JAGGED_PASS_NPCS)
+			clearflag(FLAG_TEMP_HIDE_RUTH)
+			setflag(FLAG_TEMP_HIDE_RUTHS_MON)
+			setobjectxyperm(LOCALID_RUTH, 10, 33)
+			setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_LOOK_AROUND)
+			setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
+		case 4: //after some story event tba, ruth is not training here anymore and footprint nerd does not block north exit anymore
+			setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
+			clearflag(FLAG_HIDE_JAGGED_PASS_NPCS)
+			setflag(FLAG_TEMP_HIDE_RUTH)
+			setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
+			setobjectxyperm(LOCALID_FOOTPRINT_NERD, 14, 11)
+			setobjectmovementtype(LOCALID_FOOTPRINT_NERD, MOVEMENT_TYPE_LOOK_AROUND)
+	}
+	setflag(FLAG_TEMP_HIDE_FLANNERY)
+	
+
+	if (flag(FLAG_LAVARIDGE_GYM_OPEN) && !flag(FLAG_BADGE04_GET)) {
+		clearflag(FLAG_TEMP_HIDE_FOOTPRINT_MANIAC_BLOCKING_NORTH_EXIT)
+		setvar(VAR_TEMP_0, 3)
+	}
+	elif (flag(FLAG_LAVARIDGE_GYM_OPEN) && flag(FLAG_BADGE04_GET)) {
+		setflag(FLAG_TEMP_HIDE_FOOTPRINT_MANIAC_BLOCKING_NORTH_EXIT)
+	}
+
 }

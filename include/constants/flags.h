@@ -1524,11 +1524,11 @@
 #define FLAG_HIDE_JAGGED_PASS_NPCS                  (SYSTEM_FLAGS + 0x97) 
 #define FLAG_HIDE_JAGGED_PASS_GRUNTS                (SYSTEM_FLAGS + 0x98) 
 #define FLAG_PREORDERED_BIKE                        (SYSTEM_FLAGS + 0x99)
-#define FLAG_ENABLE_BIKE_SHOP_MATCH_CALL            (SYSTEM_FLAGS + 0x9A)
-#define FLAG_UNUSED_0x8FB                           (SYSTEM_FLAGS + 0x9B) // Unused Flag
-#define FLAG_UNUSED_0x8FC                           (SYSTEM_FLAGS + 0x9C) // Unused Flag
-#define FLAG_UNUSED_0x8FD                           (SYSTEM_FLAGS + 0x9D) // Unused Flag
-#define FLAG_UNUSED_0x8FE                           (SYSTEM_FLAGS + 0x9E) // Unused Flag
+#define FLAG_BIKE_READY_FOR_PICKUP                  (SYSTEM_FLAGS + 0x9A)
+#define FLAG_ENABLE_BIKE_SHOP_MATCH_CALL            (SYSTEM_FLAGS + 0x9B)
+#define FLAG_HIDE_JAGGED_PASS_RUTH                  (SYSTEM_FLAGS + 0x9C)
+#define FLAG_UNUSED_0x9D                            (SYSTEM_FLAGS + 0x9D)
+#define FLAG_LAVARIDGE_GYM_OPEN                     (SYSTEM_FLAGS + 0x9E)
 #define FLAG_UNUSED_0x8FF                           (SYSTEM_FLAGS + 0x9F) // Unused Flag
 #define FLAG_UNUSED_0x900                           (SYSTEM_FLAGS + 0xA0) // Unused Flag
 #define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1) // Unused Flag

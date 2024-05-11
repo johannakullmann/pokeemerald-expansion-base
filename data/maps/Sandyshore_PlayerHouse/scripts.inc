@@ -136,6 +136,8 @@ Sandyshore_Playerhouse_EventScript_Mom_4:
 Sandyshore_Playerhouse_EventScript_Mom_5:
 	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
+	giveitem ITEM_POTION
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	setflag FLAG_SHOWED_STARTER_TO_MOM
 	closemessage
 	goto Sandyshore_Playerhouse_EventScript_Mom_4
@@ -148,7 +150,7 @@ Sandyshore_Playerhouse_EventScript_Mom_10:
 	lock
 	faceplayer
 	speakername CommonName_Mom
-	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_3
 	closemessage
 	applymovement 1, Common_Movement_WalkInPlaceUp
 	waitmovement 1
@@ -159,7 +161,7 @@ Sandyshore_Playerhouse_EventScript_Mom_11:
 	lock
 	faceplayer
 	speakername CommonName_Mom
-	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
+	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_3
 	release
 	end
 
@@ -253,9 +255,15 @@ Sandyshore_Playerhouse_EventScript_Mom_Text_1:
 	.string "time outside now!\p"
 	.string "When you and your Pokémon get tired,\n"
 	.string "you can always come back home and\l"
-	.string "rest.$"
+	.string "rest.\p"
+	.string "Oh, and take this Potion!$"
 
 Sandyshore_Playerhouse_EventScript_Mom_Text_2:
+	.string "You can use Potions to heal small\n"
+	.string "injuries of your Pokémon.\p"
+	.string "Take care, {PLAYER}!$"
+
+Sandyshore_Playerhouse_EventScript_Mom_Text_3:
 	.string "Are you two going to visit the\n"
 	.string "Professor again?$"
 

@@ -181,7 +181,7 @@ static const struct MatchCallStructNPC sRuthMatchCallHeader =
 
 static const match_call_text_data_t sBikeShopTextScripts[] = {
     { MatchCall_Text_BikeShop1,  0xFFFF,                          0xFFFF},
-    { MatchCall_Text_BikeShop2,  0x0000,                          0xFFFF},
+    { MatchCall_Text_BikeShop2,  FLAG_BIKE_READY_FOR_PICKUP,      0xFFFF},
     { MatchCall_Text_BikeShop3,  FLAG_RECEIVED_BIKE,              0xFFFF},
     { NULL,                      0xFFFF,                          0xFFFF}
 };
