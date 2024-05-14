@@ -290,6 +290,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFi
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Toxatoo;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rubecko;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amalgoat;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Eevee;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -578,6 +580,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TOXATOO] =                  &gObjectEventGraphicsInfo_Toxatoo,
     [OBJ_EVENT_GFX_RUBECKO] =                  &gObjectEventGraphicsInfo_Rubecko,
     [OBJ_EVENT_GFX_AMALGOAT] =                 &gObjectEventGraphicsInfo_Amalgoat,
+    [OBJ_EVENT_GFX_AQUA_ADMIN_F] =             &gObjectEventGraphicsInfo_AquaAdminF,
+    [OBJ_EVENT_GFX_EEVEE] =                    &gObjectEventGraphicsInfo_Eevee,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

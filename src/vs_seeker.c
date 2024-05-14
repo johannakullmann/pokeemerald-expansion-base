@@ -89,7 +89,7 @@ static void Task_VsSeeker_ShowResponseToPlayer(u8 taskId);
 static bool8 CanUseVsSeeker(void);
 static u8 GetVsSeekerResponseInArea(void);
 #if FREE_MATCH_CALL == FALSE
-static u8 GetResponseMovementTypeFromTrainerGraphicsId(u16 graphicsId);
+static u8 GetResponseMovementTypeFromTrainerGraphicsId(u8 graphicsId);
 #endif //FREE_MATCH_CALL
 static u16 GetTrainerFlagFromScript(const u8 * script);
 static void ClearAllTrainerRematchStates(void);
@@ -606,7 +606,7 @@ static u8 GetRandomFaceDirectionMovementType()
 }
 
 #if FREE_MATCH_CALL == FALSE
-static bool32 IsRegularLandTrainer(u16 graphicsId)
+static bool32 IsRegularLandTrainer(u8 graphicsId)
 {
     u32 i;
     u16 regularTrainersOnLand[] =
@@ -687,7 +687,7 @@ static bool32 IsRegularWaterTrainer(u8 graphicsId)
     return FALSE;
 }
 
-static u8 GetResponseMovementTypeFromTrainerGraphicsId(u16 graphicsId)
+static u8 GetResponseMovementTypeFromTrainerGraphicsId(u8 graphicsId)
 {
     if (IsRegularLandTrainer(graphicsId) || IsRegularWaterTrainer(graphicsId))
         return MOVEMENT_TYPE_ROTATE_CLOCKWISE;
