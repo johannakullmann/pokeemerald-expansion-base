@@ -418,5 +418,7 @@ const u16 gObjectEventPal_GroudonKyogrePMDReflection[] = INCBIN_U16("graphics/ob
 const u32 gObjectEventPic_Toxatoo[] = INCBIN_U32("graphics/object_events/pics/pokemon/toxatoo.4bpp");
 const u32 gObjectEventPic_Rubecko[] = INCBIN_U32("graphics/object_events/pics/pokemon/rubecko.4bpp");
 const u32 gObjectEventPic_Amalgoat[] = INCBIN_U32("graphics/object_events/pics/pokemon/amalgoat.4bpp");
+const u32 gObjectEventPic_Eevee[] = INCBIN_U32("graphics/object_events/pics/pokemon/eevee.4bpp");
 
 const u32 gObjectEventPic_FishermanFishing[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_fishing.4bpp");
+const u32 gObjectEventPic_AquaAdminF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_admin_f.4bpp");
