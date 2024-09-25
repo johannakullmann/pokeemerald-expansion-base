@@ -1,5 +1,6 @@
 	.align 2
 gCryTable::
+.if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	cry Cry_Bulbasaur
 	cry Cry_Ivysaur
@@ -2447,9 +2448,11 @@ gCryTable::
 	cry Cry_Mbielu
 	cry Cry_Mbielava
 .endif @ P_FAMILY_MBIELU
+.endif @ P_CRIES_ENABLED
 
 	.align 2
 gCryTable_Reverse::
+.if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	cry_reverse Cry_Bulbasaur
 	cry_reverse Cry_Ivysaur
@@ -4898,3 +4901,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_Mbielu
 	cry_reverse Cry_Mbielava
 .endif @ P_FAMILY_MBIELU
+.endif @ P_CRIES_ENABLED
