@@ -22051,14 +22051,32 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/back.4bpp.lz");
     const u32 gMonShinyPalette_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatiel[] = INCBIN_U8("graphics/pokemon/toxatiel/icon.4bpp");
-    const u8 gMonFootprint_Toxatiel[] = INCBIN_U8("graphics/pokemon/toxatiel/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Toxatiel[] = INCBIN_U8("graphics/pokemon/toxatiel/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Toxatiel[] = INCBIN_U32("graphics/pokemon/toxatiel/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/anim_front.4bpp.lz");
     const u32 gMonPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/normal.gbapal.lz");
     const u32 gMonBackPic_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/back.4bpp.lz");
     const u32 gMonShinyPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/icon.4bpp");
-    const u8 gMonFootprint_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Toxatoo[] = INCBIN_U8("graphics/pokemon/toxatoo/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+        const u32 gObjectEventPic_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Toxatoo[] = INCBIN_U32("graphics/pokemon/toxatoo/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
     const u32 gMonFrontPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front_f.4bpp.lz");
@@ -22068,7 +22086,16 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
     const u8 gMonIcon_ToxatriceF[] = INCBIN_U8("graphics/pokemon/toxatrice/icon_f.4bpp");
-    const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_TOXATIEL
 
 #if P_FAMILY_GROCKO

@@ -56,6 +56,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .innateFieldMoves = sToxatielInnateFieldMoves,
         .eggMoveLearnset = sToxatielEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_TOXATOO}),
+        OVERWORLD(
+            sPicTable_Toxatiel,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Toxatiel,
+            gShinyOverworldPalette_Toxatiel
+        )
     },
 
     [SPECIES_TOXATOO] =
@@ -111,6 +119,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sToxatooTeachableLearnset,
         .innateFieldMoves = sToxatooInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TOXATRICE}),
+        OVERWORLD(
+            sPicTable_Toxatoo,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Toxatoo,
+            gShinyOverworldPalette_Toxatoo
+        )
     },
 
     [SPECIES_TOXATRICE] =
@@ -168,6 +184,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sToxatriceLevelUpLearnset,
         .teachableLearnset = sToxatriceTeachableLearnset,
         .innateFieldMoves = sToxatriceInnateFieldMoves,
+        OVERWORLD(
+            sPicTable_Toxatrice,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Toxatrice,
+            gShinyOverworldPalette_Toxatrice
+        )
     },
 #endif //P_FAMILY_TOXATIEL
 
