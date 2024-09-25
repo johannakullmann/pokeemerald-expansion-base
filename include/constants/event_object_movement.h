@@ -82,7 +82,8 @@
 #define MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP          0x4E
 #define MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT        0x4F
 #define MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT       0x50
-#define NUM_MOVEMENT_TYPES                             0x51
+#define MOVEMENT_TYPE_FOLLOW_PLAYER                    0x51
+#define NUM_MOVEMENT_TYPES                             0x52
 
 #define MOVEMENT_ACTION_FACE_DOWN                       0x0
 #define MOVEMENT_ACTION_FACE_UP                         0x1
@@ -244,6 +245,8 @@
 #define MOVEMENT_ACTION_FLY_DOWN                        0x9D
 #define MOVEMENT_ACTION_EMOTE_X                         0x9E
 #define MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK          0x9F
+#define MOVEMENT_ACTION_EXIT_POKEBALL                   0xA0
+#define MOVEMENT_ACTION_ENTER_POKEBALL                  0xA1
 
 //fast diagonal movement for rock climb
 #define MOVEMENT_ACTION_WALK_FAST_DIAGONAL_UP_LEFT      0xA0
@@ -283,6 +286,11 @@
 #define ANIM_RUN_NORTH (ANIM_STD_COUNT + 1)
 #define ANIM_RUN_WEST  (ANIM_STD_COUNT + 2)
 #define ANIM_RUN_EAST  (ANIM_STD_COUNT + 3)
+
+#define ANIM_EXIT_POKEBALL_FAST_SOUTH (ANIM_STD_COUNT + 0)
+#define ANIM_EXIT_POKEBALL_FAST_NORTH (ANIM_STD_COUNT + 1)
+#define ANIM_EXIT_POKEBALL_FAST_WEST  (ANIM_STD_COUNT + 2)
+#define ANIM_EXIT_POKEBALL_FAST_EAST  (ANIM_STD_COUNT + 3)
 
 #define ANIM_BUNNY_HOP_BACK_WHEEL_SOUTH         (ANIM_STD_COUNT + 0)
 #define ANIM_BUNNY_HOP_BACK_WHEEL_NORTH         (ANIM_STD_COUNT + 1)
