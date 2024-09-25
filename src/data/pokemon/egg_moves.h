@@ -6315,7 +6315,7 @@ static const u16 sGrockoEggMoveLearnset[] = {
 #endif //P_FAMILY_TOXATIEL
 
 #if P_FAMILY_CHIMERA
-static const u16 sChimeraEggMoveLearnset[] = {
+static const u16 sChimera1EggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_TOXATIEL

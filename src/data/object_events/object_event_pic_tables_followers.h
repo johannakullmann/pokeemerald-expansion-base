@@ -6167,4 +6167,16 @@ static const struct SpriteFrameImage sPicTable_Pecharunt[] = {
 };
 #endif //P_FAMILY_PECHARUNT
 
+#if P_FAMILY_TOXATIEL
+static const struct SpriteFrameImage sPicTable_Toxatiel[] = {
+    overworld_ascending_frames(gObjectEventPic_Toxatiel, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Toxatoo[] = {
+    overworld_ascending_frames(gObjectEventPic_Toxatoo, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Toxatrice[] = {
+    overworld_ascending_frames(gObjectEventPic_Toxatrice, 4, 4),
+};
+#endif //P_FAMILY_TOXATIEL
+
 #endif //OW_POKEMON_OBJECT_EVENTS
