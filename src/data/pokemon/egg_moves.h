@@ -6301,3 +6301,33 @@ static const u16 sFrigibaxEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_FRIGIBAX
+
+#if P_FAMILY_TOXATIEL
+static const u16 sToxatielEggMoveLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_GROCKO
+static const u16 sGrockoEggMoveLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_CHIMERA
+static const u16 sChimeraEggMoveLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_HATCHIK
+static const u16 sHatchikEggMoveLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL
+
+#if P_FAMILY_MBIELU
+static const u16 sMbieluEggMoveLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOXATIEL

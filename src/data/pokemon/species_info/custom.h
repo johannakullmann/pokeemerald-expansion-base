@@ -54,6 +54,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sToxatielLevelUpLearnset,
         .teachableLearnset = sToxatielTeachableLearnset,
         .innateFieldMoves = sToxatielInnateFieldMoves,
+        .eggMoveLearnset = sToxatielEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_TOXATOO}),
     },
 
@@ -222,6 +223,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sGrockoLevelUpLearnset,
         .teachableLearnset = sGrockoTeachableLearnset,
         .innateFieldMoves = sGrockoInnateFieldMoves,
+        .eggMoveLearnset = sGrockoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RUBECKO}),
     },
 
@@ -389,6 +391,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sChimera1LevelUpLearnset,
         .teachableLearnset = sChimera1TeachableLearnset,
         .innateFieldMoves = sChimera1InnateFieldMoves,
+        .eggMoveLearnset = sChimera1EggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CHIMERA2}),
     },
 
@@ -556,6 +559,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sHatchikLevelUpLearnset,
         .teachableLearnset = sHatchikTeachableLearnset,
         .innateFieldMoves = sHatchikInnateFieldMoves,
+        .eggMoveLearnset = sHatchikEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_DODO2}),
     },
 
@@ -665,6 +669,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sMbieluLevelUpLearnset,
         .teachableLearnset = sMbieluTeachableLearnset,
         .innateFieldMoves = sMbieluInnateFieldMoves,
+        .eggMoveLearnset = sMbieluEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_MBIELAVA}),
     },
 
