@@ -244,6 +244,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphir
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
+// Begin pokemon event objects
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
+
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Trader;
@@ -281,7 +285,6 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rubecko;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amalgoat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Eevee;
-
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -343,7 +346,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M] =     &gObjectEventGraphicsInfo_CyclingTriathleteM,
     [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F] =     &gObjectEventGraphicsInfo_CyclingTriathleteF,
     [OBJ_EVENT_GFX_NURSE] =                    &gObjectEventGraphicsInfo_Nurse,
-    [OBJ_EVENT_GFX_ITEM_BALL] =                &gObjectEventGraphicsInfo_ItemBall,
+    [OBJ_EVENT_GFX_ITEM_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_BERRY_TREE] =               &gObjectEventGraphicsInfo_BerryTree,
     [OBJ_EVENT_GFX_BERRY_TREE_EARLY_STAGES] =  &gObjectEventGraphicsInfo_BerryTreeEarlyStages,
     [OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES] =   &gObjectEventGraphicsInfo_BerryTreeLateStages,
@@ -560,6 +563,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AMALGOAT] =                 &gObjectEventGraphicsInfo_Amalgoat,
     [OBJ_EVENT_GFX_AQUA_ADMIN_F] =             &gObjectEventGraphicsInfo_AquaAdminF,
     [OBJ_EVENT_GFX_EEVEE] =                    &gObjectEventGraphicsInfo_Eevee,
+    [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
+    [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
