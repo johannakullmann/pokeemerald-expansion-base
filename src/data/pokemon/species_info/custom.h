@@ -53,6 +53,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Toxatiel,
         .levelUpLearnset = sToxatielLevelUpLearnset,
         .teachableLearnset = sToxatielTeachableLearnset,
+        .eggMoveLearnset = sToxatielEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_TOXATOO}),
     },
 
@@ -218,6 +219,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Grocko,
         .levelUpLearnset = sGrockoLevelUpLearnset,
         .teachableLearnset = sGrockoTeachableLearnset,
+        .eggMoveLearnset = sGrockoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RUBECKO}),
     },
 
@@ -382,6 +384,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Chimera1,
         .levelUpLearnset = sChimera1LevelUpLearnset,
         .teachableLearnset = sChimera1TeachableLearnset,
+        .eggMoveLearnset = sChimera1EggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CHIMERA2}),
     },
 
@@ -546,6 +549,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Hatchik,
         .levelUpLearnset = sHatchikLevelUpLearnset,
         .teachableLearnset = sHatchikTeachableLearnset,
+        .eggMoveLearnset = sHatchikEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_DODO2}),
     },
 
@@ -653,6 +657,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Mbielu,
         .levelUpLearnset = sMbieluLevelUpLearnset,
         .teachableLearnset = sMbieluTeachableLearnset,
+        .eggMoveLearnset = sMbieluEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_MBIELAVA}),
     },
 
