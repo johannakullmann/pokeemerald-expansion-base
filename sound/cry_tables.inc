@@ -1,5 +1,6 @@
 	.align 2
 gCryTable::
+.if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	cry Cry_Bulbasaur
 	cry Cry_Ivysaur
@@ -2447,9 +2448,11 @@ gCryTable::
 	cry Cry_Mbielu
 	cry Cry_Mbielava
 .endif @ P_FAMILY_MBIELU
+.endif @ P_CRIES_ENABLED
 
 	.align 2
 gCryTable_Reverse::
+.if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	cry_reverse Cry_Bulbasaur
 	cry_reverse Cry_Ivysaur
@@ -4856,6 +4859,24 @@ gCryTable_Reverse::
 .if P_FAMILY_OGERPON == TRUE
 	cry_reverse Cry_Ogerpon
 .endif @ P_FAMILY_OGERPON
+.if P_FAMILY_GOUGING_FIRE == TRUE
+	cry_reverse Cry_GougingFire
+.endif @ P_FAMILY_GOUGING_FIRE
+.if P_FAMILY_RAGING_BOLT == TRUE
+	cry_reverse Cry_RagingBolt
+.endif @ P_FAMILY_RAGING_BOLT
+.if P_FAMILY_IRON_BOULDER == TRUE
+	cry_reverse Cry_IronBoulder
+.endif @ P_FAMILY_IRON_BOULDER
+.if P_FAMILY_IRON_CROWN == TRUE
+	cry_reverse Cry_IronCrown
+.endif @ P_FAMILY_IRON_CROWN
+.if P_FAMILY_TERAPAGOS == TRUE
+	cry_reverse Cry_Terapagos
+.endif @ P_FAMILY_TERAPAGOS
+.if P_FAMILY_PECHARUNT == TRUE
+	cry_reverse Cry_Pecharunt
+.endif @ P_FAMILY_PECHARUNT
 .if P_FAMILY_TOXATIEL == TRUE
 	cry_reverse Cry_Toxatiel
 	cry_reverse Cry_Toxatoo
@@ -4879,3 +4900,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_Mbielu
 	cry_reverse Cry_Mbielava
 .endif @ P_FAMILY_MBIELU
+.endif @ P_CRIES_ENABLED
