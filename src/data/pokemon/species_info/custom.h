@@ -245,6 +245,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sGrockoTeachableLearnset,
         .eggMoveLearnset = sGrockoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RUBECKO}),
+        OVERWORLD(
+            sPicTable_Grocko,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Grocko,
+            gShinyOverworldPalette_Grocko
+        )
     },
 
     [SPECIES_RUBECKO] =

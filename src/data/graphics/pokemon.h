@@ -22104,7 +22104,16 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/back.4bpp.lz");
     const u32 gMonShinyPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/shiny.gbapal.lz");
     const u8 gMonIcon_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/icon.4bpp");
-    const u8 gMonFootprint_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
     
     const u32 gMonFrontPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/anim_front.4bpp.lz");
     const u32 gMonPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/normal.gbapal.lz");

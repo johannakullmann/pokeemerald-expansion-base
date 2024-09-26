@@ -6179,4 +6179,10 @@ static const struct SpriteFrameImage sPicTable_Toxatrice[] = {
 };
 #endif //P_FAMILY_TOXATIEL
 
+#if P_FAMILY_GROCKO
+static const struct SpriteFrameImage sPicTable_Grocko[] = {
+    overworld_ascending_frames(gObjectEventPic_Grocko, 4, 4),
+};
+#endif //P_FAMILY_GROCKO
+
 #endif //OW_POKEMON_OBJECT_EVENTS
