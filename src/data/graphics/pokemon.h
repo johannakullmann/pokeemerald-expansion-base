@@ -22123,14 +22123,18 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/footprint.1bpp");
 
     const u32 gMonFrontPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
     const u32 gMonBackPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/back.4bpp.lz");
-    const u32 gMonBackPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
     const u8 gMonIcon_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/icon.4bpp");
-    const u8 gMonIcon_DrabuncleF[] = INCBIN_U8("graphics/pokemon/drabuncle/icon_f.4bpp");
     const u8 gMonFootprint_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/footprint.1bpp");
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_GROCKO
 
 #if P_FAMILY_CHIMERA
