@@ -303,6 +303,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sRubeckoLevelUpLearnset,
         .teachableLearnset = sRubeckoTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_DRABUNCLE}),
+        OVERWORLD(
+            sPicTable_Rubecko,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Rubecko,
+            gShinyOverworldPalette_Rubecko
+        )
     },
 
     [SPECIES_DRABUNCLE] =

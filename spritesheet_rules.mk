@@ -4413,6 +4413,9 @@ $(POKEMONGFXDIR)/toxatrice/overworld.4bpp: %.4bpp: %.png
 $(POKEMONGFXDIR)/grocko/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(POKEMONGFXDIR)/rubecko/overworld.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(POKEMONGFXDIR)/drabuncle/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

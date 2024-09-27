@@ -6183,6 +6183,9 @@ static const struct SpriteFrameImage sPicTable_Toxatrice[] = {
 static const struct SpriteFrameImage sPicTable_Grocko[] = {
     overworld_ascending_frames(gObjectEventPic_Grocko, 4, 4),
 };
+static const struct SpriteFrameImage sPicTable_Rubecko[] = {
+    overworld_ascending_frames(gObjectEventPic_Rubecko, 4, 4),
+};
 static const struct SpriteFrameImage sPicTable_Drabuncle[] = {
     overworld_ascending_frames(gObjectEventPic_Drabuncle, 4, 4),
 };
