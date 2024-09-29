@@ -6191,4 +6191,10 @@ static const struct SpriteFrameImage sPicTable_Drabuncle[] = {
 };
 #endif //P_FAMILY_GROCKO
 
+#if P_FAMILY_HATCHIK
+static const struct SpriteFrameImage sPicTable_Hatchik[] = {
+    overworld_ascending_frames(gObjectEventPic_Hatchik, 4, 4),
+};
+#endif //P_FAMILY_HATCHIK
+
 #endif //OW_POKEMON_OBJECT_EVENTS

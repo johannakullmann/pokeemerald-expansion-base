@@ -22180,7 +22180,16 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/back.4bpp.lz");
     const u32 gMonShinyPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/shiny.gbapal.lz");
     const u8 gMonIcon_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/icon.4bpp");
-    const u8 gMonFootprint_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/anim_front.4bpp.lz");
     const u32 gMonPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/normal.gbapal.lz");

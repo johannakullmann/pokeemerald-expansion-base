@@ -590,6 +590,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sHatchikTeachableLearnset,
         .eggMoveLearnset = sHatchikEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_DODO2}),
+        OVERWORLD(
+            sPicTable_Hatchik,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Hatchik,
+            gShinyOverworldPalette_Hatchik
+        )
     },
 
     [SPECIES_DODO2] =
