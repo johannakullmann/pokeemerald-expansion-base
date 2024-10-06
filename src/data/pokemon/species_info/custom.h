@@ -650,6 +650,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .footprint = gMonFootprint_Dodo2,
         .levelUpLearnset = sDodo2LevelUpLearnset,
         .teachableLearnset = sDodo2TeachableLearnset,
+        OVERWORLD(
+            sPicTable_Dodo2,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Dodo2,
+            gShinyOverworldPalette_Dodo2
+        )
     },
 #endif //P_FAMILY_HATCHIK
 

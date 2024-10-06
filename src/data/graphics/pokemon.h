@@ -22196,7 +22196,16 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/back.4bpp.lz");
     const u32 gMonShinyPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/shiny.gbapal.lz");
     const u8 gMonIcon_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/icon.4bpp");
-    const u8 gMonFootprint_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_HATCHIK
 
 #if P_FAMILY_MBIELU
