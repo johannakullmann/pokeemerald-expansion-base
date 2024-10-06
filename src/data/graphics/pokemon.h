@@ -22079,13 +22079,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
     const u32 gMonBackPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/back.4bpp.lz");
-    const u32 gMonBackPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
-    const u8 gMonIcon_ToxatriceF[] = INCBIN_U8("graphics/pokemon/toxatrice/icon_f.4bpp");
     #if P_FOOTPRINTS
         const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
     #endif //P_FOOTPRINTS
@@ -22164,13 +22161,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
 
     const u32 gMonFrontPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
     const u32 gMonBackPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
-    const u32 gMonBackPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
     const u8 gMonIcon_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
-    const u8 gMonIcon_Chimera3F[] = INCBIN_U8("graphics/pokemon/chimera3/icon_f.4bpp");
     const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
 #endif //P_FAMILY_CHIMERA
 
