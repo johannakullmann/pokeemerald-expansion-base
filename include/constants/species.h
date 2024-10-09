@@ -1635,9 +1635,9 @@
 #define SPECIES_GROCKO                                  1527
 #define SPECIES_RUBECKO                                 1528
 #define SPECIES_DRABUNCLE                               1529
-#define SPECIES_CHIMERA1                                1530
-#define SPECIES_CHIMERA2                                1531
-#define SPECIES_CHIMERA3                                1532
+#define SPECIES_MERAKID                                 1530
+#define SPECIES_AMALGOAT                                1531
+#define SPECIES_CHIMEROAR                               1532
 #define SPECIES_HATCHIK                                 1533
 #define SPECIES_DODO2                                   1534
 #define SPECIES_MBIELU                                  1535

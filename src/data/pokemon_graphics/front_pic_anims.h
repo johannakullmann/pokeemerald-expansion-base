@@ -10206,8 +10206,8 @@ static const union AnimCmd sAnim_Drabuncle_1[] =
 };
 #endif //P_FAMILY_GROCKO
 
-#if P_FAMILY_CHIMERA
-static const union AnimCmd sAnim_Chimera1_1[] =
+#if P_FAMILY_MERAKID
+static const union AnimCmd sAnim_Merakid_1[] =
 {
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_FRAME(1, 20),
@@ -10215,7 +10215,7 @@ static const union AnimCmd sAnim_Chimera1_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Chimera2_1[] =
+static const union AnimCmd sAnim_Amalgoat_1[] =
 {
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_FRAME(1, 15),
@@ -10223,7 +10223,7 @@ static const union AnimCmd sAnim_Chimera2_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Chimera3_1[] =
+static const union AnimCmd sAnim_Chimeroar_1[] =
 {
     
     ANIMCMD_FRAME(0, 5),
@@ -10231,7 +10231,7 @@ static const union AnimCmd sAnim_Chimera3_1[] =
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
-#endif //P_FAMILY_CHIMERA
+#endif //P_FAMILY_MERAKID
 
 #if P_FAMILY_HATCHIK
 static const union AnimCmd sAnim_Hatchik_1[] =
@@ -12936,10 +12936,10 @@ SINGLE_ANIMATION(Rubecko);
 SINGLE_ANIMATION(Drabuncle);
 #endif //P_FAMILY_TOXATIEL
 
-#if P_FAMILY_CHIMERA
-SINGLE_ANIMATION(Chimera1);
-SINGLE_ANIMATION(Chimera2);
-SINGLE_ANIMATION(Chimera3);
+#if P_FAMILY_MERAKID
+SINGLE_ANIMATION(Merakid);
+SINGLE_ANIMATION(Amalgoat);
+SINGLE_ANIMATION(Chimeroar);
 #endif //P_FAMILY_TOXATIEL
 
 #if P_FAMILY_HATCHIK

@@ -22145,28 +22145,28 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_GROCKO
 
-#if P_FAMILY_CHIMERA
-    const u32 gMonFrontPic_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/anim_front.4bpp.lz");
-    const u32 gMonPalette_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/normal.gbapal.lz");
-    const u32 gMonBackPic_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/back.4bpp.lz");
-    const u32 gMonShinyPalette_Chimera1[] = INCBIN_U32("graphics/pokemon/chimera1/shiny.gbapal.lz");
-    const u8 gMonIcon_Chimera1[] = INCBIN_U8("graphics/pokemon/chimera1/icon.4bpp");
-    const u8 gMonFootprint_Chimera1[] = INCBIN_U8("graphics/pokemon/chimera1/footprint.1bpp");
+#if P_FAMILY_MERAKID
+    const u32 gMonFrontPic_Merakid[] = INCBIN_U32("graphics/pokemon/chimera1/anim_front.4bpp.lz");
+    const u32 gMonPalette_Merakid[] = INCBIN_U32("graphics/pokemon/chimera1/normal.gbapal.lz");
+    const u32 gMonBackPic_Merakid[] = INCBIN_U32("graphics/pokemon/chimera1/back.4bpp.lz");
+    const u32 gMonShinyPalette_Merakid[] = INCBIN_U32("graphics/pokemon/chimera1/shiny.gbapal.lz");
+    const u8 gMonIcon_Merakid[] = INCBIN_U8("graphics/pokemon/chimera1/icon.4bpp");
+    const u8 gMonFootprint_Merakid[] = INCBIN_U8("graphics/pokemon/chimera1/footprint.1bpp");
 
-    const u32 gMonFrontPic_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/anim_front.4bpp.lz");
-    const u32 gMonPalette_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/normal.gbapal.lz");
-    const u32 gMonBackPic_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/back.4bpp.lz");
-    const u32 gMonShinyPalette_Chimera2[] = INCBIN_U32("graphics/pokemon/chimera2/shiny.gbapal.lz");
-    const u8 gMonIcon_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/icon.4bpp");
-    const u8 gMonFootprint_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
+    const u32 gMonFrontPic_Amalgoat[] = INCBIN_U32("graphics/pokemon/chimera2/anim_front.4bpp.lz");
+    const u32 gMonPalette_Amalgoat[] = INCBIN_U32("graphics/pokemon/chimera2/normal.gbapal.lz");
+    const u32 gMonBackPic_Amalgoat[] = INCBIN_U32("graphics/pokemon/chimera2/back.4bpp.lz");
+    const u32 gMonShinyPalette_Amalgoat[] = INCBIN_U32("graphics/pokemon/chimera2/shiny.gbapal.lz");
+    const u8 gMonIcon_Amalgoat[] = INCBIN_U8("graphics/pokemon/chimera2/icon.4bpp");
+    const u8 gMonFootprint_Amalgoat[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
 
-    const u32 gMonFrontPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
-    const u32 gMonPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
-    const u32 gMonBackPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
-    const u32 gMonShinyPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
-    const u8 gMonIcon_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
-    const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
-#endif //P_FAMILY_CHIMERA
+    const u32 gMonFrontPic_Chimeroar[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
+    const u32 gMonPalette_Chimeroar[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
+    const u32 gMonBackPic_Chimeroar[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
+    const u32 gMonShinyPalette_Chimeroar[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
+    const u8 gMonIcon_Chimeroar[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
+    const u8 gMonFootprint_Chimeroar[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
+#endif //P_FAMILY_MERAKID
 
 #if P_FAMILY_HATCHIK
     const u32 gMonFrontPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/anim_front.4bpp.lz");

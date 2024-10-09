@@ -23300,8 +23300,8 @@ static const struct LevelUpMove sDrabuncleLevelUpLearnset[] = {
 };
 #endif //P_FAMILY_GROCKO
 
-#if P_FAMILY_CHIMERA
-static const struct LevelUpMove sChimera1LevelUpLearnset[] = {
+#if P_FAMILY_MERAKID
+static const struct LevelUpMove sMerakidLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_POUND),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 4, MOVE_KICK),
@@ -23322,7 +23322,7 @@ static const struct LevelUpMove sChimera1LevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sChimera2LevelUpLearnset[] = {
+static const struct LevelUpMove sAmalgoatLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 1, MOVE_POUND),
@@ -23343,7 +23343,7 @@ static const struct LevelUpMove sChimera2LevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sChimera3LevelUpLearnset[] = {
+static const struct LevelUpMove sChimeroarLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_ROAR),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 1, MOVE_POUND),
@@ -23361,7 +23361,7 @@ static const struct LevelUpMove sChimera3LevelUpLearnset[] = {
     LEVEL_UP_MOVE(60, MOVE_DOUBLE_EDGE),
     LEVEL_UP_END
 };
-#endif //P_FAMILY_CHIMERA
+#endif //P_FAMILY_MERAKID
 
 #if P_FAMILY_HATCHIK
 static const struct LevelUpMove sHatchikLevelUpLearnset[] = {

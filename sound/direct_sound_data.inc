@@ -6188,19 +6188,19 @@ Cry_Drabuncle::
 	.incbin "sound/direct_sound_samples/cries/drabuncle.bin"
 .endif @ P_FAMILY_GROCKO
 
-.if P_FAMILY_CHIMERA == TRUE
+.if P_FAMILY_MERAKID == TRUE
 	.align 2
-Cry_Chimera1::
+Cry_Merakid::
 	.incbin "sound/direct_sound_samples/cries/chimera1.bin"
 	
 	.align 2
-Cry_Chimera2::
+Cry_Amalgoat::
 	.incbin "sound/direct_sound_samples/cries/chimera2.bin"
 	
 	.align 2
-Cry_Chimera3::
+Cry_Chimeroar::
 	.incbin "sound/direct_sound_samples/cries/chimera3.bin"
-.endif @ P_FAMILY_CHIMERA
+.endif @ P_FAMILY_MERAKID
 
 .if P_FAMILY_HATCHIK == TRUE
 	.align 2

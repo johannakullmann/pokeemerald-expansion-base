@@ -36011,8 +36011,8 @@ static const u16 sDrabuncleTeachableLearnset[] = {
 };
 #endif //P_FAMILY_GROCKO
 
-#if P_FAMILY_CHIMERA
-static const u16 sChimera1TeachableLearnset[] = {
+#if P_FAMILY_MERAKID
+static const u16 sMerakidTeachableLearnset[] = {
     MOVE_ATTRACT,
     MOVE_DOUBLE_TEAM,
     MOVE_FACADE,
@@ -36037,7 +36037,7 @@ static const u16 sChimera1TeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sChimera2TeachableLearnset[] = {
+static const u16 sAmalgoatTeachableLearnset[] = {
     MOVE_ATTRACT,
     MOVE_DOUBLE_TEAM,
     MOVE_FACADE,
@@ -36062,7 +36062,7 @@ static const u16 sChimera2TeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sChimera3TeachableLearnset[] = {
+static const u16 sChimeroarTeachableLearnset[] = {
     MOVE_ATTRACT,
     MOVE_DOUBLE_TEAM,
     MOVE_FACADE,
@@ -36086,7 +36086,7 @@ static const u16 sChimera3TeachableLearnset[] = {
     MOVE_STRENGTH,
     MOVE_UNAVAILABLE,
 };
-#endif //P_FAMILY_CHIMERA
+#endif //P_FAMILY_MERAKID
 
 #if P_FAMILY_HATCHIK
 static const u16 sHatchikTeachableLearnset[] = {
