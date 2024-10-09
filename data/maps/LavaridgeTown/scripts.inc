@@ -13,161 +13,6 @@ LavaridgeTown_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	return
 
-LavaridgeTown_EventScript_RivalGiveGoGoggles::
-	lockall
-	getplayerxy VAR_0x8008, VAR_0x8009
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalNoticePlayer
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExitHerbShop
-	delay 20
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LavaridgeTown_EventScript_PlayMayMusic
-	call_if_eq VAR_RESULT, FEMALE, LavaridgeTown_EventScript_PlayBrendanMusic
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalApproachPlayer1
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalApproachPlayer2
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, LavaridgeTown_EventScript_MayGiveGoGoggles
-	goto_if_eq VAR_RESULT, FEMALE, LavaridgeTown_EventScript_BrendanGiveGoGoggles
-	end
-
-LavaridgeTown_EventScript_MayGiveGoGoggles::
-	msgbox LavaridgeTown_Text_MayNiceBadgesTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_GO_GOGGLES
-	setflag FLAG_RECEIVED_GO_GOGGLES
-	msgbox LavaridgeTown_Text_MayExplainGoGogglesChallengeDad, MSGBOX_DEFAULT
-	goto LavaridgeTown_EventScript_RivalExit
-	end
-
-LavaridgeTown_EventScript_BrendanGiveGoGoggles::
-	msgbox LavaridgeTown_Text_BrendanNiceBadgesTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_GO_GOGGLES
-	setflag FLAG_RECEIVED_GO_GOGGLES
-	msgbox LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad, MSGBOX_DEFAULT
-	goto LavaridgeTown_EventScript_RivalExit
-	end
-
-LavaridgeTown_EventScript_RivalExit::
-	closemessage
-	removeobject LOCALID_RIVAL
-	addobject LOCALID_RIVAL_ON_BIKE
-	delay 30
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit1
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit2
-	removeobject LOCALID_RIVAL_ON_BIKE
-	setvar VAR_LAVARIDGE_TOWN_STATE, 2
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	savebgm MUS_DUMMY
-	fadedefaultbgm
-	releaseall
-	end
-
-LavaridgeTown_EventScript_PlayMayMusic::
-	playbgm MUS_ENCOUNTER_MAY, TRUE
-	return
-
-LavaridgeTown_EventScript_PlayBrendanMusic::
-	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
-	return
-
-LavaridgeTown_EventScript_RivalNoticePlayer::
-	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Common_Movement_Delay48
-	waitmovement 0
-	return
-
-LavaridgeTown_EventScript_RivalExitHerbShop::
-	opendoor 12, 15
-	waitdooranim
-	addobject LOCALID_RIVAL
-	applymovement LOCALID_RIVAL, LavaridgeTown_Movement_RivalExitHerbShop
-	waitmovement 0
-	closedoor 12, 15
-	waitdooranim
-	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_RIVAL, Common_Movement_Delay48
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	return
-
-LavaridgeTown_EventScript_RivalApproachPlayer1::
-	applymovement LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachPlayer1
-	waitmovement 0
-	return
-
-LavaridgeTown_EventScript_RivalApproachPlayer2::
-	applymovement LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachPlayer2
-	waitmovement 0
-	return
-
-LavaridgeTown_EventScript_RivalExit1::
-	applymovement OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWatchRivalExit
-	applymovement LOCALID_RIVAL_ON_BIKE, LavaridgeTown_Movement_RivalExit1
-	waitmovement 0
-	return
-
-LavaridgeTown_EventScript_RivalExit2::
-	applymovement LOCALID_RIVAL_ON_BIKE, LavaridgeTown_Movement_RivalExit2
-	waitmovement 0
-	return
-
-LavaridgeTown_Movement_RivalExit2:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	step_end
-
-LavaridgeTown_Movement_PlayerWatchRivalExit:
-	delay_16
-	delay_8
-	walk_in_place_faster_right
-	step_end
-
-LavaridgeTown_Movement_RivalExit1:
-	walk_fast_down
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	step_end
-
-LavaridgeTown_Movement_RivalApproachPlayer2:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-LavaridgeTown_Movement_RivalApproachPlayer1:
-	walk_left
-	walk_left
-	walk_up
-	step_end
-
-LavaridgeTown_Movement_RivalExitHerbShop:
-	walk_down
-	step_end
-
 LavaridgeTown_EventScript_HotSpringsTrigger::
 	specialvar VAR_RESULT, GetPlayerFacingDirection
 	goto_if_eq VAR_RESULT, DIR_SOUTH, LavaridgeTown_EventScript_EnteredHotSprings
@@ -244,50 +89,6 @@ LavaridgeTown_EventScript_GymSign::
 LavaridgeTown_EventScript_HerbShopSign::
 	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
 	end
-
-LavaridgeTown_Text_MayNiceBadgesTakeThis:
-	.string "MAY: {PLAYER}{KUN}! Long time no see!\p"
-	.string "Oh? While I visited the hot springs,\n"
-	.string "you got the LAVARIDGE GYM BADGE.\p"
-	.string "You must have collected\n"
-	.string "good POKéMON…\l"
-	.string "No, I believe you raised some.\p"
-	.string "I guess it would be okay for you to\n"
-	.string "have this.$"
-
-LavaridgeTown_Text_MayExplainGoGogglesChallengeDad:
-	.string "MAY: With those GO-GOGGLES, you'll\n"
-	.string "have no trouble getting through the\l"
-	.string "desert near ROUTE 111.\p"
-	.string "But, wow, {PLAYER}{KUN}…\n"
-	.string "Challenging GYMS…\p"
-	.string "You're trying hard because you don't\n"
-	.string "want to lose to me, I bet!\p"
-	.string "{PLAYER}{KUN}, I think I should challenge\n"
-	.string "your dad in PETALBURG GYM.\p"
-	.string "See you again!$"
-
-LavaridgeTown_Text_BrendanNiceBadgesTakeThis:
-	.string "BRENDAN: {PLAYER}, hey, it's been a while.\n"
-	.string "How's it going?\p"
-	.string "Hmm…\n"
-	.string "That's a decent collection of BADGES.\p"
-	.string "All right, then.\n"
-	.string "You may as well have this.$"
-
-LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
-	.string "BRENDAN: Keep those with you if you're\n"
-	.string "planning on going into that desert near\l"
-	.string "ROUTE 111.\p"
-	.string "There should be some POKéMON that\n"
-	.string "are exclusively desert-dwellers.\l"
-	.string "You might look around for those.\p"
-	.string "As for me…\n"
-	.string "I'm considering challenging NORMAN,\l"
-	.string "the GYM LEADER of PETALBURG.\p"
-	.string "Unlike you, {PLAYER}, your dad looks like\n"
-	.string "he really is tough.\p"
-	.string "See you around!$"
 
 LavaridgeTown_Text_HaveEggWillYouTakeIt:
 	.string "I have here an EGG.\p"
@@ -369,7 +170,7 @@ LavaridgeTown_Text_TownSign:
 
 LavaridgeTown_Text_GymSign:
 	.string "LAVARIDGE TOWN POKéMON GYM\n"
-	.string "LEADER: FLANNERY\l"
+	.string "LEADER: May\l"
 	.string "“One with a fiery passion that burns!”$"
 
 LavaridgeTown_Text_HerbShopSign:
@@ -598,6 +399,7 @@ LavaridgeTown_EventScript_AfterRuthBattle_6:
 	waitmovement 0
 	removeobject 9
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
+	setvar VAR_JAGGED_PASS_STATE, 1
 	setflag FLAG_DEFEATED_RIVAL_2
 	setflag FLAG_HIDE_JAGGED_PASS_NPCS
 	release
@@ -770,8 +572,8 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_2:
 	.string "I would've grilled you!$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_3:
-	.string "Psh, just you wait! I'll put out that\n"
-	.string "fire of yours some day!$"
+	.string "Psh! I'll put out that fire of yours\n"
+	.string "some day!$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_4:
 	.string "Ah, right! {PLAYER}!$"
@@ -779,7 +581,7 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_4:
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_5:
 	.string "You remember my cousin Flannery, right?\p"
 	.string "She was the gym leader of Lavaridge\n"
-	.string "Town until a while ago.$"
+	.string "Town until recently.$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_6:
 	.string "Ah, {PLAYER}! You're Ruth's neighbour,\n"
@@ -815,11 +617,9 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_12:
 LavaridgeTown_EventScript_AfterRuthBattle_Text_0:
 	.string "Ah, I thought I could beat you this\n"
 	.string "time.\p"
-	.string "Looks like I need to step up my game a\n"
-	.string "little bit more to win against you!\p"
-	.string "I noticed my Barboach was falling off a\n"
-	.string "bit, I might have to go back to\l"
-	.string "training…\p"
+	.string "Looks like I need to step up my game!\p"
+	.string "My Barboach was falling off a bit, I\n"
+	.string "might have to go back to training…\p"
 	.string "…\p"
 	.string "I don't feel like waiting here until\n"
 	.string "they're done. {PLAYER}, let's go look\l"

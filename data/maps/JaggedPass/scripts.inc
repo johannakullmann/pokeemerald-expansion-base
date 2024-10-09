@@ -298,7 +298,7 @@ JaggedPass_EventScript_FootprintNerd_1:
 	goto_if_eq JaggedPass_EventScript_FootprintNerd_5
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_2
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_2
 JaggedPass_EventScript_FootprintNerd_4:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
@@ -313,7 +313,7 @@ JaggedPass_EventScript_FootprintNerd_5:
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_1
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_1
 	goto JaggedPass_EventScript_FootprintNerd_4
 
 JaggedPass_EventScript_FootprintNerd_9:
@@ -631,27 +631,31 @@ JaggedPass_EventScript_MayScene::
 	turnobject 22, DIR_NORTH
 	applymovement 24, Common_Movement_WalkDown
 	waitmovement 0
+	speakername CommonName_Flannery
+	msgbox JaggedPass_EventScript_MayScene_Text_3
+	closemessage
+	waitmovement 0
 	applymovement 22, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_3
+	msgbox JaggedPass_EventScript_MayScene_Text_4
 	closemessage
 	applymovement 24, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	speakername CommonName_Flannery
-	msgbox JaggedPass_EventScript_MayScene_Text_4
+	msgbox JaggedPass_EventScript_MayScene_Text_5
 	closemessage
 	applymovement 22, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_5
+	msgbox JaggedPass_EventScript_MayScene_Text_6
 	closemessage
 	setobjectxyperm 14, 36, 20
 	addobject 14
 	applymovement 14, JaggedPass_Movement_RuthApproachPlayer
 	waitmovement 0
 	speakername CommonName_Ruth
-	msgbox JaggedPass_EventScript_MayScene_Text_6
+	msgbox JaggedPass_EventScript_MayScene_Text_7
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	closemessage
 	getplayerxy VAR_0x8000, VAR_0x8001
@@ -661,7 +665,7 @@ JaggedPass_EventScript_MayScene::
 	case 21, JaggedPass_EventScript_MayScene_5
 JaggedPass_EventScript_MayScene_1:
 	speakername CommonName_Ruth
-	msgbox JaggedPass_EventScript_MayScene_Text_7
+	msgbox JaggedPass_EventScript_MayScene_Text_8
 	closemessage
 	turnobject 22, DIR_WEST
 	turnobject 24, DIR_WEST
@@ -673,7 +677,7 @@ JaggedPass_EventScript_MayScene_6:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_8
+	msgbox JaggedPass_EventScript_MayScene_Text_9
 	closemessage
 	switch VAR_0x8001
 	case 19, JaggedPass_EventScript_MayScene_12
@@ -683,24 +687,24 @@ JaggedPass_EventScript_MayScene_10:
 	waitmovement 0
 	turnobject 22, DIR_NORTH
 	speakername CommonName_Flannery
-	msgbox JaggedPass_EventScript_MayScene_Text_9
+	msgbox JaggedPass_EventScript_MayScene_Text_10
 	applymovement 22, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
 	turnobject 24, DIR_WEST
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_10
+	msgbox JaggedPass_EventScript_MayScene_Text_11
 	closemessage
 	applymovement 14, JaggedPass_Movement_RuthUnsure
 	waitmovement 0
 	speakername CommonName_Ruth
-	msgbox JaggedPass_EventScript_MayScene_Text_11
+	msgbox JaggedPass_EventScript_MayScene_Text_12
 	applymovement 14, Common_Movement_FacePlayer
 	switch VAR_0x8001
 	case 19, JaggedPass_EventScript_MayScene_16
 	case 20, JaggedPass_EventScript_MayScene_17
 	case 21, JaggedPass_EventScript_MayScene_17
 JaggedPass_EventScript_MayScene_14:
-	msgbox JaggedPass_EventScript_MayScene_Text_12
+	msgbox JaggedPass_EventScript_MayScene_Text_13
 	closemessage
 	applymovement 14, JaggedPass_Movement_RuthLeave
 	delay 16
@@ -710,24 +714,24 @@ JaggedPass_EventScript_MayScene_14:
 	applymovement 24, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
 	speakername CommonName_Flannery
-	msgbox JaggedPass_EventScript_MayScene_Text_13
+	msgbox JaggedPass_EventScript_MayScene_Text_14
 	applymovement 24, Common_Movement_WalkInPlaceDown
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 22, DIR_NORTH
-	msgbox JaggedPass_EventScript_MayScene_Text_14
+	msgbox JaggedPass_EventScript_MayScene_Text_15
 	closemessage
 	applymovement 22, Common_Movement_WalkInPlaceUp
 	waitmovement 0
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_15
+	msgbox JaggedPass_EventScript_MayScene_Text_16
 	closemessage
 	applymovement 24, JaggedPass_Movement_FlanneryLeave
 	delay 16
 	turnobject 22, DIR_EAST
 	waitmovement 0
 	speakername CommonName_Flannery
-	msgbox JaggedPass_EventScript_MayScene_Text_16
+	msgbox JaggedPass_EventScript_MayScene_Text_17
 	closemessage
 	setfieldeffectargument 0, 1
 	playmoncry SPECIES_MOLTRES, CRY_MODE_NORMAL
@@ -740,7 +744,7 @@ JaggedPass_EventScript_MayScene_14:
 	applymovement 22, Common_Movement_WalkInPlaceLeft
 	waitmovement 0
 	speakername CommonName_May
-	msgbox JaggedPass_EventScript_MayScene_Text_17
+	msgbox JaggedPass_EventScript_MayScene_Text_18
 	closemessage
 	switch VAR_0x8001
 	case 19, JaggedPass_EventScript_MayScene_20
@@ -760,6 +764,7 @@ JaggedPass_EventScript_MayScene_18:
 	setflag FLAG_TEMP_7
 	setflag FLAG_HIDE_JAGGED_PASS_NPCS
 	setflag FLAG_LAVARIDGE_GYM_OPEN
+	setflag FLAG_TEMP_10
 	special DrawWholeMapView
 	release
 	end
@@ -833,7 +838,7 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_L::
 	goto_if_eq JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_2
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_2
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_2
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_1:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
@@ -845,10 +850,11 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_1:
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_2:
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_1
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_1
 	goto JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_1
 
 
@@ -870,7 +876,7 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_R::
 	goto_if_eq JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_2
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_2
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_2
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_1:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
@@ -882,10 +888,11 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_1:
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_2:
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox JaggedPass_Text_FootprintNeedToStudy_1
+	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_1
 	goto JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_1
 
 
@@ -1162,15 +1169,15 @@ JaggedPass_OnTransition_12:
 	goto JaggedPass_OnTransition_10
 
 JaggedPass_OnTransition_16:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUBECKO
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( RUBECKO )
 	goto JaggedPass_OnTransition_1
 
 JaggedPass_OnTransition_17:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_AMALGOAT
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHIMERA2 )
 	goto JaggedPass_OnTransition_1
 
 JaggedPass_OnTransition_18:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TOXATOO
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( TOXATOO )
 	goto JaggedPass_OnTransition_1
 
 
@@ -1281,9 +1288,9 @@ JaggedPass_EventScript_MayScene_Text_0:
 	.string "Ugh… You're as strong as ever.$"
 
 JaggedPass_EventScript_MayScene_Text_1:
-	.string "I can't allow you to enter this cave.\p"
-	.string "It's not safe, a cave-in could trap you\n"
-	.string "inside.$"
+	.string "I'm sorry, but this cave is off-limits.\p"
+	.string "It's not safe, there's been cave-ins all\n"
+	.string "over the place.$"
 
 JaggedPass_EventScript_MayScene_Text_2:
 	.string "Spare me the sarcasm, girl.\p"
@@ -1291,73 +1298,79 @@ JaggedPass_EventScript_MayScene_Text_2:
 	.string "trying to stop us from entering our old\l"
 	.string "hideout.\p"
 	.string "But it doesn't matter, we'll get in there\n"
-	.string "one way or another.$"
+	.string "one way or another.\p"
+	.string "Don't think for a second you can keep\n"
+	.string "us away just because you're a gym\l"
+	.string "leader now.$"
 
 JaggedPass_EventScript_MayScene_Text_3:
-	.string "So, how far did they get?$"
+	.string "May!$"
 
 JaggedPass_EventScript_MayScene_Text_4:
+	.string "So, how far did they get?$"
+
+JaggedPass_EventScript_MayScene_Text_5:
 	.string "They cleared out a bunch, but the\n"
 	.string "path's still blocked by boulders and\l"
 	.string "debris.$"
 
-JaggedPass_EventScript_MayScene_Text_5:
+JaggedPass_EventScript_MayScene_Text_6:
 	.string "That's good, at least…\p"
 	.string "I'll have to see what I can do to close\n"
 	.string "off the cave.$"
 
-JaggedPass_EventScript_MayScene_Text_6:
+JaggedPass_EventScript_MayScene_Text_7:
 	.string "{PLAYER}, there you are!$"
 
-JaggedPass_EventScript_MayScene_Text_7:
+JaggedPass_EventScript_MayScene_Text_8:
 	.string "Oh, and Flannery! And…\p"
 	.string "Uhm…$"
 
-JaggedPass_EventScript_MayScene_Text_8:
+JaggedPass_EventScript_MayScene_Text_9:
 	.string "The name's May!\p"
 	.string "I took over Lavaridge Gym recently.\p"
 	.string "And you are?$"
 
-JaggedPass_EventScript_MayScene_Text_9:
+JaggedPass_EventScript_MayScene_Text_10:
 	.string "This is my little cousin Ruth, and her\n"
 	.string "friend {PLAYER}.\p"
 	.string "They came to earn themselves a shiny\n"
 	.string "new badge.$"
 
-JaggedPass_EventScript_MayScene_Text_10:
+JaggedPass_EventScript_MayScene_Text_11:
 	.string "Oh, I'm sorry I kept you waiting!\p"
 	.string "We can go back to Lavaridge\n"
 	.string "immediately, if the two of you are\l"
 	.string "ready.$"
 
-JaggedPass_EventScript_MayScene_Text_11:
+JaggedPass_EventScript_MayScene_Text_12:
 	.string "Wait, right now?\p"
 	.string "I… I think I'll stay here for a bit.$"
 
-JaggedPass_EventScript_MayScene_Text_12:
+JaggedPass_EventScript_MayScene_Text_13:
 	.string "{PLAYER}, as much as I want to get\n"
 	.string "this badge before you, I don't think I\l"
-	.string "can afford to rush it right now.\p"
+	.string "should rush it right now.\p"
 	.string "I'll take my time to build a strong\n"
 	.string "foundation and catch up to you in no\l"
 	.string "time!$"
 
-JaggedPass_EventScript_MayScene_Text_13:
+JaggedPass_EventScript_MayScene_Text_14:
 	.string "Huh? What was that?\p"
 	.string "My little cousin… being reasonable?$"
 
-JaggedPass_EventScript_MayScene_Text_14:
+JaggedPass_EventScript_MayScene_Text_15:
 	.string "Anyway, May, I think I have to go now.\p"
 	.string "You've got the situation under control?$"
 
-JaggedPass_EventScript_MayScene_Text_15:
+JaggedPass_EventScript_MayScene_Text_16:
 	.string "Yes, thanks for your help, Flannery!$"
 
-JaggedPass_EventScript_MayScene_Text_16:
+JaggedPass_EventScript_MayScene_Text_17:
 	.string "Next visit to the hot springs is on you,\n"
 	.string "May!$"
 
-JaggedPass_EventScript_MayScene_Text_17:
+JaggedPass_EventScript_MayScene_Text_18:
 	.string "I'll be looking forward to our battle,\n"
 	.string "{PLAYER}!$"
 
@@ -1391,14 +1404,14 @@ JaggedPass_Text_FootprintNerdStory::
 	.string "But it gets distracted by something\n"
 	.string "else and runs off.$"
 
-JaggedPass_Text_FootprintNeedToStudy_1::
+JaggedPass_Text_FootprintNerdNeedToStudy_1::
 	.string "Fascinating, isn't it?\p"
 	.string "I'll have to study these more!\p"
 	.string "I'll have to ask you not to step on this\n"
 	.string "patch of ash until I'm done, though.\p"
 	.string "Sorry.$"
 
-JaggedPass_Text_FootprintNeedToStudy_2::
+JaggedPass_Text_FootprintNerdNeedToStudy_2::
 	.string "Still, I have to study these!\p"
 	.string "I'll have to ask you not to step on this\n"
 	.string "patch of ash until I'm done.\p"

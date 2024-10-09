@@ -119,7 +119,6 @@ Route135_EventScript_RockSmashGuy_2:
 
 Route135_EventScript_SmashedSpecialRock::
 	lock
-	msgbox Route135_EventScript_SmashedSpecialRock_Text_0
 	closemessage
 	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, Route135_EventScript_SmashedSpecialRock_2
 Route135_EventScript_SmashedSpecialRock_1:
@@ -138,7 +137,7 @@ Route135_EventScript_SmashedSpecialRock_2:
 	case DIR_NORTH, Route135_EventScript_SmashedSpecialRock_8
 Route135_EventScript_SmashedSpecialRock_4:
 	speakername Route135_EventScript_RockSmashGuy_Text_0
-	msgbox Route135_EventScript_SmashedSpecialRock_Text_1
+	msgbox Route135_EventScript_SmashedSpecialRock_Text_0
 	giveitem ITEM_HM_ROCK_SMASH
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 	closemessage
@@ -300,9 +299,6 @@ Route135_EventScript_RockSmashGuy_Text_3:
 	.string "Machop to break them for you, I guess.$"
 
 Route135_EventScript_SmashedSpecialRock_Text_0:
-	.string "EEEEE$"
-
-Route135_EventScript_SmashedSpecialRock_Text_1:
 	.string "That was a powerful Rock Smash! You\n"
 	.string "trained your Pokémon well!\p"
 	.string "Here, with this HM you can use it in\n"

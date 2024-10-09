@@ -283,7 +283,7 @@ static const struct SpriteFrameImage sPicTable_Nurse[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_ItemBall[] = {
-    obj_frame_tiles(gObjectEventPic_ItemBall),
+    overworld_frame(gObjectEventPic_PokeBall, 2, 4, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_ItemBall2[] = {

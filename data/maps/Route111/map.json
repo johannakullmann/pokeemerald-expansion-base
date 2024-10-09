@@ -621,7 +621,7 @@
       "flag": "FLAG_TEMP_8"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BIG_SNORLAX_DOLL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNORLAX)",
       "x": 18,
       "y": 100,
       "elevation": 0,
