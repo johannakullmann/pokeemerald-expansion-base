@@ -597,8 +597,8 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_2:
 	.string "middle of writing my thesis…$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_3:
-	.string "… I'm sorry, it's eating so much of my\n"
-	.string "time I haven't had the time to tidy up.$"
+	.string "… Sorry for the mess, I haven't had the\n"
+	.string "time to tidy up.$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_4:
 	.string "Actually, that's part of the reason I\n"
@@ -607,8 +607,7 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_4:
 	.string "Pokémon, right?$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_5:
-	.string "Yes! I've already had a Pokémon since\n"
-	.string "not too long ago!\p"
+	.string "Yes! I've had my Eevee for a while now!\p"
 	.string "And {PLAYER}'s family has a Skitty at\n"
 	.string "home.$"
 
@@ -619,13 +618,13 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_7:
 	.string "These are three rare Pokémon I have\n"
 	.string "been studying.\p"
 	.string "I caught them in the wild, so they\n"
-	.string "prefer to be outside… but at the\l"
-	.string "moment I am struggling to find time to\l"
-	.string "properly care for all three of them.$"
+	.string "prefer to be outside… but I am\l"
+	.string "struggling to find time to properly\l"
+	.string "care for them.$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_8:
 	.string "Would you two be able to take one of\n"
-	.string "them each?$"
+	.string "them?$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_9:
 	.string "{PLAYER}, this is not the time to joke\n"
@@ -638,8 +637,7 @@ Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_10:
 	.string "out!$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_11:
-	.string "Brendan: Thanks, that really means a\n"
-	.string "lot to me.$"
+	.string "Thanks, that really means a lot to me.$"
 
 Sandyshore_Inn_EventScript_BrendanNoticePlayer_Text_12:
 	.string "Please, go ahead and pick one.\p"
@@ -681,10 +679,11 @@ Sandyshore_Inn_EventScript_PickMon_Text_6:
 	.string "Pokémon, of course!\p"
 	.string "What did you think? Battle?\p"
 	.string "Nah, that wouldn't be fair.\p"
-	.string "I have more experience AND my Pokémon\n"
-	.string "has a type advantage.\p"
-	.string "You should practice against wild\n"
-	.string "Pokémon first.$"
+	.string "I have more experience AND\n"
+	.string "{STR_VAR_1} has a type advantage.\p"
+	.string "I'd feel bad steamrolling you in an\n"
+	.string "unfair fight.\p"
+	.string "$"
 
 Sandyshore_Inn_EventScript_PickMon_Text_7:
 	.string "I'll go grab some Poké Balls, meet me at\n"

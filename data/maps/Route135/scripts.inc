@@ -59,7 +59,7 @@ Route135_EventScript_CatchTutorialMain::
 	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_1
 	speakername NULL
-	giveitem ITEM_POKE_BALL, 3
+	giveitem ITEM_POKE_BALL, 5
 	speakername CommonName_Ruth
 	msgbox Route135_EventScript_CatchTutorialMain_Text_2
 	closemessage
@@ -117,72 +117,44 @@ Route135_EventScript_RockSmashGuy_2:
 	goto Route135_EventScript_RockSmashGuy_1
 
 
-Route135_EventScript_RockSmashSpecialRock::
+Route135_EventScript_SmashedSpecialRock::
 	lock
-	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route135_EventScript_RockSmashSpecialRock_2
-Route135_EventScript_RockSmashSpecialRock_1:
-	checkpartymove MOVE_ROCK_SMASH
-	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq Route135_EventScript_RockSmashSpecialRock_5
-Route135_EventScript_RockSmashSpecialRock_4:
-	setfieldeffectargument 0, VAR_RESULT
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
-	msgbox Text_WantToSmash, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq Route135_EventScript_RockSmashSpecialRock_8
-Route135_EventScript_RockSmashSpecialRock_7:
-	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	msgbox Route135_EventScript_SmashedSpecialRock_Text_0
 	closemessage
-	dofieldeffect FLDEFF_USE_ROCK_SMASH
-	waitstate
-	applymovement 3, Movement_SmashRock
-	waitmovement 0
-	removeobject 3
-	setflag FLAG_TEMP_11
+	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, Route135_EventScript_SmashedSpecialRock_2
+Route135_EventScript_SmashedSpecialRock_1:
+	releaseall
+	end
+
+Route135_EventScript_SmashedSpecialRock_2:
 	applymovement 7, Route135_Movement_RockSmashGuyNotice
 	playse SE_PIN
 	waitmovement 7
 	specialvar VAR_TEMP_1, GetPlayerFacingDirection
 	switch VAR_TEMP_1
-	case DIR_SOUTH, Route135_EventScript_RockSmashSpecialRock_12
-	case DIR_EAST, Route135_EventScript_RockSmashSpecialRock_12
-	case DIR_WEST, Route135_EventScript_RockSmashSpecialRock_13
-	case DIR_NORTH, Route135_EventScript_RockSmashSpecialRock_14
-Route135_EventScript_RockSmashSpecialRock_10:
-	checkpartymove MOVE_ROCK_SMASH
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	case DIR_SOUTH, Route135_EventScript_SmashedSpecialRock_6
+	case DIR_EAST, Route135_EventScript_SmashedSpecialRock_6
+	case DIR_WEST, Route135_EventScript_SmashedSpecialRock_7
+	case DIR_NORTH, Route135_EventScript_SmashedSpecialRock_8
+Route135_EventScript_SmashedSpecialRock_4:
 	speakername Route135_EventScript_RockSmashGuy_Text_0
-	msgbox Route135_EventScript_RockSmashSpecialRock_Text_0
+	msgbox Route135_EventScript_SmashedSpecialRock_Text_1
 	giveitem ITEM_HM_ROCK_SMASH
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 	closemessage
-	releaseall
-	end
+	goto Route135_EventScript_SmashedSpecialRock_1
 
-Route135_EventScript_RockSmashSpecialRock_2:
-	goto EventScript_RockSmash
-	goto Route135_EventScript_RockSmashSpecialRock_1
-
-Route135_EventScript_RockSmashSpecialRock_5:
-	goto EventScript_CantSmashRock
-	goto Route135_EventScript_RockSmashSpecialRock_4
-
-Route135_EventScript_RockSmashSpecialRock_8:
-	goto EventScript_CancelSmash
-	goto Route135_EventScript_RockSmashSpecialRock_7
-
-Route135_EventScript_RockSmashSpecialRock_12:
+Route135_EventScript_SmashedSpecialRock_6:
 	turnobject 7, DIR_WEST
-	goto Route135_EventScript_RockSmashSpecialRock_10
+	goto Route135_EventScript_SmashedSpecialRock_4
 
-Route135_EventScript_RockSmashSpecialRock_13:
+Route135_EventScript_SmashedSpecialRock_7:
 	turnobject 7, DIR_EAST
-	goto Route135_EventScript_RockSmashSpecialRock_10
+	goto Route135_EventScript_SmashedSpecialRock_4
 
-Route135_EventScript_RockSmashSpecialRock_14:
+Route135_EventScript_SmashedSpecialRock_8:
 	turnobject 7, DIR_SOUTH
-	goto Route135_EventScript_RockSmashSpecialRock_10
+	goto Route135_EventScript_SmashedSpecialRock_4
 
 
 Route135_Movement_CatchTutorialEnterTop:
@@ -291,18 +263,14 @@ Route135_EventScript_CatchTutorialMain_Text_2:
 	.string "easier it is to catch.\p"
 	.string "Inflicting a status condition will also\n"
 	.string "increase your chances!\p"
-	.string "If you don't want to catch it, you can\n"
-	.string "defeat it instead.\p"
-	.string "That way your own Pokémon can earn\n"
-	.string "battle experience!$"
+	.string "Or you could defeat it to have your own\n"
+	.string "Pokémon earn battle experience!$"
 
 Route135_EventScript_CatchTutorialMain_Text_3:
-	.string "Since I gave my three last balls to you,\n"
-	.string "I'll go to the mart in Pacifidlog Town\l"
-	.string "and buy new ones.\p"
+	.string "I'll go ahead to Pacifidlog Town, I need\n"
+	.string "to to grab more Poké Balls.\p"
 	.string "I wouldn't want to have to pass on a\n"
-	.string "rare Pokémon just because I forgot to\l"
-	.string "buy Poké Balls!$"
+	.string "rare one because I ran out!$"
 
 Route135_EventScript_CatchTutorialMain_Text_4:
 	.string "You should meet me there, and try to\n"
@@ -331,9 +299,12 @@ Route135_EventScript_RockSmashGuy_Text_3:
 	.string "Or you can ask a strong Pokémon like\n"
 	.string "Machop to break them for you, I guess.$"
 
-Route135_EventScript_RockSmashSpecialRock_Text_0:
-	.string "That's a powerful Rock Smash! You\n"
-	.string "trained your {STR_VAR_1} well!\p"
+Route135_EventScript_SmashedSpecialRock_Text_0:
+	.string "EEEEE$"
+
+Route135_EventScript_SmashedSpecialRock_Text_1:
+	.string "That was a powerful Rock Smash! You\n"
+	.string "trained your Pokémon well!\p"
 	.string "Here, with this HM you can use it in\n"
 	.string "battle too!\p"
 	.string "Or you can teach it to other Pokémon\n"

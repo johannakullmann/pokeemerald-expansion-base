@@ -102,7 +102,7 @@ script Sandyshore_Playerhouse_EventScript_Mom {
         speakername(CommonName_Mom)
         msgbox(format("How are you doing, {PLAYER}?\n"
                 "You look a little tired.\p"
-                "I think you should rest a bit.$"))
+                "I think you should rest a bit."))
         closemessage
         call(Common_EventScript_OutOfCenterPartyHeal)
         incrementgamestat(GAME_STAT_RESTED_AT_HOME)
@@ -112,9 +112,9 @@ script Sandyshore_Playerhouse_EventScript_Mom {
                 "I see, the Professor asked you to take care of it.\pYou got yourself a pretty active little one there!\p"
                 "Sounds like you'll be spending a lot of time outside now!\p"
                 "When you and your Pokémon get tired, you can always come back home and rest.\p"
-                "Oh, and take this Potion!"))
-            giveitem(ITEM_POTION)
-            msgbox(format("You can use Potions to heal small injuries of your Pokémon.\pTake care, {PLAYER}!"))
+                "Oh, and take these Potions!"))
+            giveitem(ITEM_POTION, 3)
+            msgbox(format("You can use Potions to heal small injuries.\pBe careful out there, {PLAYER}!"))
             setflag(FLAG_SHOWED_STARTER_TO_MOM)
             closemessage
         }

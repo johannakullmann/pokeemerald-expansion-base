@@ -400,7 +400,7 @@ script LavaridgeTown_OnTransition {
 }
 
 script LavaridgeTown_OnLoad {
-	if (var(VAR_LAVARIDGE_TOWN_STATE) <= 2) {
+	if (!flag(FLAG_LAVARIDGE_GYM_OPEN)) {
 		call (LavaridgeTown_EventScript_LockGymDoor)
 	}
 	return

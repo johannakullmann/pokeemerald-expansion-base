@@ -1003,11 +1003,12 @@
 #define ITEM_SUPER_SHINY_LURE 831
 #define ITEM_MAX_SHINY_LURE 832
 #define ITEM_DIVING_EQUIPMENT 833
+#define ITEM_MAYS_PACKAGE 834
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 834
+#define ITEMS_COUNT 835
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

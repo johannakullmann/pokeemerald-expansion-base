@@ -291,7 +291,7 @@ script JaggedPass_EventScript_FootprintNerd {
 		msgbox(format("Hello! You!\pTake a look at these fascinating Pokémon footprints here!"))
 		closemessage
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
-		applymovement(OBJ_EVENT_GFX_PLAYER, JaggedPass_Movement_PlayerWalkUpToAsh)
+		applymovement(OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_PlayerWalkUpToAsh)
 		waitmovement(0)
 		speakername("Gunther")
 		msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
@@ -766,6 +766,7 @@ script JaggedPass_EventScript_MayScene {
 	setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
 	setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
 	setflag(FLAG_HIDE_JAGGED_PASS_NPCS) //until left + re-entered, no NPCs here yet
+	setflag(FLAG_LAVARIDGE_GYM_OPEN)
 	special(DrawWholeMapView)
 	release
 	end
@@ -1078,7 +1079,7 @@ script JaggedPass_OnTransition {
 			case 2:
 				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TOXATOO)
 			}
-		case 3: //after cutscene with may, flannery and tabitha
+		case 3: //after cutscene with may, flannery and tabitha; ruth is training
 			setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
 			clearflag(FLAG_HIDE_JAGGED_PASS_NPCS)
 			clearflag(FLAG_TEMP_HIDE_RUTH)
@@ -1090,6 +1091,7 @@ script JaggedPass_OnTransition {
 			setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
 			clearflag(FLAG_HIDE_JAGGED_PASS_NPCS)
 			setflag(FLAG_TEMP_HIDE_RUTH)
+			setflag(FLAG_TEMP_HIDE_RUTHS_MON)
 			setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
 			setobjectxyperm(LOCALID_FOOTPRINT_NERD, 14, 11)
 			setobjectmovementtype(LOCALID_FOOTPRINT_NERD, MOVEMENT_TYPE_LOOK_AROUND)

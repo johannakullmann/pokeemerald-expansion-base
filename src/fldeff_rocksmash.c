@@ -25,7 +25,20 @@ static void Task_DoFieldMove_WaitForMon(u8 taskId);
 static void Task_DoFieldMove_RunFunc(u8 taskId);
 
 static void FieldCallback_RockSmash(void);
+static void FieldCallback_RockSmashMakotosRock(void);
 static void FieldMove_RockSmash(void);
+
+
+
+bool8 IsTryingToRockSmashMakotosRock() {
+    //check map = Route 135 and special rock
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE135)
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE135)
+        && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL) == TRUE) {
+            return TRUE;
+    }
+    return FALSE;
+}
 
 bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId)
 {
@@ -131,6 +144,11 @@ bool8 SetUpFieldMove_RockSmash(void)
         gPostMenuFieldCallback = SetUpPuzzleEffectRegirock;
         return TRUE;
     }
+    else if (IsTryingToRockSmashMakotosRock()) {
+        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+        gPostMenuFieldCallback = FieldCallback_RockSmashMakotosRock;
+        return TRUE;
+    }
     else if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK) == TRUE)
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
@@ -147,6 +165,12 @@ static void FieldCallback_RockSmash(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
     ScriptContext_SetupScript(EventScript_UseRockSmash);
+}
+
+static void FieldCallback_RockSmashMakotosRock(void)
+{
+    gFieldEffectArguments[0] = GetCursorSelectionMonId();
+    ScriptContext_SetupScript(EventScript_UseRockSmashOnMakotosRock);
 }
 
 bool8 FldEff_UseRockSmash(void)

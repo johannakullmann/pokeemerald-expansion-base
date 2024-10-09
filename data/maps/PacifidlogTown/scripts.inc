@@ -70,7 +70,7 @@ PacifidlogTown_OnTransition::
 	case 2, PacifidlogTown_OnTransition_5
 	case 3, PacifidlogTown_OnTransition_5
 	setflag FLAG_TEMP_10
-	setobjectxyperm 4, 32, 28
+	setobjectxyperm 4, 32, 23
 	setobjectmovementtype 4, MOVEMENT_TYPE_LOOK_AROUND
 	removeobject 8
 PacifidlogTown_OnTransition_1:
@@ -81,11 +81,11 @@ PacifidlogTown_OnTransition_3:
 	goto PacifidlogTown_OnTransition_1
 
 PacifidlogTown_OnTransition_4:
-	setobjectxyperm 8, 66, 28
+	setobjectxyperm 8, 66, 23
 	goto PacifidlogTown_OnTransition_1
 
 PacifidlogTown_OnTransition_5:
-	setobjectxyperm 8, 36, 30
+	setobjectxyperm 8, 36, 25
 	setobjectmovementtype 8, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype 4, MOVEMENT_TYPE_FACE_DOWN
 	goto PacifidlogTown_OnTransition_1
@@ -239,8 +239,8 @@ PacifidlogTown_EventScript_AfterRuthBattle_11:
 	waitmovement 0
 	setvar VAR_PACIFIDLOG_TOWN_STATE, 2
 	setflag FLAG_DEFEATED_RIVAL_1
-	setobjectxyperm 8, 36, 30
-	setobjectxy 8, 36, 30
+	setobjectxyperm 8, 36, 25
+	setobjectxy 8, 36, 25
 	setobjectmovementtype 8, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype 4, MOVEMENT_TYPE_FACE_DOWN
 	release
@@ -674,5 +674,4 @@ PacifidlogTown_EventScript_Sailor_Text_0:
 	.string "safer to go by boat.$"
 
 PacifidlogTown_EventScript_Sailor_Text_1:
-	.string "Cpt. Moore: Do you want to sail to\n"
-	.string "Slateport?$"
+	.string "Do you want to sail to Slateport?$"

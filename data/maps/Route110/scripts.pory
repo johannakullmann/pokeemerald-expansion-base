@@ -986,15 +986,15 @@ script Route110_EventScript_StartAquaDoubleBattle {
 		case 0:
 			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
 				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
-				PARTNER_RUTH_TOXATIEL, TRAINER_BACK_PIC_RUTH)
+				PARTNER_RUTH_TOXATIEL)
 		case 1:
 			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
 				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
-				PARTNER_RUTH_GROCKO, TRAINER_BACK_PIC_RUTH)
+				PARTNER_RUTH_GROCKO)
 		case 2:
 			multi_2_vs_2(TRAINER_GRUNT_ROUTE110_1, "Argh!", 
 				TRAINER_GRUNT_ROUTE110_2, "What just happened?", 
-				PARTNER_RUTH_MERAKID, TRAINER_BACK_PIC_RUTH)
+				PARTNER_RUTH_MERAKID)
 	}
 	special(LoadPlayerParty)
 	lock

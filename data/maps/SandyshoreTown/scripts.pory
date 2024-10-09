@@ -1,26 +1,14 @@
 const LOCALID_RUTH = 1
 const LOCALID_LITTLE_GIRL = 2
+const LOCALID_EEVEE = 3
 const TEMP_FLAG_HIDE_RUTH = FLAG_TEMP_10
+const TEMP_FLAG_HIDE_EEVEE = FLAG_TEMP_11
 const TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE = VAR_TEMP_3
 
 mapscripts SandyshoreTown_MapScripts {
 
     MAP_SCRIPT_ON_TRANSITION {
-        setflag(FLAG_VISITED_SANDYSHORE_TOWN)	
-        if (var(VAR_LITTLEROOT_INTRO_STATE) == 4) {
-            clearflag(TEMP_FLAG_HIDE_RUTH)
-        }
-        else {
-            setflag(TEMP_FLAG_HIDE_RUTH)
-        }
-        if (!flag(FLAG_RECEIVED_STARTER)) {
-            setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 1)
-            setobjectxyperm(LOCALID_LITTLE_GIRL, 21, 2)
-            setobjectmovementtype(LOCALID_LITTLE_GIRL, MOVEMENT_TYPE_LOOK_AROUND)
-        }
-        else {
-            setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 0)
-        }
+        goto(SandyshoreTown_EventScript_OnTransition)
     }
 }
 
@@ -75,25 +63,34 @@ script SandyshoreTown_EventScript_LittleGirl {
     end
 }
 
-script SandyshoreTown_EventScript_RuthNoticePlayer_Left {
-    lock
-    turnobject(LOCALID_RUTH, DIR_WEST)
-    goto(SandyshoreTown_EventScript_RuthNoticePlayer)
-}
-
-script SandyshoreTown_EventScript_RuthNoticePlayer_Right {
-    lock
-    turnobject(LOCALID_RUTH, DIR_EAST)
-    goto(SandyshoreTown_EventScript_RuthNoticePlayer)
-}
-
 script SandyshoreTown_EventScript_RuthNoticePlayer {
+    lock
+    applymovement(LOCALID_RUTH, Common_Movement_FacePlayer)
+    waitmovement(0)
     applymovement(LOCALID_RUTH, Common_Movement_ExclamationMarkAndDelay)
     playbgm(MUS_ENCOUNTER_MAY, FALSE)
     playse(SE_PIN)
     waitmovement(0)
     speakername(CommonName_Ruth)
-    msgbox(format("{PLAYER}! There you are!\pLet's go, I bet the professor is already waiting for us!"))
+    msgbox(format("{PLAYER}! There you are!"))
+    turnobject(LOCALID_RUTH, DIR_EAST)
+    msgbox(format("Eevee, you'll have to go in your ball for now."))
+    closemessage
+    playmoncry(SPECIES_EEVEE, CRY_MODE_NORMAL)
+    waitmoncry
+    applymovement(LOCALID_EEVEE, EnterPokeballMovement)
+    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+    removeobject(LOCALID_EEVEE)
+    addobject(LOCALID_EEVEE)
+    delay(32)
+    applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    removeobject(LOCALID_EEVEE)
+    delay(16)
+    applymovement(LOCALID_RUTH, Common_Movement_FacePlayer)
+    waitmovement(0)
+    speakername(CommonName_Ruth)
+    msgbox(format("Let's go {PLAYER}, I bet the professor is already waiting for us!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkUp)
     waitmovement(0)
@@ -109,6 +106,29 @@ script SandyshoreTown_EventScript_RuthNoticePlayer {
     setvar(VAR_LITTLEROOT_INTRO_STATE, 5)
     release
     end
+}
+
+script SandyshoreTown_EventScript_OnTransition {
+    setflag(FLAG_VISITED_SANDYSHORE_TOWN)	
+    if (var(VAR_LITTLEROOT_INTRO_STATE) == 4) {
+        clearflag(TEMP_FLAG_HIDE_RUTH)
+        clearflag(TEMP_FLAG_HIDE_EEVEE)
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(EEVEE))
+        removeobject(LOCALID_EEVEE)
+        addobject(LOCALID_EEVEE)
+    }
+    else {
+        setflag(TEMP_FLAG_HIDE_RUTH)
+        setflag(TEMP_FLAG_HIDE_EEVEE)
+    }
+    if (!flag(FLAG_RECEIVED_STARTER)) {
+        setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 1)
+        setobjectxyperm(LOCALID_LITTLE_GIRL, 21, 2)
+        setobjectmovementtype(LOCALID_LITTLE_GIRL, MOVEMENT_TYPE_LOOK_AROUND)
+    }
+    else {
+        setvar(TEMP_VAR_PREVENT_NORTH_EXIT_TRIGGER_ACTIVE, 0)
+    }
 }
 
 text SandyshoreTown_Text_LittleGirlPreventExit {

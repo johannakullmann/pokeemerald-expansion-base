@@ -79,15 +79,15 @@ script PacifidlogTown_OnTransition {
 		case 0:
 			setflag(FLAG_TEMP_DISABLE_RUTH)
 		case 1:
-			setobjectxyperm(LOCALID_RUTH, 66, 28)
+			setobjectxyperm(LOCALID_RUTH, 66, 23)
 		case 2:
 		case 3:
-			setobjectxyperm(LOCALID_RUTH, 36, 30)
+			setobjectxyperm(LOCALID_RUTH, 36, 25)
 			setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_FACE_UP)
 			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_FACE_DOWN)
 		default:
 			setflag(FLAG_TEMP_DISABLE_RUTH)
-			setobjectxyperm(LOCALID_SAILOR, 32, 28)
+			setobjectxyperm(LOCALID_SAILOR, 32, 23)
 			setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_LOOK_AROUND)
 			removeobject(LOCALID_RUTH)
 	}
@@ -228,8 +228,8 @@ script PacifidlogTown_EventScript_AfterRuthBattle {
 	waitmovement(0)
 	setvar(VAR_PACIFIDLOG_TOWN_STATE, 2)
 	setflag(FLAG_DEFEATED_RIVAL_1)
-	setobjectxyperm(LOCALID_RUTH, 36, 30)
-	setobjectxy(LOCALID_RUTH, 36, 30)
+	setobjectxyperm(LOCALID_RUTH, 36, 25)
+	setobjectxy(LOCALID_RUTH, 36, 25)
 	setobjectmovementtype(LOCALID_RUTH, MOVEMENT_TYPE_FACE_UP)
 	setobjectmovementtype(LOCALID_SAILOR, MOVEMENT_TYPE_FACE_DOWN)
 	release
@@ -338,7 +338,7 @@ script PacifidlogTown_EventScript_Sailor {
 			"I strongly advise against trying to surf there on the back of a Pokémon.\p"
 			"If you must go to Slateport, it's much safer to go by boat."))
 		case 4:
-			msgbox(format("Cpt. Moore: Do you want to sail to Slateport?"), MSGBOX_YESNO)
+			msgbox(format("Do you want to sail to Slateport?"), MSGBOX_YESNO)
 			if (var(VAR_RESULT) == YES) {
 				closemessage
 				specialvar(VAR_TEMP_1, GetPlayerFacingDirection)

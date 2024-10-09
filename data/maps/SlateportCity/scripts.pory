@@ -1387,5 +1387,6 @@ text SlateportCity_Text_BattleTentClerkGreet {
 text SlateportCity_Text_BattleTentClerkExplainBattleTent {
 	format("This is the Slateport Battle Tent.\p"
 			"Inside, you can battle using Pokémon supplied by the Battle Frontier's Battle Factory.\p"
-			"It's perfect for new trainers to practice, and if you can win three battles in a row, you'll win a Great Ball as a prize!")
+			"It's perfect for new trainers to practice and find new favourites.\p"
+			"Not only that - if you can win three battles in a row, you'll win a Great Ball as a prize!")
 }

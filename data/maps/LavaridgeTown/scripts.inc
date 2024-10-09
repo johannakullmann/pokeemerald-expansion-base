@@ -401,8 +401,7 @@ LavaridgeTown_OnTransition_5:
 
 
 LavaridgeTown_OnLoad::
-	compare VAR_LAVARIDGE_TOWN_STATE, 2
-	goto_if_le LavaridgeTown_OnLoad_2
+	goto_if_unset FLAG_LAVARIDGE_GYM_OPEN, LavaridgeTown_OnLoad_2
 LavaridgeTown_OnLoad_1:
 	return
 

@@ -136,7 +136,7 @@ Sandyshore_Playerhouse_EventScript_Mom_4:
 Sandyshore_Playerhouse_EventScript_Mom_5:
 	speakername CommonName_Mom
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_1
-	giveitem ITEM_POTION
+	giveitem ITEM_POTION, 3
 	msgbox Sandyshore_Playerhouse_EventScript_Mom_Text_2
 	setflag FLAG_SHOWED_STARTER_TO_MOM
 	closemessage
@@ -256,12 +256,12 @@ Sandyshore_Playerhouse_EventScript_Mom_Text_1:
 	.string "When you and your Pokémon get tired,\n"
 	.string "you can always come back home and\l"
 	.string "rest.\p"
-	.string "Oh, and take this Potion!$"
+	.string "Oh, and take these Potions!$"
 
 Sandyshore_Playerhouse_EventScript_Mom_Text_2:
 	.string "You can use Potions to heal small\n"
-	.string "injuries of your Pokémon.\p"
-	.string "Take care, {PLAYER}!$"
+	.string "injuries.\p"
+	.string "Be careful out there, {PLAYER}!$"
 
 Sandyshore_Playerhouse_EventScript_Mom_Text_3:
 	.string "Are you two going to visit the\n"

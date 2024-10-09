@@ -274,10 +274,10 @@ JaggedPass_EventScript_FootprintNerd::
 	buffernumberstring STR_VAR_2, VAR_0x8009
 	compare VAR_0x8009, 15
 	goto_if_lt JaggedPass_EventScript_FootprintNerd_9
-	msgbox JaggedPass_EventScript_FootprintNerd_Text_4, MSGBOX_YESNO
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_3, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq JaggedPass_EventScript_FootprintNerd_12
-	msgbox JaggedPass_EventScript_FootprintNerd_Text_6, MSGBOX_AUTOCLOSE
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_5, MSGBOX_AUTOCLOSE
 JaggedPass_EventScript_FootprintNerd_11:
 	release
 	end
@@ -288,15 +288,16 @@ JaggedPass_EventScript_FootprintNerd_1:
 	waitmovement 0
 	speakername JaggedPass_EventScript_FootprintNerd_Text_0
 	msgbox JaggedPass_EventScript_FootprintNerd_Text_1
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	msgbox JaggedPass_EventScript_FootprintNerd_Text_2
+	closemessage
 	applymovement 8, Common_Movement_WalkInPlaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_PlayerWalkUpToAsh
 	waitmovement 0
+	speakername JaggedPass_EventScript_FootprintNerd_Text_0
 	msgbox JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq JaggedPass_EventScript_FootprintNerd_5
 	applymovement 8, Common_Movement_FacePlayer
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox JaggedPass_Text_FootprintNeedToStudy_2
 JaggedPass_EventScript_FootprintNerd_4:
 	closemessage
@@ -311,17 +312,17 @@ JaggedPass_EventScript_FootprintNerd_5:
 	waitmovement 0
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox JaggedPass_Text_FootprintNeedToStudy_1
 	goto JaggedPass_EventScript_FootprintNerd_4
 
 JaggedPass_EventScript_FootprintNerd_9:
-	msgbox JaggedPass_EventScript_FootprintNerd_Text_3, MSGBOX_AUTOCLOSE
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_2, MSGBOX_AUTOCLOSE
 	release
 	end
 
 JaggedPass_EventScript_FootprintNerd_12:
-	msgbox JaggedPass_EventScript_FootprintNerd_Text_5, MSGBOX_AUTOCLOSE
+	msgbox JaggedPass_EventScript_FootprintNerd_Text_4, MSGBOX_AUTOCLOSE
 	goto JaggedPass_EventScript_FootprintNerd_11
 
 
@@ -756,7 +757,10 @@ JaggedPass_EventScript_MayScene_18:
 	setobjectmovementtype 14, MOVEMENT_TYPE_LOOK_AROUND
 	removeobject 15
 	setflag FLAG_HIDE_JAGGED_PASS_GRUNTS
-	clearflag FLAG_HIDE_JAGGED_PASS_NPCS
+	setflag FLAG_TEMP_7
+	setflag FLAG_HIDE_JAGGED_PASS_NPCS
+	setflag FLAG_LAVARIDGE_GYM_OPEN
+	special DrawWholeMapView
 	release
 	end
 
@@ -1074,6 +1078,11 @@ JaggedPass_Movement_RuthUnsure:
 	face_right
 	step_end
 
+JaggedPass_Movement_PlayerWalkUpToAsh:
+	walk_right
+	walk_up
+	step_end
+
 JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect:
 	disable_jump_landing_ground_effect
 	jump_in_place_left
@@ -1129,6 +1138,7 @@ JaggedPass_OnTransition_6:
 	setflag FLAG_HIDE_JAGGED_PASS_GRUNTS
 	clearflag FLAG_HIDE_JAGGED_PASS_NPCS
 	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_10
 	setflag FLAG_TEMP_7
 	setobjectxyperm 8, 14, 11
 	setobjectmovementtype 8, MOVEMENT_TYPE_LOOK_AROUND
@@ -1168,12 +1178,11 @@ JaggedPass_EventScript_FootprintNerd_Text_0:
 	.string "Gunther$"
 
 JaggedPass_EventScript_FootprintNerd_Text_1:
-	.string "Hello!$"
+	.string "Hello! You!\p"
+	.string "Take a look at these fascinating\n"
+	.string "Pokémon footprints here!$"
 
 JaggedPass_EventScript_FootprintNerd_Text_2:
-	.string "Just take a look at these perfect Pokémon footprints in the ash!$"
-
-JaggedPass_EventScript_FootprintNerd_Text_3:
 	.string "There's lots of footprints in the ash\n"
 	.string "here!\p"
 	.string "I'm trying to figure out which Pokémon\n"
@@ -1182,20 +1191,20 @@ JaggedPass_EventScript_FootprintNerd_Text_3:
 	.string "filled out that PokéDex of yours a\l"
 	.string "little more.$"
 
-JaggedPass_EventScript_FootprintNerd_Text_4:
+JaggedPass_EventScript_FootprintNerd_Text_3:
 	.string "There's lots of footprints in the ash\n"
 	.string "here!\p"
 	.string "I'm trying to figure out which Pokémon\n"
 	.string "they belong to.\p"
 	.string "Are you good with Pokémon footprints?$"
 
-JaggedPass_EventScript_FootprintNerd_Text_5:
+JaggedPass_EventScript_FootprintNerd_Text_4:
 	.string "I knew you were a fellow footprint\n"
 	.string "enthusiast!\p"
 	.string "Let Jojo know she needs to find out how\n"
 	.string "to display footprints and we'll start!$"
 
-JaggedPass_EventScript_FootprintNerd_Text_6:
+JaggedPass_EventScript_FootprintNerd_Text_5:
 	.string "No? That's too bad, I'd have given you\n"
 	.string "an item if you got them right.$"
 
@@ -1379,19 +1388,21 @@ JaggedPass_Text_FootprintNerdStory::
 	.string "tries to run away.\p"
 	.string "The Poochyena prepares a second\n"
 	.string "attack…\p"
-	.string "But it got distracted by something else\n"
-	.string "and runs off.$"
+	.string "But it gets distracted by something\n"
+	.string "else and runs off.$"
 
 JaggedPass_Text_FootprintNeedToStudy_1::
 	.string "Fascinating, isn't it?\p"
 	.string "I'll have to study these more!\p"
 	.string "I'll have to ask you not to step on this\n"
-	.string "patch of ash until I'm done. Sorry.$"
+	.string "patch of ash until I'm done, though.\p"
+	.string "Sorry.$"
 
 JaggedPass_Text_FootprintNeedToStudy_2::
 	.string "Still, I have to study these!\p"
 	.string "I'll have to ask you not to step on this\n"
-	.string "patch of ash until I'm done. Sorry.$"
+	.string "patch of ash until I'm done.\p"
+	.string "Sorry.$"
 
 JaggedPass_Text_GetHim::
 	.string "Get him, {STR_VAR_1}!$"

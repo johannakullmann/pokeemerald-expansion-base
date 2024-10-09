@@ -11153,16 +11153,19 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_OVERHEAT,
     },
 
-    [ITEM_TM51] =
+    [ITEM_TM_FIRE_PUNCH] =
     {
         .name = _("TM51"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "A fiery punch that\n"
+            "may also burn the\n"
+            "foe."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FIRE_PUNCH, // Todo
     },
 
     [ITEM_TM52] =
@@ -14143,6 +14146,19 @@ const struct Item gItemsInfo[] =
             "Oxygen flask for\n"
             "diving to the\n"
             "ocean floor."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+    },
+
+    [ITEM_MAYS_PACKAGE] =
+    {
+        .name = _("May's Package"),
+        .importance = 1,
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A small package\n"
+            "to be delivered to\n"
+            "the Weather Institute."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
     },

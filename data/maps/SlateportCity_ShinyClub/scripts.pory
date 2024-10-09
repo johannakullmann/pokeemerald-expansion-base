@@ -102,7 +102,7 @@ script Route135_ShinyHouse_EventScript_ShinyLureSeller {
 }
 
 script SlateportCity_ShinyClub_EventScript_Geodude {
-    speakername(CommonName_Geodude)
+    speakername("Nugget")
     playmoncry(SPECIES_GEODUDE, CRY_MODE_NORMAL)
     msgbox(format("Gyuuu!"), MSGBOX_NPC)
     closemessage

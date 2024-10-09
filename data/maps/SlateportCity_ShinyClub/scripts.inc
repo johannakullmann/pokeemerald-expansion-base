@@ -97,9 +97,9 @@ Route135_ShinyHouse_EventScript_ShinyLureSeller_2:
 
 
 SlateportCity_ShinyClub_EventScript_Geodude::
-	speakername CommonName_Geodude
+	speakername SlateportCity_ShinyClub_EventScript_Geodude_Text_0
 	playmoncry SPECIES_GEODUDE, CRY_MODE_NORMAL
-	msgbox SlateportCity_ShinyClub_EventScript_Geodude_Text_0, MSGBOX_NPC
+	msgbox SlateportCity_ShinyClub_EventScript_Geodude_Text_1, MSGBOX_NPC
 	closemessage
 	end
 
@@ -223,6 +223,9 @@ Route135_ShinyHouse_EventScript_ShinyLureSeller_Text_3:
 	.string "to members for now.$"
 
 SlateportCity_ShinyClub_EventScript_Geodude_Text_0:
+	.string "Nugget$"
+
+SlateportCity_ShinyClub_EventScript_Geodude_Text_1:
 	.string "Gyuuu!$"
 
 SlateportCity_ShinyClub_EventScript_Wurmple_Text_0:

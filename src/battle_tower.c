@@ -698,7 +698,6 @@ static const u8 *const *const sPartnerApprenticeTextTables[NUM_APPRENTICES] =
 
 #include "data/battle_frontier/battle_tent.h"
 
-#include "data/partner_parties.h"
 const struct Trainer gBattlePartners[] =
 {
 #include "data/battle_partners.h"
@@ -2999,7 +2998,6 @@ static void FillPartnerParty(u16 trainerId)
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     s32 ball = -1;
     SetFacilityPtrsGetLevel();
-    const struct TrainerMon *partnerParty;
 
     if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
     {

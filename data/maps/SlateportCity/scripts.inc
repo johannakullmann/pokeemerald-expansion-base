@@ -1457,6 +1457,7 @@ SlateportCity_Text_BattleTentClerkExplainBattleTent::
 	.string "supplied by the Battle Frontier's\l"
 	.string "Battle Factory.\p"
 	.string "It's perfect for new trainers to\n"
-	.string "practice, and if you can win three\l"
+	.string "practice and find new favourites.\p"
+	.string "Not only that - if you can win three\n"
 	.string "battles in a row, you'll win a Great Ball\l"
 	.string "as a prize!$"

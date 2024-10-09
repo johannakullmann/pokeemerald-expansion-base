@@ -48,15 +48,6 @@ LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle::
 LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
 	return
 
-LavaridgeTown_Gym_1F_EventScript_Flannery::
-	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
-	goto_if_unset FLAG_RECEIVED_TM_OVERHEAT, LavaridgeTown_Gym_1F_EventScript_GiveOverheat2
-	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
 LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
 	waitmessage
@@ -99,7 +90,7 @@ LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
 	return
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::
-	trainerbattle_rematch_double TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryPreRematch, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat, LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_MAY_1, LavaridgeTown_Gym_1F_Text_FlanneryPreRematch, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat, LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons
 	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -303,21 +294,6 @@ LavaridgeTown_Gym_B1F_Text_EliPostBattle:
 	.string "of FLANNERY's power.\p"
 	.string "Hehehehe.$"
 
-LavaridgeTown_Gym_1F_Text_FlanneryIntro:
-	.string "Welcome… No, wait.\p"
-	.string "Puny TRAINER, how good to see you've\n"
-	.string "made it here!\p"
-	.string "I have been entrusted with the…\n"
-	.string "No, wait.\p"
-	.string "I am FLANNERY, and I'm the GYM\n"
-	.string "LEADER here!\p"
-	.string "Uh…\n"
-	.string "Dare not underestimate me, though\l"
-	.string "I have been LEADER only a short time!\p"
-	.string "With skills inherited from my grand-\n"
-	.string "father, I shall, uh…demonstrate the\l"
-	.string "hot moves we have honed on this land!$"
-
 LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
 	.string "Oh…\n"
 	.string "I guess I was trying too hard…\p"
@@ -402,3 +378,177 @@ LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
 	.string "that can battle?\p"
 	.string "I hate to say this, but when you come\n"
 	.string "see me, bring at least two POKéMON.$"
+
+LavaridgeTown_Gym_EventScript_May::
+	lock
+	faceplayer
+	checktrainerflag TRAINER_MAY_1
+	goto_if 0, LavaridgeTown_Gym_EventScript_May_2
+LavaridgeTown_Gym_EventScript_May_1:
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
+	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LavaridgeTown_Gym_EventScript_May_2:
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_1F_Text_MayIntro
+	special SavePlayerParty
+	getpartysize
+	compare VAR_RESULT, 3
+	goto_if_le LavaridgeTown_Gym_EventScript_May_4
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_May_Text_0
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
+	compare VAR_RESULT, 0
+	goto_if_ne LavaridgeTown_Gym_EventScript_May_8
+LavaridgeTown_Gym_EventScript_May_7:
+	special LoadPlayerParty
+	release
+	end
+
+LavaridgeTown_Gym_EventScript_May_4:
+	special SetHalfPartyForBattle
+	goto LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty
+	goto LavaridgeTown_Gym_EventScript_May_1
+
+LavaridgeTown_Gym_EventScript_May_8:
+	goto LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty
+	goto LavaridgeTown_Gym_EventScript_May_7
+
+
+LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty::
+	lock
+	special ReducePlayerPartyToSelectedMons
+	getpartysize
+	compare VAR_RESULT, 3
+	goto_if_lt LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_1
+	goto LavaridgeTown_Gym_EventScript_MayGymBattle
+	return
+
+LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_1:
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_4
+	special LoadPlayerParty
+	release
+	end
+
+LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_4:
+	goto LavaridgeTown_Gym_EventScript_MayGymBattle
+	return
+
+
+LavaridgeTown_Gym_EventScript_MayGymBattle::
+	setflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
+	trainerbattle_single TRAINER_MAY_1, MauvilleCity_Gym_Text_WattsonLetsGetStarted, MauvilleCity_Gym_Text_WattsonDefeat, LavaridgeTown_Gym_EventScript_MayAfterBattle, NO_MUSIC
+	return
+
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle::
+	lock
+	special LoadPlayerParty
+	clearflag FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE
+	speakername NULL
+	message LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_0
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	setflag FLAG_DEFEATED_LAVARIDGE_GYM
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_HIDE_ROUTE_111_SNORLAX
+	setvar VAR_0x8008, 3
+	call Common_EventScript_SetGymTrainers
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_1, MSGBOX_DEFAULT
+	speakername NULL
+	giveitem ITEM_TM_FIRE_PUNCH
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_2
+	closemessage
+	delay 30
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_3
+	closemessage
+	speakername NULL
+	giveitem ITEM_MAYS_PACKAGE
+	speakername CommonName_May
+	msgbox LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_4
+	delay 30
+	speakername NULL
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_5, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
+	release
+	end
+
+
+LavaridgeTown_Gym_EventScript_May_Text_0:
+	.string "Alright, which Pokémon will you be\n"
+	.string "fighting with?$"
+
+LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty_Text_0:
+	.string "Oh?\p"
+	.string "Are you really sure you want to battle\n"
+	.string "with less than three Pokémon?$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_0:
+	.string "{PLAYER} received the Heat Badge\nfrom May.$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_1:
+	.string "I think you earned this TM too!$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_2:
+	.string "TM51 contains Fire Punch.\p"
+	.string "It's a strong Fire-type attack that\n"
+	.string "can also burn the target.\p"
+	.string "A lot of non-Fire type Pokémon can\n"
+	.string "learn it, so you can surprise your\l"
+	.string "opponent by hitting them with an\l"
+	.string "unexpected super-effective Fire move!$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_3:
+	.string "… Say, {PLAYER}, could I ask a favour?\p"
+	.string "That encounter with Team Magma at\n"
+	.string "Jagged Pass still bothers me.\p"
+	.string "Could you deliver something to the\n"
+	.string "Weather Institute on Route 119 for\l"
+	.string "me?\p"
+	.string "It'll be right on your way when you go to\n"
+	.string "Fortree City to challenge Winona's gym.$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_4:
+	.string "The safest way to reach Fortree City at\n"
+	.string "the moment is the mountain pass that\l"
+	.string "connects Route 119 and the northern\l"
+	.string "part of Route 111.\p"
+	.string "You can get there by going past Jagged\n"
+	.string "Pass,\p"
+	.string "then take a turn east as soon as you\n"
+	.string "exit the forest.$"
+
+LavaridgeTown_Gym_EventScript_MayAfterBattle_Text_5:
+	.string "Registered Gym Leader May\nin the PokéNav.$"
+
+LavaridgeTown_Gym_1F_Text_MayIntro::
+	.string "Welcome, {PLAYER}! You made it!\p"
+	.string "Since we meet in this official manner,\n"
+	.string "let's do the introductions properly!\p"
+	.string "My name's May, and it's always been my\n"
+	.string "dream to become a gym leader like my\l"
+	.string "father.\p"
+	.string "One thing led to another, and I was able\n"
+	.string "to take over as a gym leader for\l"
+	.string "Flannery.\p"
+	.string "{PLAYER}, you really remind me of\n"
+	.string "myself when I started my adventure a\l"
+	.string "few years ago.\p"
+	.string "That doesn't mean I'll be going easy on\n"
+	.string "you, though!$"

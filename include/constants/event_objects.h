@@ -300,11 +300,12 @@
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
 #define OBJ_EVENT_GFX_POKE_BALL                  287
 #define OBJ_EVENT_GFX_OW_MON                     288
+#define OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL     289
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        289
+#define NUM_OBJ_EVENT_GFX                        290
 
 
 // These are dynamic object gfx ids.

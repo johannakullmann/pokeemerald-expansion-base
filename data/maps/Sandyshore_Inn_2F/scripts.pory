@@ -63,7 +63,7 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceFasterUp)
     waitmovement(0)
     speakername(CommonName_Brendan)
-    msgbox(format("… I'm sorry, it's eating so much of my time I haven't had the time to tidy up."))
+    msgbox(format("… Sorry for the mess, I haven't had the time to tidy up."))
     closemessage
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
@@ -73,7 +73,7 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     applymovement(LOCALID_RUTH,  Common_Movement_WalkInPlaceRight)
     waitmovement(0)
     speakername(CommonName_Ruth)
-    msgbox(format("Yes! I've already had a Pokémon since not too long ago!\pAnd {PLAYER}'s family has a Skitty at home."))
+    msgbox(format("Yes! I've had my Eevee for a while now!\pAnd {PLAYER}'s family has a Skitty at home."))
     closemessage
     turnobject(LOCALID_RUTH, DIR_EAST)
     applymovement(LOCALID_BRENDAN,  Common_Movement_WalkInPlaceLeft)
@@ -86,9 +86,9 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     speakername(CommonName_Brendan)
     msgbox(format("These are three rare Pokémon I have been studying.\p"
             "I caught them in the wild, so they prefer to be outside…"
-            "but at the moment I am struggling to find time to properly care for all three of them."))
+            "but I am struggling to find time to properly care for them."))
     turnobject(LOCALID_BRENDAN, DIR_WEST)
-    msgbox(format("Would you two be able to take one of them each?"), MSGBOX_YESNO)
+    msgbox(format("Would you two be able to take one of them?"), MSGBOX_YESNO)
     speakername(CommonName_Ruth)
     if (var(VAR_RESULT) == NO) {
             applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceDown)
@@ -99,7 +99,7 @@ script Sandyshore_Inn_EventScript_BrendanNoticePlayer {
     msgbox(format("Of course, we're always happy to help out!"))
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkInPlaceLeft)
     speakername(CommonName_Brendan)
-    msgbox(format("Brendan: Thanks, that really means a lot to me."))
+    msgbox(format("Thanks, that really means a lot to me."))
     applymovement(LOCALID_BRENDAN, Common_Movement_WalkRight)
     waitmovement(0)
     turnobject(LOCALID_BRENDAN, DIR_WEST)
@@ -204,8 +204,8 @@ script Sandyshore_Inn_EventScript_PickMon {
     msgbox(format("I should teach you how to catch a Pokémon, of course!\p"
             "What did you think? Battle?\p"
             "Nah, that wouldn't be fair.\p"
-            "I have more experience AND my Pokémon has a type advantage.\p"
-            "You should practice against wild Pokémon first."))
+            "I have more experience AND {STR_VAR_1} has a type advantage.\p"
+            "I'd feel bad steamrolling you in an unfair fight.\p"))
     closemessage
     applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1)
     waitmovement(0)

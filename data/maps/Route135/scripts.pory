@@ -59,16 +59,16 @@ script Route135_EventScript_CatchTutorialMain {
     speakername(CommonName_Ruth)
     msgbox(format("See? It's not hard at all!\pHere, you should try it yourself!"))
     speakername(NULL)
-    giveitem(ITEM_POKE_BALL, 3)
+    giveitem(ITEM_POKE_BALL, 5)
     speakername(CommonName_Ruth)
     msgbox(format("The more you weaken a Pokémon, the easier it is to catch.\pInflicting a status condition will also increase your chances!\p"
-            "If you don't want to catch it, you can defeat it instead.\pThat way your own Pokémon can earn battle experience!"))
+            "Or you could defeat it to have your own Pokémon earn battle experience!"))
     closemessage
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceLeft)
     waitmovement(0)
     speakername(CommonName_Ruth)
-    msgbox(format("Since I gave my three last balls to you, I'll go to the mart in Pacifidlog Town and buy new ones.\p"
-                "I wouldn't want to have to pass on a rare Pokémon just because I forgot to buy Poké Balls!"))
+    msgbox(format("I'll go ahead to Pacifidlog Town, I need to to grab more Poké Balls.\p"
+                "I wouldn't want to have to pass on a rare one because I ran out!"))
     applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
     waitmovement(0)
     if (!flag(FLAG_SHOWED_STARTER_TO_MOM)) {
@@ -119,56 +119,32 @@ script Route135_EventScript_RockSmashGuy {
     end
 }
 
-script Route135_EventScript_RockSmashSpecialRock {
+script Route135_EventScript_SmashedSpecialRock {
 	lock
-    if (flag(FLAG_RECEIVED_HM_ROCK_SMASH)) {
-        goto(EventScript_RockSmash)
-    }
-	checkpartymove(MOVE_ROCK_SMASH)
-	if (var(VAR_RESULT) == PARTY_SIZE) {
-        goto(EventScript_CantSmashRock)
-    } 
-	setfieldeffectargument(0, VAR_RESULT)
-	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-	buffermovename(STR_VAR_2, MOVE_ROCK_SMASH)
-	msgbox(Text_WantToSmash, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == NO)
-    {
-        goto(EventScript_CancelSmash)
-    }
-
-	msgbox(Text_MonUsedFieldMove, MSGBOX_DEFAULT)
-	closemessage
-	dofieldeffect(FLDEFF_USE_ROCK_SMASH)
-	waitstate
-	applymovement(LOCALID_ROCK_SMASH_ROCK, Movement_SmashRock)
-	waitmovement(0)
-	removeobject(LOCALID_ROCK_SMASH_ROCK)
-    setflag(TEMP_FLAG_ROCK_DESTROYED)
-
-    applymovement(LOCALID_ROCK_SMASH_GUY, Route135_Movement_RockSmashGuyNotice)
-    playse(SE_PIN)
-    waitmovement(LOCALID_ROCK_SMASH_GUY)
-    specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
-	switch (var(VAR_TEMP_1)) {
-        case DIR_SOUTH:
-        case DIR_EAST:
-            turnobject(LOCALID_ROCK_SMASH_GUY, DIR_WEST)
-        case DIR_WEST:
-			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_EAST)
-        case DIR_NORTH:
-			turnobject(LOCALID_ROCK_SMASH_GUY, DIR_SOUTH)
-    }
-    checkpartymove(MOVE_ROCK_SMASH)
-	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-    speakername("Makoto")
-    msgbox(format("That's a powerful Rock Smash! You trained your {STR_VAR_1} well!\p"
-            "Here, with this HM you can use it in battle too!\pOr you can teach it to other Pokémon that can't use it innately."))
-    giveitem(ITEM_HM_ROCK_SMASH)
-    setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
     closemessage
+    if (!flag(FLAG_RECEIVED_HM_ROCK_SMASH)) {
+        applymovement(LOCALID_ROCK_SMASH_GUY, Route135_Movement_RockSmashGuyNotice)
+        playse(SE_PIN)
+        waitmovement(LOCALID_ROCK_SMASH_GUY)
+        specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+        switch (var(VAR_TEMP_1)) {
+            case DIR_SOUTH:
+            case DIR_EAST:
+                turnobject(LOCALID_ROCK_SMASH_GUY, DIR_WEST)
+            case DIR_WEST:
+                turnobject(LOCALID_ROCK_SMASH_GUY, DIR_EAST)
+            case DIR_NORTH:
+                turnobject(LOCALID_ROCK_SMASH_GUY, DIR_SOUTH)
+        }
+        speakername("Makoto")
+        msgbox(format("That was a powerful Rock Smash! You trained your Pokémon well!\p"
+                "Here, with this HM you can use it in battle too!\pOr you can teach it to other Pokémon that can't use it innately."))
+        giveitem(ITEM_HM_ROCK_SMASH)
+        setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
+        closemessage
+    }
     releaseall
-	end
+    end
 }
 
 text Route135_Text_CatchTutorialPsstComeOverHere {

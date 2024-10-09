@@ -11,6 +11,8 @@
 #line 1
     [PARTNER_NONE] =
     {
+#line 2
+        .trainerName = _("???"),
 #line 3
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 4
@@ -27,7 +29,7 @@
     [PARTNER_STEVEN] =
     {
 #line 9
-        .trainerName = _("STEVEN"),
+        .trainerName = _("Steven"),
 #line 10
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 11
@@ -103,30 +105,246 @@
             },
         },
     },
-
+#line 45
     [PARTNER_RUTH_TOXATIEL] =
     {
-        .party = TRAINER_PARTY(sParty_RuthPartnerToxatiel),
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_BACK_PIC_RUTH,
+#line 46
         .trainerName = _("Ruth"),
+#line 47
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 48
+        .trainerPic = TRAINER_BACK_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 49
+F_TRAINER_FEMALE | 
+#line 50
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 52
+            .species = SPECIES_TOXATIEL,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 56
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+#line 55
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 54
+            .lvl = 8,
+#line 53
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 57
+                MOVE_POISON_STING,
+                MOVE_PECK,
+                MOVE_TAIL_WHIP,
+                MOVE_SCRATCH,
+            },
+            },
+            {
+#line 62
+            .species = SPECIES_BUDEW,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 66
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 64, 0),
+#line 65
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 64
+            .lvl = 7,
+#line 63
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 67
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 71
+            .species = SPECIES_EEVEE,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 75
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+#line 74
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 73
+            .lvl = 8,
+#line 72
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 76
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
     },
-
+#line 81
     [PARTNER_RUTH_GROCKO] =
     {
-        .party = TRAINER_PARTY(sParty_RuthPartnerGrocko),
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_BACK_PIC_RUTH,
+#line 82
         .trainerName = _("Ruth"),
+#line 83
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 84
+        .trainerPic = TRAINER_BACK_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 85
+F_TRAINER_FEMALE | 
+#line 86
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 88
+            .species = SPECIES_GROCKO,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 92
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 64, 64, 0),
+#line 91
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 90
+            .lvl = 8,
+#line 89
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 93
+                MOVE_PEBBLE_SHOT,
+                MOVE_LICK,
+                MOVE_TACKLE,
+                MOVE_GROWL,
+            },
+            },
+            {
+#line 98
+            .species = SPECIES_BUDEW,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 102
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 64, 0),
+#line 101
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 100
+            .lvl = 7,
+#line 99
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 103
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 107
+            .species = SPECIES_EEVEE,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 111
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+#line 110
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 109
+            .lvl = 8,
+#line 108
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 112
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
     },
-
+#line 117
     [PARTNER_RUTH_MERAKID] =
     {
-        .party = TRAINER_PARTY(sParty_RuthPartnerMerakid),
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_BACK_PIC_RUTH,
+#line 118
         .trainerName = _("Ruth"),
+#line 119
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 120
+        .trainerPic = TRAINER_BACK_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 121
+F_TRAINER_FEMALE | 
+#line 122
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 124
+            .species = SPECIES_CHIMERA1,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 128
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+#line 127
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 126
+            .lvl = 44,
+#line 125
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 129
+                MOVE_POUND,
+                MOVE_KICK,
+                MOVE_ENDURE,
+                MOVE_LEER,
+            },
+            },
+            {
+#line 134
+            .species = SPECIES_BUDEW,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 138
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 64, 0),
+#line 137
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 136
+            .lvl = 7,
+#line 135
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 139
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 143
+            .species = SPECIES_EEVEE,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 147
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+#line 146
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 145
+            .lvl = 8,
+#line 144
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 148
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
     },
