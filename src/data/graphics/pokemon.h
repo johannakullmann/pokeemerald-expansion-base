@@ -22079,13 +22079,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/normal.gbapal.lz");
     const u32 gMonBackPic_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/back.4bpp.lz");
-    const u32 gMonBackPic_ToxatriceF[] = INCBIN_U32("graphics/pokemon/toxatrice/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Toxatrice[] = INCBIN_U32("graphics/pokemon/toxatrice/shiny.gbapal.lz");
     const u8 gMonIcon_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/icon.4bpp");
-    const u8 gMonIcon_ToxatriceF[] = INCBIN_U8("graphics/pokemon/toxatrice/icon_f.4bpp");
     #if P_FOOTPRINTS
         const u8 gMonFootprint_Toxatrice[] = INCBIN_U8("graphics/pokemon/toxatrice/footprint.1bpp");
     #endif //P_FOOTPRINTS
@@ -22104,24 +22101,48 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/back.4bpp.lz");
     const u32 gMonShinyPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/shiny.gbapal.lz");
     const u8 gMonIcon_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/icon.4bpp");
-    const u8 gMonFootprint_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Grocko[] = INCBIN_U8("graphics/pokemon/grocko/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Grocko[] = INCBIN_U32("graphics/pokemon/grocko/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
     
     const u32 gMonFrontPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/anim_front.4bpp.lz");
     const u32 gMonPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/normal.gbapal.lz");
     const u32 gMonBackPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/back.4bpp.lz");
     const u32 gMonShinyPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/shiny.gbapal.lz");
     const u8 gMonIcon_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/icon.4bpp");
-    const u8 gMonFootprint_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Rubecko[] = INCBIN_U8("graphics/pokemon/rubecko/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Rubecko[] = INCBIN_U32("graphics/pokemon/rubecko/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
     const u32 gMonBackPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/back.4bpp.lz");
-    const u32 gMonBackPic_DrabuncleF[] = INCBIN_U32("graphics/pokemon/drabuncle/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
     const u8 gMonIcon_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/icon.4bpp");
-    const u8 gMonIcon_DrabuncleF[] = INCBIN_U8("graphics/pokemon/drabuncle/icon_f.4bpp");
-    const u8 gMonFootprint_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Drabuncle[] = INCBIN_U8("graphics/pokemon/drabuncle/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Drabuncle[] = INCBIN_U32("graphics/pokemon/drabuncle/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_GROCKO
 
 #if P_FAMILY_CHIMERA
@@ -22140,13 +22161,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_Chimera2[] = INCBIN_U8("graphics/pokemon/chimera2/footprint.1bpp");
 
     const u32 gMonFrontPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front.4bpp.lz");
-    const u32 gMonFrontPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/anim_front_f.4bpp.lz");
     const u32 gMonPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/normal.gbapal.lz");
     const u32 gMonBackPic_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/back.4bpp.lz");
-    const u32 gMonBackPic_Chimera3F[] = INCBIN_U32("graphics/pokemon/chimera3/back_f.4bpp.lz");
     const u32 gMonShinyPalette_Chimera3[] = INCBIN_U32("graphics/pokemon/chimera3/shiny.gbapal.lz");
     const u8 gMonIcon_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/icon.4bpp");
-    const u8 gMonIcon_Chimera3F[] = INCBIN_U8("graphics/pokemon/chimera3/icon_f.4bpp");
     const u8 gMonFootprint_Chimera3[] = INCBIN_U8("graphics/pokemon/chimera3/footprint.1bpp");
 #endif //P_FAMILY_CHIMERA
 
@@ -22156,14 +22174,32 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/back.4bpp.lz");
     const u32 gMonShinyPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/shiny.gbapal.lz");
     const u8 gMonIcon_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/icon.4bpp");
-    const u8 gMonFootprint_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Hatchik[] = INCBIN_U8("graphics/pokemon/hatchik/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Hatchik[] = INCBIN_U32("graphics/pokemon/hatchik/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 
     const u32 gMonFrontPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/anim_front.4bpp.lz");
     const u32 gMonPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/normal.gbapal.lz");
     const u32 gMonBackPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/back.4bpp.lz");
     const u32 gMonShinyPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/shiny.gbapal.lz");
     const u8 gMonIcon_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/icon.4bpp");
-    const u8 gMonFootprint_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/footprint.1bpp");
+    #if P_FOOTPRINTS
+        const u8 gMonFootprint_Dodo2[] = INCBIN_U8("graphics/pokemon/dodo2/footprint.1bpp");
+    #endif //P_FOOTPRINTS
+    #if OW_POKEMON_OBJECT_EVENTS
+            const u32 gObjectEventPic_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/overworld.4bpp.lz");
+        #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+            const u32 gOverworldPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/normal.gbapal.lz");
+            const u32 gShinyOverworldPalette_Dodo2[] = INCBIN_U32("graphics/pokemon/dodo2/shiny.gbapal.lz");
+        #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+    #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_HATCHIK
 
 #if P_FAMILY_MBIELU

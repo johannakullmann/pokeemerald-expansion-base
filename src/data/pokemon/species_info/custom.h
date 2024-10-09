@@ -146,7 +146,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
-        .abilities = { ABILITY_CORROSION, ABILITY_NONE, ABILITY_CLEAR_BODY },
+        .abilities = { ABILITY_CORROSION, ABILITY_NONE, ABILITY_POISON_TOUCH },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Toxatrice"),
         .cryId = CRY_TOXATRICE,
@@ -164,20 +164,17 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .trainerScale = 256,
         .trainerOffset = 0,
         .frontPic = gMonFrontPic_Toxatrice,
-        .frontPicFemale = gMonFrontPic_ToxatriceF,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Toxatrice,
         .frontAnimId = ANIM_V_STRETCH,
         .backPic = gMonBackPic_Toxatrice,
-        .backPicFemale = gMonBackPic_ToxatriceF,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
         .palette = gMonPalette_Toxatrice,
         .shinyPalette = gMonShinyPalette_Toxatrice,
         .iconSprite = gMonIcon_Toxatrice,
-        .iconSpriteFemale = gMonIcon_ToxatriceF,
         .iconPalIndex = 2,
         .iconPalIndexFemale = 2,
         .footprint = gMonFootprint_Toxatrice,
@@ -224,7 +221,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .description = COMPOUND_STRING(
             "This skittish Pokémon lives in stone\n"
             "crevices. It licks rocks to gather\n"
-            "The minerals needed to grow the gems\n"
+            "the minerals needed to grow the gem\n"
             "on its head."),      
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -249,6 +246,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .innateFieldMoves = sGrockoInnateFieldMoves,
         .eggMoveLearnset = sGrockoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RUBECKO}),
+        OVERWORLD(
+            sPicTable_Grocko,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Grocko,
+            gShinyOverworldPalette_Grocko
+        )
     },
 
     [SPECIES_RUBECKO] =
@@ -303,6 +308,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sRubeckoTeachableLearnset,
         .innateFieldMoves = sRubeckoInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_DRABUNCLE}),
+        OVERWORLD(
+            sPicTable_Rubecko,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Rubecko,
+            gShinyOverworldPalette_Rubecko
+        )
     },
 
     [SPECIES_DRABUNCLE] =
@@ -340,26 +353,31 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .trainerScale = 256,
         .trainerOffset = 0,
         .frontPic = gMonFrontPic_Drabuncle,
-        .frontPicFemale = gMonFrontPic_DrabuncleF,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Drabuncle,
         .frontAnimId = ANIM_V_STRETCH,
         .backPic = gMonBackPic_Drabuncle,
-        .backPicFemale = gMonBackPic_DrabuncleF,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_H_SLIDE,
         .palette = gMonPalette_Drabuncle,
         .shinyPalette = gMonShinyPalette_Drabuncle,
         .iconSprite = gMonIcon_Drabuncle,
-        .iconSpriteFemale = gMonIcon_DrabuncleF,
         .iconPalIndex = 1,
         .iconPalIndexFemale = 1,
         .footprint = gMonFootprint_Drabuncle,
         .levelUpLearnset = sDrabuncleLevelUpLearnset,
         .teachableLearnset = sDrabuncleTeachableLearnset,
         .innateFieldMoves = sDrabuncleInnateFieldMoves,
+        OVERWORLD(
+            sPicTable_Drabuncle,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Drabuncle,
+            gShinyOverworldPalette_Drabuncle
+        )
     },
 #endif //P_FAMILY_GROCKO
 
@@ -508,20 +526,17 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .trainerScale = 256,
         .trainerOffset = 0,
         .frontPic = gMonFrontPic_Chimera3,
-        .frontPicFemale = gMonFrontPic_Chimera3F,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Chimera3,
         .frontAnimId = ANIM_H_VIBRATE,
         .backPic = gMonBackPic_Chimera3,
-        .backPicFemale = gMonBackPic_Chimera3F,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_JOLT_RIGHT,
         .palette = gMonPalette_Chimera3,
         .shinyPalette = gMonShinyPalette_Chimera3,
         .iconSprite = gMonIcon_Chimera3,
-        .iconSpriteFemale = gMonIcon_Chimera3F,
         .iconPalIndex = 2,
         .iconPalIndexFemale = 2,
         .footprint = gMonFootprint_Chimera3,
@@ -585,6 +600,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .innateFieldMoves = sHatchikInnateFieldMoves,
         .eggMoveLearnset = sHatchikEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_DODO2}),
+        OVERWORLD(
+            sPicTable_Hatchik,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Hatchik,
+            gShinyOverworldPalette_Hatchik
+        )
     },
 
     [SPECIES_DODO2] =
@@ -604,9 +627,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-        .abilities = { ABILITY_SAP_SIPPER, ABILITY_NONE, ABILITY_SAP_SIPPER },
+        .abilities = { ABILITY_HYPER_CUTTER, ABILITY_RECKLESS, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Dodo2"),
+        .speciesName = _("Titahawk"),
         .cryId = CRY_DODO2,
         .natDexNum = NATIONAL_DEX_DODO2,
         .categoryName = _("Axe Beak"),
@@ -638,6 +661,14 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sDodo2LevelUpLearnset,
         .teachableLearnset = sDodo2TeachableLearnset,
         .innateFieldMoves = sDodo2InnateFieldMoves,
+        OVERWORLD(
+            sPicTable_Dodo2,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Dodo2,
+            gShinyOverworldPalette_Dodo2
+        )
     },
 #endif //P_FAMILY_HATCHIK
 

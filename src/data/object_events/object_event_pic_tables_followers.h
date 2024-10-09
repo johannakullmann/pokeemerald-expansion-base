@@ -6179,4 +6179,26 @@ static const struct SpriteFrameImage sPicTable_Toxatrice[] = {
 };
 #endif //P_FAMILY_TOXATIEL
 
+#if P_FAMILY_GROCKO
+static const struct SpriteFrameImage sPicTable_Grocko[] = {
+    overworld_ascending_frames(gObjectEventPic_Grocko, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Rubecko[] = {
+    overworld_ascending_frames(gObjectEventPic_Rubecko, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Drabuncle[] = {
+    overworld_ascending_frames(gObjectEventPic_Drabuncle, 4, 4),
+};
+#endif //P_FAMILY_GROCKO
+
+#if P_FAMILY_HATCHIK
+static const struct SpriteFrameImage sPicTable_Hatchik[] = {
+    overworld_ascending_frames(gObjectEventPic_Hatchik, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Dodo2[] = {
+    overworld_ascending_frames(gObjectEventPic_Dodo2, 4, 4),
+};
+#endif //P_FAMILY_HATCHIK
+
 #endif //OW_POKEMON_OBJECT_EVENTS
