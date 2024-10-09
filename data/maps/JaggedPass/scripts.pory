@@ -620,6 +620,10 @@ script JaggedPass_EventScript_MayScene {
 	turnobject(LOCALID_MAY, DIR_NORTH)
 	applymovement(LOCALID_FLANNERY, Common_Movement_WalkDown)
 	waitmovement(0)
+	speakername(CommonName_Flannery)
+	msgbox(format("May!"))
+	closemessage
+	waitmovement(0)
 	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
 	speakername(CommonName_May)
@@ -704,7 +708,7 @@ script JaggedPass_EventScript_MayScene {
 		case 21:
 			turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	}
-	msgbox(format("{PLAYER}, as much as I want to get this badge before you, I don't think I can afford to rush it right now.\p"
+	msgbox(format("{PLAYER}, as much as I want to get this badge before you, I don't think I should rush it right now.\p"
 			"I'll take my time to build a strong foundation and catch up to you in no time!"))
 	closemessage
 	applymovement(LOCALID_RUTH, JaggedPass_Movement_RuthLeave)

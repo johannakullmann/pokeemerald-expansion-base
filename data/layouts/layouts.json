@@ -684,7 +684,7 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_GYM_1F",
       "name": "LavaridgeTown_Gym_1F_Layout",
-      "width": 15,
+      "width": 29,
       "height": 21,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_LavaridgeGym",
