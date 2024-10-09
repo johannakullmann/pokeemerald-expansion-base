@@ -180,7 +180,7 @@ script PacifidlogTown_EventScript_RuthBattle {
 			case 1:
 				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_GROCKO,"…")
 			case 2:
-				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_CHIMERA,"…")
+				trainerbattle_no_intro(TRAINER_RUTH_PACIFIDLOG_MERAKID,"…")
 	}	
 	goto(PacifidlogTown_EventScript_AfterRuthBattle)
 }

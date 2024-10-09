@@ -202,7 +202,7 @@ PacifidlogTown_EventScript_RuthBattle_4:
 	goto PacifidlogTown_EventScript_RuthBattle_1
 
 PacifidlogTown_EventScript_RuthBattle_5:
-	trainerbattle_no_intro TRAINER_RUTH_PACIFIDLOG_CHIMERA, PacifidlogTown_EventScript_RuthBattle_Text_0
+	trainerbattle_no_intro TRAINER_RUTH_PACIFIDLOG_MERAKID, PacifidlogTown_EventScript_RuthBattle_Text_0
 	goto PacifidlogTown_EventScript_RuthBattle_1
 
 

@@ -41482,3 +41482,459 @@ F_TRAINER_FEMALE |
             },
         },
     },
+#line 16608
+    [TRAINER_RUTH_PACIFIDLOG_TOXATIEL] =
+    {
+#line 16609
+        .trainerName = _("Ruth"),
+#line 16610
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16611
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16612
+F_TRAINER_FEMALE | 
+#line 16613
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16614
+        .doubleBattle = FALSE,
+#line 16615
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16617
+            .species = SPECIES_BUDEW,
+#line 16617
+            .gender = TRAINER_MON_FEMALE,
+#line 16620
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16619
+            .lvl = 4,
+#line 16618
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16621
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 16625
+            .species = SPECIES_GROCKO,
+#line 16625
+            .gender = TRAINER_MON_FEMALE,
+#line 16628
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16627
+            .lvl = 5,
+#line 16626
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16630
+            .species = SPECIES_EEVEE,
+#line 16630
+            .gender = TRAINER_MON_MALE,
+#line 16633
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16632
+            .lvl = 5,
+#line 16631
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16634
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
+    },
+#line 16639
+    [TRAINER_RUTH_PACIFIDLOG_GROCKO] =
+    {
+#line 16640
+        .trainerName = _("Ruth"),
+#line 16641
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16642
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16643
+F_TRAINER_FEMALE | 
+#line 16644
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16645
+        .doubleBattle = FALSE,
+#line 16646
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16648
+            .species = SPECIES_BUDEW,
+#line 16648
+            .gender = TRAINER_MON_FEMALE,
+#line 16651
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16650
+            .lvl = 4,
+#line 16649
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16652
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 16656
+            .species = SPECIES_CHIMERA1,
+#line 16656
+            .gender = TRAINER_MON_FEMALE,
+#line 16659
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16658
+            .lvl = 5,
+#line 16657
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16661
+            .species = SPECIES_EEVEE,
+#line 16661
+            .gender = TRAINER_MON_MALE,
+#line 16664
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16663
+            .lvl = 5,
+#line 16662
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16665
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
+    },
+#line 16670
+    [TRAINER_RUTH_PACIFIDLOG_MERAKID] =
+    {
+#line 16671
+        .trainerName = _("Ruth"),
+#line 16672
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16673
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16674
+F_TRAINER_FEMALE | 
+#line 16675
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16676
+        .doubleBattle = FALSE,
+#line 16677
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 3,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16679
+            .species = SPECIES_BUDEW,
+#line 16679
+            .gender = TRAINER_MON_FEMALE,
+#line 16682
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16681
+            .lvl = 4,
+#line 16680
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16683
+                MOVE_ABSORB,
+                MOVE_GROWTH,
+                MOVE_STUN_SPORE,
+            },
+            },
+            {
+#line 16687
+            .species = SPECIES_TOXATIEL,
+#line 16687
+            .gender = TRAINER_MON_FEMALE,
+#line 16690
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16689
+            .lvl = 5,
+#line 16688
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16692
+            .species = SPECIES_EEVEE,
+#line 16692
+            .gender = TRAINER_MON_MALE,
+#line 16695
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16694
+            .lvl = 5,
+#line 16693
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 16696
+                MOVE_TACKLE,
+                MOVE_HELPING_HAND,
+                MOVE_SAND_ATTACK,
+                MOVE_QUICK_ATTACK,
+            },
+            },
+        },
+    },
+#line 16701
+    [TRAINER_RUTH_LAVARIDGE_TOXATIEL] =
+    {
+#line 16702
+        .trainerName = _("Ruth"),
+#line 16703
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16704
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16705
+F_TRAINER_FEMALE | 
+#line 16706
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16707
+        .doubleBattle = FALSE,
+#line 16708
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 4,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16710
+            .species = SPECIES_BUDEW,
+#line 16710
+            .gender = TRAINER_MON_FEMALE,
+#line 16713
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16712
+            .lvl = 15,
+#line 16711
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16715
+            .species = SPECIES_RUBECKO,
+#line 16715
+            .gender = TRAINER_MON_FEMALE,
+#line 16718
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16717
+            .lvl = 17,
+#line 16716
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16720
+            .species = SPECIES_EEVEE,
+#line 16720
+            .gender = TRAINER_MON_MALE,
+#line 16723
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16722
+            .lvl = 18,
+#line 16721
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16725
+            .species = SPECIES_BARBOACH,
+#line 16725
+            .gender = TRAINER_MON_MALE,
+#line 16729
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16727
+            .lvl = 11,
+#line 16726
+            .nature = NATURE_ADAMANT,
+#line 16728
+            .isShiny = TRUE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
+    },
+#line 16731
+    [TRAINER_RUTH_LAVARIDGE_GROCKO] =
+    {
+#line 16732
+        .trainerName = _("Ruth"),
+#line 16733
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16734
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16735
+F_TRAINER_FEMALE | 
+#line 16736
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16737
+        .doubleBattle = FALSE,
+#line 16738
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 4,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16740
+            .species = SPECIES_BUDEW,
+#line 16740
+            .gender = TRAINER_MON_FEMALE,
+#line 16743
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16742
+            .lvl = 15,
+#line 16741
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16745
+            .species = SPECIES_CHIMERA2,
+#line 16745
+            .gender = TRAINER_MON_FEMALE,
+#line 16748
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16747
+            .lvl = 17,
+#line 16746
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16750
+            .species = SPECIES_EEVEE,
+#line 16750
+            .gender = TRAINER_MON_MALE,
+#line 16753
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16752
+            .lvl = 18,
+#line 16751
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16755
+            .species = SPECIES_BARBOACH,
+#line 16755
+            .gender = TRAINER_MON_MALE,
+#line 16759
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16757
+            .lvl = 11,
+#line 16756
+            .nature = NATURE_ADAMANT,
+#line 16758
+            .isShiny = TRUE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
+    },
+#line 16761
+    [TRAINER_RUTH_LAVARIDGE_MERAKID] =
+    {
+#line 16762
+        .trainerName = _("Ruth"),
+#line 16763
+        .trainerClass = TRAINER_CLASS_RIVAL,
+#line 16764
+        .trainerPic = TRAINER_PIC_RUTH,
+        .encounterMusic_gender = 
+#line 16765
+F_TRAINER_FEMALE | 
+#line 16766
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
+#line 16767
+        .doubleBattle = FALSE,
+#line 16768
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = 4,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16770
+            .species = SPECIES_BUDEW,
+#line 16770
+            .gender = TRAINER_MON_FEMALE,
+#line 16773
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16772
+            .lvl = 15,
+#line 16771
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16775
+            .species = SPECIES_TOXATOO,
+#line 16775
+            .gender = TRAINER_MON_FEMALE,
+#line 16778
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16777
+            .lvl = 17,
+#line 16776
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16780
+            .species = SPECIES_EEVEE,
+#line 16780
+            .gender = TRAINER_MON_MALE,
+#line 16783
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16782
+            .lvl = 18,
+#line 16781
+            .nature = NATURE_ADAMANT,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+#line 16785
+            .species = SPECIES_BARBOACH,
+#line 16785
+            .gender = TRAINER_MON_MALE,
+#line 16789
+            .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+#line 16787
+            .lvl = 11,
+#line 16786
+            .nature = NATURE_ADAMANT,
+#line 16788
+            .isShiny = TRUE,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
+    },

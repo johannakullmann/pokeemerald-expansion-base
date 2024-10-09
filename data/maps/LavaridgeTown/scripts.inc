@@ -788,9 +788,8 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_6:
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_7:
 	.string "Yes! {PLAYER} is also challenging the\n"
 	.string "gyms! We're competing!\p"
-	.string "That reminds me, Flanny, do you know\n"
-	.string "where the new gym leader is? The gym\l"
-	.string "door is locked.$"
+	.string "That reminds me, do you know where the\n"
+	.string "new gym leader is? The door is locked.$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_8:
 	.string "Huh? She's not inside?$"

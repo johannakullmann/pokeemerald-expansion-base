@@ -16605,4 +16605,185 @@ Barboach
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+=== TRAINER_RUTH_PACIFIDLOG_TOXATIEL ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
 
+Budew (F)
+Adamant Nature
+Level: 4
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Absorb
+- Growth
+- Stun Spore
+
+Grocko (F)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Helping Hand
+- Sand Attack
+- Quick Attack
+
+=== TRAINER_RUTH_PACIFIDLOG_GROCKO ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Budew (F)
+Adamant Nature
+Level: 4
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Absorb
+- Growth
+- Stun Spore
+
+Chimera1 (F)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Helping Hand
+- Sand Attack
+- Quick Attack
+
+=== TRAINER_RUTH_PACIFIDLOG_MERAKID ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Budew (F)
+Adamant Nature
+Level: 4
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Absorb
+- Growth
+- Stun Spore
+
+Toxatiel (F)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 5
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Tackle
+- Helping Hand
+- Sand Attack
+- Quick Attack
+
+=== TRAINER_RUTH_LAVARIDGE_TOXATIEL ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Budew (F)
+Adamant Nature
+Level: 15
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Rubecko (F)
+Adamant Nature
+Level: 17
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 18
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Barboach (M)
+Adamant Nature
+Level: 11
+Shiny: Yes
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+=== TRAINER_RUTH_LAVARIDGE_GROCKO ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Budew (F)
+Adamant Nature
+Level: 15
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Chimera2 (F)
+Adamant Nature
+Level: 17
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 18
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Barboach (M)
+Adamant Nature
+Level: 11
+Shiny: Yes
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+=== TRAINER_RUTH_LAVARIDGE_MERAKID ===
+Name: Ruth
+Class: Rival
+Pic: Ruth
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move
+
+Budew (F)
+Adamant Nature
+Level: 15
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Toxatoo (F)
+Adamant Nature
+Level: 17
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Eevee (M)
+Adamant Nature
+Level: 18
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+
+Barboach (M)
+Adamant Nature
+Level: 11
+Shiny: Yes
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe

@@ -282,7 +282,7 @@ const FLAG_TEMP_HIDE_FOOTPRINT_MANIAC_BLOCKING_NORTH_EXIT = FLAG_TEMP_6
 const VAR_TEMP_DISABLE_MAY_CUTSCENE_TRIGGER = VAR_TEMP_1
 
 script JaggedPass_EventScript_FootprintNerd {
-	//stopping player from progressing to Fallarbor until 
+	//stopping player from progressing to Fallarbor until second badge
 	if (var(VAR_JAGGED_PASS_STATE) <= 3) { 
 		lock
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
@@ -593,14 +593,15 @@ script JaggedPass_EventScript_MayScene {
 	applymovement(LOCALID_MAY, Common_Movement_WalkInPlaceRight)
 	waitmovement(0)
 	speakername(CommonName_May)
-	msgbox(format("I can't allow you to enter this cave.\pIt's not safe, a cave-in could trap you inside."))
+	msgbox(format("I'm sorry, but this cave is off-limits.\pIt's not safe, there's been cave-ins all over the place."))
 	closemessage
 	applymovement(LOCALID_MAGMA_ADMIN, Common_Movement_WalkLeft)
 	waitmovement(0)
 	speakername(CommonName_Tabitha)
 	msgbox(format("Spare me the sarcasm, girl.\p"
 			"We both know the real reason why you're trying to stop us from entering our old hideout.\p"
-			"But it doesn't matter, we'll get in there one way or another."))
+			"But it doesn't matter, we'll get in there one way or another.\p"
+			"Don't think for a second you can keep us away just because you're a gym leader now."))
 	closemessage
 	applymovement(LOCALID_MAGMA_ADMIN, JaggedPass_Movement_TabithaWalkAway)
 	applymovement(LOCALID_MAGMA_GRUNT_1, JaggedPass_Movement_Grunt1WalkAway)
@@ -767,6 +768,7 @@ script JaggedPass_EventScript_MayScene {
 	setflag(FLAG_TEMP_HIDE_RUNNING_POOCHYENA)
 	setflag(FLAG_HIDE_JAGGED_PASS_NPCS) //until left + re-entered, no NPCs here yet
 	setflag(FLAG_LAVARIDGE_GYM_OPEN)
+	setflag(FLAG_TEMP_HIDE_RUTHS_MON)
 	special(DrawWholeMapView)
 	release
 	end
@@ -789,15 +791,16 @@ script JaggedPass_EventScript_FootprintNerdTryStopPlayer_L {
 	if (var(VAR_RESULT) == YES) {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 		waitmovement(0)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 		msgbox(JaggedPass_Text_FootprintNerdStory)
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-		msgbox(JaggedPass_Text_FootprintNeedToStudy_1)
+		msgbox(JaggedPass_Text_FootprintNerdNeedToStudy_1)
 	}
 	else {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-		msgbox(JaggedPass_Text_FootprintNeedToStudy_2)
+		msgbox(JaggedPass_Text_FootprintNerdNeedToStudy_2)
 	}
 	closemessage
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
@@ -824,15 +827,16 @@ script JaggedPass_EventScript_FootprintNerdTryStopPlayer_R {
 	if (var(VAR_RESULT) == YES) {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 		waitmovement(0)
+		turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 		msgbox(JaggedPass_Text_FootprintNerdStory)
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
-		msgbox(JaggedPass_Text_FootprintNeedToStudy_1)
+		msgbox(JaggedPass_Text_FootprintNerdNeedToStudy_1)
 	}
 	else {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
-		msgbox(JaggedPass_Text_FootprintNeedToStudy_2)
+		msgbox(JaggedPass_Text_FootprintNerdNeedToStudy_2)
 	}
 	closemessage
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
@@ -865,12 +869,12 @@ text JaggedPass_Text_FootprintNerdStory {
 			"But it gets distracted by something else and runs off.")
 }
 
-text JaggedPass_Text_FootprintNeedToStudy_1 {
+text JaggedPass_Text_FootprintNerdNeedToStudy_1 {
 	format("Fascinating, isn't it?\pI'll have to study these more!\p"
 			"I'll have to ask you not to step on this patch of ash until I'm done, though.\pSorry.")
 }
 
-text JaggedPass_Text_FootprintNeedToStudy_2 {
+text JaggedPass_Text_FootprintNerdNeedToStudy_2 {
 	format("Still, I have to study these!\p"
 			"I'll have to ask you not to step on this patch of ash until I'm done.\pSorry.")
 }
@@ -1073,11 +1077,11 @@ script JaggedPass_OnTransition {
 			clearflag(FLAG_TEMP_HIDE_RUTHS_MON)
 			switch (var(VAR_STARTER_MON)) {
 			case 0:
-				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RUBECKO)
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(RUBECKO))
 			case 1:
-				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_AMALGOAT)
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(AMALGOAT))
 			case 2:
-				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TOXATOO)
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOXATOO))
 			}
 		case 3: //after cutscene with may, flannery and tabitha; ruth is training
 			setflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)

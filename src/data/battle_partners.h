@@ -124,10 +124,10 @@ F_TRAINER_FEMALE |
         {
             {
 #line 52
-            .species = SPECIES_TOXATIEL,
+            .species = SPECIES_GROCKO,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 56
-            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
+            .ev = TRAINER_PARTY_EVS(0, 0, 0, 64, 64, 0),
 #line 55
             .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
 #line 54
@@ -137,10 +137,10 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 57
-                MOVE_POISON_STING,
-                MOVE_PECK,
-                MOVE_TAIL_WHIP,
-                MOVE_SCRATCH,
+                MOVE_PEBBLE_SHOT,
+                MOVE_LICK,
+                MOVE_TACKLE,
+                MOVE_GROWL,
             },
             },
             {
@@ -205,10 +205,10 @@ F_TRAINER_FEMALE |
         {
             {
 #line 88
-            .species = SPECIES_GROCKO,
+            .species = SPECIES_CHIMERA1,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 92
-            .ev = TRAINER_PARTY_EVS(0, 0, 0, 64, 64, 0),
+            .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
 #line 91
             .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
 #line 90
@@ -218,10 +218,10 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 93
-                MOVE_PEBBLE_SHOT,
-                MOVE_LICK,
-                MOVE_TACKLE,
-                MOVE_GROWL,
+                MOVE_POUND,
+                MOVE_KICK,
+                MOVE_ENDURE,
+                MOVE_LEER,
             },
             },
             {
@@ -286,23 +286,23 @@ F_TRAINER_FEMALE |
         {
             {
 #line 124
-            .species = SPECIES_CHIMERA1,
+            .species = SPECIES_TOXATIEL,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 128
             .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),
 #line 127
             .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
 #line 126
-            .lvl = 44,
+            .lvl = 8,
 #line 125
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 129
-                MOVE_POUND,
-                MOVE_KICK,
-                MOVE_ENDURE,
-                MOVE_LEER,
+                MOVE_POISON_STING,
+                MOVE_PECK,
+                MOVE_TAIL_WHIP,
+                MOVE_SCRATCH,
             },
             },
             {
