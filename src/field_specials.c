@@ -1466,7 +1466,7 @@ void LoadCatchTutorialParty(void)
             species = SPECIES_GROCKO;
         break;
         case 1:
-            species = SPECIES_CHIMERA1;
+            species = SPECIES_MERAKID;
         break;
         case 2:
             species = SPECIES_TOXATIEL;

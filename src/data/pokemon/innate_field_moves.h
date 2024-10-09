@@ -5975,22 +5975,22 @@ static const u16 sDrabuncleInnateFieldMoves[] = {
 };
 #endif //P_FAMILY_GROCKO
 
-#if P_FAMILY_CHIMERA
-static const u16 sChimera1InnateFieldMoves[] = {
+#if P_FAMILY_MERAKID
+static const u16 sMerakidInnateFieldMoves[] = {
     MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sChimera2InnateFieldMoves[] = {
+static const u16 sAmalgoatInnateFieldMoves[] = {
     MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sChimera3InnateFieldMoves[] = {
+static const u16 sChimeroarInnateFieldMoves[] = {
     MOVE_HEADBUTT,
     MOVE_UNAVAILABLE,
 };
-#endif //P_FAMILY_CHIMERA
+#endif //P_FAMILY_MERAKID
 
 #if P_FAMILY_HATCHIK
 static const u16 sHatchikInnateFieldMoves[] = {

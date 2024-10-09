@@ -205,7 +205,7 @@ F_TRAINER_FEMALE |
         {
             {
 #line 88
-            .species = SPECIES_CHIMERA1,
+            .species = SPECIES_MERAKID,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 92
             .ev = TRAINER_PARTY_EVS(0, 64, 0, 64, 0, 0),

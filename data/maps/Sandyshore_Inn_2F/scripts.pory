@@ -169,7 +169,7 @@ script Sandyshore_Inn_EventScript_PickMon {
         case 0:
             bufferspeciesname(STR_VAR_1, SPECIES_GROCKO) //grocko
         case 1:
-            bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA1) //chimera
+            bufferspeciesname(STR_VAR_1, SPECIES_MERAKID) //chimera
         case 2:
             bufferspeciesname(STR_VAR_1, SPECIES_TOXATIEL) //toxatiel
     }
@@ -348,7 +348,7 @@ script Sandyshore_Inn_2F_EventScript_StarterBook {
             setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
             hidemonpic
         case 2: //chimera
-            showmonpic(SPECIES_CHIMERA1, 10, 3)
+            showmonpic(SPECIES_MERAKID, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
             hidemonpic
@@ -388,7 +388,7 @@ script Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes {
             setflag(FLAG_READ_BRENDANS_NOTE_GROCKO)
             hidemonpic
         case 2: //chimera
-            showmonpic(SPECIES_CHIMERA1, 10, 3)
+            showmonpic(SPECIES_MERAKID, 10, 3)
             msgbox(Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes)
             setflag(FLAG_READ_BRENDANS_NOTE_CHIMERA)
             hidemonpic

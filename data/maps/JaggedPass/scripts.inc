@@ -380,7 +380,7 @@ JaggedPass_EventScript_Ruth_6:
 	goto JaggedPass_EventScript_Ruth_4
 
 JaggedPass_EventScript_Ruth_7:
-	bufferspeciesname STR_VAR_1, SPECIES_CHIMERA2
+	bufferspeciesname STR_VAR_1, SPECIES_AMALGOAT
 	msgbox JaggedPass_Text_GetHim
 	applymovement 15, JaggedPass_Movement_JumpInPlaceLeftTwice
 	call JaggedPass_EventScript_Amalgoat
@@ -521,7 +521,7 @@ JaggedPass_EventScript_GruntTryStopPlayer2_3:
 
 JaggedPass_EventScript_GruntTryStopPlayer2_4:
 	applymovement 15, JaggedPass_Movement_JumpInPlaceLeftTwice
-	playmoncry SPECIES_CHIMERA2, CRY_MODE_NORMAL
+	playmoncry SPECIES_AMALGOAT, CRY_MODE_NORMAL
 	goto JaggedPass_EventScript_GruntTryStopPlayer2_1
 
 JaggedPass_EventScript_GruntTryStopPlayer2_5:
@@ -540,7 +540,7 @@ JaggedPass_EventScript_Rubecko::
 
 JaggedPass_EventScript_Amalgoat::
 	speakername CommonName_Amalgoat
-	playmoncry SPECIES_CHIMERA2, CRY_MODE_NORMAL
+	playmoncry SPECIES_AMALGOAT, CRY_MODE_NORMAL
 	msgbox JaggedPass_Text_AmalgoatCry
 	waitmoncry
 	return
@@ -1173,7 +1173,7 @@ JaggedPass_OnTransition_16:
 	goto JaggedPass_OnTransition_1
 
 JaggedPass_OnTransition_17:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CHIMERA2 )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( AMALGOAT )
 	goto JaggedPass_OnTransition_1
 
 JaggedPass_OnTransition_18:

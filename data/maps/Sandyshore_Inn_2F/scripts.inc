@@ -228,7 +228,7 @@ Sandyshore_Inn_EventScript_PickMon_10:
 	goto Sandyshore_Inn_EventScript_PickMon_8
 
 Sandyshore_Inn_EventScript_PickMon_11:
-	bufferspeciesname STR_VAR_1, SPECIES_CHIMERA1
+	bufferspeciesname STR_VAR_1, SPECIES_MERAKID
 	goto Sandyshore_Inn_EventScript_PickMon_8
 
 Sandyshore_Inn_EventScript_PickMon_12:
@@ -424,7 +424,7 @@ Sandyshore_Inn_2F_EventScript_StarterBook_4:
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_5:
-	showmonpic SPECIES_CHIMERA1, 10, 3
+	showmonpic SPECIES_MERAKID, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes
 	setflag FLAG_READ_BRENDANS_NOTE_CHIMERA
 	hidemonpic
@@ -492,7 +492,7 @@ Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_4:
 	goto Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_1
 
 Sandyshore_Inn_2F_EventScript_StarterBook_KyogreNotes_5:
-	showmonpic SPECIES_CHIMERA1, 10, 3
+	showmonpic SPECIES_MERAKID, 10, 3
 	msgbox Sandyshore_Inn_2F_Text_StarterBook_ChimeraNotes
 	setflag FLAG_READ_BRENDANS_NOTE_CHIMERA
 	hidemonpic

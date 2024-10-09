@@ -376,7 +376,7 @@ script JaggedPass_EventScript_Ruth {
 					applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
 					call(JaggedPass_EventScript_Rubecko)
 				case 1:
-					bufferspeciesname(STR_VAR_1, SPECIES_CHIMERA2)
+					bufferspeciesname(STR_VAR_1, SPECIES_AMALGOAT)
 					msgbox(JaggedPass_Text_GetHim)
 					applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
 					call(JaggedPass_EventScript_Amalgoat)
@@ -503,7 +503,7 @@ script JaggedPass_EventScript_GruntTryStopPlayer2 {
 			playmoncry(SPECIES_RUBECKO, CRY_MODE_NORMAL)
 		case 1:
 			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice)
-			playmoncry(SPECIES_CHIMERA2, CRY_MODE_NORMAL)
+			playmoncry(SPECIES_AMALGOAT, CRY_MODE_NORMAL)
 		case 2:
 			applymovement(LOCALID_RUTHS_MON, JaggedPass_Movement_JumpInPlaceLeftTwice_NoGroundEffect)
 			playmoncry(SPECIES_TOXATOO, CRY_MODE_NORMAL)
@@ -530,7 +530,7 @@ script JaggedPass_EventScript_Rubecko {
 
 script JaggedPass_EventScript_Amalgoat {
 	speakername(CommonName_Amalgoat)
-	playmoncry(SPECIES_CHIMERA2, CRY_MODE_NORMAL)
+	playmoncry(SPECIES_AMALGOAT, CRY_MODE_NORMAL)
 	msgbox(JaggedPass_Text_AmalgoatCry)
 	waitmoncry
 }
@@ -1083,7 +1083,7 @@ script JaggedPass_OnTransition {
 			case 0:
 				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(RUBECKO))
 			case 1:
-				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CHIMERA2))
+				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(AMALGOAT))
 			case 2:
 				setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOXATOO))
 			}

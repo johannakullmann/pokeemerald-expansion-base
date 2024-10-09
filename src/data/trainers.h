@@ -41599,7 +41599,7 @@ F_TRAINER_FEMALE |
             },
             {
 #line 16656
-            .species = SPECIES_CHIMERA1,
+            .species = SPECIES_MERAKID,
 #line 16656
             .gender = TRAINER_MON_FEMALE,
 #line 16659
@@ -41820,7 +41820,7 @@ F_TRAINER_FEMALE |
             },
             {
 #line 16745
-            .species = SPECIES_CHIMERA2,
+            .species = SPECIES_AMALGOAT,
 #line 16745
             .gender = TRAINER_MON_FEMALE,
 #line 16748
