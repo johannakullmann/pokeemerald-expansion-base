@@ -2435,11 +2435,11 @@ gCryTable::
 	cry Cry_Rubecko
 	cry Cry_Drabuncle
 .endif @ P_FAMILY_GROCKO
-.if P_FAMILY_CHIMERA == TRUE
-	cry Cry_Chimera1
-	cry Cry_Chimera2
-	cry Cry_Chimera3
-.endif @ P_FAMILY_CHIMERA
+.if P_FAMILY_MERAKID == TRUE
+	cry Cry_Merakid
+	cry Cry_Amalgoat
+	cry Cry_Chimeroar
+.endif @ P_FAMILY_MERAKID
 .if P_FAMILY_HATCHIK == TRUE
 	cry Cry_Hatchik
 	cry Cry_Dodo2
@@ -4888,11 +4888,11 @@ gCryTable_Reverse::
 	cry_reverse Cry_Rubecko
 	cry_reverse Cry_Drabuncle
 .endif @ P_FAMILY_GROCKO
-.if P_FAMILY_CHIMERA == TRUE
-	cry_reverse Cry_Chimera1
-	cry_reverse Cry_Chimera2
-	cry_reverse Cry_Chimera3
-.endif @ P_FAMILY_CHIMERA
+.if P_FAMILY_MERAKID == TRUE
+	cry_reverse Cry_Merakid
+	cry_reverse Cry_Amalgoat
+	cry_reverse Cry_Chimeroar
+.endif @ P_FAMILY_MERAKID
 .if P_FAMILY_HATCHIK == TRUE
 	cry_reverse Cry_Hatchik
 	cry_reverse Cry_Dodo2
