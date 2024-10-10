@@ -430,6 +430,7 @@ const u16 gObjectEventPal_HeadbuttTree[] = INCBIN_U16("graphics/object_events/pa
 
 const u32 gObjectEventPic_AquaAdminF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_admin_f.4bpp");
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
+const u32 gObjectEventPic_FishermanFishing[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_fishing.4bpp");
 
 const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/pokemon/question_mark/overworld.gbapal");
 

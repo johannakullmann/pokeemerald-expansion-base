@@ -514,7 +514,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_August,                OBJ_EVENT_PAL_TAG_AUGUST},
     {gObjectEventPal_AugustReflection,      OBJ_EVENT_PAL_TAG_AUGUST_REFLECTION},
     {gObjectEventPal_HeadbuttTree,          OBJ_EVENT_PAL_TAG_HEADBUTT_TREE},
-    
+
+#if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
     {gObjectEventPal_GreatBall,             OBJ_EVENT_PAL_TAG_BALL_GREAT},
     {gObjectEventPal_SafariBall,            OBJ_EVENT_PAL_TAG_BALL_SAFARI},

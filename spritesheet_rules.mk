@@ -499,9 +499,6 @@ $(OBJEVENTGFXDIR)/pokemon_old/enemy_zigzagoon.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/pokemon_old/groudon.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
-$(OBJEVENTGFXDIR)/pokemon_old/groudon_pmd.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 8 -mheight 8
-
 $(OBJEVENTGFXDIR)/pokemon_old/ho_oh.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
@@ -513,9 +510,6 @@ $(OBJEVENTGFXDIR)/pokemon_old/kirlia.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/pokemon_old/kyogre.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
-
-$(OBJEVENTGFXDIR)/pokemon_old/kyogre_pmd.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 8 -mheight 8
 
 $(OBJEVENTGFXDIR)/pokemon_old/latias_latios.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
