@@ -227,9 +227,6 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KecleonBrid
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TuberMSwimming;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Azurill;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyGeodude;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wurmple;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyWurmple;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mom;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkBrendan;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkMay;
@@ -287,15 +284,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ruth;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RuthFishing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendanBirch;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HeadbuttTree;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogrePMD;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonPMD;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeaderMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFishing;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Toxatoo;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rubecko;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amalgoat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Eevee;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -572,19 +563,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_BALL_2] =              &gObjectEventGraphicsInfo_ItemBall2,
     [OBJ_EVENT_GFX_ITEM_BALL_3] =              &gObjectEventGraphicsInfo_ItemBall3,
     [OBJ_EVENT_GFX_HEADBUTT_TREE] =            &gObjectEventGraphicsInfo_HeadbuttTree,
-    [OBJ_EVENT_GFX_KYOGRE_PMD] =               &gObjectEventGraphicsInfo_KyogrePMD,
-    [OBJ_EVENT_GFX_GROUDON_PMD] =              &gObjectEventGraphicsInfo_GroudonPMD,
     [OBJ_EVENT_GFX_LEADER_MAY] =               &gObjectEventGraphicsInfo_LeaderMay,
-    [OBJ_EVENT_GFX_GEODUDE] =                  &gObjectEventGraphicsInfo_Geodude,
-    [OBJ_EVENT_GFX_SHINY_GEODUDE] =            &gObjectEventGraphicsInfo_ShinyGeodude,
-    [OBJ_EVENT_GFX_WURMPLE] =                  &gObjectEventGraphicsInfo_Wurmple,
-    [OBJ_EVENT_GFX_SHINY_WURMPLE] =            &gObjectEventGraphicsInfo_ShinyWurmple,
     [OBJ_EVENT_GFX_FISHERMAN_FISHING] =        &gObjectEventGraphicsInfo_FishermanFishing,
-    [OBJ_EVENT_GFX_TOXATOO] =                  &gObjectEventGraphicsInfo_Toxatoo,
-    [OBJ_EVENT_GFX_RUBECKO] =                  &gObjectEventGraphicsInfo_Rubecko,
-    [OBJ_EVENT_GFX_AMALGOAT] =                 &gObjectEventGraphicsInfo_Amalgoat,
     [OBJ_EVENT_GFX_AQUA_ADMIN_F] =             &gObjectEventGraphicsInfo_AquaAdminF,
-    [OBJ_EVENT_GFX_EEVEE] =                    &gObjectEventGraphicsInfo_Eevee,
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL] =   &gObjectEventGraphicsInfo_BreakableRock,

@@ -263,31 +263,24 @@
 #define OBJ_EVENT_GFX_ITEM_BALL_2                259
 #define OBJ_EVENT_GFX_ITEM_BALL_3                260
 #define OBJ_EVENT_GFX_LARGE_BOAT                 261
-#define OBJ_EVENT_GFX_KYOGRE_PMD                 262
-#define OBJ_EVENT_GFX_GROUDON_PMD                263
 #define OBJ_EVENT_GFX_LEADER_MAY                 264
 #define OBJ_EVENT_GFX_RUTH_FISHING               265
-#define OBJ_EVENT_GFX_GEODUDE                    266
-#define OBJ_EVENT_GFX_SHINY_GEODUDE              267
-#define OBJ_EVENT_GFX_WURMPLE                    268
-#define OBJ_EVENT_GFX_SHINY_WURMPLE              269
-#define OBJ_EVENT_GFX_FISHERMAN_FISHING          270
-#define OBJ_EVENT_GFX_TOXATOO                    271
-#define OBJ_EVENT_GFX_RUBECKO                    272
-#define OBJ_EVENT_GFX_AMALGOAT                   273
-#define OBJ_EVENT_GFX_AQUA_ADMIN_F               274
-#define OBJ_EVENT_GFX_EEVEE                      275
-#define OBJ_EVENT_GFX_HEADBUTT_TREE              276
-#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1   277
-#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2   278
-#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3   279
-#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4   280
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1   281
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2   282
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3   283
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1    284
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2    285
-#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3    286
+#define OBJ_EVENT_GFX_FISHERMAN_FISHING          266
+#define OBJ_EVENT_GFX_AQUA_ADMIN_F               267
+#define OBJ_EVENT_GFX_HEADBUTT_TREE              268
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1   269
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_2   270
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_3   271
+#define OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4   272
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1   273
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_2   274
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3   275
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1    276
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_2    277
+#define OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3    278
+#define OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL     279
+#define OBJ_EVENT_GFX_POKE_BALL                  280
+#define OBJ_EVENT_GFX_OW_MON                     281
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
@@ -298,14 +291,11 @@
 // object graphics that can be removed. If more graphics are needed, anything that
 // stores graphics ids will need to be increased in size. See wiki entry below:
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define OBJ_EVENT_GFX_POKE_BALL                  287
-#define OBJ_EVENT_GFX_OW_MON                     288
-#define OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL     289
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        290
+#define NUM_OBJ_EVENT_GFX                        282
 
 
 // These are dynamic object gfx ids.
@@ -441,8 +431,6 @@
 #define OBJ_EVENT_PAL_TAG_JUNE_REFLECTION         0x1127
 #define OBJ_EVENT_PAL_TAG_AUGUST                  0x1128
 #define OBJ_EVENT_PAL_TAG_AUGUST_REFLECTION       0x1129
-#define OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD                 0x1130
-#define OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION      0x1131
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
