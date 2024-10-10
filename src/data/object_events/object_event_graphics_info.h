@@ -1148,12 +1148,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall = {
     .paletteSlot = PALSLOT_NPC_3,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = TRUE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_16x16,
     .subspriteTables = sOamTables_16x16,
     .anims = sAnimTable_Inanimate,
-    .images = sPicTable_ItemBall,
+    .images = sPicTable_PokeBall,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -1167,7 +1167,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall2 = {
     .paletteSlot = PALSLOT_NPC_3,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = TRUE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_16x16,
     .subspriteTables = sOamTables_16x16,
@@ -1186,7 +1186,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBall3 = {
     .paletteSlot = PALSLOT_NPC_3,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = TRUE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_16x16,
     .subspriteTables = sOamTables_16x16,
@@ -1737,7 +1737,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LargeBoat = {
     .paletteSlot = PALSLOT_NPC_3,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_64x64,
     .subspriteTables = sOamTables_64x64,
@@ -4197,82 +4197,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Azurill = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 128,
-    .width = 16,
-    .height = 16,
-    .paletteSlot = PALSLOT_NPC_3,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x16,
-    .subspriteTables = sOamTables_16x16,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Geodude,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyGeodude = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 128,
-    .width = 16,
-    .height = 16,
-    .paletteSlot = PALSLOT_NPC_2,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x16,
-    .subspriteTables = sOamTables_16x16,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Geodude,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wurmple = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 128,
-    .width = 16,
-    .height = 16,
-    .paletteSlot = PALSLOT_NPC_2,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x16,
-    .subspriteTables = sOamTables_16x16,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Wurmple,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShinyWurmple = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 128,
-    .width = 16,
-    .height = 16,
-    .paletteSlot = PALSLOT_NPC_4,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x16,
-    .subspriteTables = sOamTables_16x16,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_ShinyWurmple,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mom = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
@@ -4359,7 +4283,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeaderMay = {
     .paletteSlot = PALSLOT_NPC_2,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -4853,7 +4777,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneNormal = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -4872,7 +4796,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneMachBike = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4891,7 +4815,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneAcroBike = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4910,7 +4834,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneSurfing = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4929,7 +4853,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneFieldMove = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4948,7 +4872,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneUnderwater = {
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4967,7 +4891,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneFishing = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -4986,7 +4910,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneWatering = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5005,7 +4929,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JuneDecorating = {
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = TRUE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -5024,7 +4948,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustNormal = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -5043,7 +4967,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustMachBike = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5062,7 +4986,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustAcroBike = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5081,7 +5005,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustSurfing = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5100,7 +5024,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustFieldMove = 
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5119,7 +5043,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustUnderwater =
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5138,7 +5062,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustFishing = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5157,7 +5081,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustWatering = {
     .paletteSlot = PALSLOT_PLAYER,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
@@ -5176,7 +5100,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AugustDecorating =
     .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = TRUE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -5195,7 +5119,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ruth = {
     .paletteSlot = PALSLOT_NPC_1,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
@@ -5214,7 +5138,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RuthFishing = {
     .paletteSlot = PALSLOT_NPC_1,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_64x64,
     .subspriteTables = sOamTables_64x64,
@@ -5233,50 +5157,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendanBirch =
     .paletteSlot = PALSLOT_NPC_3,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_ProfBrendanBirch,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonPMD = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
-    .size = 2048,
-    .width = 64,
-    .height = 64,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_64x64,
-    .subspriteTables = sOamTables_64x64,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_GroudonPMD,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogrePMD = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,
-    .size = 2048,
-    .width = 64,
-    .height = 64,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_64x64,
-    .subspriteTables = sOamTables_64x64,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_KyogrePMD,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -5290,7 +5176,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFishing =
     .paletteSlot = PALSLOT_NPC_2,
     .shadowSize = SHADOW_SIZE_S,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = TRUE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_64x64,
     .subspriteTables = sOamTables_64x64,
@@ -5299,62 +5185,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFishing =
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Toxatoo = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_4,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_NONE,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Toxatoo,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rubecko = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_1,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Rubecko,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amalgoat = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_3,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Amalgoat,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF = {
     .tileTag = TAG_NONE,
@@ -5366,30 +5196,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF = {
     .paletteSlot = PALSLOT_NPC_4,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
+
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_AquaAdminF,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Eevee = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_ZIGZAGOON,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 128,
-    .width = 16,
-    .height = 16,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x16,
-    .subspriteTables = sOamTables_16x16,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_Eevee,
     .affineAnims = gDummySpriteAffineAnimTable,
 };

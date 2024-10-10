@@ -510,8 +510,6 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_JuneReflection,        OBJ_EVENT_PAL_TAG_JUNE_REFLECTION},
     {gObjectEventPal_August,                OBJ_EVENT_PAL_TAG_AUGUST},
     {gObjectEventPal_AugustReflection,      OBJ_EVENT_PAL_TAG_AUGUST_REFLECTION},
-    {gObjectEventPal_GroudonKyogrePMD,               OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD},
-    {gObjectEventPal_GroudonKyogrePMDReflection,     OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
@@ -662,13 +660,6 @@ static const u16 sReflectionPaletteTags_Groudon[] = {
     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION,
 };
 
-static const u16 sReflectionPaletteTags_GroudonKyogrePMD[] = {
-    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
-    OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD_REFLECTION,
-};
-
 static const u16 sReflectionPaletteTags_Npc3[] = { // Only used by the Route 120 bridge Kecleon
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION,
@@ -699,7 +690,6 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_NPC_3,            sReflectionPaletteTags_Npc3},
     {OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW, sReflectionPaletteTags_SubmarineShadow},
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
-    {OBJ_EVENT_PAL_TAG_GROUDON_KYOGRE_PMD,          sReflectionPaletteTags_GroudonKyogrePMD},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 

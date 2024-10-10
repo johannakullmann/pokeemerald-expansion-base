@@ -7,7 +7,7 @@ gText_AlreadySavedFile::
 	.string "Is it okay to overwrite it?$"
 
 gText_SavingDontTurnOff::
-	.fixstr "SAVING…\n"
+	.string "SAVING…\n"
 	.string "DON'T TURN OFF THE POWER.$"
 
 gText_PlayerSavedGame::
@@ -29,5 +29,5 @@ gText_SaveError::
 	.string "backup memory.$"
 
 gText_SavingDontTurnOffPower::
-	.fixstr "SAVING…\n"
+	.string "SAVING…\n"
 	.string "DON'T TURN OFF THE POWER.$"

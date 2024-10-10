@@ -122,7 +122,6 @@ const u32 gObjectEventPic_CyclingTriathleteF[] = INCBIN_U32("graphics/object_eve
 const u32 gObjectEventPic_Man4[] = INCBIN_U32("graphics/object_events/pics/people/man_4.4bpp");
 const u32 gObjectEventPic_Man5[] = INCBIN_U32("graphics/object_events/pics/people/man_5.4bpp");
 const u32 gObjectEventPic_Nurse[] = INCBIN_U32("graphics/object_events/pics/people/nurse.4bpp");
-const u32 gObjectEventPic_ItemBall[] = INCBIN_U32("graphics/object_events/pics/misc/item_ball.4bpp");
 const u32 gObjectEventPic_ItemBall2[] = INCBIN_U32("graphics/object_events/pics/misc/item_ball_2.4bpp");
 const u32 gObjectEventPic_ItemBall3[] = INCBIN_U32("graphics/object_events/pics/misc/item_ball_3.4bpp");
 const u32 gObjectEventPic_ProfBirch[] = INCBIN_U32("graphics/object_events/pics/people/prof_birch.4bpp");
@@ -383,9 +382,6 @@ const u32 gObjectEventPic_SudowoodoTree[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_RayquazaCutscene[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/rayquaza_cutscene.4bpp");
 
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
-const u32 gObjectEventPic_Geodude[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/geodude.4bpp");
-const u32 gObjectEventPic_Wurmple[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/wurmple.4bpp");
-const u32 gObjectEventPic_ShinyWurmple[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/wurmple_shiny.4bpp");
 
 const u32 gObjectEventPic_JuneNormal[] = INCBIN_U32("graphics/object_events/pics/people/june/walking.4bpp");
 const u32 gObjectEventPic_JuneRunning[] = INCBIN_U32("graphics/object_events/pics/people/june/running.4bpp");
@@ -416,15 +412,6 @@ const u32 gObjectEventPic_AugustUnderwater[] = INCBIN_U32("graphics/object_event
 const u32 gObjectEventPic_Ruth[] = INCBIN_U32("graphics/object_events/pics/people/ruth.4bpp");
 const u32 gObjectEventPic_RuthFishing[] = INCBIN_U32("graphics/object_events/pics/people/ruth_fishing.4bpp");
 const u32 gObjectEventPic_ProfBrendanBirch[] = INCBIN_U32("graphics/object_events/pics/people/prof_brendan_birch.4bpp");
-
-const u32 gObjectEventPic_GroudonPMD[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/groudon_pmd.4bpp");
-const u32 gObjectEventPic_KyogrePMD[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/kyogre_pmd.4bpp");
-const u16 gObjectEventPal_GroudonKyogrePMD[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
-const u16 gObjectEventPal_GroudonKyogrePMDReflection[] = INCBIN_U16("graphics/object_events/palettes/groudon_kyogre_pmd.gbapal");
-const u32 gObjectEventPic_Toxatoo[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/toxatoo.4bpp");
-const u32 gObjectEventPic_Rubecko[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/rubecko.4bpp");
-const u32 gObjectEventPic_Amalgoat[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/amalgoat.4bpp");
-const u32 gObjectEventPic_Eevee[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/eevee.4bpp");
 
 const u32 gObjectEventPic_FishermanFishing[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_fishing.4bpp");
 const u32 gObjectEventPic_AquaAdminF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_admin_f.4bpp");
