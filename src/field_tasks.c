@@ -3,6 +3,7 @@
 #include "clock.h"
 #include "event_data.h"
 #include "field_camera.h"
+#include "field_effect.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "field_special_scene.h"
@@ -20,6 +21,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "constants/field_effects.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.
@@ -954,4 +956,21 @@ static void Task_MuddySlope(u8 taskId)
             SetMuddySlopeMetatile(&data[i + SLOPE_TIME], data[i + SLOPE_X], data[i + SLOPE_Y]);
         }
     }
+}
+void SetFilledMetatile(s16 x, s16 y, bool8 doFieldEffect)
+{
+    u32 metatileId = MapGridGetMetatileIdAt(x, y);
+    switch(metatileId) {
+        case METATILE_LavaridgeGym_FillableHole:
+            MapGridSetMetatileIdAt(x, y, METATILE_LavaridgeGym_FilledHole);
+            MapGridSetMetatileImpassabilityAt(x, y, FALSE);
+            if (doFieldEffect) {
+                gFieldEffectArguments[0] = x;
+                gFieldEffectArguments[1] = y;
+                gFieldEffectArguments[2] = MapGridGetElevationAt(x, y);
+                FieldEffectStart(FLDEFF_JUMP_BIG_SPLASH);
+                }
+            break;
+    }
+    CurrentMapDrawMetatileAt(x, y);
 }

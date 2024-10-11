@@ -5,6 +5,7 @@
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_effect.h"
+#include "field_tasks.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
@@ -790,6 +791,11 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
             {
                 StartStrengthAnim(objectEventId, direction);
                 return TRUE;
+            }
+            //able to push normal boulder onto collision if the tile is fillable
+            else if (MetatileBehavior_IsFillable(MapGridGetMetatileBehaviorAt(x, y))) {
+                StartStrengthAnim(objectEventId, direction);
+                return TRUE; 
             }
         }
         
@@ -1776,7 +1782,14 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_PushBoulder));
-        SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x -7, boulder->currentCoords.y - 7);
+        //check fillable ground
+        if (MetatileBehavior_IsFillable(MapGridGetMetatileBehaviorAt(boulder->currentCoords.x, boulder->currentCoords.y))) {
+            RemoveObjectEventByLocalIdAndMap(boulder->localId, boulder->mapNum, boulder->mapGroup);
+            SetFilledMetatile(boulder->currentCoords.x, boulder->currentCoords.y, TRUE);
+        }
+        else {
+            SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x -7, boulder->currentCoords.y - 7);
+        }
     }
     return FALSE;
 }
