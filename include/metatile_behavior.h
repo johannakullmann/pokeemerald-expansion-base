@@ -150,5 +150,6 @@ bool8 MetatileBehavior_IsLongGrassSouthEdge(u8);
 bool8 MetatileBehavior_IsTrainerHillTimer(u8);
 bool8 MetatileBehavior_IsRockClimbable(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFillable(u8 metatileBehavior);
+bool8 MetatileBehavior_IsBlockedForBoulder(u8 metatileBehavior, u8 direction);
 
 #endif // GUARD_METATILE_BEHAVIOR_H

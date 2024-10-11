@@ -1418,3 +1418,33 @@ bool8 MetatileBehavior_IsFillable(u8 metatileBehavior)
     else
         return FALSE;
 }
+
+bool8 MetatileBehavior_IsBlockedForBoulder(u8 metatileBehavior, u8 direction) {
+    switch (direction){
+        case DIR_NORTH:
+            if (metatileBehavior == MB_IMPASSABLE_STRENGTH_NORTH ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_NORTHEAST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_NORTHWEST)
+                return TRUE;
+            break;
+        case DIR_SOUTH:
+            if (metatileBehavior == MB_IMPASSABLE_STRENGTH_SOUTH ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_SOUTHEAST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_SOUTHWEST)
+                return TRUE;
+            break;
+        case DIR_EAST:
+            if (metatileBehavior == MB_IMPASSABLE_STRENGTH_EAST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_NORTHEAST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_SOUTHEAST)
+                return TRUE;
+            break;
+        case DIR_WEST:
+            if (metatileBehavior == MB_IMPASSABLE_STRENGTH_WEST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_NORTHWEST ||
+                metatileBehavior == MB_IMPASSABLE_STRENGTH_SOUTHWEST)
+                return TRUE;
+            break;
+    }
+    return FALSE;
+}
