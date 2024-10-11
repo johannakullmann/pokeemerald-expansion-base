@@ -968,7 +968,7 @@ void SetFilledMetatile(s16 x, s16 y, bool8 doFieldEffect)
                 gFieldEffectArguments[0] = x;
                 gFieldEffectArguments[1] = y;
                 gFieldEffectArguments[2] = MapGridGetElevationAt(x, y);
-                FieldEffectStart(FLDEFF_JUMP_BIG_SPLASH);
+                FieldEffectStart(FLDEFF_ASH_PUFF);
                 }
             break;
     }
