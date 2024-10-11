@@ -273,6 +273,10 @@
 #define METATILE_Lavaridge_NormalGrass          0x206
 #define METATILE_Lavaridge_RockWall             0x274
 
+// gTileset_LavaridgeGym
+#define METATILE_LavaridgeGym_FillableHole  0x236
+#define METATILE_LavaridgeGym_FilledHole    0x237
+
 // gTileset_Lilycove
 #define METATILE_Lilycove_Door             0x246
 #define METATILE_Lilycove_Door_DeptStore   0x30C
