@@ -85,10 +85,17 @@ Route112_EventScript_FieryPathSign::
 	end
 
 
+Route112_EventScript_SmallBoy::
+	msgbox Route112_EventScript_SmallBoy_Text_0, MSGBOX_NPC
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	releaseall
+	end
+
+
 Route112_EventScript_Hiker_Text_0:
-	.string "They smoothed out these ledges so you\n"
-	.string "can get to Lavaridge without having to\l"
-	.string "hike down Jagged Pass.\p"
+	.string "They smoothed out these ledges.\n"
+	.string "Now you can get to Lavaridge without\l"
+	.string "having to hike down Jagged Pass.\p"
 	.string "I think it's nice and all, but it's just\n"
 	.string "not the same, ya know?$"
 
@@ -101,3 +108,9 @@ Route112_EventScript_CableCarSign_Text_0:
 Route112_EventScript_FieryPathSign_Text_0:
 	.string "Fiery Path is closed due to the danger\n"
 	.string "of a cave-in during earthquakes.$"
+
+Route112_EventScript_SmallBoy_Text_0:
+	.string "Wooow look at this giant rock!\p"
+	.string "It fell down from the mountain!\n"
+	.string "From aaaaall the way up there!\p"
+	.string "Isn't that scary?$"

@@ -59,36 +59,6 @@ JaggedPass_EventScript_OpenMagmaHideout::
 	releaseall
 	end
 
-JaggedPass_EventScript_MagmaHideoutGuard::
-	lockall
-	goto_if_set FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS, JaggedPass_EventScript_GuardDefeated
-	waitse
-	playse SE_PIN
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox JaggedPass_Text_GruntIntro, MSGBOX_DEFAULT
-	closemessage
-	trainerbattle_no_intro TRAINER_GRUNT_JAGGED_PASS, JaggedPass_Text_GruntDefeat
-	setflag FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
-JaggedPass_EventScript_GuardDefeated::
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox JaggedPass_Text_GoWhereverYouWant, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
 JaggedPass_EventScript_Eric::
 	trainerbattle_single TRAINER_ERIC, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat
 	msgbox JaggedPass_Text_EricPostBattle, MSGBOX_AUTOCLOSE
@@ -493,6 +463,10 @@ JaggedPass_EventScript_GruntTryStopPlayer1_B::
 
 JaggedPass_EventScript_GruntTryStopPlayer2::
 	applymovement 12, Common_Movement_FacePlayer
+	waitmovement 0
+	playse SE_PIN
+	applymovement 12, Common_Movement_ExclamationMarkAndDelay
+	waitmovement 0
 	speakername CommonName_MagmaGrunt
 	msgbox JaggedPass_EventScript_GruntTryStopPlayer2_Text_0
 	closemessage
@@ -615,13 +589,13 @@ JaggedPass_EventScript_MayScene::
 	msgbox JaggedPass_EventScript_MayScene_Text_2
 	closemessage
 	applymovement 23, JaggedPass_Movement_TabithaWalkAway
-	applymovement 28, JaggedPass_Movement_Grunt1WalkAway
-	applymovement 29, JaggedPass_Movement_Grunt2WalkAway
+	applymovement 27, JaggedPass_Movement_Grunt1WalkAway
+	applymovement 28, JaggedPass_Movement_Grunt2WalkAway
 	delay 64
 	fadedefaultbgm
 	waitmovement 0
+	removeobject 27
 	removeobject 28
-	removeobject 29
 	removeobject 23
 	delay 128
 	clearflag FLAG_TEMP_8
@@ -671,7 +645,7 @@ JaggedPass_EventScript_MayScene_1:
 	turnobject 24, DIR_WEST
 	switch VAR_0x8001
 	case 19, JaggedPass_EventScript_MayScene_8
-	case 20, JaggedPass_EventScript_MayScene_9
+	case 20, JaggedPass_EventScript_MayScene_8
 	case 21, JaggedPass_EventScript_MayScene_9
 JaggedPass_EventScript_MayScene_6:
 	waitmovement 0
@@ -681,7 +655,7 @@ JaggedPass_EventScript_MayScene_6:
 	closemessage
 	switch VAR_0x8001
 	case 19, JaggedPass_EventScript_MayScene_12
-	case 20, JaggedPass_EventScript_MayScene_13
+	case 20, JaggedPass_EventScript_MayScene_12
 	case 21, JaggedPass_EventScript_MayScene_13
 JaggedPass_EventScript_MayScene_10:
 	waitmovement 0
@@ -788,19 +762,19 @@ JaggedPass_EventScript_MayScene_5:
 	goto JaggedPass_EventScript_MayScene_1
 
 JaggedPass_EventScript_MayScene_8:
-	applymovement 22, JaggedPass_Movement_MayApproachPlayer_2
-	goto JaggedPass_EventScript_MayScene_6
-
-JaggedPass_EventScript_MayScene_9:
 	applymovement 22, JaggedPass_Movement_MayApproachPlayer_1
 	goto JaggedPass_EventScript_MayScene_6
 
+JaggedPass_EventScript_MayScene_9:
+	applymovement 22, JaggedPass_Movement_MayApproachPlayer_2
+	goto JaggedPass_EventScript_MayScene_6
+
 JaggedPass_EventScript_MayScene_12:
-	applymovement 24, JaggedPass_Movement_FlanneryApproachPlayer_2
+	applymovement 24, JaggedPass_Movement_FlanneryApproachPlayer_1
 	goto JaggedPass_EventScript_MayScene_10
 
 JaggedPass_EventScript_MayScene_13:
-	applymovement 24, JaggedPass_Movement_FlanneryApproachPlayer_1
+	applymovement 24, JaggedPass_Movement_FlanneryApproachPlayer_2
 	goto JaggedPass_EventScript_MayScene_10
 
 JaggedPass_EventScript_MayScene_16:
@@ -833,6 +807,7 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_L::
 	msgbox JaggedPass_Text_FootprintNerdPerfectFootprints
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_2
@@ -850,7 +825,6 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_1:
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_L_2:
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
@@ -871,6 +845,7 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_R::
 	msgbox JaggedPass_Text_FootprintNerdPerfectFootprints
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_2
@@ -888,12 +863,35 @@ JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_1:
 JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_2:
 	applymovement 8, Common_Movement_WalkInPlaceUp
 	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox JaggedPass_Text_FootprintNerdStory
 	applymovement 8, Common_Movement_FacePlayer
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox JaggedPass_Text_FootprintNerdNeedToStudy_1
 	goto JaggedPass_EventScript_FootprintNerdTryStopPlayer_R_1
+
+
+JaggedPass_EventScript_Grunt_Double1::
+	trainerbattle_single TRAINER_GRUNT_JAGGED_PASS_1, JaggedPass_EventScript_Grunt_Double1_Text_0, JaggedPass_EventScript_Grunt_Double1_Text_1
+	msgbox JaggedPass_EventScript_Grunt_Double1_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
+JaggedPass_EventScript_Grunt_Double2::
+	trainerbattle_single TRAINER_GRUNT_JAGGED_PASS_2, JaggedPass_EventScript_Grunt_Double2_Text_0, JaggedPass_EventScript_Grunt_Double2_Text_1
+	msgbox JaggedPass_EventScript_Grunt_Double2_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
+JaggedPass_EventScript_Grunt_3::
+	trainerbattle_single TRAINER_GRUNT_JAGGED_PASS_3, JaggedPass_EventScript_Grunt_3_Text_0, JaggedPass_EventScript_Grunt_3_Text_1
+	msgbox JaggedPass_EventScript_Grunt_3_Text_2, MSGBOX_AUTOCLOSE
+	return
+
+
+JaggedPass_EventScript_Grunt_4::
+	trainerbattle_single TRAINER_GRUNT_JAGGED_PASS_4, JaggedPass_EventScript_Grunt_4_Text_0, JaggedPass_EventScript_Grunt_4_Text_1
+	msgbox JaggedPass_EventScript_Grunt_4_Text_2, MSGBOX_AUTOCLOSE
+	return
 
 
 JaggedPass_Movement_JumpInPlaceLeftTwice:
@@ -1122,7 +1120,7 @@ JaggedPass_OnTransition_3:
 JaggedPass_OnTransition_4:
 	setflag FLAG_HIDE_JAGGED_PASS_NPCS
 	clearflag FLAG_HIDE_JAGGED_PASS_GRUNTS
-	setobjectmovementtype 13, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype 13, MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT
 	clearflag FLAG_TEMP_9
 	clearflag FLAG_TEMP_10
 	switch VAR_STARTER_MON
@@ -1263,7 +1261,9 @@ JaggedPass_EventScript_GruntTryStopPlayer2_Text_0:
 	.string "Hey! You can't-$"
 
 JaggedPass_EventScript_GruntTryStopPlayer2_Text_1:
-	.string "Argh! This annoying little…!$"
+	.string "Argh! This annoying little…!\p"
+	.string "No matter! You won't get past the\n"
+	.string "others anyway!$"
 
 JaggedPass_EventScript_GruntWithLostPoochyena_Text_0:
 	.string "Come back up here, Poochyena!\p"
@@ -1374,6 +1374,66 @@ JaggedPass_EventScript_MayScene_Text_18:
 	.string "I'll be looking forward to our battle,\n"
 	.string "{PLAYER}!$"
 
+JaggedPass_EventScript_Grunt_Double1_Text_0:
+	.string "Oi, you can't pass here!\p"
+	.string "We can't have you interfere with our\n"
+	.string "secret operation!$"
+
+JaggedPass_EventScript_Grunt_Double1_Text_1:
+	.string "Urgh… I can't believe it…!$"
+
+JaggedPass_EventScript_Grunt_Double1_Text_2:
+	.string "You have to forget what this idiot said.\p"
+	.string "He doesn't seem to understand the\n"
+	.string "meaning of “top secret”…$"
+
+JaggedPass_EventScript_Grunt_Double2_Text_0:
+	.string "That's right!\p"
+	.string "There's nothing a weakling like you can\n"
+	.string "do to stop us from reclaiming our\l"
+	.string "secret hideout!$"
+
+JaggedPass_EventScript_Grunt_Double2_Text_1:
+	.string "Wha-\p"
+	.string "I meant… What hideout?\n"
+	.string "I don't know anything about a hideout!$"
+
+JaggedPass_EventScript_Grunt_Double2_Text_2:
+	.string "What hideout?\n"
+	.string "I don't know anything about a hideout!$"
+
+JaggedPass_EventScript_Grunt_3_Text_0:
+	.string "Wait, what are you doing here?\p"
+	.string "The others should've been standing\n"
+	.string "guard, are they slacking off again?$"
+
+JaggedPass_EventScript_Grunt_3_Text_1:
+	.string "Oh. That explains it.\p"
+	.string "Your Pokémon are scary strong.$"
+
+JaggedPass_EventScript_Grunt_3_Text_2:
+	.string "How'm I supposed to climb the ranks to\n"
+	.string "get stronger Pokémon if I get demoted\l"
+	.string "for losing all the time?$"
+
+JaggedPass_EventScript_Grunt_4_Text_0:
+	.string "Aaargh! This operation should've been\n"
+	.string "super chill!\p"
+	.string "And now I have to babysit this\n"
+	.string "incompetent recruit who can't even\l"
+	.string "control her Pokémon!\p"
+	.string "Listen, I don't know who you are or how\n"
+	.string "you got here…\p"
+	.string "But I'll be taking my anger out on you!$"
+
+JaggedPass_EventScript_Grunt_4_Text_1:
+	.string "Nonono, I'm not the one who's supposed\n"
+	.string "to get their face punched in!$"
+
+JaggedPass_EventScript_Grunt_4_Text_2:
+	.string "Aaargh! Losing didn't help with my\n"
+	.string "frustration at all!$"
+
 JaggedPass_Text_FootprintNerdHey::
 	.string "Hey!\p"
 	.string "Hey hey!$"
@@ -1408,14 +1468,12 @@ JaggedPass_Text_FootprintNerdNeedToStudy_1::
 	.string "Fascinating, isn't it?\p"
 	.string "I'll have to study these more!\p"
 	.string "I'll have to ask you not to step on this\n"
-	.string "patch of ash until I'm done, though.\p"
-	.string "Sorry.$"
+	.string "patch of ash until I'm done, though.$"
 
 JaggedPass_Text_FootprintNerdNeedToStudy_2::
 	.string "Still, I have to study these!\p"
 	.string "I'll have to ask you not to step on this\n"
-	.string "patch of ash until I'm done.\p"
-	.string "Sorry.$"
+	.string "patch of ash until I'm done.$"
 
 JaggedPass_Text_GetHim::
 	.string "Get him, {STR_VAR_1}!$"

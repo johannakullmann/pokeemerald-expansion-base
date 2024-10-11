@@ -571,9 +571,9 @@
 #define TRAINER_CATHERINE_5                 565
 #define TRAINER_JULIO                       566
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_5     567
-#define TRAINER_GRUNT_UNUSED                568
+#define TRAINER_UNUSED_568                  568
 #define TRAINER_GRUNT_MT_PYRE_4             569
-#define TRAINER_GRUNT_JAGGED_PASS           570
+#define TRAINER_UNUSED_570                  570
 #define TRAINER_MARC                        571
 #define TRAINER_BRENDEN                     572
 #define TRAINER_LILITH                      573
@@ -719,10 +719,10 @@
 #define TRAINER_KAI                         713
 #define TRAINER_CHARLOTTE                   714
 #define TRAINER_DEANDRE                     715
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_1       716
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_2       717
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_3       718
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_4       719
+#define TRAINER_GRUNT_JAGGED_PASS_1         716
+#define TRAINER_GRUNT_JAGGED_PASS_2         717
+#define TRAINER_GRUNT_JAGGED_PASS_3         718
+#define TRAINER_GRUNT_JAGGED_PASS_4         719
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_5       720
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_6       721
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_7       722

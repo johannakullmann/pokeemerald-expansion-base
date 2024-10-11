@@ -73,7 +73,7 @@ Route112_Text_RouteSignLavaridge:
 `
 
 script Route112_EventScript_Hiker {
-	msgbox(format("They smoothed out these ledges so you can get to Lavaridge without having to hike down Jagged Pass.\p"
+	msgbox(format("They smoothed out these ledges.\nNow you can get to Lavaridge without having to hike down Jagged Pass.\p"
 			"I think it's nice and all, but it's just not the same, ya know?"), MSGBOX_NPC)
 	end
 }
@@ -85,6 +85,13 @@ script Route112_EventScript_CableCarSign {
 
 script Route112_EventScript_FieryPathSign {
 	msgbox(format("Fiery Path is closed due to the danger of a cave-in during earthquakes."), MSGBOX_SIGN)
+	end
+}
+
+script Route112_EventScript_SmallBoy{
+	msgbox(format("Wooow look at this giant rock!\pIt fell down from the mountain!\nFrom aaaaall the way up there!\pIsn't that scary?"), MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	releaseall
 	end
 }
 

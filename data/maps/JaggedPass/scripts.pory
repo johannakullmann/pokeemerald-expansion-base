@@ -60,36 +60,6 @@ JaggedPass_EventScript_OpenMagmaHideout::
 	releaseall
 	end
 
-JaggedPass_EventScript_MagmaHideoutGuard::
-	lockall
-	goto_if_set FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS, JaggedPass_EventScript_GuardDefeated
-	waitse
-	playse SE_PIN
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox JaggedPass_Text_GruntIntro, MSGBOX_DEFAULT
-	closemessage
-	trainerbattle_no_intro TRAINER_GRUNT_JAGGED_PASS, JaggedPass_Text_GruntDefeat
-	setflag FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
-JaggedPass_EventScript_GuardDefeated::
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox JaggedPass_Text_GoWhereverYouWant, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_HIDEOUT_GUARD, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
 JaggedPass_EventScript_Eric::
 	trainerbattle_single TRAINER_ERIC, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat
 	msgbox JaggedPass_Text_EricPostBattle, MSGBOX_AUTOCLOSE
@@ -271,8 +241,8 @@ const LOCALID_RUNNING_POOCHYENA = 21
 const LOCALID_MAY = 22
 const LOCALID_MAGMA_ADMIN = 23
 const LOCALID_FLANNERY = 24
-const LOCALID_MAGMA_GRUNT_1 = 28
-const LOCALID_MAGMA_GRUNT_2 = 29
+const LOCALID_MAGMA_GRUNT_1 = 27
+const LOCALID_MAGMA_GRUNT_2 = 28
 const LOCALID_FOOTPRINT_NERD = 8
 const FLAG_TEMP_HIDE_RUTHS_MON = FLAG_TEMP_10
 const FLAG_TEMP_HIDE_RUTH = FLAG_TEMP_9
@@ -493,6 +463,10 @@ script JaggedPass_EventScript_GruntTryStopPlayer1_B {
 
 script JaggedPass_EventScript_GruntTryStopPlayer2 {
 	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_FacePlayer)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_MAGMA_GRUNT_W_POOCHYENA, Common_Movement_ExclamationMarkAndDelay)
+	waitmovement(0)
 	speakername(CommonName_MagmaGrunt)
 	msgbox(format("Hey! You can't-"))
 	closemessage
@@ -515,7 +489,7 @@ script JaggedPass_EventScript_GruntTryStopPlayer2 {
 	waitmovement(0)
 	waitmoncry
 	speakername(CommonName_MagmaGrunt)
-	msgbox(format("Argh! This annoying little…!"))
+	msgbox(format("Argh! This annoying little…!\pNo matter! You won't get past the others anyway!"))
 	setvar(VAR_JAGGED_PASS_STATE, 2)
 	release
 	end
@@ -669,10 +643,10 @@ script JaggedPass_EventScript_MayScene {
 	turnobject(LOCALID_FLANNERY, DIR_WEST)
 	switch(var(VAR_0x8001)) {
 		case 19:
-			applymovement(LOCALID_MAY, JaggedPass_Movement_MayApproachPlayer_2)
 		case 20:
-		case 21:
 			applymovement(LOCALID_MAY, JaggedPass_Movement_MayApproachPlayer_1)
+		case 21:
+			applymovement(LOCALID_MAY, JaggedPass_Movement_MayApproachPlayer_2)
 	}
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
@@ -681,10 +655,10 @@ script JaggedPass_EventScript_MayScene {
 	closemessage
 	switch(var(VAR_0x8001)) {
 		case 19:
-			applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryApproachPlayer_2)
 		case 20:
-		case 21:
 			applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryApproachPlayer_1)
+		case 21:
+			applymovement(LOCALID_FLANNERY, JaggedPass_Movement_FlanneryApproachPlayer_2)
 	}
 	waitmovement(0)
 	turnobject(LOCALID_MAY, DIR_NORTH)
@@ -791,11 +765,11 @@ script JaggedPass_EventScript_FootprintNerdTryStopPlayer_L {
 	msgbox(JaggedPass_Text_FootprintNerdPerfectFootprints)
 	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 		waitmovement(0)
-		turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 		msgbox(JaggedPass_Text_FootprintNerdStory)
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
@@ -827,11 +801,11 @@ script JaggedPass_EventScript_FootprintNerdTryStopPlayer_R {
 	msgbox(JaggedPass_Text_FootprintNerdPerfectFootprints)
 	applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 	waitmovement(0)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	msgbox(JaggedPass_Text_FootprintNerdWannaKnowWhatHappendHere, MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES) {
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_WalkInPlaceUp)
 		waitmovement(0)
-		turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 		msgbox(JaggedPass_Text_FootprintNerdStory)
 		applymovement(LOCALID_FOOTPRINT_NERD, Common_Movement_FacePlayer)
 		turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
@@ -848,6 +822,39 @@ script JaggedPass_EventScript_FootprintNerdTryStopPlayer_R {
 	waitmovement(0)
 	release
 	end
+}
+
+script JaggedPass_EventScript_Grunt_Double1 {
+
+	trainerbattle_single(TRAINER_GRUNT_JAGGED_PASS_1, 
+		format("Oi, you can't pass here!\pWe can't have you interfere with our secret operation!"), 
+		format("Urgh… I can't believe it…!"))
+	msgbox(format("You have to forget what this idiot said.\pHe doesn't seem to understand the meaning of “top secret”…"), MSGBOX_AUTOCLOSE)
+}
+
+script JaggedPass_EventScript_Grunt_Double2 {
+	trainerbattle_single(TRAINER_GRUNT_JAGGED_PASS_2, 
+		format("That's right!\pThere's nothing a weakling like you can do to stop us from reclaiming our secret hideout!"), 
+		format("Wha-\pI meant… What hideout?\nI don't know anything about a hideout!"))
+	msgbox(format("What hideout?\nI don't know anything about a hideout!"), MSGBOX_AUTOCLOSE)
+}
+
+script JaggedPass_EventScript_Grunt_3 {
+	trainerbattle_single(TRAINER_GRUNT_JAGGED_PASS_3, 
+		format("Wait, what are you doing here?\p"
+			"The others should've been standing guard, are they slacking off again?"), 
+		format("Oh. That explains it.\pYour Pokémon are scary strong."))
+	msgbox(format("How'm I supposed to climb the ranks to get stronger Pokémon if I get demoted for losing all the time?"), MSGBOX_AUTOCLOSE)
+}
+
+script JaggedPass_EventScript_Grunt_4 {
+	trainerbattle_single(TRAINER_GRUNT_JAGGED_PASS_4, 
+		format("Aaargh! This operation should've been super chill!\p"
+			"And now I have to babysit this incompetent recruit who can't even control her Pokémon!\p"
+			"Listen, I don't know who you are or how you got here…\p"
+			"But I'll be taking my anger out on you!"), 
+		format("Nonono, I'm not the one who's supposed to get their face punched in!"))
+	msgbox(format("Aaargh! Losing didn't help with my frustration at all!"), MSGBOX_AUTOCLOSE)
 }
 
 text JaggedPass_Text_FootprintNerdHey {
@@ -875,12 +882,12 @@ text JaggedPass_Text_FootprintNerdStory {
 
 text JaggedPass_Text_FootprintNerdNeedToStudy_1 {
 	format("Fascinating, isn't it?\pI'll have to study these more!\p"
-			"I'll have to ask you not to step on this patch of ash until I'm done, though.\pSorry.")
+			"I'll have to ask you not to step on this patch of ash until I'm done, though.")
 }
 
 text JaggedPass_Text_FootprintNerdNeedToStudy_2 {
 	format("Still, I have to study these!\p"
-			"I'll have to ask you not to step on this patch of ash until I'm done.\pSorry.")
+			"I'll have to ask you not to step on this patch of ash until I'm done.")
 }
 
 text JaggedPass_Text_GetHim {
@@ -1076,7 +1083,7 @@ script JaggedPass_OnTransition {
 		case 2: //after grunt has tried to prevent player from moving past
 			setflag(FLAG_HIDE_JAGGED_PASS_NPCS)
 			clearflag(FLAG_HIDE_JAGGED_PASS_GRUNTS)
-			setobjectmovementtype(LOCALID_POOCHYENA, MOVEMENT_TYPE_FACE_RIGHT)
+			setobjectmovementtype(LOCALID_POOCHYENA, MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT)
 			clearflag(FLAG_TEMP_HIDE_RUTH)
 			clearflag(FLAG_TEMP_HIDE_RUTHS_MON)
 			switch (var(VAR_STARTER_MON)) {
