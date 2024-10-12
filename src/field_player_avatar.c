@@ -77,6 +77,7 @@ static u8 CheckForObjectEventStaticCollision(struct ObjectEvent *, s16, s16, u8,
 static bool8 CanStopSurfing(s16, s16, u8);
 static bool8 ShouldJumpLedge(s16, s16, u8);
 static bool8 TryPushBoulder(s16, s16, u8);
+static bool8 CanPushBoulder(u8 objectEventId, u8 direction);
 static void CheckAcroBikeCollision(s16, s16, u8, u8 *);
 
 static void DoPlayerAvatarTransition(void);
@@ -812,17 +813,9 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
             x = gObjectEvents[objectEventId].currentCoords.x;
             y = gObjectEvents[objectEventId].currentCoords.y;
             MoveCoords(direction, &x, &y);
-            if (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE
-                && MetatileBehavior_IsBlockedForBoulder(MapGridGetMetatileBehaviorAt(gObjectEvents[objectEventId].currentCoords.x, gObjectEvents[objectEventId].currentCoords.y), direction) == FALSE
-                && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
-            {
+            if (CanPushBoulder(objectEventId, direction)) {
                 StartStrengthAnim(objectEventId, direction);
-                return TRUE;
-            }
-            //able to push normal boulder onto collision if the tile is fillable
-            else if (MetatileBehavior_IsFillable(MapGridGetMetatileBehaviorAt(x, y))) {
-                StartStrengthAnim(objectEventId, direction);
-                return TRUE; 
+                return TRUE;  
             }
         }
         
@@ -872,63 +865,23 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
             switch (direction){
                 case DIR_NORTH:
                 //collision checks for top boulders
-                x = gObjectEvents[boulderTopLeft].currentCoords.x;
-                y = gObjectEvents[boulderTopLeft].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopLeft], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderTopRight].currentCoords.x;
-                y = gObjectEvents[boulderTopRight].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopRight], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
+                    if (!CanPushBoulder(boulderTopLeft, direction) || !CanPushBoulder(boulderTopRight, direction)) 
+                        return FALSE;
                 break;
                 case DIR_WEST:
                 //collision checks for left boulders
-                x = gObjectEvents[boulderTopLeft].currentCoords.x;
-                y = gObjectEvents[boulderTopLeft].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopLeft], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderBottomLeft].currentCoords.x;
-                y = gObjectEvents[boulderBottomLeft].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomLeft], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
+                    if (!CanPushBoulder(boulderTopLeft, direction) || !CanPushBoulder(boulderBottomLeft, direction)) 
+                        return FALSE;   
                 break;
                 case DIR_EAST:
                 //collsion checks for right boulders                
-                x = gObjectEvents[boulderTopRight].currentCoords.x;
-                y = gObjectEvents[boulderTopRight].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTopRight], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderBottomRight].currentCoords.x;
-                y = gObjectEvents[boulderBottomRight].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomRight], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
+                    if (!CanPushBoulder(boulderTopRight, direction) || !CanPushBoulder(boulderBottomRight, direction)) 
+                        return FALSE;
                 break;
                 case DIR_SOUTH:
                 //collision checks for bottom boulders
-                x = gObjectEvents[boulderBottomLeft].currentCoords.x;
-                y = gObjectEvents[boulderBottomLeft].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomLeft], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderBottomRight].currentCoords.x;
-                y = gObjectEvents[boulderBottomRight].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottomRight], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
+                    if (!CanPushBoulder(boulderBottomLeft, direction) || !CanPushBoulder(boulderBottomRight, direction)) 
+                        return FALSE;
                 break;
             }
             StartStrengthAnimLargeBoulder(boulderTopLeft, boulderTopRight, boulderBottomLeft, boulderBottomRight, direction);
@@ -972,24 +925,8 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
             switch (direction){
                 case DIR_NORTH:
                 case DIR_SOUTH:
-                x = gObjectEvents[boulderLeft].currentCoords.x;
-                y = gObjectEvents[boulderLeft].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderLeft], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderCenter].currentCoords.x;
-                y = gObjectEvents[boulderCenter].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderCenter], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderRight].currentCoords.x;
-                y = gObjectEvents[boulderRight].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderRight], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
+                if (!CanPushBoulder(boulderLeft, direction) || !CanPushBoulder(boulderCenter, direction) || !CanPushBoulder(boulderRight, direction)) 
+                        return FALSE;
                 break;
                 case DIR_WEST:
                 case DIR_EAST:               
@@ -1036,23 +973,7 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
             switch (direction){
                 case DIR_WEST:
                 case DIR_EAST:
-                x = gObjectEvents[boulderTop].currentCoords.x;
-                y = gObjectEvents[boulderTop].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderTop], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderCenter].currentCoords.x;
-                y = gObjectEvents[boulderCenter].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderCenter], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
-                    return FALSE;
-                x = gObjectEvents[boulderBottom].currentCoords.x;
-                y = gObjectEvents[boulderBottom].currentCoords.y;
-                MoveCoords(direction, &x, &y);
-                if (!(GetCollisionAtCoords(&gObjectEvents[boulderBottom], x, y, direction) == COLLISION_NONE
-                    && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE))
+                if (!CanPushBoulder(boulderTop, direction) || !CanPushBoulder(boulderCenter, direction) || !CanPushBoulder(boulderBottom, direction)) 
                     return FALSE;
                 break;
                 case DIR_NORTH:
@@ -1066,6 +987,51 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     }
     return FALSE;
 }
+
+// this does the collision checks for the different types of rocks
+bool8 CanPushBoulder(u8 objectEventId, u8 direction) {
+    s16 x, y;
+    switch (gObjectEvents[objectEventId].graphicsId) {
+        case OBJ_EVENT_GFX_PUSHABLE_BOULDER:
+            x = gObjectEvents[objectEventId].currentCoords.x;
+            y = gObjectEvents[objectEventId].currentCoords.y;
+            //check if current tile prevents boulder movement
+            if (MetatileBehavior_IsBlockedForBoulder(MapGridGetMetatileBehaviorAt(x, y), direction)) {
+                return FALSE;
+            }
+            //check if target tile prevents boulder movement
+            MoveCoords(direction, &x, &y);
+            if (MetatileBehavior_IsFillable(MapGridGetMetatileBehaviorAt(x, y)))  {
+                return TRUE; //ignore other collision if target tile is fillable
+            } 
+            if (MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y))) {
+                return FALSE; //can never push boulders into entrances
+            }
+            if (!GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE) {
+                return FALSE;
+            }
+            break;
+        case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_1 ... OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_HORIZ_3:
+        case OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_1 ... OBJ_EVENT_GFX_LONG_PUSHABLE_BOULDER_VERT_3:
+        case OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_1 ... OBJ_EVENT_GFX_LARGE_PUSHABLE_BOULDER_4:
+            x = gObjectEvents[objectEventId].currentCoords.x;
+            y = gObjectEvents[objectEventId].currentCoords.y;
+            //check if target tile prevents boulder movement
+            MoveCoords(direction, &x, &y);
+            if (MetatileBehavior_IsFillable(MapGridGetMetatileBehaviorAt(x, y)))  {
+                return TRUE; //ignore other collision if target tile is fillable
+            } 
+            if (MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y))) {
+                return FALSE; //can never push boulders into entrances
+            }
+            if (!GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE) {
+                return FALSE; 
+            }
+            break;
+    }
+    return TRUE;
+}
+
 
 static void CheckAcroBikeCollision(s16 x, s16 y, u8 metatileBehavior, u8 *collision)
 {
