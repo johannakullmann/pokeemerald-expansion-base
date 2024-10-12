@@ -5965,14 +5965,16 @@ u8 GetCollisionAtCoords(struct ObjectEvent *objectEvent, s16 x, s16 y, u32 dir)
 
     if (IsCoordOutsideObjectEventMovementRange(objectEvent, x, y))
         return COLLISION_OUTSIDE_RANGE;
+    else if (DoesObjectCollideWithObjectAt(objectEvent, x, y))
+        return COLLISION_OBJECT_EVENT;
     else if (MapGridGetCollisionAt(x, y) || GetMapBorderIdAt(x, y) == CONNECTION_INVALID || IsMetatileDirectionallyImpassable(objectEvent, x, y, direction))
         return COLLISION_IMPASSABLE;
     else if (objectEvent->trackedByCamera && !CanCameraMoveInDirection(direction))
         return COLLISION_IMPASSABLE;
     else if (IsElevationMismatchAt(objectEvent->currentElevation, x, y))
         return COLLISION_ELEVATION_MISMATCH;
-    else if (DoesObjectCollideWithObjectAt(objectEvent, x, y))
-        return COLLISION_OBJECT_EVENT;
+    /*else if (DoesObjectCollideWithObjectAt(objectEvent, x, y))
+        return COLLISION_OBJECT_EVENT;*/ //moved up because of strength rock puzzles - hopefully doesn't cause issues
     return COLLISION_NONE;
 }
 
