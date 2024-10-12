@@ -30,7 +30,7 @@
     },
     {
       "map": "MAP_ROUTE136",
-      "offset": 7,
+      "offset": 17,
       "direction": "right"
     }
   ],
@@ -668,6 +668,13 @@
       "y": 113,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE136_CAVE",
       "dest_warp_id": "0"
     }
   ],

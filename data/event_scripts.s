@@ -1131,3 +1131,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route102_Grove/scripts.inc"
 
 	.include "data/maps/PetalburgWoods_Grove/scripts.inc"
+
+	.include "data/maps/Route136_Cave/scripts.inc"

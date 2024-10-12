@@ -14074,7 +14074,7 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
 
-        [ITEM_CLUB_MEMBER_CARD] =
+    [ITEM_CLUB_MEMBER_CARD] =
     {
         .name = _("Member Card"),
         .price = 0,
@@ -14086,7 +14086,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 1,
+        .iconPic = gItemIcon_ContestPass,
+        .iconPalette = gItemIconPalette_ContestPass,
     },
 
     [ITEM_SHINY_LURE] =
@@ -14103,6 +14104,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
         .secondaryId = 0,
         .flingPower = 30,
+        .iconPic = gItemIcon_ShinyLure,
+        .iconPalette = gItemIconPalette_Lure,
     },
 
     [ITEM_SUPER_SHINY_LURE] =
@@ -14119,6 +14122,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
         .secondaryId = 0,
         .flingPower = 30,
+        .iconPic = gItemIcon_ShinyLure,
+        .iconPalette = gItemIconPalette_SuperLure,
     },
 
     [ITEM_MAX_SHINY_LURE] =
@@ -14135,6 +14140,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
         .secondaryId = 0,
         .flingPower = 30,
+        .iconPic = gItemIcon_ShinyLure,
+        .iconPalette = gItemIconPalette_MaxLure,
     },
 
     [ITEM_DIVING_EQUIPMENT] =
@@ -14148,19 +14155,25 @@ const struct Item gItemsInfo[] =
             "ocean floor."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TerrainExtender,
+        .iconPalette = gItemIconPalette_TerrainExtender,
     },
 
     [ITEM_MAYS_PACKAGE] =
     {
-        .name = _("May's Package"),
+        .name = _("May's Parcel"),
         .importance = 1,
         .price = 0,
         .description = COMPOUND_STRING(
-            "A small package\n"
+            "A small parcel\n"
             "to be delivered to\n"
             "the Weather Institute."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Parcel,
+        .iconPalette = gItemIcon_Parcel,
     },
 };
 

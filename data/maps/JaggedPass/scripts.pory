@@ -517,10 +517,14 @@ script JaggedPass_EventScript_Toxatoo {
 }
 
 script JaggedPass_EventScript_Poochyena {
+	lock
 	speakername(CommonName_Poochyena)
 	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
 	msgbox(MtChimney_Text_Bufoh)
+	closemessage
 	waitmoncry
+	release
+	end
 }
 
 script JaggedPass_EventScript_GruntWithLostPoochyena {

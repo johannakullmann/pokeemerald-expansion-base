@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_ROUTE111",
-      "offset": -7,
+      "offset": -17,
       "direction": "left"
     }
   ],
@@ -91,6 +91,20 @@
       "y": 37,
       "elevation": 0,
       "dest_map": "MAP_ROUTE136_GROVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE136_CAVE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE136",
       "dest_warp_id": "0"
     }
   ],

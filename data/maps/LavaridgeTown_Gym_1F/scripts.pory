@@ -9,45 +9,7 @@ LavaridgeTown_Gym_1F_MapScripts::
 	.byte 0
 
 LavaridgeTown_Gym_1F_OnTransition:
-	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
-	call LavaridgeTown_Gym_1F_EventScript_CheckBuryTrainers
 	end
-
-@ Unclear where/if these temp vars are getting checked
-LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars::
-	setvar VAR_TEMP_B, 0
-	setvar VAR_TEMP_C, 0
-	setvar VAR_TEMP_D, 0
-	setvar VAR_TEMP_E, 0
-	setvar VAR_TEMP_F, 0
-	goto_if_defeated TRAINER_COLE, LavaridgeTown_Gym_1F_EventScript_SetGeraldTempVar
-	setvar VAR_TEMP_B, 1
-LavaridgeTown_Gym_1F_EventScript_SetGeraldTempVar::
-	goto_if_defeated TRAINER_GERALD, LavaridgeTown_Gym_1F_EventScript_SetAxleTempVar
-	setvar VAR_TEMP_C, 1
-LavaridgeTown_Gym_1F_EventScript_SetAxleTempVar::
-	goto_if_defeated TRAINER_AXLE, LavaridgeTown_Gym_1F_EventScript_SetDanielleTempVar
-	setvar VAR_TEMP_D, 1
-LavaridgeTown_Gym_1F_EventScript_SetDanielleTempVar::
-	goto_if_defeated TRAINER_DANIELLE, LavaridgeTown_Gym_1F_EventScript_EndSetTrainerTempVars
-	setvar VAR_TEMP_E, 1
-LavaridgeTown_Gym_1F_EventScript_EndSetTrainerTempVars::
-	return
-
-LavaridgeTown_Gym_1F_EventScript_CheckBuryTrainers::
-	goto_if_defeated TRAINER_COLE, LavaridgeTown_Gym_1F_EventScript_CheckBuryGerald
-	setobjectmovementtype LOCALID_COLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryGerald::
-	goto_if_defeated TRAINER_GERALD, LavaridgeTown_Gym_1F_EventScript_CheckBuryAxle
-	setobjectmovementtype LOCALID_GERALD, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryAxle::
-	goto_if_defeated TRAINER_AXLE, LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle
-	setobjectmovementtype LOCALID_AXLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle::
-	goto_if_defeated TRAINER_DANIELLE, LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers
-	setobjectmovementtype LOCALID_DANIELLE, MOVEMENT_TYPE_BURIED
-LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
-	return
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
@@ -96,58 +58,43 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::
 	end
 
 LavaridgeTown_Gym_1F_EventScript_Cole::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_COLE, LOCALID_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_COLE, LOCALID_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_ColePostBattle, MSGBOX_AUTOCLOSE
 	end
 
-LavaridgeTown_Gym_EventScript_CheckTrainerScript::
-	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
-	release
-	special ShouldTryGetTrainerScript
-	goto_if_eq VAR_RESULT, 1, EventScript_GotoTrainerScript
-	end
-
 LavaridgeTown_Gym_1F_EventScript_Axle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_AXLE, LOCALID_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_AXLE, LOCALID_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_AxlePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Keegan::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_KEEGAN, LOCALID_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_KEEGAN, LOCALID_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_KeeganPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_1F_EventScript_Danielle::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_DANIELLE, LOCALID_DANIELLE, LavaridgeTown_Gym_1F_Text_DanielleIntro, LavaridgeTown_Gym_1F_Text_DanielleDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_DANIELLE, LOCALID_DANIELLE, LavaridgeTown_Gym_1F_Text_DanielleIntro, LavaridgeTown_Gym_1F_Text_DanielleDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_DaniellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_1F_EventScript_Gerald::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_GERALD, LOCALID_GERALD, LavaridgeTown_Gym_1F_Text_GeraldIntro, LavaridgeTown_Gym_1F_Text_GeraldDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_GERALD, LOCALID_GERALD, LavaridgeTown_Gym_1F_Text_GeraldIntro, LavaridgeTown_Gym_1F_Text_GeraldDefeat
 	msgbox LavaridgeTown_Gym_1F_Text_GeraldPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Jace::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_JACE, LOCALID_JACE, LavaridgeTown_Gym_B1F_Text_JaceIntro, LavaridgeTown_Gym_B1F_Text_JaceDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_JACE, LOCALID_JACE, LavaridgeTown_Gym_B1F_Text_JaceIntro, LavaridgeTown_Gym_B1F_Text_JaceDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_JacePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Jeff::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_JEFF, LOCALID_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_JEFF, LOCALID_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_JeffPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 LavaridgeTown_Gym_B1F_EventScript_Eli::
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_ELI, LOCALID_ELI, LavaridgeTown_Gym_B1F_Text_EliIntro, LavaridgeTown_Gym_B1F_Text_EliDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
+	trainerbattle_single TRAINER_ELI, LOCALID_ELI, LavaridgeTown_Gym_B1F_Text_EliIntro, LavaridgeTown_Gym_B1F_Text_EliDefeat
 	msgbox LavaridgeTown_Gym_B1F_Text_EliPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_1F_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory
-	msgbox LavaridgeTown_Gym_1F_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
 	end
 
 LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory::
@@ -407,9 +354,9 @@ script LavaridgeTown_Gym_EventScript_May {
 			end
 		}
 	}
-	specialvar(VAR_RESULT, ShouldTryRematchBattle)
-	goto_if_eq(VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch)
-	msgbox(LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_DEFAULT)
+	//specialvar(VAR_RESULT, ShouldTryRematchBattle)
+	//goto_if_eq(VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch)
+	msgbox(LavaridgeTown_Gym_1F_Text_MayPostBattle, MSGBOX_DEFAULT)
 	closemessage
 	release
 	end
@@ -421,7 +368,7 @@ script LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty {
 	getpartysize
 	if (var(VAR_RESULT) < 3) {
 		speakername(CommonName_May)
-		msgbox(format("Oh?\pAre you really sure you want to battle with less than three Pokémon?"), MSGBOX_YESNO)
+		msgbox(format("Are you really sure you want to battle with less than three Pokémon?\pThere's no extra credit, you know."), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
 			goto(LavaridgeTown_Gym_EventScript_MayGymBattle) 
 		}
@@ -440,8 +387,8 @@ script LavaridgeTown_Gym_EventScript_MayGymBattle {
 	setflag(FLAG_LOAD_SAVED_PARTY_AFTER_NEXT_BATTLE)
 	trainerbattle_single(
 		TRAINER_MAY_1, 
-		MauvilleCity_Gym_Text_WattsonLetsGetStarted, 
-		MauvilleCity_Gym_Text_WattsonDefeat, 
+		LavaridgeTown_Gym_Text_MayBeforeBattle, 
+		LavaridgeTown_Gym_Text_MayDefeat, 
 		LavaridgeTown_Gym_EventScript_MayAfterBattle, 
 		NO_MUSIC)
 }
@@ -456,20 +403,17 @@ script LavaridgeTown_Gym_EventScript_MayAfterBattle {
 	call(Common_EventScript_PlayGymBadgeFanfare)
 	setflag(FLAG_DEFEATED_LAVARIDGE_GYM)
 	setflag(FLAG_BADGE04_GET)
-	setflag(FLAG_HIDE_ROUTE_111_SNORLAX)
+	setvar(VAR_JAGGED_PASS_STATE, 4)
 	setvar(VAR_0x8008, 3)
 	call(Common_EventScript_SetGymTrainers)
-	//special(MauvilleGymDeactivatePuzzle)
-	//special(DrawWholeMapView)
-	//playse(SE_UNLOCK)
 	speakername(CommonName_May)
 	msgbox("I think you earned this TM too!", MSGBOX_DEFAULT)
 	speakername(NULL)
 	giveitem(ITEM_TM_FIRE_PUNCH)
 	speakername(CommonName_May)
 	msgbox(format("TM51 contains Fire Punch.\p"
-	"It's a strong Fire-type attack that can also burn the target.\p"
-	"A lot of non-Fire type Pokémon can learn it, so you can surprise your opponent by hitting them with an unexpected super-effective Fire move!"))
+		"It's a strong Fire-type attack that can also burn the target.\p"
+		"A lot of non-Fire type Pokémon can learn it, so you can surprise your opponent by hitting them with an unexpected super-effective Fire move!"))
 	closemessage
 	delay(30)
 	speakername(CommonName_May)
@@ -481,8 +425,8 @@ script LavaridgeTown_Gym_EventScript_MayAfterBattle {
 	speakername(NULL)
 	giveitem(ITEM_MAYS_PACKAGE)
 	speakername(CommonName_May)
-	msgbox(format("The safest way to reach Fortree City at the moment is the mountain pass that connects Route 119 and the northern part of Route 111.\p"
-		"You can get there by going past Jagged Pass,\pthen take a turn east as soon as you exit the forest."))
+	msgbox(format("The safest way to reach Fortree City at the moment…\pThat should be the mountain pass that connects Route 119 and the northern part of Route 111.\p"
+		"You can get there by going past Jagged Pass,\nthen take a turn east as soon as you exit the forest."))
 	delay(30)
 	speakername(NULL)
 	playfanfare(MUS_REGISTER_MATCH_CALL)
@@ -490,7 +434,16 @@ script LavaridgeTown_Gym_EventScript_MayAfterBattle {
 	waitfanfare
 	closemessage
 	delay(30)
-	setflag(FLAG_ENABLE_FLANNERY_MATCH_CALL)
+	//setflag(FLAG_ENABLE_FLANNERY_MATCH_CALL)
+	release
+	end
+}
+
+script LavaridgeTown_Gym_1F_EventScript_GymGuide {
+	lock
+	faceplayer
+	goto_if_set(FLAG_DEFEATED_LAVARIDGE_GYM, LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory)
+	msgbox(LavaridgeTown_Gym_1F_Text_GymGuideAdvice, MSGBOX_DEFAULT)
 	release
 	end
 }
@@ -499,7 +452,19 @@ text LavaridgeTown_Gym_1F_Text_MayIntro {
 	format("Welcome, {PLAYER}! You made it!\p"
 	"Since we meet in this official manner, let's do the introductions properly!\p"
 	"My name's May, and it's always been my dream to become a gym leader like my father.\p"
-	"One thing led to another, and I was able to take over as a gym leader for Flannery.\p"
-	"{PLAYER}, you really remind me of myself when I started my adventure a few years ago.\p"
+	"One thing led to another, and I was able to take over this gym for Flannery.\p"
+	"{PLAYER}, you somehow remind me of myself when I started my own adventure a few years ago.\p"
 	"That doesn't mean I'll be going easy on you, though!")
+}
+
+text LavaridgeTown_Gym_Text_MayBeforeBattle {
+	format("")
+}
+
+text LavaridgeTown_Gym_Text_MayDefeat {
+	format("")
+}
+
+text LavaridgeTown_Gym_1F_Text_MayPostBattle {
+	format("...")
 }

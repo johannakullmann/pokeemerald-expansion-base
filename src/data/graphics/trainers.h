@@ -146,6 +146,7 @@ const u32 gTrainerFrontPic_LeaderJuan[] = INCBIN_U32("graphics/trainers/front_pi
 const u32 gTrainerPalette_LeaderJuan[] = INCBIN_U32("graphics/trainers/front_pics/leader_juan.gbapal.lz");
 
 const u32 gTrainerFrontPic_LeaderMay[] = INCBIN_U32("graphics/trainers/front_pics/leader_may.4bpp.lz");
+const u32 gTrainerPalette_LeaderMay[] = INCBIN_U32("graphics/trainers/front_pics/may.gbapal.lz");
 
 const u32 gTrainerFrontPic_SchoolKidM[] = INCBIN_U32("graphics/trainers/front_pics/school_kid_m.4bpp.lz");
 const u32 gTrainerPalette_SchoolKidM[] = INCBIN_U32("graphics/trainers/front_pics/school_kid_m.gbapal.lz");
@@ -419,6 +420,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(JUNE, June),
     TRAINER_SPRITE(AUGUST, August),
     TRAINER_SPRITE(RUTH, Ruth),
+    TRAINER_SPRITE(LEADER_MAY, LeaderMay),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

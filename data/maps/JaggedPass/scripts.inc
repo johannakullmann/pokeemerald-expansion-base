@@ -529,11 +529,14 @@ JaggedPass_EventScript_Toxatoo::
 
 
 JaggedPass_EventScript_Poochyena::
+	lock
 	speakername CommonName_Poochyena
 	playmoncry SPECIES_POOCHYENA, CRY_MODE_NORMAL
 	msgbox MtChimney_Text_Bufoh
+	closemessage
 	waitmoncry
-	return
+	release
+	end
 
 
 JaggedPass_EventScript_GruntWithLostPoochyena::
