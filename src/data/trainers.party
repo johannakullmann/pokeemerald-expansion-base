@@ -3544,17 +3544,25 @@ Level: 34
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_COLE ===
-Name: COLE
-Class: Kindler
-Pic: Kindler
+Name: Cole
+Class: Hiker
+Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 23
+Level: 22
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Geodude
+Level: 22
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Punch
+- Rock Throw
+- Rollout
+- Rock Polish
 
 === TRAINER_JEFF ===
 Name: JEFF
@@ -3587,17 +3595,28 @@ Level: 23
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_JACE ===
-Name: JACE
-Class: Kindler
-Pic: Kindler
+Name: Jace
+Class: Tuber M
+Pic: Tuber M
 Gender: Male
-Music: Hiker
+Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Slugma
-Level: 23
+Torchic
+Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Sand Attack
+- Flame Charge
+- Quick Attack
+- Growl
+
+Azurill
+Level: 20
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Scald
+- Charm
+- Slam
 
 === TRAINER_KEEGAN ===
 Name: KEEGAN
@@ -9137,17 +9156,25 @@ Level: 45
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_ELI ===
-Name: ELI
-Class: Hiker
-Pic: Hiker
-Gender: Male
-Music: Hiker
+Name: Eli
+Class: Beauty
+Pic: Beauty
+Gender: Female
+Music: Female
 Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 23
+Level: 22
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Kecleon
+Level: 21
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Flamethrower
+- Fury Swipes
+- Feint Attack
+- Bind
 
 === TRAINER_ANNIKA ===
 Name: ANNIKA
@@ -11489,22 +11516,29 @@ Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GERALD ===
-Name: GERALD
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: Gerald
+Class: Kindler
+Pic: Kindler
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Hiker
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Kecleon
-Level: 23
+Slugma
+Level: 21
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Flamethrower
-- Fury Swipes
-- Feint Attack
-- Bind
+- Ember
+- Harden
+- Yawn
+- Smog
+
+Flareon
+Level: 21
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Fire Fang
+- Sand Attack
+- Quick Attack
+- Smog
 
 === TRAINER_VIVIAN ===
 Name: VIVIAN
@@ -11532,7 +11566,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Meditate
 
 === TRAINER_DANIELLE ===
-Name: DANIELLE
+Name: Danielle
 Class: Battle Girl
 Pic: Battle Girl
 Gender: Female
@@ -11540,10 +11574,10 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move
 
-Meditite
+Meditite (F)
 Level: 23
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bide
+- Meditate
 - Detect
 - Confusion
 - Fire Punch

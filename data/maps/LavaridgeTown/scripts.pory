@@ -213,13 +213,11 @@ script LavaridgeTown_EventScript_LockGymDoor {
 }
 
 script EventScript_ClosedLavaridgeGymDoor {
+	lock
 	msgbox("The door is closed.", MSGBOX_SIGN)
 	closemessage
-	if (var(VAR_LAVARIDGE_TOWN_STATE) == 0) {
-		applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
-		waitmovement(0)
-		msgbox(format("Hey, {PLAYER}…\pLooks like we can't challenge the Fire-type gym yet, the door's closed."))
-		goto(LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene)
+	if (!flag(FLAG_MET_RUTH_LAVARIDGE)) {
+		goto(LavaridgeTown_EventScript_Ruth)
 	}
 	end
 }
@@ -227,8 +225,8 @@ script EventScript_ClosedLavaridgeGymDoor {
 script LavaridgeTown_EventScript_Ruth {
 	lock
 	faceplayer
-		speakername(CommonName_Ruth)
-	if (var(VAR_LAVARIDGE_TOWN_STATE) == 0) {
+	speakername(CommonName_Ruth)
+	if (!flag(FLAG_MET_RUTH_LAVARIDGE)) {
 		msgbox(format("Hey, {PLAYER}…\pLooks like we can't challenge the Fire-type gym yet, the door's closed."))
 		closemessage
 		clearflag(TEMP_FLAG_HIDE_FLANNERY)
@@ -236,7 +234,7 @@ script LavaridgeTown_EventScript_Ruth {
 		showobjectat(LOCALID_FLANNERY, MAP_LAVARIDGE_TOWN)
 		goto(LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene)
 	}
-	elif (var(VAR_LAVARIDGE_TOWN_STATE) == 1) {
+	elif (!flag(FLAG_DEFEATED_RIVAL_2)) {
 		msgbox(format("The gym leader hasn't come back yet… How about we have a go at it again?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
 			goto(LavaridgeTown_EventScript_RuthBattle)
@@ -247,9 +245,6 @@ script LavaridgeTown_EventScript_Ruth {
 }
 
 script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
-	lock
-	closemessage
-	delay(16)
 	applymovement(LOCALID_FLANNERY, LavaridgeTown_Movement_FlanneryApproachGym)
 	waitmovement(0)
 	applymovement(LOCALID_RUTH, LavaridgeTown_Movement_RuthNoticeFlannery)
@@ -309,7 +304,7 @@ script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
 	closemessage
 	applymovement(LOCALID_RUTH, Common_Movement_WalkInPlaceRight)
 	speakername(CommonName_Ruth)
-	msgbox(format("Yes! {PLAYER} is also challenging the gyms! We're competing!\p"
+	msgbox(format("Yes! {PLAYER} is also collecting badges! We're competing!\p"
 		"That reminds me, do you know where the new gym leader is? The door is locked."))
 	closemessage
 	applymovement(LOCALID_FLANNERY, Common_Movement_WalkInPlaceLeft)
@@ -327,7 +322,7 @@ script LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene {
 	waitmovement(0)
 	setflag(TEMP_FLAG_HIDE_FLANNERY)
 	removeobject(LOCALID_FLANNERY)
-	setvar(VAR_LAVARIDGE_TOWN_STATE, 1)
+	setflag(FLAG_MET_RUTH_LAVARIDGE)
 	delay(30)
 	speakername(CommonName_Ruth)
 	msgbox(format("There she goes…"))
@@ -357,9 +352,9 @@ script LavaridgeTown_EventScript_AfterRuthBattle {
 	speakername(CommonName_Ruth)
 	msgbox(format("Ah, I thought I could beat you this time.\p"
 		"Looks like I need to step up my game!\p"
-		"My Barboach was falling off a bit, I might have to go back to training…\p"
+		"My Barboach was falling off, I might have to go back to training…\p"
 		"…\p"
-		"I don't feel like waiting here until they're done. {PLAYER}, let's go look for them!\p"
+		"I don't feel like waiting until they're done. {PLAYER}, let's go look for them!\p"
 		"Flannery said they're at Mt. Chimney, right?"), MSGBOX_AUTOCLOSE)
 	getplayerxy(VAR_0x8008, VAR_0x8009)
 	if (var(VAR_0x8008) == 7 && var(VAR_0x8009) == 17) {
@@ -373,7 +368,7 @@ script LavaridgeTown_EventScript_AfterRuthBattle {
 	}
 	waitmovement(0)
 	removeobject(LOCALID_RUTH)
-	setvar(VAR_LAVARIDGE_TOWN_STATE, 2)
+	setflag(FLAG_DEFEATED_RIVAL_2)
 	setvar(VAR_JAGGED_PASS_STATE, 1)
 	setflag(FLAG_DEFEATED_RIVAL_2)
 	setflag(FLAG_HIDE_JAGGED_PASS_NPCS)

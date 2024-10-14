@@ -217,18 +217,15 @@ LavaridgeTown_EventScript_LockGymDoor::
 
 
 EventScript_ClosedLavaridgeGymDoor::
+	lock
 	msgbox EventScript_ClosedLavaridgeGymDoor_Text_0, MSGBOX_SIGN
 	closemessage
-	compare VAR_LAVARIDGE_TOWN_STATE, 0
-	goto_if_eq EventScript_ClosedLavaridgeGymDoor_2
+	goto_if_unset FLAG_MET_RUTH_LAVARIDGE, EventScript_ClosedLavaridgeGymDoor_2
 EventScript_ClosedLavaridgeGymDoor_1:
 	end
 
 EventScript_ClosedLavaridgeGymDoor_2:
-	applymovement 9, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	msgbox EventScript_ClosedLavaridgeGymDoor_Text_1
-	goto LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene
+	goto LavaridgeTown_EventScript_Ruth
 	goto EventScript_ClosedLavaridgeGymDoor_1
 
 
@@ -236,16 +233,14 @@ LavaridgeTown_EventScript_Ruth::
 	lock
 	faceplayer
 	speakername CommonName_Ruth
-	compare VAR_LAVARIDGE_TOWN_STATE, 0
-	goto_if_eq LavaridgeTown_EventScript_Ruth_2
-	compare VAR_LAVARIDGE_TOWN_STATE, 1
-	goto_if_eq LavaridgeTown_EventScript_Ruth_3
+	goto_if_unset FLAG_MET_RUTH_LAVARIDGE, LavaridgeTown_EventScript_Ruth_2
+	goto_if_unset FLAG_DEFEATED_RIVAL_2, LavaridgeTown_EventScript_Ruth_3
 LavaridgeTown_EventScript_Ruth_1:
 	release
 	end
 
 LavaridgeTown_EventScript_Ruth_2:
-	msgbox EventScript_ClosedLavaridgeGymDoor_Text_1
+	msgbox LavaridgeTown_EventScript_Ruth_Text_0
 	closemessage
 	clearflag FLAG_TEMP_10
 	addobject 8
@@ -254,7 +249,7 @@ LavaridgeTown_EventScript_Ruth_2:
 	goto LavaridgeTown_EventScript_Ruth_1
 
 LavaridgeTown_EventScript_Ruth_3:
-	msgbox LavaridgeTown_EventScript_Ruth_Text_0, MSGBOX_YESNO
+	msgbox LavaridgeTown_EventScript_Ruth_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LavaridgeTown_EventScript_Ruth_6
 	goto LavaridgeTown_EventScript_Ruth_1
@@ -265,9 +260,6 @@ LavaridgeTown_EventScript_Ruth_6:
 
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene::
-	lock
-	closemessage
-	delay 16
 	applymovement 8, LavaridgeTown_Movement_FlanneryApproachGym
 	waitmovement 0
 	applymovement 9, LavaridgeTown_Movement_RuthNoticeFlannery
@@ -336,7 +328,7 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_5:
 	waitmovement 0
 	setflag FLAG_TEMP_10
 	removeobject 8
-	setvar VAR_LAVARIDGE_TOWN_STATE, 1
+	setflag FLAG_MET_RUTH_LAVARIDGE
 	delay 30
 	speakername CommonName_Ruth
 	msgbox LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_11
@@ -398,7 +390,7 @@ LavaridgeTown_EventScript_AfterRuthBattle_8:
 LavaridgeTown_EventScript_AfterRuthBattle_6:
 	waitmovement 0
 	removeobject 9
-	setvar VAR_LAVARIDGE_TOWN_STATE, 2
+	setflag FLAG_DEFEATED_RIVAL_2
 	setvar VAR_JAGGED_PASS_STATE, 1
 	setflag FLAG_DEFEATED_RIVAL_2
 	setflag FLAG_HIDE_JAGGED_PASS_NPCS
@@ -545,12 +537,12 @@ LavaridgeTown_Movement_RuthLeave_3:
 EventScript_ClosedLavaridgeGymDoor_Text_0:
 	.string "The door is closed.$"
 
-EventScript_ClosedLavaridgeGymDoor_Text_1:
+LavaridgeTown_EventScript_Ruth_Text_0:
 	.string "Hey, {PLAYER}…\p"
 	.string "Looks like we can't challenge the\n"
 	.string "Fire-type gym yet, the door's closed.$"
 
-LavaridgeTown_EventScript_Ruth_Text_0:
+LavaridgeTown_EventScript_Ruth_Text_1:
 	.string "The gym leader hasn't come back yet…\n"
 	.string "How about we have a go at it again?$"
 
@@ -588,8 +580,8 @@ LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_6:
 	.string "right?$"
 
 LavaridgeTown_EventScript_FlanneryGymLeaderGoneScene_Text_7:
-	.string "Yes! {PLAYER} is also challenging the\n"
-	.string "gyms! We're competing!\p"
+	.string "Yes! {PLAYER} is also collecting\n"
+	.string "badges! We're competing!\p"
 	.string "That reminds me, do you know where the\n"
 	.string "new gym leader is? The door is locked.$"
 
@@ -618,12 +610,12 @@ LavaridgeTown_EventScript_AfterRuthBattle_Text_0:
 	.string "Ah, I thought I could beat you this\n"
 	.string "time.\p"
 	.string "Looks like I need to step up my game!\p"
-	.string "My Barboach was falling off a bit, I\n"
-	.string "might have to go back to training…\p"
+	.string "My Barboach was falling off, I might\n"
+	.string "have to go back to training…\p"
 	.string "…\p"
-	.string "I don't feel like waiting here until\n"
-	.string "they're done. {PLAYER}, let's go look\l"
-	.string "for them!\p"
+	.string "I don't feel like waiting until they're\n"
+	.string "done. {PLAYER}, let's go look for\l"
+	.string "them!\p"
 	.string "Flannery said they're at Mt. Chimney,\n"
 	.string "right?$"
 

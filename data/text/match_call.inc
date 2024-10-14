@@ -2959,17 +2959,17 @@ MatchCall_Text_MrStone11::
 	.string "Hm! You must come visit us at DEVON\n"
 	.string "sometime!$"
 
-	MatchCall_Text_Ruth1::
+MatchCall_Text_Ruth1::
 	.string "{PLAYER}! Hurry up!\p"
 	.string "I'm waiting outside!$"
 
-	MatchCall_Text_Ruth2::
+MatchCall_Text_Ruth2::
 	.string "Oh, {PLAYER}!\n"
 	.string "I'm waiting for you on Route 137!\p"
 	.string "You can get there by going north\n"
 	.string "from Sandyshore!$"
 
-	MatchCall_Text_Ruth3::
+MatchCall_Text_Ruth3::
 	.string "Hey, {PLAYER}!\n"
 	.string "How's the journey going?\p"
 	.string "I'm at the store in Pacifidlog, but\n"
@@ -2980,7 +2980,7 @@ MatchCall_Text_MrStone11::
 	.string "When you arrive, meet me at the mart!\n"
 	.string "It's the building with the blue roof!$"
 
-	MatchCall_Text_Ruth4::
+MatchCall_Text_Ruth4::
 	.string "… Oh, it's you!\n"
 	.string "I found Mr. Moore!\p"
 	.string "He said he'll be able to take us\n"
@@ -2988,19 +2988,80 @@ MatchCall_Text_MrStone11::
 	.string "I'm waiting near the pier in\n"
 	.string "Pacifidlog!$"
 
-	MatchCall_Text_Ruth5::
+MatchCall_Text_Ruth5::
 	.string "… {PLAYER}!\p"
 	.string "When you're ready with your\n"
 	.string "preparations, we should start going!\p"
 	.string "I'm waiting near the pier in\n"
 	.string "Pacifidlog!$"
 
-	MatchCall_Text_Ruth_Nearby::
+MatchCall_Text_Ruth6::
+	.string "Oh, {PLAYER}!\n"
+	.string "Did you get lost in the city?\p"
+	.string "There's a beach south, with a ton\n"
+	.string "of people itching for a battle!\p"
+	.string "Also, you have to check out the museum\n"
+	.string "and the battle tent!$"
+
+MatchCall_Text_Ruth7::
+	.string "Hey, {PLAYER}!\n"
+	.string "This PokéDex thing is so useful!\p"
+	.string "I'm currently looking up where to\n"
+	.string "find a Barboach…\p"
+	.string "I think I'll need a fishing rod too…\p"
+	.string "See you around!$"
+
+MatchCall_Text_Ruth8::
+	.string "{PLAYER}!\p"
+	.string "Do you have any tips for fishing?\p"
+	.string "I can't hook that Barboach I am\n"
+	.string "looking for…\p"
+	.string "How can people sit around and do\n"
+	.string "this for hours on end?\p"
+	.string "This is so frustrating!$"
+
+MatchCall_Text_Ruth9::
+	.string "Hey! {PLAYER}!\n"
+	.string "I know what you're trying here!\p"
+	.string "You're trying to distract me and\n"
+	.string "leave me in the dust!\p"
+	.string "Well, it's not working!\p"
+	.string "I'll be ahead again by the time\n"
+	.string "you get to Lavaridge Town!$"
+
+MatchCall_Text_Ruth10::
+	.string "Come on, {PLAYER}!\n"
+	.string "What are you waiting for?\p"
+	.string "I want to show you my progress\n"
+	.string "before the Gym Leader comes back!\p"
+	.string "I'll beat you this time!$"
+
+MatchCall_Text_Ruth11::
+	.string "I can't talk right now!\p"
+	.string "This guy's Poochyena is giving me a\n"
+	.string "really hard time!\p"
+	.string "Go ahead, I'll catch up!$"
+
+MatchCall_Text_Ruth12::
+	.string "{PLAYER}…\p"
+	.string "Training's going fine, thanks\n"
+	.string "for asking.\p"
+	.string "Just a little bit more and I'll\n"
+	.string "go and challenge May!$"
+
+MatchCall_Text_Ruth13::
+	.string "{PLAYER}!\p"
+	.string "… Wow, you got the badge already?\n"
+	.string "I'm still training at Jagged Pass.\p"
+	.string "So, Fortree City's Gym is next?\n"
+	.string "I'll try to meet you there$!"
+
+MatchCall_Text_Ruth_Nearby::
 	.string "Huh?\p"
 	.string "Why are you calling me?\n"
 	.string "I'm right next to you!$"
 
-	MatchCall_Text_BikeShop1::
+MatchCall_Text_BikeShop1::
 	.string "Hello, this is Rydel's Bike Shop!\p"
 	.string "… Your pre-order?\n"
 	.string "One second, let me check for you.\p"
@@ -3009,7 +3070,7 @@ MatchCall_Text_MrStone11::
 	.string "We'll give you a call once your\n"
 	.string "new bike is ready for you!$"
 
-	MatchCall_Text_BikeShop2::
+MatchCall_Text_BikeShop2::
 	.string "Hello, this is Rydel's Bike Shop!\p"
 	.string "… Your pre-order?\n"
 	.string "One second, let me check for you.\p"
@@ -3018,11 +3079,11 @@ MatchCall_Text_MrStone11::
 	.string "It's ready for pick-up in our store\n"
 	.string "in Mauville City!$"
 
-	MatchCall_Text_BikeShop3::
+MatchCall_Text_BikeShop3::
 	.string "Hello, this is Rydel's Bike Shop!\p"
 	.string "Thank you for purchasing one of\n"
 	.string "our bikes.\p"
 	.string "If you have any issues or repairs\n"
-	.string "that need to be taken care of,\n"
-	.string "please visit us in our store in\n"
+	.string "that need to be taken care of,\l"
+	.string "please visit us in our store in\l"
 	.string "Mauville City!$"

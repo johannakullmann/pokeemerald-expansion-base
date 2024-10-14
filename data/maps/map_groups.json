@@ -461,7 +461,8 @@
     "ReefCave_KyogreRoom",
     "Route102_Grove",
     "PetalburgWoods_Grove",
-    "Route136_Cave"
+    "Route136_Cave",
+    "Route136_Cave_B1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

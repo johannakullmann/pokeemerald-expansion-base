@@ -430,6 +430,7 @@
 #define MAP_ROUTE102_GROVE                           (119 | (25 << 8))
 #define MAP_PETALBURG_WOODS_GROVE                    (120 | (25 << 8))
 #define MAP_ROUTE136_CAVE                            (121 | (25 << 8))
+#define MAP_ROUTE136_CAVE_B1F                        (122 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

@@ -1,15 +1,7 @@
 raw `
-.set LOCALID_COLE, 2
-.set LOCALID_GERALD, 3
-.set LOCALID_AXLE, 4
-.set LOCALID_DANIELLE, 5
-
 LavaridgeTown_Gym_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_Gym_1F_OnTransition
 	.byte 0
-
-LavaridgeTown_Gym_1F_OnTransition:
-	end
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
@@ -57,46 +49,6 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::
 	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostRematch, MSGBOX_AUTOCLOSE
 	end
 
-LavaridgeTown_Gym_1F_EventScript_Cole::
-	trainerbattle_single TRAINER_COLE, LOCALID_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat
-	msgbox LavaridgeTown_Gym_1F_Text_ColePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_1F_EventScript_Axle::
-	trainerbattle_single TRAINER_AXLE, LOCALID_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat
-	msgbox LavaridgeTown_Gym_1F_Text_AxlePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_B1F_EventScript_Keegan::
-	trainerbattle_single TRAINER_KEEGAN, LOCALID_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat
-	msgbox LavaridgeTown_Gym_B1F_Text_KeeganPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_1F_EventScript_Danielle::
-	trainerbattle_single TRAINER_DANIELLE, LOCALID_DANIELLE, LavaridgeTown_Gym_1F_Text_DanielleIntro, LavaridgeTown_Gym_1F_Text_DanielleDefeat
-	msgbox LavaridgeTown_Gym_1F_Text_DaniellePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_1F_EventScript_Gerald::
-	trainerbattle_single TRAINER_GERALD, LOCALID_GERALD, LavaridgeTown_Gym_1F_Text_GeraldIntro, LavaridgeTown_Gym_1F_Text_GeraldDefeat
-	msgbox LavaridgeTown_Gym_1F_Text_GeraldPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_B1F_EventScript_Jace::
-	trainerbattle_single TRAINER_JACE, LOCALID_JACE, LavaridgeTown_Gym_B1F_Text_JaceIntro, LavaridgeTown_Gym_B1F_Text_JaceDefeat
-	msgbox LavaridgeTown_Gym_B1F_Text_JacePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_B1F_EventScript_Jeff::
-	trainerbattle_single TRAINER_JEFF, LOCALID_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat
-	msgbox LavaridgeTown_Gym_B1F_Text_JeffPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-LavaridgeTown_Gym_B1F_EventScript_Eli::
-	trainerbattle_single TRAINER_ELI, LOCALID_ELI, LavaridgeTown_Gym_B1F_Text_EliIntro, LavaridgeTown_Gym_B1F_Text_EliDefeat
-	msgbox LavaridgeTown_Gym_B1F_Text_EliPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory::
 	msgbox LavaridgeTown_Gym_1F_Text_GymGuidePostVictory, MSGBOX_DEFAULT
 	release
@@ -124,32 +76,8 @@ LavaridgeTown_Gym_1F_EventScript_GymStatue::
 	releaseall
 	end
 
-LavaridgeTown_Gym_1F_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
-	.string "bound {PLAYER}?\p"
-	.string "LAVARIDGE's GYM LEADER FLANNERY\n"
-	.string "uses FIRE-type POKéMON.\p"
-	.string "Her passion for POKéMON burns stronger\n"
-	.string "and hotter than a volcano.\p"
-	.string "Don't get too close to her--you'll burn!\n"
-	.string "Hose her down with water and then\l"
-	.string "go for it!$"
-
 LavaridgeTown_Gym_1F_Text_GymGuidePostVictory:
 	.string "Yow! That was a scorching-hot battle!$"
-
-LavaridgeTown_Gym_1F_Text_ColeIntro:
-	.string "Owowowowow!\n"
-	.string "Yikes, it's hot!$"
-
-LavaridgeTown_Gym_1F_Text_ColeDefeat:
-	.string "I'm blinded by sweat in my eyes…$"
-
-LavaridgeTown_Gym_1F_Text_ColePostBattle:
-	.string "Being buried in hot sand promotes\n"
-	.string "circulation.\p"
-	.string "It's effective for healing pain in\n"
-	.string "your joints.$"
 
 LavaridgeTown_Gym_1F_Text_AxleIntro:
 	.string "I'm trying to relieve my stress.\n"
@@ -180,43 +108,6 @@ LavaridgeTown_Gym_B1F_Text_KeeganPostBattle:
 	.string "If you don't watch yourself, you'll be\n"
 	.string "burned seriously.$"
 
-LavaridgeTown_Gym_1F_Text_GeraldIntro:
-	.string "Can your POKéMON withstand\n"
-	.string "392-degree heat?$"
-
-LavaridgeTown_Gym_1F_Text_GeraldDefeat:
-	.string "It didn't burn hotly enough…$"
-
-LavaridgeTown_Gym_1F_Text_GeraldPostBattle:
-	.string "The temperature of magma is\n"
-	.string "392 degrees.\p"
-	.string "Your POKéMON beat me, so they should\n"
-	.string "easily survive in magma.$"
-
-LavaridgeTown_Gym_1F_Text_DanielleIntro:
-	.string "Um…\n"
-	.string "Okay, I'll battle with you.$"
-
-LavaridgeTown_Gym_1F_Text_DanielleDefeat:
-	.string "Oh, but you're too strong.$"
-
-LavaridgeTown_Gym_1F_Text_DaniellePostBattle:
-	.string "I'm going to be a pretty and strong\n"
-	.string "TRAINER just like FLANNERY.$"
-
-LavaridgeTown_Gym_B1F_Text_JaceIntro:
-	.string "Come on, get with it!\n"
-	.string "Let's go before my feelings cool!$"
-
-LavaridgeTown_Gym_B1F_Text_JaceDefeat:
-	.string "It's so hot, and yet my heart is\n"
-	.string "clutched by ice…$"
-
-LavaridgeTown_Gym_B1F_Text_JacePostBattle:
-	.string "The way the battling spirit burns\n"
-	.string "within you, you may stand a chance\l"
-	.string "against our LEADER.$"
-
 LavaridgeTown_Gym_B1F_Text_JeffIntro:
 	.string "See how the flames blaze wildly?\n"
 	.string "They flare in anticipation of my win!$"
@@ -228,19 +119,6 @@ LavaridgeTown_Gym_B1F_Text_JeffPostBattle:
 	.string "Well, so what? I say so what?\n"
 	.string "I can walk on hot coals barefoot!\p"
 	.string "…Don't even think about trying it!$"
-
-LavaridgeTown_Gym_B1F_Text_EliIntro:
-	.string "As much as I love mountains,\n"
-	.string "I especially love volcanoes.$"
-
-LavaridgeTown_Gym_B1F_Text_EliDefeat:
-	.string "Well, it seems to me I lost without\n"
-	.string "ever being in control.$"
-
-LavaridgeTown_Gym_B1F_Text_EliPostBattle:
-	.string "I stay here because I became a fan\n"
-	.string "of FLANNERY's power.\p"
-	.string "Hehehehe.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
 	.string "Oh…\n"
@@ -328,8 +206,12 @@ LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
 	.string "see me, bring at least two POKéMON.$"
 `
 
+script LavaridgeTown_Gym_1F_OnTransition{
+	setflag(FLAG_SYS_USE_STRENGTH)
+}
+
 script LavaridgeTown_Gym_EventScript_May {
-	lock
+	lock	
 	faceplayer
 	if (!defeated(TRAINER_MAY_1)) {
 		speakername(CommonName_May)
@@ -368,7 +250,7 @@ script LavaridgeTown_Gym_EventScript_MayGymBattle_CheckConfirmSmallParty {
 	getpartysize
 	if (var(VAR_RESULT) < 3) {
 		speakername(CommonName_May)
-		msgbox(format("Are you really sure you want to battle with less than three Pokémon?\pThere's no extra credit, you know."), MSGBOX_YESNO)
+		msgbox(format("Are you really sure you want to battle with less than three Pokémon?\pYou won't get extra points for that, you know."), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
 			goto(LavaridgeTown_Gym_EventScript_MayGymBattle) 
 		}
@@ -404,7 +286,7 @@ script LavaridgeTown_Gym_EventScript_MayAfterBattle {
 	setflag(FLAG_DEFEATED_LAVARIDGE_GYM)
 	setflag(FLAG_BADGE04_GET)
 	setvar(VAR_JAGGED_PASS_STATE, 4)
-	setvar(VAR_0x8008, 3)
+	setvar(VAR_0x8008, 4)
 	call(Common_EventScript_SetGymTrainers)
 	speakername(CommonName_May)
 	msgbox("I think you earned this TM too!", MSGBOX_DEFAULT)
@@ -425,8 +307,9 @@ script LavaridgeTown_Gym_EventScript_MayAfterBattle {
 	speakername(NULL)
 	giveitem(ITEM_MAYS_PACKAGE)
 	speakername(CommonName_May)
-	msgbox(format("The safest way to reach Fortree City at the moment…\pThat should be the mountain pass that connects Route 119 and the northern part of Route 111.\p"
-		"You can get there by going past Jagged Pass,\nthen take a turn east as soon as you exit the forest."))
+	msgbox(format("The safest way to reach Fortree City at the moment…\pThat should be the tunnel connecting Route 119 and the northern part of Route 111.\p"
+		"You can get there by going past Jagged Pass, then take a turn east as soon as you exit the forest."))
+	closemessage
 	delay(30)
 	speakername(NULL)
 	playfanfare(MUS_REGISTER_MATCH_CALL)
@@ -448,6 +331,62 @@ script LavaridgeTown_Gym_1F_EventScript_GymGuide {
 	end
 }
 
+//hiker
+script LavaridgeTown_Gym_EventScript_Cole {
+	trainerbattle_single(TRAINER_COLE, format("These boulder puzzles are really neat, don't you think?"), format("Hmmm… If I rolled that boulder over there…"))
+	msgbox(format("Those long boulders can only roll in one direction.\pIt's tricky to get the small boulder past them."), MSGBOX_AUTOCLOSE)
+	end
+}
+
+//battle girl
+script LavaridgeTown_Gym_EventScript_Danielle {
+	trainerbattle_single(TRAINER_DANIELLE, format("The hot water is so soothing for sore muscles…"), format("Ow… I think my shoulder still hurts a bit…"))
+	msgbox(format("The hot spring water relaxes muscles and promotes circulation.\pI can train a lot more thanks to that!"), MSGBOX_AUTOCLOSE)
+	end
+}
+
+//kindler
+script LavaridgeTown_Gym_EventScript_Gerald {
+	trainerbattle_single(TRAINER_GERALD, format("Can your Pokémon withstand the scalding heat?"), format("It didn't burn hot enough…"))
+	msgbox(format("Your Pokémon seem to be entirely fireproof."), MSGBOX_AUTOCLOSE)
+	end
+}
+
+//tuber
+script LavaridgeTown_Gym_EventScript_Jace {
+	trainerbattle_single(TRAINER_JACE, format("Auntie May always lets me swim in here.\pCome on, play with me!"), format("That was fun!"))
+	msgbox(format("Look, I've got this entire pool all for myself!\pBut you want to, I can share with you!"), MSGBOX_AUTOCLOSE)
+	end
+}
+
+//beauty
+script LavaridgeTown_Gym_EventScript_Eli {
+	trainerbattle_single(TRAINER_ELI, format("Nothing beats hot springs when it comes to natural skin cleanses."), format("The heat must've made me feel light-headed…"))
+	msgbox(format("The minerals in the spring water are good for your skin."), MSGBOX_AUTOCLOSE)
+	end
+}
+
+//unused
+script LavaridgeTown_Gym_EventScript_Axle {
+	trainerbattle_single(TRAINER_AXLE, LavaridgeTown_Gym_1F_Text_AxleIntro, LavaridgeTown_Gym_1F_Text_AxleDefeat)
+	msgbox(LavaridgeTown_Gym_1F_Text_AxlePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+//unused
+script LavaridgeTown_Gym_EventScript_Keegan {
+	trainerbattle_single(TRAINER_KEEGAN, LavaridgeTown_Gym_B1F_Text_KeeganIntro, LavaridgeTown_Gym_B1F_Text_KeeganDefeat)
+	msgbox(LavaridgeTown_Gym_B1F_Text_KeeganPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+//unused
+script LavaridgeTown_Gym_EventScript_Jeff {
+	trainerbattle_single(TRAINER_JEFF, LavaridgeTown_Gym_B1F_Text_JeffIntro, LavaridgeTown_Gym_B1F_Text_JeffDefeat)
+	msgbox(LavaridgeTown_Gym_B1F_Text_JeffPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
 text LavaridgeTown_Gym_1F_Text_MayIntro {
 	format("Welcome, {PLAYER}! You made it!\p"
 	"Since we meet in this official manner, let's do the introductions properly!\p"
@@ -455,16 +394,24 @@ text LavaridgeTown_Gym_1F_Text_MayIntro {
 	"One thing led to another, and I was able to take over this gym for Flannery.\p"
 	"{PLAYER}, you somehow remind me of myself when I started my own adventure a few years ago.\p"
 	"That doesn't mean I'll be going easy on you, though!")
-}
+} 
 
 text LavaridgeTown_Gym_Text_MayBeforeBattle {
-	format("")
+	format("…")
 }
 
 text LavaridgeTown_Gym_Text_MayDefeat {
-	format("")
+	format("…")
 }
 
 text LavaridgeTown_Gym_1F_Text_MayPostBattle {
-	format("...")
+	format("…")
+}
+
+text LavaridgeTown_Gym_1F_Text_GymGuideAdvice {
+	"Hey, how's it going, {PLAYER}?\p"
+	"Our new Gym Leader May uses Fire-type Pokémon, just like Flannery used to.\p"
+	"You'll need Pokémon that can withstand the scorching heat!\p"
+	"Ground-, Rock- and Water-type attacks can extinguish her flames…\p"
+	"But be careful, as a former champion, she packs moves that can counter those weaknesses!"
 }

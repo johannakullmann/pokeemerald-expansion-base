@@ -166,6 +166,14 @@ static const match_call_text_data_t sRuthTextScripts[] = {
     { MatchCall_Text_Ruth4,  FLAG_DEFEATED_RIVAL_1,           0xFFFF},
     { MatchCall_Text_Ruth_Nearby,  FLAG_STARTED_MC_TUTORIAL,  0xFFFF},
     { MatchCall_Text_Ruth5,  FLAG_ENABLE_MR_STONE_POKENAV,    0xFFFF},
+    { MatchCall_Text_Ruth6,  FLAG_VISITED_MAUVILLE_CITY,      0xFFFF},
+    { MatchCall_Text_Ruth7,  FLAG_SYS_POKEDEX_GET,            0xFFFF},
+    { MatchCall_Text_Ruth8,  FLAG_VISITED_MAUVILLE_CITY,      0xFFFF},
+    { MatchCall_Text_Ruth9,  FLAG_MET_RUTH_MAUVILLE,          0xFFFF},
+    { MatchCall_Text_Ruth10, FLAG_MET_RUTH_LAVARIDGE,         0xFFFF},
+    { MatchCall_Text_Ruth11, FLAG_DEFEATED_RIVAL_2,           0xFFFF},
+    { MatchCall_Text_Ruth12, FLAG_LAVARIDGE_GYM_OPEN,         0xFFFF},
+    { MatchCall_Text_Ruth13, FLAG_DEFEATED_RIVAL_2,           0xFFFF},
     { NULL,                  0xFFFF,                          0xFFFF}
 };
 
