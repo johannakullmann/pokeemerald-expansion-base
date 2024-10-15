@@ -415,6 +415,11 @@ const u32 gObjectEventPic_ProfBrendanBirch[] = INCBIN_U32("graphics/object_event
 
 const u32 gObjectEventPic_FishermanFishing[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_fishing.4bpp");
 const u32 gObjectEventPic_AquaAdminF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_admin_f.4bpp");
+const u32 gObjectEventPic_Man5Swimming[] = INCBIN_U32("graphics/object_events/pics/people/man_5_swimming.4bpp");
+const u32 gObjectEventPic_Girl3Swimming[] = INCBIN_U32("graphics/object_events/pics/people/girl_3_swimming.4bpp");
+const u32 gObjectEventPic_HikerSwimming[] = INCBIN_U32("graphics/object_events/pics/people/hiker_swimming.4bpp");
+const u32 gObjectEventPic_BeautySwimming[] = INCBIN_U32("graphics/object_events/pics/people/beauty_swimming.4bpp");
+
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 
 const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/pokemon/question_mark/overworld.gbapal");

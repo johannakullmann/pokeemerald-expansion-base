@@ -276,6 +276,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBrendan
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LeaderMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanFishing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaAdminF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BeautySwimming;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HikerSwimming;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Girl3Swimming;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Man5Swimming;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -544,6 +548,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LEADER_MAY] =               &gObjectEventGraphicsInfo_LeaderMay,
     [OBJ_EVENT_GFX_FISHERMAN_FISHING] =        &gObjectEventGraphicsInfo_FishermanFishing,
     [OBJ_EVENT_GFX_AQUA_ADMIN_F] =             &gObjectEventGraphicsInfo_AquaAdminF,
+    [OBJ_EVENT_GFX_BEAUTY_SWIMMING] =          &gObjectEventGraphicsInfo_BeautySwimming,
+    [OBJ_EVENT_GFX_GIRL_3_SWIMMING] =          &gObjectEventGraphicsInfo_Girl3Swimming,
+    [OBJ_EVENT_GFX_MAN_5_SWIMMING] =           &gObjectEventGraphicsInfo_Man5Swimming,
+    [OBJ_EVENT_GFX_HIKER_SWIMMING] =           &gObjectEventGraphicsInfo_HikerSwimming,
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
 };
