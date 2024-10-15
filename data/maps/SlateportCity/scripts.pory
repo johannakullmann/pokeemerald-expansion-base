@@ -1202,6 +1202,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_1 {
 	lock
 	applymovement(LOCALID_BATTLE_TENT_CLERK, Common_Movement_ExclamationMarkAndDelay)
 	waitmovement(0)
+	playbgm(MUS_FOLLOW_ME)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_1)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
@@ -1213,6 +1214,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_1 {
 	waitmovement(0)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	setvar(VAR_SLATEPORT_CITY_STATE, 2)
+	fadedefaultbgm
 	release
 	end
 }
@@ -1221,6 +1223,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_2 {
 	lock
 	applymovement(LOCALID_BATTLE_TENT_CLERK, Common_Movement_ExclamationMarkAndDelay)
 	waitmovement(0)
+	playbgm(MUS_FOLLOW_ME)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_2)
 	waitmovement(0)
 	speakername(CommonName_TentClerk)
@@ -1231,6 +1234,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_2 {
 	waitmovement(0)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	setvar(VAR_SLATEPORT_CITY_STATE, 2)
+	fadedefaultbgm
 	release
 	end
 }
@@ -1239,6 +1243,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_3{
 	lock
 	applymovement(LOCALID_BATTLE_TENT_CLERK, Common_Movement_ExclamationMarkAndDelay)
 	waitmovement(0)
+	playbgm(MUS_FOLLOW_ME)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_3)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
@@ -1250,6 +1255,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_3{
 	waitmovement(0)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	setvar(VAR_SLATEPORT_CITY_STATE, 2)
+	fadedefaultbgm
 	release
 	end
 }
@@ -1258,6 +1264,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_4 {
 	lock
 	applymovement(LOCALID_BATTLE_TENT_CLERK, Common_Movement_ExclamationMarkAndDelay)
 	waitmovement(0)
+	playbgm(MUS_FOLLOW_ME)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_4)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
@@ -1269,6 +1276,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_4 {
 	waitmovement(0)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	setvar(VAR_SLATEPORT_CITY_STATE, 2)
+	fadedefaultbgm
 	release
 	end
 }
@@ -1277,6 +1285,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_5 {
 	lock
 	applymovement(LOCALID_BATTLE_TENT_CLERK, Common_Movement_ExclamationMarkAndDelay)
 	waitmovement(0)
+	playbgm(MUS_FOLLOW_ME)
 	applymovement(LOCALID_BATTLE_TENT_CLERK, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_5)
 	waitmovement(0)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
@@ -1288,6 +1297,7 @@ script SlateportCity_EventScript_BattleTentClerkScene_5 {
 	waitmovement(0)
 	msgbox(SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE)
 	setvar(VAR_SLATEPORT_CITY_STATE, 2)
+	fadedefaultbgm
 	release
 	end
 }

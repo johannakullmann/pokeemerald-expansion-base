@@ -934,7 +934,7 @@
 #define FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_CAPTAIN_STERN    0x377
 #define FLAG_HIDE_BATTLE_TOWER_OPPONENT                             0x378
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL                  0x379
-#define FLAG_HIDE_ROUTE_119_TEAM_AQUA                               0x37A
+#define FLAG_HIDE_ROUTE_119_CASTFORM_SCIENTIST                      0x37A
 #define FLAG_HIDE_ROUTE_116_MR_BRINEY                               0x37B
 #define FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS                      0x37C
 #define FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS                      0x37D
@@ -1529,15 +1529,15 @@
 #define FLAG_HIDE_JAGGED_PASS_RUTH                  (SYSTEM_FLAGS + 0x9C)
 #define FLAG_MET_RUTH_LAVARIDGE                     (SYSTEM_FLAGS + 0x9D)
 #define FLAG_LAVARIDGE_GYM_OPEN                     (SYSTEM_FLAGS + 0x9E)
-#define FLAG_UNUSED_0x8FF                           (SYSTEM_FLAGS + 0x9F) // Unused Flag
-#define FLAG_UNUSED_0x900                           (SYSTEM_FLAGS + 0xA0) // Unused Flag
-#define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1) // Unused Flag
-#define FLAG_UNUSED_0x902                           (SYSTEM_FLAGS + 0xA2) // Unused Flag
-#define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3) // Unused Flag
-#define FLAG_UNUSED_0x904                           (SYSTEM_FLAGS + 0xA4) // Unused Flag
-#define FLAG_UNUSED_0x905                           (SYSTEM_FLAGS + 0xA5) // Unused Flag
-#define FLAG_UNUSED_0x906                           (SYSTEM_FLAGS + 0xA6) // Unused Flag
-#define FLAG_UNUSED_0x907                           (SYSTEM_FLAGS + 0xA7) // Unused Flag
+#define FLAG_DELIVERED_MAYS_PACKAGE                 (SYSTEM_FLAGS + 0x9F)
+#define FLAG_FOUND_ROUTE120_RESEARCHER              (SYSTEM_FLAGS + 0xA0)
+#define FLAG_FOUND_VERDANTURF_RESEARCHER            (SYSTEM_FLAGS + 0xA1) // Unused Flag
+#define FLAG_FOUND_SHOAL_CAVE_RESEARCHER            (SYSTEM_FLAGS + 0xA2) // Unused Flag
+#define FLAG_FOUND_MT_PYRE_RESEARCHER               (SYSTEM_FLAGS + 0xA3) // Unused Flag
+#define FLAG_FOUND_SOOTOPOLIS_RESEARCHER            (SYSTEM_FLAGS + 0xA4) // Unused Flag
+#define FLAG_FOUND_MT_CHIMNEY_RESEARCHER            (SYSTEM_FLAGS + 0xA5) // Unused Flag
+#define FLAG_FOUND_SANDYSHORE_RESEARCHER            (SYSTEM_FLAGS + 0xA6) // Unused Flag
+#define FLAG_FOUND_DEWFORD_RESEARCHER               (SYSTEM_FLAGS + 0xA7) // Unused Flag
 #define FLAG_UNUSED_0x908                           (SYSTEM_FLAGS + 0xA8) // Unused Flag
 #define FLAG_UNUSED_0x909                           (SYSTEM_FLAGS + 0xA9) // Unused Flag
 #define FLAG_UNUSED_0x90A                           (SYSTEM_FLAGS + 0xAA) // Unused Flag

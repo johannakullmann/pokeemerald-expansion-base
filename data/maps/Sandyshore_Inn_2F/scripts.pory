@@ -205,7 +205,7 @@ script Sandyshore_Inn_EventScript_PickMon {
             "What did you think? Battle?\p"
             "Nah, that wouldn't be fair.\p"
             "I have more experience AND {STR_VAR_1} has a type advantage.\p"
-            "I'd feel bad steamrolling you in an unfair fight.\p"))
+            "I'd feel bad steamrolling you in an unfair fight."))
     closemessage
     applymovement(LOCALID_RUTH, Sandyshore_Inn_2F_Movement_RuthLeaveBrendansRoom1)
     waitmovement(0)

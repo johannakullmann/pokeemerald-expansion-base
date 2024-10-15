@@ -5,26 +5,11 @@ Route119_WeatherInstitute_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_1F_OnTransition
 	.byte 0
 
-Route119_WeatherInstitute_1F_OnTransition:
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_1F_EventScript_SetLittleBoyPos
-	end
-
-Route119_WeatherInstitute_1F_EventScript_SetLittleBoyPos::
-	setobjectxyperm LOCALID_LITTLE_BOY, 0, 5
-	setobjectmovementtype LOCALID_LITTLE_BOY, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
 Route119_WeatherInstitute_1F_EventScript_LittleBoy::
 	lock
 	faceplayer
 	special GetPlayerBigGuyGirlString
-	goto_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_1F_EventScript_LittleBoyTeamAquaHere
 	msgbox Route119_WeatherInstitute_1F_Text_WowYoureStrong, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_WeatherInstitute_1F_EventScript_LittleBoyTeamAquaHere::
-	msgbox Route119_WeatherInstitute_1F_Text_EveryoneWentUpstairs, MSGBOX_DEFAULT
 	release
 	end
 
@@ -49,26 +34,12 @@ Route119_WeatherInstitute_1F_EventScript_StudyingRain::
 	release
 	end
 
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2::
-	msgbox Route119_WeatherInstitute_1F_Text_WhatWereAquasUpTo, MSGBOX_NPC
-	end
-
 Route119_WeatherInstitute_1F_EventScript_Bed::
 	lockall
 	msgbox Route119_WeatherInstitute_1F_Text_TakeRestInBed, MSGBOX_DEFAULT
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
 	releaseall
-	end
-
-Route119_WeatherInstitute_1F_EventScript_Grunt1::
-	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_1, Route119_WeatherInstitute_1F_Text_Grunt1Intro, Route119_WeatherInstitute_1F_Text_Grunt1Defeat
-	msgbox Route119_WeatherInstitute_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_1F_EventScript_Grunt4::
-	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_4, Route119_WeatherInstitute_1F_Text_Grunt4Intro, Route119_WeatherInstitute_1F_Text_Grunt4Defeat
-	msgbox Route119_WeatherInstitute_1F_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_WeatherInstitute_1F_Text_Grunt1Intro:
@@ -134,3 +105,228 @@ Route119_WeatherInstitute_1F_Text_TakeRestInBed:
 	.string "There's a bed…\n"
 	.string "Let's take a rest.$"
 `
+
+const LOCALID_SCIENTIST_WITH_SHINY_CASTFORM = 1
+const LOCALID_SHINY_CASTFORM = 6
+const FLAG_TEMP_HIDE_CASTFORM_SCIENTIST = FLAG_TEMP_4
+const FLAG_TEMP_HIDE_SHOAL_CAVE_RESEARCHER = FLAG_TEMP_5
+const FLAG_TEMP_HIDE_MT_PYRE_RESEARCHER = FLAG_TEMP_6
+const FLAG_TEMP_HIDE_MT_CHIMNEY_RESEARCHER = FLAG_TEMP_7
+
+script Route119_WeatherInstitute_1F_OnTransition {
+	if (!flag(FLAG_HIDE_ROUTE_119_CASTFORM_SCIENTIST)) {
+		setflag(FLAG_TEMP_HIDE_CASTFORM_SCIENTIST)
+	}
+	if (flag(FLAG_RECEIVED_CASTFORM)) {
+		setobjectmovementtype(LOCALID_SCIENTIST_WITH_SHINY_CASTFORM, MOVEMENT_TYPE_FACE_DOWN)
+	}
+	call(Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers)
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers {
+	if (!flag(FLAG_FOUND_SHOAL_CAVE_RESEARCHER)) {
+		setflag(FLAG_TEMP_HIDE_SHOAL_CAVE_RESEARCHER)
+	}
+	if (!flag(FLAG_FOUND_MT_PYRE_RESEARCHER)) {
+		setflag(FLAG_TEMP_HIDE_MT_PYRE_RESEARCHER)
+	}
+	if (!flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)) {
+		setflag(FLAG_TEMP_HIDE_MT_CHIMNEY_RESEARCHER)
+	}
+	return
+}
+
+script Route119_WeatherInstitute_2F_EventScript_FormerAquaMember {
+	lock
+	faceplayer
+	speakername("Tiberius")
+	msgbox(format("I always loved the ocean, so I joined Team Aqua.\p"
+		"Yep, that was a huge mistake - I left to work at the weather institute.\p"
+		"I almost had a heart attack when my former Boss showed up here!\p"
+		"I know he regrets his actions, but it gives me the creeps having him run around."), MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	closemessage
+	end
+}
+
+script Route119_WeatherInstitute_2F_EventScript_FormerMagmaMember {
+	lock
+	faceplayer
+	speakername("Keegan")
+	msgbox(format("I fell for Team Magma's recruitmen scheme…\p"
+		"The nerve, saying they wanted to conserve habitats for Pokémon!\p"
+		"And then having Groudon wreak havoc on the climate!\p"
+		"I'm glad Boss is making an effort to reverse the damage."), MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	closemessage
+	end
+}
+
+//used all over the place for the field researchers
+script Route119_WeatherInstitute_EventScript_Castform {
+	lock
+	faceplayer
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM)
+	speakername(CommonName_BufferedNameString1)
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	waitmoncry
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_CastformScientist {
+	lock
+	faceplayer
+	speakername("Milton")
+	msgbox(format("This Castform is very sensitive to atmospheric conditions.\p"
+		"It's in its normal form now, that means the rain will clear soon!"))
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_InstituteWorker2 {
+	//needs two more researchers (sandyshore and dewford? flags are already named)
+	//possibly make a sandy form castform and put a researcher in the desert too
+	lock
+	faceplayer
+	speakername(Route119_WeatherInstitute_1F_Text_Martin)
+	if (flag(FLAG_RECEIVED_CASTFORM)) {
+		msgbox(format("Our field researchers take Castform all over the region to check on the climate conditions.\p"
+			"They're a big help in predicting abnormal weather conditions!"))
+		closemessage
+		release
+		end
+	}
+	if (flag(FLAG_FOUND_VERDANTURF_RESEARCHER) && flag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER) 
+		&& flag(FLAG_FOUND_SHOAL_CAVE_RESEARCHER) && flag(FLAG_FOUND_ROUTE120_RESEARCHER)
+		&& flag(FLAG_FOUND_MT_PYRE_RESEARCHER) && flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)) {
+	//if (flag(FLAG_FOUND_VERDANTURF_RESEARCHER) && flag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER) 
+	//	&& flag(FLAG_FOUND_SHOAL_CAVE_RESEARCHER) && flag(FLAG_FOUND_ROUTE120_RESEARCHER)
+	//	&& flag(FLAG_FOUND_MT_PYRE_RESEARCHER) && flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)
+	//	&& flag(FLAG_FOUND_SANDYSHORE_RESEARCHER) && flag(FLAG_FOUND_DEWFORD_RESEARCHER)) {
+			goto(Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_GiveShinyCastform)
+	}
+	msgbox(format("The number of Castform at the institute has grown a lot after the weather crisis.\p"
+		"The ones you see here aren't even all of them!\p"
+		"I think we have about a dozen.\p"
+		"Our field researchers take them all over the region to check on the climate conditions.\p"
+		"Maybe you'll run into some of them!"))
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_GiveShinyCastform {
+	msgbox(format("It's really packed with all the Castform back at the institute.\p"
+		"I'm starting to think the others are right and we do have to many.\p"
+		"Hey, you're a trainer, right?\p"
+		"Do you want to take care of this funny-colored little guy?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		msgbox(format("You can always come back if you change your mind."))
+		closemessage
+		release
+		end
+	}
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CASTFORM_NORMAL)
+    givemon(SPECIES_CASTFORM, 30, item=ITEM_MYSTIC_WATER, 
+		move1=MOVE_WEATHER_BALL, move2=MOVE_SUNNY_DAY, move3=MOVE_RAIN_DANCE, move4=MOVE_HAIL, 
+		isShiny=TRUE)
+	switch (var(VAR_RESULT)) {
+		case MON_GIVEN_TO_PARTY:
+			speakername(NULL)
+			call(Route119_WeatherInstitute_1F_EventScript_ReceivedCastformFanfare)
+			speakername(Route119_WeatherInstitute_1F_Text_Martin)
+			msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ExplainCastform)
+			call(Common_EventScript_GetGiftMonPartySlot)
+			call(Common_EventScript_NameReceivedPartyMon)
+			goto(Route119_WeatherInstitute_1F_EventScript_ExplainCastform)
+		case MON_GIVEN_TO_PC:
+			speakername(NULL)
+			call(Route119_WeatherInstitute_1F_EventScript_ReceivedCastformFanfare)
+			speakername(Route119_WeatherInstitute_1F_Text_Martin)
+			msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_SendCastformToPC)
+			call(Common_EventScript_NameReceivedBoxMon)
+			goto(Route119_WeatherInstitute_1F_EventScript_SendCastformToPC)
+		case MON_CANT_GIVE:
+			msgbox(format("Oh wow, your PC is even more crowded than the institute!\p"
+				"Come back after you made some space."))
+			closemessage
+			release
+			end
+	}
+}
+
+script Route119_WeatherInstitute_1F_EventScript_SendCastformToPC {
+	speakername(NULL)
+	call(Common_EventScript_TransferredToPC)
+	goto(Route119_WeatherInstitute_1F_EventScript_ExplainCastform)
+}
+
+script Route119_WeatherInstitute_1F_EventScript_ReceivedCastformFanfare {
+    applymovement(LOCALID_SHINY_CASTFORM, EnterPokeballMovement)
+	waitmovement(0)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message("{PLAYER} received Castform!")
+	waitmessage
+	waitfanfare
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM_NORMAL)
+	return
+}
+
+script Route119_WeatherInstitute_1F_EventScript_ExplainCastform {
+	speakername(Route119_WeatherInstitute_1F_Text_Martin)
+	msgbox(	format("Like you probably saw, Castform changes its appearance and type with the weather.\p"
+		"It also knows the move Weather Ball.\p"
+		"That move doubles in power and has a different type with weather effects on the battlefield!"), MSGBOX_DEFAULT)
+	setflag(FLAG_RECEIVED_CASTFORM)
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_ShoalCaveResearcher {
+	lock
+	speakername("Javiera")
+	msgbox(format("Temperatures in Shoal Cave back below zero…\p"
+		"Cold enough to freeze my butt off.\p"
+		"Note: Bring thermos next time."))
+	closemessage
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher {
+	lock
+	faceplayer
+	speakername("Levi")
+	msgbox(format("So Castform doesn't have a fog form…\pI wonder if there's other forms we don't know about yet."))
+	closemessage
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_MtChimneyResearcher {
+	lock
+	faceplayer
+	speakername("Felicity")
+	msgbox(format("It's you! From Mount Chimney!\p"
+		"I should get some other clothes with a hood.\p"
+		"I really want to leave the time with Team Magma behind me…"))
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	release
+	end
+}
+
+text Route119_WeatherInstitute_1F_Text_Martin {
+	"Martin"
+}
+
+text Common_Text_Castform_Cry {
+	"Kyuuu!"
+}

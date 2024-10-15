@@ -1724,3 +1724,44 @@ SootopolisCity_Text_DazzledByMentor:
 	.string "WALLACE: I'm sure that you will be\n"
 	.string "dazzled by my mentor's breathtakingly\l"
 	.string "elegant battle style.$"
+
+SootopolisCity_EventScript_FieldResearcher::
+	lock
+	faceplayer
+	speakername SootopolisCity_EventScript_FieldResearcher_Text_0
+	msgbox SootopolisCity_EventScript_FieldResearcher_Text_1
+	applymovement 19, Common_Movement_WalkInPlaceLeft
+	msgbox SootopolisCity_EventScript_FieldResearcher_Text_2
+	waitmovement 0
+	closemessage
+	turnobject 20, DIR_EAST
+	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM
+	speakername CommonName_BufferedNameString1
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_FOUND_SOOTOPOLIS_RESEARCHER
+	removeobject 19
+	removeobject 20
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+SootopolisCity_EventScript_FieldResearcher_Text_0:
+	.string "Silvia$"
+
+SootopolisCity_EventScript_FieldResearcher_Text_1:
+	.string "Hello!\p"
+	.string "Have you ever seen a Castform in its\n"
+	.string "Sunny form?\p"
+	.string "You can see it in sunny places, or if you\n"
+	.string "use Sunny Day in battle.$"
+
+SootopolisCity_EventScript_FieldResearcher_Text_2:
+	.string "Let's go back to the weather institute,\n"
+	.string "Castform.\p"
+	.string "Time to get used to your Rainy form\n"
+	.string "again!$"

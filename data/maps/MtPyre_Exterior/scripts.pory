@@ -26,3 +26,35 @@ MtPyre_Exterior_EventScript_SunTrigger::
 	doweather
 	end
 `
+
+const LOCALID_CASTFORM = 3
+const LOCALID_FIELD_RESEARCHER = 4
+
+script MtPyre_Exterior_EventScript_FieldResearcher {
+	lock
+	faceplayer
+	speakername("Levi")
+	msgbox(format("Mount Pyre's summit is always covered in clouds.\p"
+		"We're actually standing inside of one right now!"))
+	applymovement(LOCALID_FIELD_RESEARCHER, Common_Movement_WalkInPlaceLeft)
+	msgbox(format("Castform is in its normal form right now...\p"
+		"I'm always wondering if there's forms we don't know of yet.\p"
+		"Could there be a fog form or a thunderstorm form?\p"
+		"Anyway, let's go back to the institute, Castform!"))
+	waitmovement(0)
+	closemessage
+	turnobject(LOCALID_CASTFORM, DIR_EAST)
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM)
+	speakername(CommonName_BufferedNameString1)
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	setflag(FLAG_FOUND_MT_PYRE_RESEARCHER)
+	removeobject(LOCALID_FIELD_RESEARCHER)
+	removeobject(LOCALID_CASTFORM)
+	delay(16)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}

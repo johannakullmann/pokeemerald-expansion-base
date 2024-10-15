@@ -897,6 +897,32 @@ JaggedPass_EventScript_Grunt_4::
 	return
 
 
+JaggedPass_EventScript_FieldResearcher::
+	lock
+	speakername JaggedPass_EventScript_FieldResearcher_Text_0
+	msgbox JaggedPass_EventScript_FieldResearcher_Text_1
+	faceplayer
+	msgbox JaggedPass_EventScript_FieldResearcher_Text_2
+	applymovement 29, Common_Movement_WalkInPlaceDown
+	msgbox JaggedPass_EventScript_FieldResearcher_Text_3
+	waitmovement 0
+	closemessage
+	turnobject 30, DIR_NORTH
+	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM
+	speakername CommonName_BufferedNameString1
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_FOUND_MT_CHIMNEY_RESEARCHER
+	removeobject 29
+	removeobject 30
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
 JaggedPass_Movement_JumpInPlaceLeftTwice:
 	jump_in_place_left
 	jump_in_place_left
@@ -1437,6 +1463,30 @@ JaggedPass_EventScript_Grunt_4_Text_2:
 	.string "Aaargh! Losing didn't help with my\n"
 	.string "frustration at all!$"
 
+JaggedPass_EventScript_FieldResearcher_Text_0:
+	.string "Felicity$"
+
+JaggedPass_EventScript_FieldResearcher_Text_1:
+	.string "Hmmm, you'd think Castform would be in\n"
+	.string "its fire form so close to the volcano…$"
+
+JaggedPass_EventScript_FieldResearcher_Text_2:
+	.string "What…? Team Magma? Me?\p"
+	.string "Oh. Yea, on second thought, I see why\n"
+	.string "you'd think that.\p"
+	.string "I was with Team Magma once, that's\n"
+	.string "true…\p"
+	.string "But I'm working at the weather\n"
+	.string "institute now.\p"
+	.string "My old uniform is the only thing I had\n"
+	.string "with a hood.\p"
+	.string "The volcanic ash makes your scalp all\n"
+	.string "itchy! It's the worst!$"
+
+JaggedPass_EventScript_FieldResearcher_Text_3:
+	.string "Come on, Castform, we're all finished\n"
+	.string "here!$"
+
 JaggedPass_Text_FootprintNerdHey::
 	.string "Hey!\p"
 	.string "Hey hey!$"
@@ -1463,7 +1513,7 @@ JaggedPass_Text_FootprintNerdStory::
 	.string "The Numel, disoriented, gets up and\n"
 	.string "tries to run away.\p"
 	.string "The Poochyena prepares a second\n"
-	.string "attack…\p"
+	.string "attack\p"
 	.string "But it gets distracted by something\n"
 	.string "else and runs off.$"
 

@@ -138,3 +138,7 @@ Common_Movement_WalkRight2:
 	walk_right
 	walk_right
 	step_end
+
+Common_Movement_JumpInPlaceDown:
+	jump_in_place_down
+	step_end

@@ -1726,3 +1726,32 @@ SootopolisCity_Text_DazzledByMentor:
 	.string "dazzled by my mentor's breathtakingly\l"
 	.string "elegant battle style.$"
 `
+const LOCALID_FIELD_RESEARCHER = 19
+const LOCALID_CASTFORM = 20
+
+script SootopolisCity_EventScript_FieldResearcher {
+	lock
+	faceplayer
+	speakername("Silvia")
+	msgbox(format("Hello!\pHave you ever seen a Castform in its Sunny form?\p"
+		"You can see it in sunny places, or if you use Sunny Day in battle."))
+	applymovement(LOCALID_FIELD_RESEARCHER, Common_Movement_WalkInPlaceLeft)
+	msgbox(format("Let's go back to the weather institute, Castform.\p"
+		"Time to get used to your Rainy form again!"))
+	waitmovement(0)
+	closemessage
+	turnobject(LOCALID_CASTFORM, DIR_EAST)
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM)
+	speakername(CommonName_BufferedNameString1)
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	setflag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER)
+	removeobject(LOCALID_FIELD_RESEARCHER)
+	removeobject(LOCALID_CASTFORM)
+	delay(16)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}

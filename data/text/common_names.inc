@@ -70,3 +70,9 @@ CommonName_Poochyena:
 
 CommonName_BufferedNameString1:
 	.string " {STR_VAR_1}$"
+
+CommonName_Archie:
+	.string "Archie$"
+
+CommonName_Maxie:
+	.string "Maxie$"

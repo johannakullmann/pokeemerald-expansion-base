@@ -126,3 +126,44 @@ VerdanturfTown_Text_RusturfTunnelSign:
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
 `
+const LOCALID_FIELD_RESEARCHER_BOY = 5
+const LOCALID_CASTFORM = 6
+
+script VerdanturfTown_EventScript_FieldResearcherBoy {
+	lock
+	faceplayer
+	speakername("Trevor")
+	msgbox(format("I wanna be a researcher when I grow up, just like my dad!\p"
+		"He works at the weather in… instu…\p"
+		"… at the weather instutut!\p"
+		"Look, he even allowed me to take Bubbles with me!\p"
+		"I'm taking notes all its form changes!"))
+	applymovement(LOCALID_FIELD_RESEARCHER_BOY, Common_Movement_WalkInPlaceRight)
+	msgbox(format("Come on, Bubbles! Let's go!"))
+	waitmovement(0)
+	closemessage
+	turnobject(LOCALID_CASTFORM, DIR_WEST)
+	speakername("Bubbles")
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	setflag(FLAG_FOUND_VERDANTURF_RESEARCHER)
+	removeobject(LOCALID_FIELD_RESEARCHER_BOY)
+	removeobject(LOCALID_CASTFORM)
+	delay(16)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
+
+script VerdanturfTown_EventScript_Castform {
+	lock
+	faceplayer
+	speakername("Bubbles")
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	release
+	end
+}

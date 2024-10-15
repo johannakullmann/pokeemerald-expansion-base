@@ -612,3 +612,23 @@ Route119_Text_TrainerTipsDecoration:
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
+
+Route119_EventScript_CastformScientist::
+	lock
+	faceplayer
+	speakername Route119_EventScript_CastformScientist_Text_0
+	msgbox Route119_EventScript_CastformScientist_Text_1
+	closemessage
+	turnobject VAR_LAST_TALKED, DIR_SOUTH
+	release
+	end
+
+
+Route119_EventScript_CastformScientist_Text_0:
+	.string "Milton$"
+
+Route119_EventScript_CastformScientist_Text_1:
+	.string "Castform's appearance depends on\n"
+	.string "atmospheric conditions.\p"
+	.string "Very sensitive individuals can even\n"
+	.string "predict the weather hours in advance!$"

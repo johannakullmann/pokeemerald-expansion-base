@@ -124,3 +124,56 @@ VerdanturfTown_Text_RusturfTunnelSign:
 	.string "“Linking RUSTBORO and VERDANTURF\p"
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
+
+VerdanturfTown_EventScript_FieldResearcherBoy::
+	lock
+	faceplayer
+	speakername VerdanturfTown_EventScript_FieldResearcherBoy_Text_0
+	msgbox VerdanturfTown_EventScript_FieldResearcherBoy_Text_1
+	applymovement 5, Common_Movement_WalkInPlaceRight
+	msgbox VerdanturfTown_EventScript_FieldResearcherBoy_Text_2
+	waitmovement 0
+	closemessage
+	turnobject 6, DIR_WEST
+	speakername VerdanturfTown_EventScript_FieldResearcherBoy_Text_3
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_FOUND_VERDANTURF_RESEARCHER
+	removeobject 5
+	removeobject 6
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+VerdanturfTown_EventScript_Castform::
+	lock
+	faceplayer
+	speakername VerdanturfTown_EventScript_FieldResearcherBoy_Text_3
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	release
+	end
+
+
+VerdanturfTown_EventScript_FieldResearcherBoy_Text_0:
+	.string "Trevor$"
+
+VerdanturfTown_EventScript_FieldResearcherBoy_Text_1:
+	.string "I wanna be a researcher when I grow up,\n"
+	.string "just like my dad!\p"
+	.string "He works at the weather in… instu…\p"
+	.string "… at the weather instutut!\p"
+	.string "Look, he even allowed me to take\n"
+	.string "Bubbles with me!\p"
+	.string "I'm taking notes all its form changes!$"
+
+VerdanturfTown_EventScript_FieldResearcherBoy_Text_2:
+	.string "Come on, Bubbles! Let's go!$"
+
+VerdanturfTown_EventScript_FieldResearcherBoy_Text_3:
+	.string "Bubbles$"

@@ -614,3 +614,14 @@ Route119_Text_TrainerTipsDecoration:
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
 `
+
+script Route119_EventScript_CastformScientist {
+	lock
+	faceplayer
+	speakername("Milton")
+	msgbox(format("Castform's appearance depends on atmospheric conditions.\pVery sensitive individuals can even predict the weather hours in advance!"))
+	closemessage
+	turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+	release
+	end
+}

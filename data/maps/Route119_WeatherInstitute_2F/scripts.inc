@@ -1,135 +1,6 @@
-.set LOCALID_GRUNT_1, 1
-.set LOCALID_GRUNT_2, 2
-.set LOCALID_SHELLY, 3
-.set LOCALID_SCIENTIST, 5
-.set LOCALID_GRUNT_3, 7
-.set LOCALID_GRUNT_4, 8
-
 Route119_WeatherInstitute_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_2F_OnTransition
 	.byte 0
-
-Route119_WeatherInstitute_2F_OnTransition:
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone
-	call_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear
-	end
-
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere::
-	setobjectxyperm LOCALID_SCIENTIST, 1, 6
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone::
-	setobjectxyperm LOCALID_SCIENTIST, 4, 6
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
-Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear::
-	setobjectxyperm LOCALID_SCIENTIST, 2, 2
-	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_UP
-	return
-
-Route119_WeatherInstitute_2F_EventScript_Grunt5::
-	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_5, Route119_WeatherInstitute_2F_Text_Grunt5Intro, Route119_WeatherInstitute_2F_Text_Grunt5Defeat
-	msgbox Route119_WeatherInstitute_2F_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_2F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_2, Route119_WeatherInstitute_2F_Text_Grunt2Intro, Route119_WeatherInstitute_2F_Text_Grunt2Defeat
-	msgbox Route119_WeatherInstitute_2F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_2F_EventScript_Grunt3::
-	trainerbattle_single TRAINER_GRUNT_WEATHER_INST_3, Route119_WeatherInstitute_2F_Text_Grunt3Intro, Route119_WeatherInstitute_2F_Text_Grunt3Defeat
-	msgbox Route119_WeatherInstitute_2F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_2F_EventScript_Shelly::
-	trainerbattle_single TRAINER_SHELLY_WEATHER_INSTITUTE, Route119_WeatherInstitute_2F_Text_ShellyIntro, Route119_WeatherInstitute_2F_Text_ShellyDefeat, Route119_WeatherInstitute_2F_EventScript_ShellyDefeated
-	msgbox Route119_WeatherInstitute_2F_Text_ShellyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ShellyDefeated::
-	msgbox Route119_WeatherInstitute_2F_Text_ShellyPostBattle, MSGBOX_DEFAULT
-	closemessage
-	addobject LOCALID_GRUNT_3
-	applymovement LOCALID_GRUNT_3, Route119_WeatherInstitute_2F_Movement_GruntApproachShelly
-	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_ShovePlayerOutOfWay
-	waitmovement 0
-	msgbox Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy, MSGBOX_DEFAULT
-	closemessage
-	playse SE_PIN
-	applymovement LOCALID_SHELLY, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_SHELLY, Common_Movement_Delay48
-	waitmovement 0
-	msgbox Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre, MSGBOX_DEFAULT
-	closemessage
-	setvar VAR_WEATHER_INSTITUTE_STATE, 1
-	clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
-	fadedefaultbgm
-	fadescreen FADE_TO_BLACK
-	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
-	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	removeobject LOCALID_SHELLY
-	removeobject LOCALID_GRUNT_4
-	removeobject LOCALID_GRUNT_3
-	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerReturnToPosition
-	waitmovement 0
-	fadescreen FADE_FROM_BLACK
-	applymovement LOCALID_SCIENTIST, Route119_WeatherInstitute_2F_Movement_ScientistApproachPlayer
-	waitmovement 0
-	copyobjectxytoperm LOCALID_SCIENTIST
-	goto Route119_WeatherInstitute_2F_EventScript_ReceiveCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastform::
-	msgbox Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon, MSGBOX_DEFAULT
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CASTFORM_NORMAL
-	givemon SPECIES_CASTFORM_NORMAL, 25, ITEM_MYSTIC_WATER
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route119_WeatherInstitute_2F_EventScript_ReceiveCastformParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route119_WeatherInstitute_2F_EventScript_ReceiveCastformPC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastformParty::
-	call Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceiveCastformPC::
-	call Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route119_WeatherInstitute_2F_EventScript_SendCastformToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto Route119_WeatherInstitute_2F_EventScript_SendCastformToPC
-	end
-
-Route119_WeatherInstitute_2F_EventScript_SendCastformToPC::
-	call Common_EventScript_TransferredToPC
-	goto Route119_WeatherInstitute_2F_EventScript_ExplainCastform
-	end
-
-Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare::
-	playfanfare MUS_OBTAIN_ITEM
-	message Route119_WeatherInstitute_2F_Text_PlayerReceivedCastform
-	waitmessage
-	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM_NORMAL
-	return
-
-Route119_WeatherInstitute_2F_EventScript_ExplainCastform::
-	msgbox Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_CASTFORM
-	release
-	end
 
 Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather::
 	goto_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather
@@ -206,8 +77,7 @@ Route119_WeatherInstitute_2F_Movement_ScientistApproachPlayer:
 Route119_WeatherInstitute_2F_EventScript_WeatherScientist::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_CASTFORM, Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather
-	goto Route119_WeatherInstitute_2F_EventScript_ReceiveCastform
+	goto(Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather)
 	end
 
 Route119_WeatherInstitute_2F_Text_Grunt2Intro:
@@ -290,20 +160,6 @@ Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon:
 	.string "It might be an odd way of thanking you,\n"
 	.string "but take this POKéMON.$"
 
-@ Unused
-Route119_WeatherInstitute_2F_Text_NoRoomForPokemon:
-	.string "Hm? You don't seem to have any room\n"
-	.string "for this POKéMON.$"
-
-Route119_WeatherInstitute_2F_Text_PlayerReceivedCastform:
-	.string "{PLAYER} received CASTFORM!$"
-
-Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather:
-	.string "That POKéMON changes shape according\n"
-	.string "to the weather conditions.\p"
-	.string "There're plenty of them in the\n"
-	.string "INSTITUTE--go ahead and take it.$"
-
 Route119_WeatherInstitute_2F_Text_ChangingWeatherRidiculous:
 	.string "I've been researching rain for many\n"
 	.string "years, but it's ridiculous to think that\l"
@@ -330,3 +186,287 @@ Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
 	.string "no longer being reported.\p"
 	.string "The occasional rainfall is a blessing,\n"
 	.string "really.$"
+
+Route119_WeatherInstitute_2F_OnTransition::
+	goto_if_unset FLAG_DELIVERED_MAYS_PACKAGE, Route119_WeatherInstitute_2F_OnTransition_2
+	setflag FLAG_TEMP_4
+Route119_WeatherInstitute_2F_OnTransition_1:
+	call Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers
+	end
+
+Route119_WeatherInstitute_2F_OnTransition_2:
+	call Route119_WeatherInstitute_2F_EventScript_SetupArchieMaxieScene
+	goto Route119_WeatherInstitute_2F_OnTransition_1
+
+
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers::
+	goto_if_unset FLAG_FOUND_ROUTE120_RESEARCHER, Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_2
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_1:
+	goto_if_unset FLAG_FOUND_VERDANTURF_RESEARCHER, Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_5
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_4:
+	goto_if_unset FLAG_FOUND_SOOTOPOLIS_RESEARCHER, Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_7
+	return
+
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_2:
+	setflag FLAG_TEMP_5
+	goto Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_1
+
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_5:
+	setflag FLAG_TEMP_6
+	goto Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_4
+
+Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers_7:
+	setflag FLAG_TEMP_7
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_SetupArchieMaxieScene::
+	setobjectxyperm 2, 14, 6
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_Archie::
+	goto_if_unset FLAG_DELIVERED_MAYS_PACKAGE, Route119_WeatherInstitute_2F_EventScript_Archie_2
+Route119_WeatherInstitute_2F_EventScript_Archie_1:
+	lock
+	faceplayer
+	speakername CommonName_Archie
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_Archie_5
+	bufferstring STR_VAR_1, Route119_WeatherInstitute_2F_EventScript_Archie_Text_1
+Route119_WeatherInstitute_2F_EventScript_Archie_4:
+	msgbox Route119_WeatherInstitute_2F_EventScript_Archie_Text_2
+	closemessage
+	turnobject 2, DIR_NORTH
+	release
+	end
+
+Route119_WeatherInstitute_2F_EventScript_Archie_2:
+	goto Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage
+	goto Route119_WeatherInstitute_2F_EventScript_Archie_1
+
+Route119_WeatherInstitute_2F_EventScript_Archie_5:
+	bufferstring STR_VAR_1, Route119_WeatherInstitute_2F_EventScript_Archie_Text_0
+	goto Route119_WeatherInstitute_2F_EventScript_Archie_4
+
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage::
+	lock
+	faceplayer
+	speakername CommonName_Archie
+	msgbox Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_0, MSGBOX_DEFAULT
+	closemessage
+	delay 36
+	applymovement 2, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_1
+	closemessage
+	applymovement 2, Route119_WeatherInstitute_2F_ArchieReturnToWorkplace
+	delay 30
+	speakername CommonName_Maxie
+	msgbox Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_2
+	closemessage
+	waitmovement 0
+	applymovement 3, Route119_WeatherInstitute_2F_MaxieApproachPlayer
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_3
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
+	speakername NULL
+	setvar VAR_0x8004, ITEM_MAYS_PACKAGE
+	call Common_EventScript_PlayerHandedOverTheItem
+	speakername CommonName_Maxie
+	msgbox Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_4
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_PlayerMakeRoom
+	applymovement 3, Route119_WeatherInstitute_2F_MaxieLeave
+	waitmovement 3
+	playse SE_FU_ZAKU
+	removeobject 3
+	waitse
+	setobjectxyperm 2, 2, 2
+	removeobject 2
+	addobject 2
+	setflag FLAG_HIDE_ROUTE_119_CASTFORM_SCIENTIST
+	setflag FLAG_DELIVERED_MAYS_PACKAGE
+	release
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_Route120FieldResearcher::
+	lock
+	msgbox Route119_WeatherInstitute_2F_EventScript_Route120FieldResearcher_Text_0
+	closemessage
+	release
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher::
+	lock
+	speakername Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_0
+	msgbox Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_1
+	closemessage
+	applymovement 4, Common_Movement_JumpInPlaceDown
+	waitmovement 0
+	speakername Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_2
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	waitmoncry
+	release
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_SootopolisFieldResearcher::
+	lock
+	speakername Route119_WeatherInstitute_2F_EventScript_SootopolisFieldResearcher_Text_0
+	msgbox Route119_WeatherInstitute_2F_EventScript_SootopolisFieldResearcher_Text_1
+	closemessage
+	release
+	end
+
+
+Route119_WeatherInstitute_2F_EventScript_ExpositionManiac::
+	lock
+	faceplayer
+	speakername Route119_WeatherInstitute_2F_EventScript_ExpositionManiac_Text_0
+	msgbox Route119_WeatherInstitute_2F_EventScript_ExpositionManiac_Text_1
+	closemessage
+	release
+	end
+
+
+Route119_WeatherInstitute_2F_ArchieApproachPlayer:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_ArchieReturnToWorkplace:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route119_WeatherInstitute_2F_MaxieApproachPlayer:
+	walk_fast_up
+	walk_fast_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_PlayerMakeRoom:
+	walk_up
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_right
+	step_end
+
+Route119_WeatherInstitute_2F_MaxieLeave:
+	delay_8
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route119_WeatherInstitute_2F_EventScript_Archie_Text_0:
+	.string "boy$"
+
+Route119_WeatherInstitute_2F_EventScript_Archie_Text_1:
+	.string "girl$"
+
+Route119_WeatherInstitute_2F_EventScript_Archie_Text_2:
+	.string "Hm?\n"
+	.string "Oh, the errand {STR_VAR_1}.\p"
+	.string "Yes, I used to be the leader of Team\n"
+	.string "Aqua.\p"
+	.string "I have done some bad things in the\n"
+	.string "past, now it's my responsibility to fix\l"
+	.string "that.$"
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_0:
+	.string "Hm?\n"
+	.string "And who might you be?\p"
+	.string "…\p"
+	.string "{PLAYER}? And you have something to\n"
+	.string "deliver? From Lavaridge Town's Gym\l"
+	.string "Leader?\p"
+	.string "Let me see…$"
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_1:
+	.string "Maxie!\n"
+	.string "Here's more work for you!\p"
+	.string "Your minions are stirring up trouble\n"
+	.string "again!$"
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_2:
+	.string "For the last time Archie, stop calling\n"
+	.string "them my minions!\p"
+	.string "You don't have any control over what's\n"
+	.string "left of Team Aqua either!$"
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_3:
+	.string "So, what do you have for me?$"
+
+Route119_WeatherInstitute_2F_EventScript_ArchieDeliverPackage_Text_4:
+	.string "…\p"
+	.string "That's… not good.\p"
+	.string "Would you mind letting me through?$"
+
+Route119_WeatherInstitute_2F_EventScript_Route120FieldResearcher_Text_0:
+	.string "Hmmm, the amount of rain on Route 120\n"
+	.string "over the past year is…\p"
+	.string "Yes, that sounds about right…$"
+
+Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_0:
+	.string "Trevor$"
+
+Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_1:
+	.string "You're so high up, Bubbles!$"
+
+Route119_WeatherInstitute_2F_EventScript_VerdanturfFieldResearcher_Text_2:
+	.string "Bubbles$"
+
+Route119_WeatherInstitute_2F_EventScript_SootopolisFieldResearcher_Text_0:
+	.string "Silvia$"
+
+Route119_WeatherInstitute_2F_EventScript_SootopolisFieldResearcher_Text_1:
+	.string "Ah, that trip to Sootopolis City was\n"
+	.string "like a vacation…\p"
+	.string "Why does the institute have to be in\n"
+	.string "such a perpetually rainy place?$"
+
+Route119_WeatherInstitute_2F_EventScript_ExpositionManiac_Text_0:
+	.string "Florent$"
+
+Route119_WeatherInstitute_2F_EventScript_ExpositionManiac_Text_1:
+	.string "There's so much to do…\p"
+	.string "After Groudon and Kyogre woke up, the\n"
+	.string "climate went wild all over the region.\p"
+	.string "We're doing our best to predict\n"
+	.string "abnormal weather events with\l"
+	.string "Castform's help.$"

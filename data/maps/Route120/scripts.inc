@@ -430,3 +430,34 @@ Route120_Text_RouteSignFortree:
 Route120_Text_RouteSign121:
 	.string "{RIGHT_ARROW} ROUTE 121\n"
 	.string "{LEFT_ARROW} ROUTE 120$"
+
+Route120_EventScript_FieldResearcher::
+	lock
+	speakername Route120_EventScript_FieldResearcher_Text_0
+	msgbox Route120_EventScript_FieldResearcher_Text_1
+	closemessage
+	turnobject 46, DIR_WEST
+	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM
+	speakername CommonName_BufferedNameString1
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	waitmoncry
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_FOUND_ROUTE120_RESEARCHER
+	removeobject 45
+	removeobject 46
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
+Route120_EventScript_FieldResearcher_Text_0:
+	.string "Herbert$"
+
+Route120_EventScript_FieldResearcher_Text_1:
+	.string "Tons of rain again on Route 120…\p"
+	.string "Nothing out of the ordinary.\p"
+	.string "Alright, Castform, let's go back to the\n"
+	.string "Weather Institute!$"

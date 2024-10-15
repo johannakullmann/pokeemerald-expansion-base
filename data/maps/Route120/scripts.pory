@@ -432,3 +432,28 @@ Route120_Text_RouteSign121:
 	.string "{RIGHT_ARROW} ROUTE 121\n"
 	.string "{LEFT_ARROW} ROUTE 120$"
 `
+const LOCALID_FIELD_RESEARCHER = 45
+const LOCALID_CASTFORM = 46
+
+script Route120_EventScript_FieldResearcher {
+	lock
+	speakername("Herbert")
+	msgbox(format("Tons of rain again on Route 120…\pNothing out of the ordinary.\p"
+		"Alright, Castform, let's go back to the Weather Institute!"))
+	closemessage
+	turnobject(LOCALID_CASTFORM, DIR_WEST)
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM)
+	speakername(CommonName_BufferedNameString1)
+	playmoncry(SPECIES_CASTFORM, CRY_MODE_NORMAL)
+	msgbox(Common_Text_Castform_Cry)
+	closemessage
+	waitmoncry
+	fadescreen(FADE_TO_BLACK)
+	setflag(FLAG_FOUND_ROUTE120_RESEARCHER)
+	removeobject(LOCALID_FIELD_RESEARCHER)
+	removeobject(LOCALID_CASTFORM)
+	delay(16)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
