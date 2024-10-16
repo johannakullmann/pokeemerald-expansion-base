@@ -20686,6 +20686,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .contestEffect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
         .contestCategory = CONTEST_CATEGORY_COOL,
+        .battleAnimScript = Move_KICK,
     },
 
     [MOVE_PEBBLE_SHOT] =
@@ -20704,6 +20705,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .contestEffect = CONTEST_EFFECT_BETTER_IF_SAME_TYPE,
         .contestCategory = CONTEST_CATEGORY_SMART,
+        .battleAnimScript = Move_PEBBLE_SHOT,
     },
 
     [MOVE_CRYSTAL_BARRAGE] =
@@ -20723,7 +20725,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_DEF_SPDEF_DOWN,
             .self = TRUE,
-        })
+        }),
+        .battleAnimScript = Move_CRYSTAL_BARRAGE,
     },
 
     // Z-Moves

@@ -22474,7 +22474,7 @@ MudSlapMud:
 	delay 2
 	return
 
-Move_PEBBLE_SHOT:
+Move_PEBBLE_SHOT::
 	loadspritegfx ANIM_TAG_BLACK_BALL
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_ROCKS
@@ -22485,7 +22485,7 @@ Move_PEBBLE_SHOT:
 	waitforvisualfinish
 	end
 
-Move_CRYSTAL_BARRAGE:
+Move_CRYSTAL_BARRAGE::
 	loadspritegfx ANIM_TAG_ROCKS
 	monbg ANIM_DEF_PARTNER
 	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 7, 1, 11, 1
@@ -22509,7 +22509,7 @@ Move_CRYSTAL_BARRAGE:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
-Move_KICK:
+Move_KICK::
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
