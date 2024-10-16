@@ -17,13 +17,6 @@ Route119_EventScript_TryRemoveKecleon::
 	removeobject VAR_LAST_TALKED
 	return
 
-Route119_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
-	special SetRoute119Weather
-	end
-
 Route119_EventScript_MoveInstituteWorkersDownstairs::
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
 	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
@@ -613,6 +606,24 @@ Route119_Text_TrainerTipsDecoration:
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
 
+Route119_EventScript_SetupCastformForms::
+	specialvar VAR_RESULT, GetRoute119NextWeather
+	switch VAR_RESULT
+	case WEATHER_RAIN, Route119_EventScript_SetupCastformForms_3
+	case WEATHER_RAIN_THUNDERSTORM, Route119_EventScript_SetupCastformForms_3
+	case WEATHER_SUNNY, Route119_EventScript_SetupCastformForms_4
+Route119_EventScript_SetupCastformForms_1:
+	return
+
+Route119_EventScript_SetupCastformForms_3:
+	setvar VAR_OBJ_GFX_ID_4, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	goto Route119_EventScript_SetupCastformForms_1
+
+Route119_EventScript_SetupCastformForms_4:
+	setvar VAR_OBJ_GFX_ID_4, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	goto Route119_EventScript_SetupCastformForms_1
+
+
 Route119_EventScript_CastformScientist::
 	lock
 	faceplayer
@@ -624,11 +635,20 @@ Route119_EventScript_CastformScientist::
 	end
 
 
+Route119_OnTransition::
+	call Route119_EventScript_SetupCastformForms
+	special SetRoute119Weather
+	end
+
+
 Route119_EventScript_CastformScientist_Text_0:
 	.string "Milton$"
 
 Route119_EventScript_CastformScientist_Text_1:
 	.string "Castform's appearance depends on\n"
 	.string "atmospheric conditions.\p"
-	.string "Very sensitive individuals can even\n"
-	.string "predict the weather hours in advance!$"
+	.string "Very sensitive individuals like this one\n"
+	.string "can even predict the weather hours in\l"
+	.string "advance!\p"
+	.string "They're invaluable for our research at\n"
+	.string "the weather institute.$"

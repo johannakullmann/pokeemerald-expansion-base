@@ -193,11 +193,25 @@ const LOCALID_SCIENTIST = 1
 const LOCALID_ARCHIE = 2
 const LOCALID_MAXIE = 3
 const LOCALID_VERDANTURF_CASTFORM = 4
+
 const FLAG_TEMP_HIDE_MAXIE = FLAG_TEMP_4
+
+const CASTFORM_RAINY_GFX_ID = 1564
+const CASTFORM_RAINY_SHINY_GFX_ID = CASTFORM_RAINY_GFX_ID + 5000
+const CASTFORM_NORMAL_GFX_ID = 863
+const CASTFORM_NORMAL_SHINY_GFX_ID = CASTFORM_NORMAL_GFX_ID + 5000
 
 const FLAG_TEMP_HIDE_ROUTE120_RESEARCHER = FLAG_TEMP_5
 const FLAG_TEMP_HIDE_VERDANTURF_RESEARCHER = FLAG_TEMP_6
 const FLAG_TEMP_HIDE_SOOTOPOLIS_RESEARCHER = FLAG_TEMP_7
+const FLAG_TEMP_HIDE_DESERT_RESEARCHER = FLAG_TEMP_8
+
+const CASTFORM_SENSITIVE_GFX = VAR_OBJ_GFX_ID_0
+const CASTFORM_1_GFX = VAR_OBJ_GFX_ID_1
+const CASTFORM_2_GFX = VAR_OBJ_GFX_ID_2
+const CASTFORM_3_GFX = VAR_OBJ_GFX_ID_3
+const CASTFORM_4_GFX = VAR_OBJ_GFX_ID_4
+const CASTFORM_5_GFX = VAR_OBJ_GFX_ID_5
 
 
 script Route119_WeatherInstitute_2F_OnTransition {
@@ -208,6 +222,7 @@ script Route119_WeatherInstitute_2F_OnTransition {
 		setflag(FLAG_TEMP_HIDE_MAXIE)
 	}
 	call(Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers)
+	call(Route119_WeatherInstitute_2F_EventScript_SetupCastformForms)
 	end
 }
 
@@ -221,6 +236,38 @@ script Route119_WeatherInstitute_2F_EventScript_SetupFieldResearchers {
 	if (!flag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER)) {
 		setflag(FLAG_TEMP_HIDE_SOOTOPOLIS_RESEARCHER)
 	}
+	if (!flag(FLAG_FOUND_DESERT_RESEARCHER)) {
+		setflag(FLAG_TEMP_HIDE_DESERT_RESEARCHER)
+	}
+	return
+}
+
+script Route119_WeatherInstitute_2F_EventScript_SetupCastformForms {
+	specialvar(VAR_RESULT, GetRoute119Weather) 
+	switch(var(VAR_RESULT)){
+		case WEATHER_RAIN:
+		case WEATHER_RAIN_THUNDERSTORM:
+			setvar(CASTFORM_1_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_2_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_3_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_4_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_5_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+		case WEATHER_SUNNY:
+			setvar(CASTFORM_1_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_2_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_3_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_4_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_5_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+	}
+	specialvar(VAR_RESULT, GetRoute119NextWeather)
+	switch(var(VAR_RESULT)) {
+		case WEATHER_RAIN:
+		case WEATHER_RAIN_THUNDERSTORM:
+			setvar(CASTFORM_SENSITIVE_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+		case WEATHER_SUNNY:
+			setvar(CASTFORM_SENSITIVE_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+	}
+	return
 }
 
 script Route119_WeatherInstitute_2F_EventScript_SetupArchieMaxieScene {
@@ -339,6 +386,19 @@ script Route119_WeatherInstitute_2F_EventScript_ExpositionManiac {
 	msgbox(format("There's so much to do…\p"
 		"After Groudon and Kyogre woke up, the climate went wild all over the region.\p"
 		"We're doing our best to predict abnormal weather events with Castform's help."))
+	closemessage
+	release
+	end
+}
+
+script Route119_WeatherInstitute_2F_EventScript_DesertFieldResearcher {
+	lock
+	faceplayer
+	speakername("Irwin")
+	msgbox(format("We thought we knew all about Castform's forms.\p"
+		"But the existence of a Sandy form…\p"
+		"I swear we tested this before, too…\p"
+		"Did the reappearance of Groudon and Kyogre change something?\p"))
 	closemessage
 	release
 	end

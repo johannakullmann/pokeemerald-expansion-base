@@ -110,6 +110,7 @@ Route119_WeatherInstitute_1F_OnTransition_1:
 	goto_if_set FLAG_RECEIVED_CASTFORM, Route119_WeatherInstitute_1F_OnTransition_5
 Route119_WeatherInstitute_1F_OnTransition_4:
 	call Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers
+	call Route119_WeatherInstitute_1F_EventScript_SetupCastformForms
 	end
 
 Route119_WeatherInstitute_1F_OnTransition_2:
@@ -141,6 +142,45 @@ Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers_5:
 Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers_8:
 	setflag FLAG_TEMP_7
 	goto Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers_7
+
+
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms::
+	specialvar VAR_RESULT, GetRoute119Weather
+	switch VAR_RESULT
+	case WEATHER_RAIN, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_3
+	case WEATHER_RAIN_THUNDERSTORM, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_3
+	case WEATHER_SUNNY, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_4
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_1:
+	specialvar VAR_RESULT, GetRoute119NextWeather
+	switch VAR_RESULT
+	case WEATHER_RAIN, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_6
+	case WEATHER_RAIN_THUNDERSTORM, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_6
+	case WEATHER_SUNNY, Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_7
+	return
+
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_3:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES_SHINY ( CASTFORM_RAINY )
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	setvar VAR_OBJ_GFX_ID_4, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	setvar VAR_OBJ_GFX_ID_5, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	goto Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_1
+
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_4:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES_SHINY ( CASTFORM )
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	setvar VAR_OBJ_GFX_ID_4, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	setvar VAR_OBJ_GFX_ID_5, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	goto Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_1
+
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_6:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CASTFORM_RAINY )
+	return
+
+Route119_WeatherInstitute_1F_EventScript_SetupCastformForms_7:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CASTFORM )
+	return
 
 
 Route119_WeatherInstitute_2F_EventScript_FormerAquaMember::
@@ -180,53 +220,81 @@ Route119_WeatherInstitute_1F_EventScript_CastformScientist::
 	lock
 	faceplayer
 	speakername Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_0
-	msgbox Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_1
+	specialvar VAR_RESULT, GetRoute119NextWeather
+	switch VAR_RESULT
+	case WEATHER_RAIN, Route119_WeatherInstitute_1F_EventScript_CastformScientist_3
+	case WEATHER_RAIN_THUNDERSTORM, Route119_WeatherInstitute_1F_EventScript_CastformScientist_4
+	case WEATHER_SUNNY, Route119_WeatherInstitute_1F_EventScript_CastformScientist_5
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_1:
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	release
 	end
+
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_3:
+	specialvar VAR_RESULT, GetRoute119Weather
+	compare VAR_RESULT, WEATHER_SUNNY
+	goto_if_eq Route119_WeatherInstitute_1F_EventScript_CastformScientist_6
+	msgbox Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile
+	goto Route119_WeatherInstitute_1F_EventScript_CastformScientist_1
+
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_4:
+	msgbox Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile
+	goto Route119_WeatherInstitute_1F_EventScript_CastformScientist_1
+
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_5:
+	msgbox Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_2
+	goto Route119_WeatherInstitute_1F_EventScript_CastformScientist_1
+
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_6:
+	msgbox Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_1
+	goto Route119_WeatherInstitute_1F_EventScript_CastformScientist_1
 
 
 Route119_WeatherInstitute_1F_EventScript_InstituteWorker2::
 	lock
 	faceplayer
 	speakername Route119_WeatherInstitute_1F_Text_Martin
-	goto_if_set FLAG_FOUND_VERDANTURF_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1:
-	goto_if_set FLAG_RECEIVED_CASTFORM, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_15
+	goto_if_set FLAG_RECEIVED_CASTFORM, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_2
+	goto_if_set FLAG_FOUND_VERDANTURF_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_7
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4:
 	msgbox Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_Text_1
 	release
 	end
 
 Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_2:
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_GiveShinyCastform
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_3:
-	goto_if_set FLAG_FOUND_SHOAL_CAVE_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_8
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4:
-	goto_if_set FLAG_FOUND_SOOTOPOLIS_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_3
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_7:
-	goto_if_set FLAG_FOUND_MT_PYRE_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_11
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_8:
-	goto_if_set FLAG_FOUND_ROUTE120_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_7
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_11:
-	goto_if_set FLAG_FOUND_MT_CHIMNEY_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_2
-	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_1
-
-Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_15:
 	msgbox Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_Text_0
 	closemessage
 	release
 	end
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_5:
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_GiveShinyCastform
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_6:
+	goto_if_set FLAG_FOUND_SHOAL_CAVE_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_11
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_7:
+	goto_if_set FLAG_FOUND_SOOTOPOLIS_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_6
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_10:
+	goto_if_set FLAG_FOUND_MT_PYRE_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_15
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_11:
+	goto_if_set FLAG_FOUND_ROUTE120_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_10
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_14:
+	goto_if_set FLAG_FOUND_DESERT_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_5
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
+
+Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_15:
+	goto_if_set FLAG_FOUND_MT_CHIMNEY_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_14
+	goto Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_4
 
 
 Route119_WeatherInstitute_1F_EventScript_InstituteWorker2_GiveShinyCastform::
@@ -314,6 +382,13 @@ Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher::
 	lock
 	faceplayer
 	speakername Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_0
+	goto_if_set FLAG_FOUND_DESERT_RESEARCHER, Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_2
+	msgbox Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_2
+	closemessage
+	release
+	end
+
+Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_2:
 	msgbox Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_1
 	closemessage
 	release
@@ -362,6 +437,12 @@ Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_0:
 	.string "Milton$"
 
 Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_1:
+	.string "This Castform is very sensitive to\n"
+	.string "atmospheric conditions.\p"
+	.string "It's in its Rainy form now, that means\n"
+	.string "it'll start raining soon.$"
+
+Route119_WeatherInstitute_1F_EventScript_CastformScientist_Text_2:
 	.string "This Castform is very sensitive to\n"
 	.string "atmospheric conditions.\p"
 	.string "It's in its normal form now, that means\n"
@@ -413,7 +494,7 @@ Route119_WeatherInstitute_1F_EventScript_ExplainCastform_Text_0:
 	.string "the weather.\p"
 	.string "It also knows the move Weather Ball.\p"
 	.string "That move doubles in power and has a\n"
-	.string "different effect with weather effects\l"
+	.string "different type with weather effects\l"
 	.string "on the battlefield!$"
 
 Route119_WeatherInstitute_1F_EventScript_ShoalCaveResearcher_Text_0:
@@ -429,6 +510,15 @@ Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_0:
 	.string "Levi$"
 
 Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_1:
+	.string "I can't believe Irwin discovered the\n"
+	.string "Sandy form before me!\p"
+	.string "It'll help a lot with predicting the\n"
+	.string "weather on Route 111 though, so I'm\l"
+	.string "only slightly mad.\p"
+	.string "I wonder if there's more forms we don't\n"
+	.string "know about yet.$"
+
+Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher_Text_2:
 	.string "So Castform doesn't have a fog form…\p"
 	.string "I wonder if there's other forms we don't\n"
 	.string "know about yet.$"
@@ -445,3 +535,12 @@ Route119_WeatherInstitute_1F_EventScript_MtChimneyResearcher_Text_1:
 
 Route119_WeatherInstitute_1F_Text_Martin::
 	.string "Martin$"
+
+Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile::
+	.string "This Castform is very sensitive to\n"
+	.string "atmospheric conditions.\p"
+	.string "It's in its Rainy form now, that means\n"
+	.string "the rain won't clear for a while.$"
+
+Common_Text_Castform_Cry::
+	.string "Kyuuu!$"

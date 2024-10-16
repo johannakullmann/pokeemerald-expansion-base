@@ -69,6 +69,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "battle_util.h"
+#include "field_weather.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -4316,4 +4317,14 @@ void IsShinyMonInParty(void)
         }
     }
     gSpecialVar_Result = PARTY_SIZE;
+}
+
+u16 GetRoute119Weather(void)
+{
+    return GetRoute119OverworldWeather();
+}
+
+u16 GetRoute119NextWeather(void)
+{
+    return GetRoute119NextOverworldWeather();
 }

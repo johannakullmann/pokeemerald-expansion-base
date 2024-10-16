@@ -1201,6 +1201,7 @@ SlateportCity_EventScript_BattleTentClerkScene_1::
 	lock
 	applymovement 27, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_1
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
@@ -1212,6 +1213,7 @@ SlateportCity_EventScript_BattleTentClerkScene_1::
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	setvar VAR_SLATEPORT_CITY_STATE, 2
+	fadedefaultbgm
 	release
 	end
 
@@ -1220,6 +1222,7 @@ SlateportCity_EventScript_BattleTentClerkScene_2::
 	lock
 	applymovement 27, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_2
 	waitmovement 0
 	speakername CommonName_TentClerk
@@ -1230,6 +1233,7 @@ SlateportCity_EventScript_BattleTentClerkScene_2::
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	setvar VAR_SLATEPORT_CITY_STATE, 2
+	fadedefaultbgm
 	release
 	end
 
@@ -1238,6 +1242,7 @@ SlateportCity_EventScript_BattleTentClerkScene_3::
 	lock
 	applymovement 27, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_3
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
@@ -1249,6 +1254,7 @@ SlateportCity_EventScript_BattleTentClerkScene_3::
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	setvar VAR_SLATEPORT_CITY_STATE, 2
+	fadedefaultbgm
 	release
 	end
 
@@ -1257,6 +1263,7 @@ SlateportCity_EventScript_BattleTentClerkScene_4::
 	lock
 	applymovement 27, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_4
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
@@ -1268,6 +1275,7 @@ SlateportCity_EventScript_BattleTentClerkScene_4::
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	setvar VAR_SLATEPORT_CITY_STATE, 2
+	fadedefaultbgm
 	release
 	end
 
@@ -1276,6 +1284,7 @@ SlateportCity_EventScript_BattleTentClerkScene_5::
 	lock
 	applymovement 27, Common_Movement_ExclamationMarkAndDelay
 	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement 27, SlateportCity_Movement_BattleTentClerk_WalkToPlayer_5
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
@@ -1287,6 +1296,7 @@ SlateportCity_EventScript_BattleTentClerkScene_5::
 	waitmovement 0
 	msgbox SlateportCity_Text_BattleTentClerkExplainBattleTent, MSGBOX_AUTOCLOSE
 	setvar VAR_SLATEPORT_CITY_STATE, 2
+	fadedefaultbgm
 	release
 	end
 

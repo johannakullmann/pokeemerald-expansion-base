@@ -1538,7 +1538,7 @@
 #define FLAG_FOUND_MT_CHIMNEY_RESEARCHER            (SYSTEM_FLAGS + 0xA5) // Unused Flag
 #define FLAG_FOUND_SANDYSHORE_RESEARCHER            (SYSTEM_FLAGS + 0xA6) // Unused Flag
 #define FLAG_FOUND_DEWFORD_RESEARCHER               (SYSTEM_FLAGS + 0xA7) // Unused Flag
-#define FLAG_UNUSED_0x908                           (SYSTEM_FLAGS + 0xA8) // Unused Flag
+#define FLAG_FOUND_DESERT_RESEARCHER                (SYSTEM_FLAGS + 0xA8) // Unused Flag
 #define FLAG_UNUSED_0x909                           (SYSTEM_FLAGS + 0xA9) // Unused Flag
 #define FLAG_UNUSED_0x90A                           (SYSTEM_FLAGS + 0xAA) // Unused Flag
 #define FLAG_UNUSED_0x90B                           (SYSTEM_FLAGS + 0xAB) // Unused Flag

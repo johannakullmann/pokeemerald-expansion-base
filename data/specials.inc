@@ -558,3 +558,5 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special SetHalfPartyForBattle
+	def_special GetRoute119Weather
+	def_special GetRoute119NextWeather

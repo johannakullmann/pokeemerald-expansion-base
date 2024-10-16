@@ -632,6 +632,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route111_EventScript_Snorlax",
       "flag": "FLAG_HIDE_ROUTE_111_SNORLAX"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 33,
+      "y": 93,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_FOUND_DESERT_RESEARCHER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CASTFORM_SANDY)",
+      "x": 32,
+      "y": 93,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route119_WeatherInstitute_EventScript_Castform",
+      "flag": "FLAG_FOUND_DESERT_RESEARCHER"
     }
   ],
   "warp_events": [

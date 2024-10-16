@@ -231,5 +231,7 @@ void SetWeather(u32 weather);
 void DoCurrentWeather(void);
 void UpdateWeatherPerDay(u16 increment);
 void ResumePausedWeather(void);
+u16 GetRoute119OverworldWeather(void);
+u16 GetRoute119NextOverworldWeather(void);
 
 #endif // GUARD_WEATHER_H

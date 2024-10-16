@@ -113,6 +113,13 @@ const FLAG_TEMP_HIDE_SHOAL_CAVE_RESEARCHER = FLAG_TEMP_5
 const FLAG_TEMP_HIDE_MT_PYRE_RESEARCHER = FLAG_TEMP_6
 const FLAG_TEMP_HIDE_MT_CHIMNEY_RESEARCHER = FLAG_TEMP_7
 
+const CASTFORM_SENSITIVE_GFX = VAR_OBJ_GFX_ID_0
+const CASTFORM_SHINY_GFX = VAR_OBJ_GFX_ID_1
+const CASTFORM_1_GFX = VAR_OBJ_GFX_ID_2
+const CASTFORM_2_GFX = VAR_OBJ_GFX_ID_3
+const CASTFORM_3_GFX = VAR_OBJ_GFX_ID_4
+const CASTFORM_4_GFX = VAR_OBJ_GFX_ID_5
+
 script Route119_WeatherInstitute_1F_OnTransition {
 	if (!flag(FLAG_HIDE_ROUTE_119_CASTFORM_SCIENTIST)) {
 		setflag(FLAG_TEMP_HIDE_CASTFORM_SCIENTIST)
@@ -121,6 +128,7 @@ script Route119_WeatherInstitute_1F_OnTransition {
 		setobjectmovementtype(LOCALID_SCIENTIST_WITH_SHINY_CASTFORM, MOVEMENT_TYPE_FACE_DOWN)
 	}
 	call(Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers)
+	call(Route119_WeatherInstitute_1F_EventScript_SetupCastformForms)
 	end
 }
 
@@ -135,6 +143,33 @@ script Route119_WeatherInstitute_1F_EventScript_SetupFieldResearchers {
 		setflag(FLAG_TEMP_HIDE_MT_CHIMNEY_RESEARCHER)
 	}
 	return
+}
+
+script Route119_WeatherInstitute_1F_EventScript_SetupCastformForms {
+	specialvar(VAR_RESULT, GetRoute119Weather) 
+	switch(var(VAR_RESULT)){
+		case WEATHER_RAIN:
+		case WEATHER_RAIN_THUNDERSTORM:
+			setvar(CASTFORM_SHINY_GFX, OBJ_EVENT_GFX_SPECIES_SHINY(CASTFORM_RAINY))
+			setvar(CASTFORM_1_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_2_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_3_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+			setvar(CASTFORM_4_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+		case WEATHER_SUNNY:
+			setvar(CASTFORM_SHINY_GFX, OBJ_EVENT_GFX_SPECIES_SHINY(CASTFORM))
+			setvar(CASTFORM_1_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_2_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_3_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+			setvar(CASTFORM_4_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+	}
+	specialvar(VAR_RESULT, GetRoute119NextWeather)
+	switch(var(VAR_RESULT)) {
+		case WEATHER_RAIN:
+		case WEATHER_RAIN_THUNDERSTORM:
+			setvar(CASTFORM_SENSITIVE_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM_RAINY))
+		case WEATHER_SUNNY:
+			setvar(CASTFORM_SENSITIVE_GFX, OBJ_EVENT_GFX_SPECIES(CASTFORM))
+	}
 }
 
 script Route119_WeatherInstitute_2F_EventScript_FormerAquaMember {
@@ -181,8 +216,23 @@ script Route119_WeatherInstitute_1F_EventScript_CastformScientist {
 	lock
 	faceplayer
 	speakername("Milton")
-	msgbox(format("This Castform is very sensitive to atmospheric conditions.\p"
-		"It's in its normal form now, that means the rain will clear soon!"))
+	specialvar(VAR_RESULT, GetRoute119NextWeather) 
+	switch(var(VAR_RESULT)){
+		case WEATHER_RAIN:
+			specialvar(VAR_RESULT, GetRoute119Weather)
+			if (var(VAR_RESULT) == WEATHER_SUNNY) {
+				msgbox(format("This Castform is very sensitive to atmospheric conditions.\p"
+					"It's in its Rainy form now, that means it'll start raining soon."))
+			}
+			else {
+				msgbox(Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile)
+			}
+		case WEATHER_RAIN_THUNDERSTORM:
+			msgbox(Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile)
+		case WEATHER_SUNNY:
+			msgbox(format("This Castform is very sensitive to atmospheric conditions.\p"
+				"It's in its normal form now, that means the rain will clear soon!"))
+	}
 	closemessage
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	release
@@ -204,7 +254,8 @@ script Route119_WeatherInstitute_1F_EventScript_InstituteWorker2 {
 	}
 	if (flag(FLAG_FOUND_VERDANTURF_RESEARCHER) && flag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER) 
 		&& flag(FLAG_FOUND_SHOAL_CAVE_RESEARCHER) && flag(FLAG_FOUND_ROUTE120_RESEARCHER)
-		&& flag(FLAG_FOUND_MT_PYRE_RESEARCHER) && flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)) {
+		&& flag(FLAG_FOUND_MT_PYRE_RESEARCHER) && flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)
+		&& flag(FLAG_FOUND_DESERT_RESEARCHER)) {
 	//if (flag(FLAG_FOUND_VERDANTURF_RESEARCHER) && flag(FLAG_FOUND_SOOTOPOLIS_RESEARCHER) 
 	//	&& flag(FLAG_FOUND_SHOAL_CAVE_RESEARCHER) && flag(FLAG_FOUND_ROUTE120_RESEARCHER)
 	//	&& flag(FLAG_FOUND_MT_PYRE_RESEARCHER) && flag(FLAG_FOUND_MT_CHIMNEY_RESEARCHER)
@@ -304,6 +355,14 @@ script Route119_WeatherInstitute_1F_EventScript_MtPyreResearcher {
 	lock
 	faceplayer
 	speakername("Levi")
+	if (flag(FLAG_FOUND_DESERT_RESEARCHER)) {
+		msgbox(format("I can't believe Irwin discovered the Sandy form before me!\p"
+		"It'll help a lot with predicting the weather on Route 111 though, so I'm only slightly mad.\p"
+		"I wonder if there's more forms we don't know about yet."))
+		closemessage
+		release
+		end
+	}
 	msgbox(format("So Castform doesn't have a fog form…\pI wonder if there's other forms we don't know about yet."))
 	closemessage
 	release
@@ -325,6 +384,11 @@ script Route119_WeatherInstitute_1F_EventScript_MtChimneyResearcher {
 
 text Route119_WeatherInstitute_1F_Text_Martin {
 	"Martin"
+}
+
+text Route119_WeatherInstitute_1F_Text_RainWontClearForAWhile {
+	format("This Castform is very sensitive to atmospheric conditions.\p"
+	"It's in its Rainy form now, that means the rain won't clear for a while.")
 }
 
 text Common_Text_Castform_Cry {

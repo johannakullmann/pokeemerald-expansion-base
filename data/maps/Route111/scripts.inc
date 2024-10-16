@@ -764,6 +764,31 @@ Route111_EventScript_Snorlax::
 	end
 
 
+Route111_EventScript_FieldResearcher::
+	lock
+	faceplayer
+	speakername Route111_EventScript_FieldResearcher_Text_0
+	msgbox Route111_EventScript_FieldResearcher_Text_1
+	applymovement 47, Common_Movement_WalkInPlaceLeft
+	msgbox Route111_EventScript_FieldResearcher_Text_2
+	waitmovement 0
+	closemessage
+	turnobject 48, DIR_EAST
+	bufferspeciesname STR_VAR_1, SPECIES_CASTFORM
+	speakername CommonName_BufferedNameString1
+	playmoncry SPECIES_CASTFORM, CRY_MODE_NORMAL
+	msgbox Common_Text_Castform_Cry
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_FOUND_DESERT_RESEARCHER
+	removeobject 47
+	removeobject 48
+	delay 16
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+
 Route111_EventScript_RuthFishing_Text_0:
 	.string "Hey, {PLAYER}!\p"
 	.string "I'm trying to catch a Barboach for the\n"
@@ -791,3 +816,19 @@ Route111_EventScript_SnorlaxMan_Text_3:
 
 Route111_EventScript_Snorlax_Text_0:
 	.string "…$"
+
+Route111_EventScript_FieldResearcher_Text_0:
+	.string "Irwin$"
+
+Route111_EventScript_FieldResearcher_Text_1:
+	.string "I can't believe it!\n"
+	.string "Look at Castform!\p"
+	.string "We had no clue they can predict\n"
+	.string "sandstorms too!\p"
+	.string "Increcible! This will help us immensely!\p"
+	.string "I need to go back to the institute\n"
+	.string "immediately!$"
+
+Route111_EventScript_FieldResearcher_Text_2:
+	.string "Come on, Castform!\p"
+	.string "Let's hurry!$"

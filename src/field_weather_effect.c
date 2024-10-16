@@ -2605,3 +2605,13 @@ static void UpdateRainCounter(u8 newWeather, u8 oldWeather)
      && (newWeather == WEATHER_RAIN || newWeather == WEATHER_RAIN_THUNDERSTORM))
         IncrementGameStat(GAME_STAT_GOT_RAINED_ON);
 }
+
+u16 GetRoute119OverworldWeather(void)
+{
+    return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
+}
+
+u16 GetRoute119NextOverworldWeather(void)
+{
+    return sWeatherCycleRoute119[((gSaveBlock1Ptr->weatherCycleStage +1 ) % 4)];
+}
