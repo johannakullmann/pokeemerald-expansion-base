@@ -1643,8 +1643,9 @@
 #define SPECIES_MBIELU                                  1535
 #define SPECIES_MBIELAVA                                1536
 #define SPECIES_CHUBGRUB                                1537
+#define SPECIES_CASTFORM_SANDY                          1538
 
-#define SPECIES_EGG SPECIES_CHUBGRUB + 1
+#define SPECIES_EGG SPECIES_CASTFORM_SANDY + 1
 
 #define NUM_SPECIES SPECIES_EGG
 
