@@ -130,8 +130,10 @@
 #define SPECIES_MAGMAR                                  126
 #define SPECIES_PINSIR                                  127
 #define SPECIES_TAUROS                                  128
-#define SPECIES_MAGIKARP                                129
-#define SPECIES_GYARADOS                                130
+#define SPECIES_MAGIKARP                                SPECIES_MAGIKARP_WILD
+#define SPECIES_MAGIKARP_WILD                           129
+#define SPECIES_GYARADOS                                SPECIES_GYARADOS_WILD
+#define SPECIES_GYARADOS_WILD                           130
 #define SPECIES_LAPRAS                                  131
 #define SPECIES_DITTO                                   132
 #define SPECIES_EEVEE                                   133
@@ -1643,9 +1645,22 @@
 #define SPECIES_MBIELU                                  1535
 #define SPECIES_MBIELAVA                                1536
 #define SPECIES_CHUBGRUB                                1537
-#define SPECIES_CASTFORM_SANDY                          1538
 
-#define SPECIES_EGG SPECIES_CASTFORM_SANDY + 1
+#define SPECIES_CASTFORM_SANDY                          1538
+#define SPECIES_MAGIKARP_CALICO_WHITE_PATTERN           1539
+#define SPECIES_MAGIKARP_CALICO_BLACK_PATTERN           1540
+#define SPECIES_MAGIKARP_CALICO_HIGH_WHITE_PATTERN      1541
+#define SPECIES_MAGIKARP_TWO_TONED_PATTERN              1542
+#define SPECIES_MAGIKARP_MASKED_PATTERN                 1543
+#define SPECIES_MAGIKARP_DOT_PATTERN                    1544
+#define SPECIES_GYARADOS_CALICO_WHITE_PATTERN           1545
+#define SPECIES_GYARADOS_CALICO_BLACK_PATTERN           1546
+#define SPECIES_GYARADOS_CALICO_HIGH_WHITE_PATTERN      1547
+#define SPECIES_GYARADOS_TWO_TONED_PATTERN              1548
+#define SPECIES_GYARADOS_MASKED_PATTERN                 1549
+#define SPECIES_GYARADOS_DOT_PATTERN                    1550
+
+#define SPECIES_EGG SPECIES_GYARADOS_DOT_PATTERN + 1
 
 #define NUM_SPECIES SPECIES_EGG
 

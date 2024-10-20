@@ -15291,8 +15291,70 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_PALDEAN_FORMS
 #endif //P_FAMILY_TAUROS
 
+
 #if P_FAMILY_MAGIKARP
-    [SPECIES_MAGIKARP] =
+
+#define MAGIKARP_MISC_INFO(pattern, evolution)                                  \
+        .baseHP        = 20,                                                    \
+        .baseAttack    = 10,                                                    \
+        .baseDefense   = 55,                                                    \
+        .baseSpeed     = 80,                                                    \
+        .baseSpAttack  = 15,                                                    \
+        .baseSpDefense = 20,                                                    \
+        .types = MON_TYPES(TYPE_WATER),                                         \
+        .catchRate = 255,                                                       \
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 40 : 20,                  \
+        .evYield_Speed = 1,                                                     \
+        .genderRatio = PERCENT_FEMALE(50),                                      \
+        .eggCycles = 5,                                                         \
+        .friendship = STANDARD_FRIENDSHIP,                                      \
+        .growthRate = GROWTH_SLOW,                                              \
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2, EGG_GROUP_DRAGON),       \
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_RATTLED },     \
+        .bodyColor = BODY_COLOR_RED,                                            \
+        .speciesName = _("Magikarp"),                                           \
+        .cryId = CRY_MAGIKARP,                                                  \
+        .natDexNum = NATIONAL_DEX_MAGIKARP,                                     \
+        .categoryName = _("Fish"),                                              \
+        .height = 9,                                                            \
+        .weight = 100,                                                          \
+        .pokemonScale = 310,                                                    \
+        .pokemonOffset = 4,                                                     \
+        .trainerScale = 256,                                                    \
+        .trainerOffset = 0,                                                     \
+        .frontPic = gMonFrontPic_Magikarp ##pattern,                                      \
+        .frontPicFemale = gMonFrontPic_MagikarpF ##pattern,                               \
+        .frontPicSize = MON_COORDS_SIZE(48, 56),                                \
+        .frontPicSizeFemale = MON_COORDS_SIZE(48, 56),                          \
+        .frontPicYOffset = 4,                                                   \
+        .frontAnimFrames = sAnims_Magikarp,                                     \
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES,                             \
+        .backPic = gMonBackPic_Magikarp ##pattern,                                        \
+        .backPicFemale = gMonBackPic_MagikarpF ##pattern,                                 \
+        .backPicSize = MON_COORDS_SIZE(64, 56),                                 \
+        .backPicSizeFemale = MON_COORDS_SIZE(64, 56),                           \
+        .backPicYOffset = 6,                                                    \
+        .backAnimId = BACK_ANIM_CONCAVE_ARC_LARGE,                              \
+        .palette = gMonPalette_Magikarp,                                        \
+        .shinyPalette = gMonShinyPalette_Magikarp,                              \
+        .iconSprite = gMonIcon_Magikarp,                                        \
+        .iconPalIndex = 0,                                                      \
+        FOOTPRINT(Magikarp)                                                     \
+        OVERWORLD(                                                              \
+            sPicTable_Magikarp ##pattern,                                                 \
+            SIZE_32x32,                                                         \
+            SHADOW_SIZE_M,                                                      \
+            TRACKS_SPOT,                                                        \
+            gOverworldPalette_Magikarp,                                         \
+            gShinyOverworldPalette_Magikarp                                     \
+        )                                                                       \
+        .tmIlliterate = TRUE,                                                   \
+        .levelUpLearnset = sMagikarpLevelUpLearnset,                            \
+        .teachableLearnset = sMagikarpTeachableLearnset,                        \
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GYARADOS_##evolution}),                                            
+
+
+    /*[SPECIES_MAGIKARP] =
     {
         .baseHP        = 20,
         .baseAttack    = 10,
@@ -15357,9 +15419,113 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sMagikarpTeachableLearnset,
         .innateFieldMoves = sMagikarpInnateFieldMoves,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GYARADOS}),
+    },*/
+    
+    [SPECIES_MAGIKARP_WILD] = {
+        MAGIKARP_MISC_INFO(Wild, WILD)
+        .description = COMPOUND_STRING(
+            "Its swimming muscles are weak, so it is\n"
+            "easily washed away by currents. In places\n"
+            "where water pools, you can see many\n"
+            "Magikarp deposited there by the flow."),
     },
 
-    [SPECIES_GYARADOS] =
+    [SPECIES_MAGIKARP_CALICO_BLACK_PATTERN] = {
+        MAGIKARP_MISC_INFO(CalicoB, CALICO_BLACK_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_MAGIKARP_CALICO_WHITE_PATTERN] = {
+        MAGIKARP_MISC_INFO(CalicoW, CALICO_WHITE_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_MAGIKARP_TWO_TONED_PATTERN] = {
+        MAGIKARP_MISC_INFO(TwoToned, TWO_TONED_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_MAGIKARP_MASKED_PATTERN] = {
+        MAGIKARP_MISC_INFO(Masked, MASKED_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_MAGIKARP_DOT_PATTERN] = {
+        MAGIKARP_MISC_INFO(Dot, DOT_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_MAGIKARP_CALICO_HIGH_WHITE_PATTERN] = {
+        MAGIKARP_MISC_INFO(CalicoHighW, CALICO_HIGH_WHITE_PATTERN)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    #define GYARADOS_MISC_INFO(pattern)                                     \
+        .baseHP        = 95,                                                \
+        .baseAttack    = 125,                                               \
+        .baseDefense   = 79,                                                \
+        .baseSpeed     = 81,                                                \
+        .baseSpAttack  = 60,                                                \
+        .baseSpDefense = 100,                                               \
+        .types = MON_TYPES(TYPE_WATER, TYPE_FLYING),                        \
+        .catchRate = 45,                                                    \
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 189 : 214,            \
+        .evYield_Attack = 2,                                                \
+        .genderRatio = PERCENT_FEMALE(50),                                  \
+        .eggCycles = 5,                                                     \
+        .friendship = STANDARD_FRIENDSHIP,                                  \
+        .growthRate = GROWTH_SLOW,                                          \
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2, EGG_GROUP_DRAGON),   \
+        .abilities = { ABILITY_INTIMIDATE, ABILITY_NONE, ABILITY_MOXIE },   \
+        .bodyColor = BODY_COLOR_BLUE,                                       \
+        .speciesName = _("Gyarados"),                                       \
+        .cryId = CRY_GYARADOS,                                              \
+        .natDexNum = NATIONAL_DEX_GYARADOS,                                 \
+        .categoryName = _("Atrocious"),                                     \
+        .height = 65,                                                       \
+        .weight = 2350,                                                     \
+        .pokemonScale = 256,                                                \
+        .pokemonOffset = 6,                                                 \
+        .trainerScale = 481,                                                \
+        .trainerOffset = 13,                                                \
+        .frontPic = gMonFrontPic_Gyarados ##pattern,                                  \
+        .frontPicFemale = gMonFrontPic_GyaradosF ##pattern,                           \
+        .frontPicSize = MON_COORDS_SIZE(64, 64),                            \
+        .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),                      \
+        .frontPicYOffset = 2,                                               \
+        .frontAnimFrames = sAnims_Gyarados,                                 \
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,                   \
+        .backPic = gMonBackPic_Gyarados ##pattern,                                    \
+        .backPicFemale = gMonBackPic_GyaradosF ##pattern,                             \
+        .backPicSize = MON_COORDS_SIZE(64, 64),                             \
+        .backPicSizeFemale = MON_COORDS_SIZE(64, 64),                       \
+        .backPicYOffset = 5,                                                \
+        .backAnimId = BACK_ANIM_V_SHAKE,                                    \
+        .palette = gMonPalette_Gyarados,                                    \
+        .shinyPalette = gMonShinyPalette_Gyarados,                          \
+        .iconSprite = gMonIcon_Gyarados,                                    \
+        .iconPalIndex = 0,                                                  \
+        FOOTPRINT(Gyarados)                                                 \
+        OVERWORLD(                                                          \
+            sPicTable_Gyarados ##pattern,                                             \
+            SIZE_32x32,                                                     \
+            SHADOW_SIZE_M,                                                  \
+            TRACKS_SLITHER,                                                 \
+            gOverworldPalette_Gyarados,                                     \
+            gShinyOverworldPalette_Gyarados                                 \
+        )                                                                   \
+        .levelUpLearnset = sGyaradosLevelUpLearnset,                        \
+        .teachableLearnset = sGyaradosTeachableLearnset,                    \
+        .formSpeciesIdTable = sGyaradosFormSpeciesIdTable,                  \
+        .formChangeTable = sGyaradosFormChangeTable,             
+
+    /*[SPECIES_GYARADOS] =
     {
         .baseHP        = 95,
         .baseAttack    = 125,
@@ -15424,6 +15590,51 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .innateFieldMoves = sGyaradosInnateFieldMoves,
         .formSpeciesIdTable = sGyaradosFormSpeciesIdTable,
         .formChangeTable = sGyaradosFormChangeTable,
+    },*/
+
+    [SPECIES_GYARADOS_WILD] = {
+        GYARADOS_MISC_INFO(Wild)
+        .description = COMPOUND_STRING(
+            "It is an extremely vicious and violent\n"
+            "Pokémon. When humans begin to fight,\n"
+            "it will appear and burn everything to the\n"
+            "ground with intensely hot flames."),
+    },
+
+    [SPECIES_GYARADOS_CALICO_BLACK_PATTERN] = {
+        GYARADOS_MISC_INFO(CalicoB)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_GYARADOS_CALICO_WHITE_PATTERN] = {
+        GYARADOS_MISC_INFO(CalicoW)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_GYARADOS_TWO_TONED_PATTERN] = {
+        GYARADOS_MISC_INFO(TwoToned)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_GYARADOS_MASKED_PATTERN] = {
+        GYARADOS_MISC_INFO(Masked)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_GYARADOS_DOT_PATTERN] = {
+        GYARADOS_MISC_INFO(Dot)
+        .description = COMPOUND_STRING(
+            ""),
+    },
+
+    [SPECIES_GYARADOS_CALICO_HIGH_WHITE_PATTERN] = {
+        GYARADOS_MISC_INFO(CalicoHighW)
+        .description = COMPOUND_STRING(
+            ""),
     },
 
 #if P_MEGA_EVOLUTIONS

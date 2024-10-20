@@ -30,6 +30,8 @@ extern const u8 EventScript_SprayWoreOff[];
 
 #define NUM_FEEBAS_SPOTS 6
 
+#define CHANCE_PATTERNED_MAGIKARP 8 //chance of fishing a special-pattern magikarp instead of a normal one (out of 255)
+
 // Number of accessible fishing spots in each section of Route 119
 // Each section is an area of the route between the y coordinates in sRoute119WaterTileData
 #define NUM_FISHING_SPOTS_1 131
@@ -63,6 +65,7 @@ static bool8 TryGetAbilityInfluencedWildMonIndex(const struct WildPokemon *wildM
 static bool8 TryGetAbilityInfluencedWildMonIndex(const struct WildPokemon *wildMon, u8 type, u16 ability, u8 *monIndex);
 #endif
 static bool8 IsAbilityAllowingEncounter(u8 level);
+static u16 GetMagikarpPattern(void);
 
 EWRAM_DATA static u8 sWildEncountersDisabled = 0;
 EWRAM_DATA static u32 sFeebasRngValue = 0;
@@ -524,8 +527,60 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
+
+    if (wildMonSpecies == SPECIES_MAGIKARP) {
+        u8 rand = Random() % 256;
+        if (rand <= CHANCE_PATTERNED_MAGIKARP) {
+            wildMonSpecies = GetMagikarpPattern();
+        }
+    }
+
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
+}
+
+
+    
+
+u16 GetMagikarpPattern(void) {
+    #if P_MAGIKARP_PATTERNS
+        
+        u8 chanceCalicoW = 100;
+        u8 chanceCalicoB = 10;
+        u8 chanceCalicoHighW = 10;
+        u8 chanceCalicoTwoToned = 50;
+        u8 chanceMasked = 5;
+        u8 chanceDot = 1;
+
+        u8 sum = chanceCalicoW + chanceCalicoB + chanceCalicoHighW + chanceCalicoTwoToned + chanceMasked + chanceDot;
+        u8 rand = Random() % sum;
+
+        if (rand < chanceCalicoW) {
+            return SPECIES_MAGIKARP_CALICO_WHITE_PATTERN;
+        }
+        rand -= chanceCalicoW;
+        if (rand < chanceCalicoB) {
+            return SPECIES_MAGIKARP_CALICO_BLACK_PATTERN;
+        }
+        rand -= chanceCalicoB;
+        if (rand < chanceCalicoHighW) {
+            return SPECIES_MAGIKARP_CALICO_HIGH_WHITE_PATTERN;
+        }
+        rand -= chanceCalicoHighW;
+        if (rand < chanceCalicoTwoToned) {
+            return SPECIES_MAGIKARP_TWO_TONED_PATTERN;
+        }
+        rand -= chanceCalicoTwoToned;
+        if (rand < chanceMasked) {
+            return SPECIES_MAGIKARP_MASKED_PATTERN;
+        }
+        rand -= chanceMasked;
+        if (rand < chanceDot) {
+            return SPECIES_MAGIKARP_DOT_PATTERN;
+        }
+    #endif //P_MAGIKARP_PATTERNS
+
+    return SPECIES_MAGIKARP_WILD;
 }
 
 static bool8 SetUpMassOutbreakEncounter(u8 flags)
