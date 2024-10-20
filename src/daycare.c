@@ -35,6 +35,7 @@ static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 static u8 ModifyBreedingScoreForOvalCharm(u8 score);
 static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
 static u16 GetEggSpecies(u16 species);
+bool8 IsMagikarp (u16 species);
 
 // RAM buffers used to assist with BuildEggMoveset()
 EWRAM_DATA static u16 sHatchedEggLevelUpMoves[EGG_LVL_UP_MOVES_ARRAY_COUNT] = {0};
@@ -1040,6 +1041,26 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
     else if (eggSpecies == SPECIES_TOGEDEMARU_TOTEM)
         eggSpecies = SPECIES_TOGEDEMARU;
 
+    #if P_MAGIKARP_PATTERNS
+    // Male Magikarp can pass down their pattern if both parents are Magikarp
+    // 50% chance to revert to wild form if second parent is not a Magikarp too
+    if (IsMagikarp(eggSpecies)) {
+        if (!IsMagikarp(GetEggSpecies(species[parentSlots[1]]))) {
+            u8 rand = Random() % 2;
+            if (rand == 0) {
+                eggSpecies = SPECIES_MAGIKARP_WILD;
+            }
+        }
+        else {
+            u8 rand = Random() % 2;
+            if (rand == 0) {
+                eggSpecies = GetEggSpecies(species[parentSlots[1]]);
+            }
+        }
+    }
+    #endif //P_MAGIKARP_PATTERNS
+
+
     // Make Ditto the "mother" slot if the other daycare mon is male.
     if (species[parentSlots[1]] == SPECIES_DITTO && GetBoxMonGender(&daycare->mons[parentSlots[0]].mon) != MON_FEMALE)
     {
@@ -1047,8 +1068,25 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
         parentSlots[1] = parentSlots[0];
         parentSlots[0] = ditto;
     }
-
     return eggSpecies;
+}
+
+
+bool8 IsMagikarp(u16 species) {
+    if (species == SPECIES_MAGIKARP_WILD 
+    #if P_MAGIKARP_PATTERNS
+        || species == SPECIES_MAGIKARP_CALICO_BLACK_PATTERN 
+        || species == SPECIES_MAGIKARP_CALICO_WHITE_PATTERN 
+        || species == SPECIES_MAGIKARP_CALICO_HIGH_WHITE_PATTERN 
+        || species == SPECIES_MAGIKARP_TWO_TONED_PATTERN 
+        || species == SPECIES_MAGIKARP_MASKED_PATTERN 
+        || species == SPECIES_MAGIKARP_DOT_PATTERN
+    #endif 
+        ) 
+    {
+            return TRUE;
+    }
+    return FALSE;
 }
 
 static void _GiveEggFromDaycare(struct DayCare *daycare)
