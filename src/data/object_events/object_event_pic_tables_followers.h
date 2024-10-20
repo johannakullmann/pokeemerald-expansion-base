@@ -1023,12 +1023,53 @@ static const struct SpriteFrameImage sPicTable_TaurosPaldeanAquaBreed[] = {
 #endif //P_FAMILY_TAUROS
 
 #if P_FAMILY_MAGIKARP
-static const struct SpriteFrameImage sPicTable_Magikarp[] = {
-    overworld_ascending_frames(gObjectEventPic_Magikarp, 4, 4),
+static const struct SpriteFrameImage sPicTable_MagikarpWild[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpWild, 4, 4),
 };
-static const struct SpriteFrameImage sPicTable_Gyarados[] = {
-    overworld_ascending_frames(gObjectEventPic_Gyarados, 4, 4),
+#if P_MAGIKARP_PATTERNS
+static const struct SpriteFrameImage sPicTable_MagikarpCalicoB[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpCalicoB, 4, 4),
 };
+static const struct SpriteFrameImage sPicTable_MagikarpCalicoW[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpCalicoW, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_MagikarpCalicoHighW[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpCalicoHighW, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_MagikarpTwoToned[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpTwoToned, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_MagikarpMasked[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpMasked, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_MagikarpDot[] = {
+    overworld_ascending_frames(gObjectEventPic_MagikarpDot, 4, 4),
+};
+#endif //P_MAGIKARP_PATTERNS
+
+static const struct SpriteFrameImage sPicTable_GyaradosWild[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosWild, 4, 4),
+};
+#if P_MAGIKARP_PATTERNS
+static const struct SpriteFrameImage sPicTable_GyaradosCalicoB[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosCalicoB, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_GyaradosCalicoW[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosCalicoW, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_GyaradosCalicoHighW[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosCalicoHighW, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_GyaradosTwoToned[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosTwoToned, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_GyaradosMasked[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosMasked, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_GyaradosDot[] = {
+    overworld_ascending_frames(gObjectEventPic_GyaradosDot, 4, 4),
+};
+#endif //P_MAGIKARP_PATTERNS
 #if P_MEGA_EVOLUTIONS
 /*static const struct SpriteFrameImage sPicTable_GyaradosMega[] = {
     overworld_ascending_frames(gObjectEventPic_GyaradosMega, 4, 4),

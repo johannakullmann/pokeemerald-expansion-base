@@ -3706,43 +3706,131 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //P_FAMILY_TAUROS
 
 #if P_FAMILY_MAGIKARP
-    const u32 gMonFrontPic_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpWild[] = INCBIN_U32("graphics/pokemon/magikarp/anim_front.4bpp.lz");
     const u32 gMonPalette_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/normal.gbapal.lz");
-    const u32 gMonBackPic_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpWild[] = INCBIN_U32("graphics/pokemon/magikarp/back.4bpp.lz");
     const u32 gMonShinyPalette_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/shiny.gbapal.lz");
     const u8 gMonIcon_Magikarp[] = INCBIN_U8("graphics/pokemon/magikarp/icon.4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Magikarp[] = INCBIN_U8("graphics/pokemon/magikarp/footprint.1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_Magikarp[] = INCBIN_COMP("graphics/pokemon/magikarp/overworld.4bpp");
+    const u32 gObjectEventPic_MagikarpWild[] = INCBIN_COMP("graphics/pokemon/magikarp/overworld.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u32 gOverworldPalette_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/overworld_normal.gbapal.lz");
     const u32 gShinyOverworldPalette_Magikarp[] = INCBIN_U32("graphics/pokemon/magikarp/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
-    const u32 gMonFrontPic_MagikarpF[] = INCBIN_U32("graphics/pokemon/magikarp/anim_frontf.4bpp.lz");
-    const u32 gMonBackPic_MagikarpF[] = INCBIN_U32("graphics/pokemon/magikarp/backf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFWild[] = INCBIN_U32("graphics/pokemon/magikarp/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFWild[] = INCBIN_U32("graphics/pokemon/magikarp/backf.4bpp.lz");
 
-    const u32 gMonFrontPic_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/anim_front.4bpp.lz");
+#if P_MAGIKARP_PATTERNS
+    const u32 gMonFrontPic_MagikarpTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_two_toned/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_two_toned/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_w/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_w/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_high_w/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_high_w/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_b/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_b/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpMasked[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_masked/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFMasked[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_masked/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpDot[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_dot/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_MagikarpFDot[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_dot/anim_frontf.4bpp.lz");
+
+    const u32 gMonBackPic_MagikarpTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_two_toned/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_two_toned/backf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_w/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_w/backf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_high_w/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_high_w/backf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_b/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_calico_b/backf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpMasked[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_masked/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFMasked[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_masked/backf.4bpp.lz");
+    const u32 gMonBackPic_MagikarpDot[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_dot/back.4bpp.lz");
+    const u32 gMonBackPic_MagikarpFDot[] = INCBIN_U32("graphics/pokemon/magikarp/pattern_dot/backf.4bpp.lz");
+
+    #if OW_POKEMON_OBJECT_EVENTS
+        const u32 gObjectEventPic_MagikarpTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFTwoToned[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFCalicoW[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFCalicoHighW[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFCalicoB[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpMasked[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFMasked[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpDot[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+        const u32 gObjectEventPic_MagikarpFDot[] = INCBIN_U32("graphics/pokemon/magikarp/overworld.4bpp.lz");
+    #endif //OW_POKEMON_OBJECT_EVENTS
+
+#endif //P_MAGIKARP_PATTERNS
+
+    const u32 gMonFrontPic_GyaradosWild[] = INCBIN_U32("graphics/pokemon/gyarados/anim_front.4bpp.lz");
     const u32 gMonPalette_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/normal.gbapal.lz");
-    const u32 gMonBackPic_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosWild[] = INCBIN_U32("graphics/pokemon/gyarados/back.4bpp.lz");
     const u32 gMonShinyPalette_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/shiny.gbapal.lz");
     const u8 gMonIcon_Gyarados[] = INCBIN_U8("graphics/pokemon/gyarados/icon.4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Gyarados[] = INCBIN_U8("graphics/pokemon/gyarados/footprint.1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_Gyarados[] = INCBIN_COMP("graphics/pokemon/gyarados/overworld.4bpp");
+    const u32 gObjectEventPic_GyaradosWild[] = INCBIN_COMP("graphics/pokemon/gyarados/overworld.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u32 gOverworldPalette_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/overworld_normal.gbapal.lz");
     const u32 gShinyOverworldPalette_Gyarados[] = INCBIN_U32("graphics/pokemon/gyarados/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
-    const u32 gMonFrontPic_GyaradosF[] = INCBIN_U32("graphics/pokemon/gyarados/anim_frontf.4bpp.lz");
-    const u32 gMonBackPic_GyaradosF[] = INCBIN_U32("graphics/pokemon/gyarados/backf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFWild[] = INCBIN_U32("graphics/pokemon/gyarados/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFWild[] = INCBIN_U32("graphics/pokemon/gyarados/backf.4bpp.lz");
+
+#if P_MAGIKARP_PATTERNS
+    const u32 gMonFrontPic_GyaradosTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_two_toned/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_two_toned/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_w/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_w/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_high_w/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_high_w/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_b/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_b/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosMasked[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_masked/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFMasked[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_masked/anim_frontf.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosDot[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_dot/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_GyaradosFDot[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_dot/anim_frontf.4bpp.lz");
+
+    const u32 gMonBackPic_GyaradosTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_two_toned/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_two_toned/backf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_w/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_w/backf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_high_w/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_high_w/backf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_b/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_calico_b/backf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosMasked[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_masked/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFMasked[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_masked/backf.4bpp.lz");
+    const u32 gMonBackPic_GyaradosDot[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_dot/back.4bpp.lz");
+    const u32 gMonBackPic_GyaradosFDot[] = INCBIN_U32("graphics/pokemon/gyarados/pattern_dot/backf.4bpp.lz");
+
+    #if OW_POKEMON_OBJECT_EVENTS
+        const u32 gObjectEventPic_GyaradosTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFTwoToned[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFCalicoW[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFCalicoHighW[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFCalicoB[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosMasked[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFMasked[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosDot[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+        const u32 gObjectEventPic_GyaradosFDot[] = INCBIN_U32("graphics/pokemon/gyarados/overworld.4bpp.lz");
+    #endif //OW_POKEMON_OBJECT_EVENTS
+
+#endif //P_MAGIKARP_PATTERNS
 
 #if P_MEGA_EVOLUTIONS
     const u32 gMonFrontPic_GyaradosMega[] = INCBIN_U32("graphics/pokemon/gyarados/mega/front.4bpp.lz");

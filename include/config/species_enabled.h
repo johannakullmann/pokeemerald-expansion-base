@@ -44,6 +44,7 @@
 #define P_PIKACHU_EXTRA_FORMS            FALSE
 #define P_COSPLAY_PIKACHU_FORMS          P_PIKACHU_EXTRA_FORMS
 #define P_CAP_PIKACHU_FORMS              P_PIKACHU_EXTRA_FORMS
+#define P_MAGIKARP_PATTERNS              TRUE
 
 // Cross-generation evolutions. Includes pre-evolutions.
 #define P_CROSS_GENERATION_EVOS          TRUE
