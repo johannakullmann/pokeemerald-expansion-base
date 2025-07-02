@@ -76,6 +76,18 @@ script Route135_DiveSchool_EventScript_Tuber {
     end
 }
 
+script Route135_DiveSchool_EventScript_Fisherman {
+    speakername("Stefano")
+    msgbox(format("I exclusively fish with an Old Rod.\p"
+        "Why, you ask?\p"
+        "You can only catch Magikarp with that, you say?\p"
+        "But that's exactly the point!\p"
+        "I'm looking for ones with rare patterns!\p"
+        "I once caught a Magikarp that was almost fully white.\p"
+        "My fishing pal almost fainted from envy!"), MSGBOX_NPC)
+    end
+}
+
 text Route135_DiveSchool_Text_DivingInstructorExplainDive {
     format("With that diving equipment, you'll be able to explore the seafloor.\p"
     "You'll need a Pokémon that knows the move Dive to pull you along underwater.\p"

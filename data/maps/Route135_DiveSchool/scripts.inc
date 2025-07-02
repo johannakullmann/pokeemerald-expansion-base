@@ -69,6 +69,12 @@ Route135_DiveSchool_EventScript_Tuber::
 	end
 
 
+Route135_DiveSchool_EventScript_Fisherman::
+	speakername Route135_DiveSchool_EventScript_Fisherman_Text_0
+	msgbox Route135_DiveSchool_EventScript_Fisherman_Text_1, MSGBOX_NPC
+	end
+
+
 Route135_DiveSchool_EventScript_DiveTeacher_Text_0:
 	.string "Sandyshore Town has beautiful reefs\n"
 	.string "just off the shore.\p"
@@ -120,6 +126,21 @@ Route135_DiveSchool_EventScript_DiveTeacherGetDivingEquipment_Text_1:
 
 Route135_DiveSchool_EventScript_DiveTeacherGetDivingEquipment_Text_2:
 	.string "Here you go!$"
+
+Route135_DiveSchool_EventScript_Fisherman_Text_0:
+	.string "Stefano$"
+
+Route135_DiveSchool_EventScript_Fisherman_Text_1:
+	.string "I exclusively fish with an Old Rod.\p"
+	.string "Why, you ask?\p"
+	.string "You can only catch Magikarp with that,\n"
+	.string "you say?\p"
+	.string "But that's exactly the point!\p"
+	.string "I'm looking for ones with rare patterns!\p"
+	.string "I once caught one that was almost fully\n"
+	.string "white.\p"
+	.string "My fishing pal almost fainted from\n"
+	.string "envy!$"
 
 Route135_DiveSchool_Text_DivingInstructorExplainDive::
 	.string "With that diving equipment, you'll be\n"

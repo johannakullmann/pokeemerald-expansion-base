@@ -30,7 +30,7 @@ extern const u8 EventScript_SprayWoreOff[];
 
 #define NUM_FEEBAS_SPOTS 6
 
-#define CHANCE_PATTERNED_MAGIKARP 8 //chance of fishing a special-pattern magikarp instead of a normal one (out of 255)
+#define CHANCE_PATTERNED_MAGIKARP 128 //chance of fishing a special-pattern magikarp instead of a normal one (out of 255)
 
 // Number of accessible fishing spots in each section of Route 119
 // Each section is an area of the route between the y coordinates in sRoute119WaterTileData
@@ -545,12 +545,12 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
 u16 GetMagikarpPattern(void) {
     #if P_MAGIKARP_PATTERNS
         
-        u8 chanceCalicoW = 100;
-        u8 chanceCalicoB = 10;
-        u8 chanceCalicoHighW = 10;
-        u8 chanceCalicoTwoToned = 50;
-        u8 chanceMasked = 5;
-        u8 chanceDot = 1;
+        u8 chanceCalicoW = 48;
+        u8 chanceCalicoB = 16;
+        u8 chanceCalicoHighW = 16;
+        u8 chanceCalicoTwoToned = 32;
+        u8 chanceMasked = 16;
+        u8 chanceDot = 8;
 
         u8 sum = chanceCalicoW + chanceCalicoB + chanceCalicoHighW + chanceCalicoTwoToned + chanceMasked + chanceDot;
         u8 rand = Random() % sum;
