@@ -690,7 +690,6 @@
     },
     {
       "id": "MAPSEC_DYNAMIC",
-      "name": "",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1697,7 +1696,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SANDYSHORE_TOWN",
+      "id": "MAPSEC_SANDYSHORE_TOWN",
       "name": "Sandyshore Town",
       "x": 18,
       "y": 12,
@@ -1705,7 +1704,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_135",
+      "id": "MAPSEC_ROUTE_135",
       "name": "Route 135",
       "x": 17,
       "y": 11,
@@ -1713,7 +1712,7 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_ROUTE_136",
+      "id": "MAPSEC_ROUTE_136",
       "name": "Route 136",
       "x": 9,
       "y": 1,

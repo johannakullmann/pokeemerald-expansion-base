@@ -471,6 +471,7 @@ struct SpeciesInfo /*0xC4*/
     // Move Data
     const struct LevelUpMove *levelUpLearnset;
     const u16 *teachableLearnset;
+    const u16 *innateFieldMoves;
     const u16 *eggMoveLearnset;
     const struct Evolution *evolutions;
     const u16 *formSpeciesIdTable;

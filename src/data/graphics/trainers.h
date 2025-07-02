@@ -146,7 +146,7 @@ const u32 gTrainerFrontPic_LeaderJuan[] = INCBIN_U32("graphics/trainers/front_pi
 const u16 gTrainerPalette_LeaderJuan[] = INCBIN_U16("graphics/trainers/front_pics/leader_juan.gbapal");
 
 const u32 gTrainerFrontPic_LeaderMay[] = INCBIN_U32("graphics/trainers/front_pics/leader_may.4bpp.lz");
-const u32 gTrainerPalette_LeaderMay[] = INCBIN_U32("graphics/trainers/front_pics/may.gbapal.lz");
+const u16 gTrainerPalette_LeaderMay[] = INCBIN_U32("graphics/trainers/front_pics/may.gbapal.lz");
 
 const u32 gTrainerFrontPic_SchoolKidM[] = INCBIN_U32("graphics/trainers/front_pics/school_kid_m.4bpp.lz");
 const u16 gTrainerPalette_SchoolKidM[] = INCBIN_U16("graphics/trainers/front_pics/school_kid_m.gbapal");
@@ -296,16 +296,16 @@ const u16 gTrainerBackPicPalette_Red[] = INCBIN_U16("graphics/trainers/back_pics
 const u16 gTrainerBackPicPalette_Leaf[] = INCBIN_U16("graphics/trainers/back_pics/leaf.gbapal");
 
 const u32 gTrainerFrontPic_June[] = INCBIN_U32("graphics/trainers/front_pics/june.4bpp.lz");
-const u32 gTrainerPalette_June[] = INCBIN_U32("graphics/trainers/palettes/june.gbapal.lz");
+const u16 gTrainerPalette_June[] = INCBIN_U32("graphics/trainers/palettes/june.gbapal.lz");
 const u8 gTrainerBackPic_June[] = INCBIN_U8("graphics/trainers/back_pics/june.4bpp");
 
 const u32 gTrainerFrontPic_August[] = INCBIN_U32("graphics/trainers/front_pics/august.4bpp.lz");
-const u32 gTrainerPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august.gbapal.lz");
+const u16 gTrainerPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august.gbapal.lz");
 const u8 gTrainerBackPic_August[] = INCBIN_U8("graphics/trainers/back_pics/august.4bpp");
-const u32 gTrainerBackPicPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august_back.gbapal.lz");
+const u16 gTrainerBackPicPalette_August[] = INCBIN_U32("graphics/trainers/palettes/august_back.gbapal.lz");
 
 const u32 gTrainerFrontPic_Ruth[] = INCBIN_U32("graphics/trainers/front_pics/ruth.4bpp.lz");
-const u32 gTrainerPalette_Ruth[] = INCBIN_U32("graphics/trainers/palettes/ruth.gbapal.lz");
+const u16 gTrainerPalette_Ruth[] = INCBIN_U32("graphics/trainers/palettes/ruth.gbapal.lz");
 const u8 gTrainerBackPic_Ruth[] = INCBIN_U8("graphics/trainers/back_pics/ruth.4bpp");
 
 // The first two parameters invoke a front pic and palette by

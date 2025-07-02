@@ -212,16 +212,6 @@ static const match_call_text_data_t sMomTextScripts[] = {
     { NULL,                0xFFFF,                      0xFFFF }
 };
 
-static const struct MatchCallStructNPC sMomMatchCallHeader =
-{
-    .type = MC_TYPE_NPC,
-    .mapSec = MAPSEC_SANDYSHORE_TOWN,
-    .flag = FLAG_ENABLE_MOM_MATCH_CALL,
-    .desc = gText_MomMatchCallDesc,
-    .name = gText_MomMatchCallName,
-    .textData = sMomTextScripts
-};
-
 static const match_call_text_data_t sMrStoneTextScripts[] = {
     { MatchCall_Text_MrStone1,  0xFFFF,                              FLAG_ENABLE_MR_STONE_POKENAV },
     { MatchCall_Text_MrStone2,  FLAG_ENABLE_MR_STONE_POKENAV,        0xFFFF },
@@ -317,8 +307,6 @@ static const struct MatchCallStructNPC sStevenMatchCallHeader =
     .name = COMPOUND_STRING("STEVEN"),
     .textData = sStevenTextScripts
 };
-
-static const u8 gText_MayBrendanMatchCallDesc[] = _("RAD NEIGHBOR");
 
 static const match_call_text_data_t sMayTextScripts[] = {
     { MatchCall_Text_May1,  0xFFFF,                              0xFFFF },

@@ -32,8 +32,8 @@ static void FieldMove_RockSmash(void);
 
 bool8 IsTryingToRockSmashMakotosRock() {
     //check map = Route 135 and special rock
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE135)
-        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE135)
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE135)
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE135)
         && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK_SPECIAL) == TRUE) {
             return TRUE;
     }

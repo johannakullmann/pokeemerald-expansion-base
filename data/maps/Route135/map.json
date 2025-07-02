@@ -237,7 +237,5 @@
       "script": "Route135_EventScript_CatchTutorialEnterBottom"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

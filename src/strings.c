@@ -689,15 +689,9 @@ const u8 gText_GamePlayCannotBeContinued[] = _("{COLOR RED}“Game play cannot b
 const u8 gText_CheckCompleted[] = _("Check completed.\nAttempting to save again.\nPlease wait.");
 const u8 gText_SaveCompleteGameCannotContinue[] = _("Save completed.\n{COLOR RED}“Game play cannot be continued.\nReturning to the title screen.”");
 const u8 gText_SaveCompletePressA[] = _("Save completed.\n{COLOR RED}“Please press the A Button.”");
-#if (DECAP_ENABLED) && !(DECAP_MAP_NAMES)
-const u8 gText_Ferry[] = _C("FERRY");
-const u8 gText_SecretBase[] = _C("SECRET BASE");
-const u8 gText_Hideout[] = _C("HIDEOUT");
-#else
 const u8 gText_Ferry[] = _("FERRY");
 const u8 gText_SecretBase[] = _("SECRET BASE");
 const u8 gText_Hideout[] = _("HIDEOUT");
-#endif
 const u8 gText_ResetRTCConfirmCancel[] = _("Reset RTC?\nA: Confirm, B: Cancel");
 const u8 gText_PresentTime[] = _("Present time in game");
 const u8 gText_PreviousTime[] = _("Previous time in game");

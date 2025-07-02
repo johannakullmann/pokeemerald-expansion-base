@@ -2550,13 +2550,6 @@ static const u8 *BattleStringGetPlayerName(u8 *text, u8 battler)
         break;
     }
 
-    if (DECAP_ENABLED && !DECAP_NICKNAMES && toCpy != text && *toCpy != CHAR_FIXED_CASE)
-    {
-        *text = CHAR_FIXED_CASE;
-        StringCopyN(text+1, toCpy, PLAYER_NAME_LENGTH + 1);
-        toCpy = text;
-    }
-
     return toCpy;
 }
 
@@ -3141,19 +3134,6 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
             case B_TXT_SCR_ACTIVE_NAME_WITH_PREFIX2:
                 HANDLE_NICKNAME_STRING_LOWERCASE(gBattleScripting.battler)
                 break;
-            }
-
-            if (toCpy != NULL)
-            {
-                if (DECAP_ENABLED)
-                {
-                    if (*toCpy == CHAR_SPACE)
-                        dst[dstID] = CHAR_NBSP;
-                    else
-                        dst[dstID] = *toCpy;
-                    dstID++;
-                    toCpy++;
-                }
             }
 
             if (*src == B_TXT_TRAINER1_LOSE_TEXT || *src == B_TXT_TRAINER2_LOSE_TEXT

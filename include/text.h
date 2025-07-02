@@ -7,13 +7,6 @@
 // loaded at once but not copied to vram yet.
 #define TEXT_SKIP_DRAW 0xFF
 
-// See include/config/decap.h for decap configuration
-#if DECAP_MIRRORING
-#define ROM_MIRROR_MASK (0x02000000)
-#define RAM_MIRROR_MASK (0x00800000)
-#define ROM_MIRROR_PTR(x) ((void*)(((u32)(x)) | ROM_MIRROR_MASK))
-#define RAM_MIRROR_PTR(x) ((void*)(((u32)(x)) | RAM_MIRROR_MASK))
-#endif
 
 enum {
     FONT_SMALL,
@@ -104,7 +97,7 @@ struct TextPrinter
     u8 scrollDistance;
     u8 minLetterSpacing;  // 0x20
     u8 japanese;
-    u8 lastChar; // used to determine whether to decap strings
+    u8 lastChar; // used to determine whether to decap strings (deprecated, remove)
 };
 
 struct FontInfo

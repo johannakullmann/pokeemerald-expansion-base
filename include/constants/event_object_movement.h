@@ -262,8 +262,6 @@
 
 #define MOVEMENT_ACTION_HEADBUTT_TREE                   0xAE
 #define MOVEMENT_ACTION_BURN_TREE                       0xAF
-#define MOVEMENT_ACTION_EXIT_POKEBALL                   0xB0
-#define MOVEMENT_ACTION_ENTER_POKEBALL                  0xB1
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

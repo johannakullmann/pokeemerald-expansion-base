@@ -106,7 +106,7 @@
         },
     },
 #line 45
-    [PARTNER_RUTH_TOXATIEL] =
+    [DIFFICULTY_NORMAL][PARTNER_RUTH_TOXATIEL] =
     {
 #line 46
         .trainerName = _("Ruth"),
@@ -114,7 +114,7 @@
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 48
         .trainerPic = TRAINER_BACK_PIC_RUTH,
-        .encounterMusic_gender = 
+        .encounterMusic_gender =
 #line 49
 F_TRAINER_FEMALE | 
 #line 50
@@ -187,7 +187,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 81
-    [PARTNER_RUTH_GROCKO] =
+    [DIFFICULTY_NORMAL][PARTNER_RUTH_GROCKO] =
     {
 #line 82
         .trainerName = _("Ruth"),
@@ -195,7 +195,7 @@ F_TRAINER_FEMALE |
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 84
         .trainerPic = TRAINER_BACK_PIC_RUTH,
-        .encounterMusic_gender = 
+        .encounterMusic_gender =
 #line 85
 F_TRAINER_FEMALE | 
 #line 86
@@ -268,7 +268,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 117
-    [PARTNER_RUTH_MERAKID] =
+    [DIFFICULTY_NORMAL][PARTNER_RUTH_MERAKID] =
     {
 #line 118
         .trainerName = _("Ruth"),
@@ -276,7 +276,7 @@ F_TRAINER_FEMALE |
         .trainerClass = TRAINER_CLASS_RIVAL,
 #line 120
         .trainerPic = TRAINER_BACK_PIC_RUTH,
-        .encounterMusic_gender = 
+        .encounterMusic_gender =
 #line 121
 F_TRAINER_FEMALE | 
 #line 122
