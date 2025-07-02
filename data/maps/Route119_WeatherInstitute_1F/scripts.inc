@@ -1,5 +1,3 @@
-.set LOCALID_LITTLE_BOY, 5
-
 Route119_WeatherInstitute_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_1F_OnTransition
 	.byte 0
